@@ -7,7 +7,7 @@ const Nav = () => {
             <h1 className="logo text-blue-600 text-3xl font-bold">Jew</h1>
             <div className="nlinks flex gap-10 text-xl items-center flex-wrap">
             <input type='text' name='search' placeholder='Search for Jewellery' 
-                className='px-3 py-2 w-96'></input>
+                className='px-3 py-2 w-96 rounded-xl' ></input>
            <a href='#' >home </a> 
            <a href='#' > Explore</a> 
            <a href='#' >Wishlist </a> 
@@ -16,9 +16,19 @@ const Nav = () => {
            
                 <li className="cursor-pointer list-none border-blue-200 border-4 hover:bg-blue-600 px-4 py-2 rounded-2xl hover:text-blue-50 transition transform duration-200">
                   Sign In</li>
-            </div>
+            </div> 
         </nav>
-        <header className="header  h-6 bg-blue-200">do you know, arijit singh is classically trained.</header>
+        <header className="header  h-12 bg-blue-200 flex gap-2  justify-around items-center ">
+            <a href='#' >All jewellery </a> 
+           <a href='#' > Earings</a> 
+           <a href='#' >Rings </a> 
+           <a href='#' >Necklace</a> 
+           <a href='#' >Collections </a>
+           <a href='#' >Best sellers </a>
+           <a href='#' >Wedding </a>
+           <a href='#' >Gifting </a>
+           <a href='#' >Regular </a>
+        </header>
 
     </div>
   )
