@@ -9,7 +9,7 @@ const Nav = () => {
         {
           id: 1,
           name: "ALL JEWELLERY",
-          link: "/#",
+          link: "/products",
         },
         {
           id: 2,
@@ -201,12 +201,14 @@ const Nav = () => {
       <nav className="mainNav  h-20 bg-blue-300 flex justify-between items-center px-20">
         <h1 className="logo text-blue-600 text-3xl font-bold">Jew</h1>
         <div className="nlinks flex gap-10 text-xl items-center flex-wrap">
-          <input
-            type="text"
-            name="search"
-            placeholder="Search for Jewellery"
-            className="px-3 py-2 w-96 rounded-xl"
-          ></input>
+            <div className='relative'>
+              <input 
+                type='text' name='search' 
+                placeholder='Search for Jewellery' 
+                className='px-3 py-2 w-72 hover:w-[22rem] transition-all duration-300 focus:w-[420px] rounded'>
+              </input>
+              <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 -translate-y-1/2 bg-white pl-1"></i>
+            </div>
           <a href="#">home </a>
           <a href="#"> Explore</a>
           <a href="#">Wishlist </a>
