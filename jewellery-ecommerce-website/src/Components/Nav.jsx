@@ -198,8 +198,8 @@ const Nav = () => {
 
   return (
     <div className="nav w-full sticky z-50 top-0">
-      <nav className="mainNav  h-20 bg-blue-300 flex justify-between items-center px-20">
-        <h1 className="logo text-blue-600 text-3xl font-bold">Jew</h1>
+      <nav className="mainNav  h-20 bg-rose-300 flex justify-between items-center px-20">
+        <h1 className="logo text-rose-600 text-3xl font-bold">Jew</h1>
         <div className="nlinks flex gap-10 text-xl items-center flex-wrap">
             <div className='relative'>
               <input 
@@ -212,20 +212,20 @@ const Nav = () => {
           <a href="#">home </a>
           <a href="#"> Explore</a>
           <a href="#">Wishlist </a>
-          <button className='group transition-all duration-500 flex items-center justify-between gap-2 rounded-full  px-5 py-2 shadow-lg bg-gradient-to-br from-rose-300 via-rose-300 to-rose-600'>
+          <button className='group transition-all duration-500 flex items-center justify-between gap-2 rounded-full  px-5 py-2 shadow-lg bg-gradient-to-br from-rose-200 via-rose-300 to-rose-600'>
               <span className='hidden group-hover:block'>Cart</span>
               <i class="fa-solid fa-cart-shopping"></i>
             </button>
           <a href="#">Account </a>
 
-          <li className="cursor-pointer list-none border-blue-200 border-4 hover:bg-blue-600 px-4 py-2 rounded-2xl hover:text-blue-50 transition transform duration-200">
+          <li className="cursor-pointer list-none border-rose-200 border-4 hover:bg-rose-600 px-4 py-2 rounded-2xl hover:text-rose-50 transition transform duration-200">
             Sign In
           </li>
         </div>
       </nav>
-      <header className="header  h-10 bg-blue-200 flex items-center justify-evenly">
+      <header className="header  h-10 bg-rose-200 flex items-center justify-evenly">
         {Menu.map((litem) => (
-          <div className="relative group hover:bg-blue-300 h-full flex items-center w-full justify-center">
+          <div className="relative group hover:bg-rose-300 h-full flex items-center w-full justify-center">
             <a
               href={Array.isArray(litem.link) ? "#" : litem.link}
               key={litem.id}
@@ -235,12 +235,12 @@ const Nav = () => {
             </a>
 
             {Array.isArray(litem.link) && (
-              <div className="hidden  bg-blue-200 absolute top-10 min-w-36 group-hover:flex flex-col ">
+              <div className="hidden  bg-rose-200 absolute top-10 min-w-36 group-hover:flex flex-col ">
                 {litem.link.map((slitem) => (
                   <a
                     href={slitem.link}
                     key={slitem.id}
-                    className="hover:bg-blue-300 px-2 py-3"
+                    className="hover:bg-rose-300 px-2 py-3"
                   >
                     {slitem.name}
                   </a>
