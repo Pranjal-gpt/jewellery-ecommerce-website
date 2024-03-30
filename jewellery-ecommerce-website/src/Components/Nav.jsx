@@ -14,7 +14,7 @@ const Nav = () => {
         {
           id: 2,
           name: "PENDANTS",
-          link: "#",
+          link: "/#",
         },
         {
           id: 3,
@@ -144,7 +144,7 @@ const Nav = () => {
         {
           id: 2,
           name: "WOMENS RINGS",
-          link: "#",
+          link: "/#",
         },
         {
           id: 3,
@@ -166,7 +166,7 @@ const Nav = () => {
     {
       id: 6,
       name: "GIFTING",
-      link: "#",
+      link: "/#",
     },
     {
       id: 7,
@@ -180,7 +180,7 @@ const Nav = () => {
         {
           id: 2,
           name: "STRING IT",
-          link: "#",
+          link: "/#",
         },
         {
           id: 3,
@@ -205,13 +205,13 @@ const Nav = () => {
               <input 
                 type='text' name='search' 
                 placeholder='Search for Jewellery' 
-                className='px-3 py-2 w-72 hover:w-[22rem] transition-all duration-300 focus:w-[420px] rounded'>
+                className='px-3 py-2 w-72 hover:w-[22rem] transition-all duration-300 focus:w-[420px] rounded bg-rose-100 placeholder-rose-300'>
               </input>
-              <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 -translate-y-1/2 bg-white pl-1"></i>
+              <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 -translate-y-1/2 bg-rose-300 text-white hover:scale-125 pl-1 rounded-full p-1 "></i>
             </div>
-          <a href="#">home </a>
-          <a href="#"> Explore</a>
-          <a href="#">Wishlist </a>
+          <a href="/#">home </a>
+          <a href="/#"> Explore</a>
+          <a href="/#">Wishlist </a>
           <button className='group transition-all duration-500 flex items-center justify-between gap-2 rounded-full  px-5 py-2 shadow-lg bg-gradient-to-br from-rose-200 via-rose-300 to-rose-600'>
               <span className='hidden group-hover:block'>Cart</span>
               <i class="fa-solid fa-cart-shopping"></i>
@@ -227,7 +227,7 @@ const Nav = () => {
         {Menu.map((litem) => (
           <div className="relative group hover:bg-rose-300 h-full flex items-center w-full justify-center">
             <a
-              href={Array.isArray(litem.link) ? "#" : litem.link}
+              href={Array.isArray(litem.link) ? "/#" : litem.link}
               key={litem.id}
               className="h-full w-full flex items-center justify-center"
             >

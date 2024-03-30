@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.Setfilter div {
+    padding: 2px 4px;
+    border:2px solid pink;
+    width: 100%;
+
+}
