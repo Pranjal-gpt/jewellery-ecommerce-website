@@ -223,7 +223,7 @@ const Nav = () => {
           </li>
         </div>
       </nav>
-      <header className="header  h-10 bg-rose-200 flex items-center justify-evenly">
+      <header className="header px-16 h-10 bg-rose-200 flex items-center justify-between">
         {Menu.map((litem) => (
           <div className="relative group hover:bg-rose-300 h-full flex items-center w-full justify-center">
             <a
