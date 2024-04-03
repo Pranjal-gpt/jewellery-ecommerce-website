@@ -3,6 +3,9 @@ import Nav from '../Components/Nav'
 import Footer from '../Components/Footer'
 import Pitem from '../Components/Pitem'
 import Hr from '../Components/Hr'
+import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+
 const Products = () => {
       const Earrings = [
         {
@@ -166,11 +169,33 @@ const Products = () => {
         {
           id: 11,
           img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-          title: "Necklace",
+          title: "Necklace erer 34 we",
           price:5000,
           link:"#",
         },
     ]
+    
+const productDetails = {
+  id: 1,
+  name: "Diamond Pendant Necklace",
+  description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+  price: 999.99,
+  metal: "18K White Gold",
+  gemstone: "Diamond",
+  gemstoneWeight: "1 carat",
+  dimensions: "Pendant: 20mm x 10mm, Chain: 18 inches",
+  images: [
+      "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-304373.jpg?v=1706959492&width=1000",
+      "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-933421.png?v=1711470911&width=1000",
+      "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-790888.jpg?v=1711470911&width=1000"
+  ],
+  availability: true,
+  reviews: [
+    { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+    { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+  ]
+};
+
   const [ProductsData,setProductsData] =useState(Earrings);
   const [visibleProducts, setVisibleProducts] = useState(4);
   const [FilterMode,setFilterMode] =useState(false);
@@ -216,19 +241,21 @@ const Products = () => {
             {/* <Hr thickness={"h-0.5"} length={"w-11/12"} /> */}
             <section className='section flex gap-10 flex-wrap justify-center mt-5 mx-auto  w-11/12'>
                 {ProductsData.slice(0, visibleProducts).map((product)=>(
-                   <Pitem pImg={product.img} pName={product.title} pPrice={product.price} pLink={product.link} size={"w-72"} key={product.id} />
+                   <Pitem product={product} size={"w-72"} />
                 ))}
 
             </section>
             {ProductsData.length > visibleProducts && ( // Check if there are more products to display
               <section className=' flex items-center justify-center h-36'>
-              <button 
+              <Link 
+               
                 className='inline-block mx-auto px-2 py-1 border-2 border-rose-200 hover:bg-rose-100 transition-all duration-100 '
                 onClick={()=>{setVisibleProducts(visibleProducts + 4)}}
-                >See More Jewellery</button>
+                >See More Jewellery</Link>
               </section>
               )}
-
+              
+              
         </main>
         <Footer />
     </div>

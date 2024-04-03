@@ -8,3 +8,7 @@
     width: 100%;
 
 }
+.drag-none{
+    -webkit-user-drag: none; 
+  /* user-drag: none; */
+}
