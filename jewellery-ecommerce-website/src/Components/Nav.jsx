@@ -9,52 +9,52 @@ const Nav = () => {
         {
           id: 1,
           name: "ALL JEWELLERY",
-          link: "/products",
+          link: "/jewellery",
         },
         {
           id: 2,
           name: "PENDANTS",
-          link: "/#",
+          link: "/jewellery/pendants",
         },
         {
           id: 3,
           name: "EARRINGS",
-          link: "/#",
+          link: "/jewellery/earrings",
         },
         {
           id: 4,
           name: "FINGER RINGS",
-          link: "/#",
+          link: "/jewellery/finger-rings",
         },
         {
           id: 5,
           name: "MANAGALSUTRA",
-          link: "/#",
+          link: "/jewellery/mangalsutra",
         },
         {
           id: 6,
           name: "CHAINS",
-          link: "/#",
+          link: "/jewellery/chains",
         },
         {
           id: 7,
           name: "NOSE PINS",
-          link: "/#",
+          link: "/jewellery/nose-pins",
         },
         {
           id: 8,
           name: "NECKLACES",
-          link: "/#",
+          link: "/jewellery/necklace",
         },
         {
           id: 9,
           name: "BANGLES",
-          link: "/#",
+          link: "/jewellery/bangles",
         },
         {
           id: 10,
           name: "BRACELETS",
-          link: "/#",
+          link: "/jewellery/bracelets",
         },
       ],
     },
@@ -66,32 +66,32 @@ const Nav = () => {
         {
           id: 1,
           name: "PEAELS PENDANTS",
-          link: "/#",
+          link: "/jewellery/pendants/pearl-pendants",
         },
         {
           id: 2,
           name: "RILIGIONAL ",
-          link: "/#",
+          link: "/jewellery/pendants/religional",
         },
         {
           id: 3,
           name: "ALPHBATICAL",
-          link: "/#",
+          link: "/jewellery/pendants/alphabets-pendants",
         },
         {
           id: 4,
           name: "KIDS SPECIAL",
-          link: "/#",
+          link: "/jewellery/pendants/kids-pendants",
         },
         {
           id: 5,
           name: "WOMENS",
-          link: "/#",
+          link: "/jewellery/pendants/womens-pendants",
         },
         {
           id: 6,
           name: "MENS",
-          link: "/#",
+          link: "/jewellery/pendants/mens-pendants",
         },
       ],
     },
@@ -103,32 +103,32 @@ const Nav = () => {
         {
           id: 1,
           name: "ALL EARRINGS",
-          link: "/#",
+          link: "/jewellery/earrings/",
         },
         {
           id: 2,
           name: " DROP & DANGLERS",
-          link: "/#",
+          link: "/jewellery/earrings/drop-and-danglers",
         },
         {
           id: 3,
           name: "HOOP & HUGGIES",
-          link: "/#",
+          link: "/jewellery/earrings/hoop-and-huggies",
         },
         {
           id: 4,
           name: "JHUMKAS",
-          link: "/#",
+          link: "/jewellery/earrings/jhumka",
         },
         {
           id: 5,
           name: "STUDS & TOPS",
-          link: "/#",
+          link: "/jewellery/earrings/studs-and-tops",
         },
         {
           id: 6,
           name: "MENS",
-          link: "/#",
+          link: "/jewellery/earrings/mens-earrings",
         },
       ],
     },
@@ -139,22 +139,22 @@ const Nav = () => {
         {
           id: 1,
           name: "COUPLE RINGS",
-          link: "/#",
+          link: "/jewellery/rings/couple-rings",
         },
         {
           id: 2,
           name: "WOMENS RINGS",
-          link: "/#",
+          link: "/jewellery/rings/womens-rings",
         },
         {
           id: 3,
           name: "MEN'S RINGS",
-          link: "/#",
+          link: "/jewellery/rings/mens-rings",
         },
         {
           id: 4,
           name: "AMERICAN DIAMOND RINGS",
-          link: "/#",
+          link: "/jewellery/rings/american-diamond-rings",
         },
       ],
     },
@@ -175,17 +175,17 @@ const Nav = () => {
         {
           id: 1,
           name: "PREETY IN PINK",
-          link: "/#",
+          link: "/collections/pretty-in-pink",
         },
         {
           id: 2,
           name: "STRING IT",
-          link: "/#",
+          link: "/jewellery/rings/string-it",
         },
         {
           id: 3,
           name: "JOY OF DRESSINGS",
-          link: "/#",
+          link: "/jewellery/rings/joy-of-dressing",
         },
       ],
     },
@@ -209,14 +209,14 @@ const Nav = () => {
               </input>
               <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 -translate-y-1/2 bg-rose-300 text-white hover:scale-125 pl-1 rounded-full p-1 "></i>
             </div>
-          <a href="/#">home </a>
-          <a href="/#"> Explore</a>
-          <a href="/#">Wishlist </a>
+          <Link to={"/#"}>home </Link>
+          <Link href={"/#"}> Explore</Link>
+          <Link href={"/#"}>Wishlist </Link>
           <button className='group transition-all duration-500 flex items-center justify-between gap-2 rounded-full  px-5 py-2 shadow-lg bg-gradient-to-br from-rose-200 via-rose-300 to-rose-600'>
               <span className='hidden group-hover:block'>Cart</span>
               <i class="fa-solid fa-cart-shopping"></i>
             </button>
-          <a href="#">Account </a>
+          <Link href="#">Account </Link>
 
           <li className="cursor-pointer list-none border-rose-200 border-4 hover:bg-rose-600 px-4 py-2 rounded-2xl hover:text-rose-50 transition transform duration-200">
             Sign In
@@ -237,13 +237,13 @@ const Nav = () => {
             {Array.isArray(litem.link) && (
               <div className="hidden  bg-rose-200 absolute top-10 min-w-36 group-hover:flex flex-col ">
                 {litem.link.map((slitem) => (
-                  <a
-                    href={slitem.link}
+                  <Link
+                    to={slitem.link}
                     key={slitem.id}
                     className="hover:bg-rose-300 px-2 py-3"
                   >
                     {slitem.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             )}

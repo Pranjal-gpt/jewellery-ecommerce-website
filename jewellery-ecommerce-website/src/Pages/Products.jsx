@@ -5,7 +5,8 @@ import Pitem from '../Components/Pitem'
 import Hr from '../Components/Hr'
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
-
+// import categories from '../data/demodata'
+// const Bangles = categories.Bangles;
 const Products = () => {
       const Earrings = [
         {

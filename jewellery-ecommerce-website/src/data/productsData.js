@@ -1,0 +1,175 @@
+import productpage from "./productData"
+
+const Earrings = [
+    {
+        id: 1,
+        img: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+        title: "Earring",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 2,
+        img: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+        title: "Earring",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 3,
+        img: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+        title: "Earring",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 4,
+        img: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+        title: "Earring",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 5,
+        img: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+        title: "Earring",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 6,
+        img: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+        title: "Earring",
+        price: 5000,
+        link: "#",
+    },
+]
+const Necklace = [
+    {
+        id: 1,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw889f2343/images/hi-res/50D3FFNKKAA02_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 2,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw889f2343/images/hi-res/50D3FFNKKAA02_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 3,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw889f2343/images/hi-res/50D3FFNKKAA02_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 4,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw889f2343/images/hi-res/50D3FFNKKAA02_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 5,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw889f2343/images/hi-res/50D3FFNKKAA02_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 6,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw889f2343/images/hi-res/50D3FFNKKAA02_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+]
+const Mangalsutra = [
+    {
+        id: 1,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 2,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 3,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 4,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 5,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 6,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 7,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 8,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 9,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 10,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
+        title: "Necklace",
+        price: 5000,
+        link: "#",
+    },
+    {
+        id: 11,
+        img: "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
+        title: "Necklace erer 34 we",
+        price: 5000,
+        link: "#",
+    },
+]
+const productsPage={
+    Necklace:Necklace,
+    Earrings:Earrings,
+    Mangalsutra:Mangalsutra,
+}
+export default productpage

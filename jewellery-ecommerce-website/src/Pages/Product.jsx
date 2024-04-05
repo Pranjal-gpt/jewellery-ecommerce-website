@@ -4,69 +4,11 @@ import Nav from '../Components/Nav'
 import Hr from '../Components/Hr';
 import features from '../assets/features.png'
 import Pitem from '../Components/Pitem';
-const productDetails = {
-    id: 1,
-    name: "Diamond Pendant Necklace",
-    description: "Stunning diamond pendant necklace crafted with 18K white gold.",
-    price: 999.99,
-    gemstone: "Diamond",
-    images: [
-        "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-304373.jpg?v=1706959492&width=1000",
-        "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-933421.png?v=1711470911&width=1000",
-        "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-790888.jpg?v=1711470911&width=1000"
-    ],
-    availability: true,
-    reviews: [
-      { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
-      { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
-    ],
-    // Additional properties
-    brand: "Tanishq",
-    collection: "Bestsellers",
-    gender: "Women",
-    jewelleryType: "Diamond Jewellery",
-    occasion: "Office Wear",
-    materialColour: "Silver",
-    metal: "White Gold",
-    pendantHeight: "2 cm",
-    pendantWidth: "1 cm",
-    noOfDiamonds: 8,
-    diamondClarity: "I1",
-    diamondColor: "JKL",
-    diamondSetting: "Pave",
-    diamondShape: "Round",
-    karatage: 18,
-};
-const SimilarProducts = [
-    {
-      id: 1,
-      img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-      title: "Necklace",
-      price:5000,
-      link:"#",
-    },
-    {
-      id: 2,
-      img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-      title: "Necklace",
-      price:5000,
-      link:"#",
-    },
-    {
-      id: 3,
-      img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-      title: "Necklace",
-      price:5000,
-      link:"#",
-    },
-    {
-      id: 4,
-      img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-      title: "Necklace",
-      price:5000,
-      link:"#",
-    },
-]
+import { Link } from 'react-router-dom';
+import productsdata from '../data/productData'
+const productDetails = productsdata.productDetails;
+const SimilarProducts = productsdata.SimilarProducts;
+
 const Product = () => {
     var permalink=window.location.href;
     const pId = permalink.split("#")[permalink.split("#").length - 1];
@@ -112,7 +54,7 @@ const Product = () => {
         <Nav />
         <main className='px-20 flex flex-wrap relative'>
             <section className='bg-rose-50 w-1/2 h-[70vh] sticky top-28 p-2'>
-                <div className='border-b p-1 border-b-rose-200'>Home {">"} Products {">"} {productDetails.name}</div>
+                <div className='border-b p-1 border-b-rose-200'> <Link to={"/"} className='hover:text-rose-600'>Home </Link> {">"} <Link className='hover:text-rose-600' to={"/jewellery"}>Products </Link>   {">"} {productDetails.name}</div>
                 <div className='mt-3 flex gap-5 justify-around'>
                     <div className='flex flex-col items-center justify-between  w-1/5 h-[60vh]' >
                         {productDetails.images.map((imgsrc)=>(
@@ -193,7 +135,7 @@ const Product = () => {
                         </fieldset>
                         <fieldset className='border-2 border-rose-800 rounded-md text-center  py-1 relative'>
                             <legend>Pincode</legend>
-                            <input type="text" placeholder='pincode' id="" className='h-full rounded-lg bg-rose-50 text-xl focus:border-rose-300 focus:ring-rose-300'
+                            <input type="text" placeholder='Enter pincode' id="" className='px-2 h-full rounded-lg bg-rose-50 text-xl focus:border-rose-300 focus:ring-rose-300'
                                 onChange={(change)=>{setPincode(change.target.value)}}
                                 value={pincode} />
                             <button disabled={!pincode}className={`font-bold p-1 rounded-lg absolute right-3 top-2 ${pincode === ""? "text-rose-50  bg-rose-100" : "hover:bg-rose-300  bg-rose-100"} cursor-pointer`}
