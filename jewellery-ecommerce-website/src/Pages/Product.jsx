@@ -4,12 +4,13 @@ import Nav from '../Components/Nav'
 import Hr from '../Components/Hr';
 import features from '../assets/features.png'
 import Pitem from '../Components/Pitem';
-import { Link } from 'react-router-dom';
-import productsdata from '../data/productData'
-const productDetails = productsdata.productDetails;
-const SimilarProducts = productsdata.SimilarProducts;
-
+import { Link,useLocation } from 'react-router-dom';
+import categories from '../data/demodata';
+const { SimilarProducts } = categories;
 const Product = () => {
+    const location = useLocation();
+    const productDetails = location.state;
+    // console.log(product);
     var permalink=window.location.href;
     const pId = permalink.split("#")[permalink.split("#").length - 1];
     const [Quantity,setQuantity] = useState(1);
@@ -49,12 +50,13 @@ const Product = () => {
         }
         return stars;
       };
+      
     return (
     <>
         <Nav />
         <main className='px-20 flex flex-wrap relative'>
             <section className='bg-rose-50 w-1/2 h-[70vh] sticky top-28 p-2'>
-                <div className='border-b p-1 border-b-rose-200'> <Link to={"/"} className='hover:text-rose-600'>Home </Link> {">"} <Link className='hover:text-rose-600' to={"/jewellery"}>Products </Link>   {">"} {productDetails.name}</div>
+                <div className='border-b p-1 border-b-rose-200'> <Link to={"/"} className='hover:text-rose-600'>Home </Link> {">"} <Link className='hover:text-rose-600' to={"/jewellery"}>Products </Link>   {">"} {productDetails.title}</div>
                 <div className='mt-3 flex gap-5 justify-around'>
                     <div className='flex flex-col items-center justify-between  w-1/5 h-[60vh]' >
                         {productDetails.images.map((imgsrc)=>(
@@ -63,7 +65,7 @@ const Product = () => {
                         ))}
                     </div>
                     <div className='bg-rose-100 w-2/3 p-5'>
-                        <img src={CurrentImg} alt={productDetails.name}
+                        <img src={CurrentImg} alt={productDetails.title}
                             className='h-full w-full'
                         />
                     </div>
@@ -72,7 +74,7 @@ const Product = () => {
             </section>
             <section className='bg-rose-100 w-1/2 h-[120vh] px-8'>
                 <div className='flex justify-between  py-5'>
-                    <div className="pid">{pId}</div>
+                    <div className="pid">{productDetails.id}</div>
                     <div className='relative flex gap-5'>
                         <div className="w-8 h-8  bg-rose-200 flex items-center justify-center rounded-full group hover:shadow-2xl">
                             <i class="fa-regular fa-heart group-hover:scale-125"></i>
@@ -84,7 +86,7 @@ const Product = () => {
                         </div>
                     </div>
                 </div>
-                <h1 className='text-3xl  pb-4 mb-4 font-bold'>{productDetails.name}</h1>
+                <h1 className='text-3xl  pb-4 mb-4 font-bold'>{productDetails.title}</h1>
                 <div></div>
                 <Hr thickness={"h-0.5"} length={"w-full"} color='bg-rose-200' />
 
@@ -237,13 +239,14 @@ const Product = () => {
                     <h2 className='text-2xl font-bold text-center'>Similar Products</h2>
                         <div className='section flex gap-10 flex-wrap justify-center mt-5 mx-auto  w-11/12'>
                             {SimilarProducts.map((product)=>(
-                            <Pitem product={product} size={"w-60"} />
+                            <Pitem product={product} mode={"similars"} size={"w-60"} />
                             ))}
                         </div>
                 </div>
                 <div className=' w-10/12 mx-auto mt-10'>
                     <h1 className='text-center text-2xl font-bold'>Reviews</h1>
                     {productDetails.reviews.map((review)=>(
+                        
                         <div className='mb-5 flex p-5  relative'>
                             <div className='w-1/4'></div>
                             <div>

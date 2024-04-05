@@ -4,200 +4,11 @@ import Footer from '../Components/Footer'
 import Pitem from '../Components/Pitem'
 import Hr from '../Components/Hr'
 import { Link } from 'react-router-dom'
-import { useNavigate } from "react-router-dom";
-// import categories from '../data/demodata'
-// const Bangles = categories.Bangles;
+import categories from '../data/demodata'
 const Products = () => {
-      const Earrings = [
-        {
-          id: 1,
-          img:"https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
-          title: "Earring",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 2,
-          img:"https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
-          title: "Earring",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 3,
-          img:"https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
-          title: "Earring",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 4,
-          img:"https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
-          title: "Earring",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 5,
-          img:"https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
-          title: "Earring",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 6,
-          img:"https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
-          title: "Earring",
-          price:5000,
-          link:"#",
-        },
-    ]
-      const Necklace = [
-        {
-          id: 1,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw889f2343/images/hi-res/50D3FFNKKAA02_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 2,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw889f2343/images/hi-res/50D3FFNKKAA02_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 3,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw889f2343/images/hi-res/50D3FFNKKAA02_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 4,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw889f2343/images/hi-res/50D3FFNKKAA02_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 5,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw889f2343/images/hi-res/50D3FFNKKAA02_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 6,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw889f2343/images/hi-res/50D3FFNKKAA02_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-      ]
-      const Mangalsutra = [
-        {
-          id: 1,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 2,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 3,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 4,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 5,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 6,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 7,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 8,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 9,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 10,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-          title: "Necklace",
-          price:5000,
-          link:"#",
-        },
-        {
-          id: 11,
-          img:"https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8a99845c/images/hi-res/50D3PTYJYAA29_1.jpg",
-          title: "Necklace erer 34 we",
-          price:5000,
-          link:"#",
-        },
-    ]
-    
-const productDetails = {
-  id: 1,
-  name: "Diamond Pendant Necklace",
-  description: "Stunning diamond pendant necklace crafted with 18K white gold.",
-  price: 999.99,
-  metal: "18K White Gold",
-  gemstone: "Diamond",
-  gemstoneWeight: "1 carat",
-  dimensions: "Pendant: 20mm x 10mm, Chain: 18 inches",
-  images: [
-      "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-304373.jpg?v=1706959492&width=1000",
-      "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-933421.png?v=1711470911&width=1000",
-      "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-790888.jpg?v=1711470911&width=1000"
-  ],
-  availability: true,
-  reviews: [
-    { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
-    { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
-  ]
-};
+      
 
-  const [ProductsData,setProductsData] =useState(Earrings);
+  const [ProductsData,setProductsData] =useState(categories.Bangles);
   const [visibleProducts, setVisibleProducts] = useState(4);
   const [FilterMode,setFilterMode] =useState(false);
 
@@ -221,9 +32,15 @@ const productDetails = {
             <section className='flex justify-between items-center px-24 h-16 bg-rose-50'>
                 <div className="filters bg-rose-50 rounded-lg px-2 py-1 border border-rose-300 cursor-pointer select-none" onClick={()=>{setFilterMode(!FilterMode)}}><i class="fa-solid fa-sliders"></i> Filters</div>
                 <div className='flex gap-3'>
-                  <TagBtn name={"Earrings"} products={Earrings} />
-                  <TagBtn name={"Necklace"} products={Necklace} />
-                  <TagBtn name={"Mangalsutra"} products={Mangalsutra} />
+                  <TagBtn name={"Pendant"} products={categories.Pendants} />
+                  <TagBtn name={"Necklace"} products={categories.Necklace} />
+                  <TagBtn name={"Mangalsutra"} products={categories.Mangalsutra} />
+                  <TagBtn name={"Earring"} products={categories.Earrings} />
+                  <TagBtn name={"Chains"} products={categories.Chains} />
+                  <TagBtn name={"Bangles"} products={categories.Bangles} />
+                  <TagBtn name={"Bracelets"} products={categories.Bracelets} />
+                  <TagBtn name={"Nose Pins"} products={categories.NosePins} />
+                  <TagBtn name={"Finger Rings"} products={categories.FingerRings} />
                 </div>
                 <div>Sort By</div>
             </section>

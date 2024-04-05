@@ -215,7 +215,7 @@ var Earrings = [
     images: [
       "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
       "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZER00744-2__1111104895.jpg",
-      "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZER00744-4__1099169666.jpg",
+      "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZER00744-4__1099169666.jpg"
     ],
     availability: true,
     reviews: [
@@ -1862,8 +1862,149 @@ var FingerRings = [
 
 ];
 
+const SimilarProducts = [
+        {
+        id: 143459207,
+        title: "Diamond Earrings",
+        description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+        price: 999.99,
+        gemstone: "Diamond",
+        images: [
+          "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
+          "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZER00744-2__1111104895.jpg",
+          "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZER00744-4__1099169666.jpg"
+        ],
+        availability: true,
+        reviews: [
+          { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+          { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+        ],
+        // Additional properties
+        brand: "Tanishq",
+        collection: "Bestsellers",
+        gender: "Women",
+        jewelleryType: "Diamond Jewellery",
+        occasion: "Office Wear",
+        materialColour: "Silver",
+        metal: "White Gold",
+        pendantHeight: "2 cm",
+        pendantWidth: "1 cm",
+        noOfDiamonds: 8,
+        diamondClarity: "I1",
+        diamondColor: "JKL",
+        diamondSetting: "Pave",
+        diamondShape: "Round",
+        karatage: 18,
+        community:"NaN"
+      },
+        {
+        id: 143459208,
+        title: "Diamond Earrings",
+        description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+        price: 999.99,
+        gemstone: "Diamond",
+        images: [
+          "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
+          "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZER00744-2__1111104895.jpg",
+          "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZER00744-4__1099169666.jpg",
+        ],
+        availability: true,
+        reviews: [
+          { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+          { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+        ],
+        // Additional properties
+        brand: "Tanishq",
+        collection: "Bestsellers",
+        gender: "Women",
+        jewelleryType: "Diamond Jewellery",
+        occasion: "Office Wear",
+        materialColour: "Silver",
+        metal: "White Gold",
+        pendantHeight: "2 cm",
+        pendantWidth: "1 cm",
+        noOfDiamonds: 8,
+        diamondClarity: "I1",
+        diamondColor: "JKL",
+        diamondSetting: "Pave",
+        diamondShape: "Round",
+        karatage: 18,
+        community:"NaN"
+      },
+        {
+        id: 143459209,
+        title: "Diamond Earrings",
+        description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+        price: 999.99,
+        gemstone: "Diamond",
+        images: [
+          "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
+          "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZER00744-2__1111104895.jpg",
+          "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZER00744-4__1099169666.jpg",
+        ],
+        availability: true,
+        reviews: [
+          { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+          { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+        ],
+        // Additional properties
+        brand: "Tanishq",
+        collection: "Bestsellers",
+        gender: "Women",
+        jewelleryType: "Diamond Jewellery",
+        occasion: "Office Wear",
+        materialColour: "Silver",
+        metal: "White Gold",
+        pendantHeight: "2 cm",
+        pendantWidth: "1 cm",
+        noOfDiamonds: 8,
+        diamondClarity: "I1",
+        diamondColor: "JKL",
+        diamondSetting: "Pave",
+        diamondShape: "Round",
+        karatage: 18,
+        community:"NaN"
+      },
+        {
+        id: 143459210,
+        title: "Diamond Earrings",
+        description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+        price: 999.99,
+        gemstone: "Diamond",
+        images: [
+          "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
+          "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZER00744-2__1111104895.jpg",
+          "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZER00744-4__1099169666.jpg",
+        ],
+        availability: true,
+        reviews: [
+          { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+          { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+        ],
+        // Additional properties
+        brand: "Tanishq",
+        collection: "Bestsellers",
+        gender: "Women",
+        jewelleryType: "Diamond Jewellery",
+        occasion: "Office Wear",
+        materialColour: "Silver",
+        metal: "White Gold",
+        pendantHeight: "2 cm",
+        pendantWidth: "1 cm",
+        noOfDiamonds: 8,
+        diamondClarity: "I1",
+        diamondColor: "JKL",
+        diamondSetting: "Pave",
+        diamondShape: "Round",
+        karatage: 18,
+        community:"NaN"
+      },
+       
+    
+    ];
+  
 const categories = {
-    pendants:pendants,
+    Pendants:pendants,
     Earrings:Earrings,
     Mangalsutra:Mangalsutra,
     Chains:Chains,
@@ -1872,4 +2013,6 @@ const categories = {
     Necklace:Necklace,
     Bracelets:Bracelets,
     FingerRings:FingerRings,
+    SimilarProducts:SimilarProducts,
 }
+export default categories;

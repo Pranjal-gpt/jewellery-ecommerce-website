@@ -13,6 +13,8 @@ const App = () => {
             <Route index element={<Home />} />
             <Route path='/jewellery' element={<Products />} />
             <Route path='/jewellery/:name' element={<Product />} />
+            <Route path='/cart' element={<About />} />
+            <Route path='/wishlist' element={<About />} />
             <Route path='/about' element={<About />} />
             <Route path='/delivery-info' element={<About />} />
             <Route path='/payment-option' element={<About />} />
