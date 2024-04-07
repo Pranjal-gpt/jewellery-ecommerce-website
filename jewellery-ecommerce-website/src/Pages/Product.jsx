@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react'
 import Footer from '../Components/Footer'
 import Nav from '../Components/Nav'
 import Hr from '../Components/Hr';
+import TotalRating from '../Components/TotalRating'
 import features from '../assets/features.png'
 import Pitem from '../Components/Pitem';
-import { Link,useLocation } from 'react-router-dom';
+import { Link,useFetcher,useLocation } from 'react-router-dom';
 import categories from '../data/demodata';
 const { SimilarProducts } = categories;
 const Product = () => {
     const location = useLocation();
     const productDetails = location.state;
-    // console.log(product);
     var permalink=window.location.href;
     const pId = permalink.split("#")[permalink.split("#").length - 1];
     const [Quantity,setQuantity] = useState(1);
@@ -37,7 +37,7 @@ const Product = () => {
         } catch (error) {
             console.error(error);
         }
-      };
+    };
       const starRating = (rating) => {
         const stars = [];
         for (let i = 1; i <= rating; i++) {
@@ -55,7 +55,7 @@ const Product = () => {
     <>
         <Nav />
         <main className='px-20 flex flex-wrap relative'>
-            <section className='bg-rose-50 w-1/2 h-[70vh] sticky top-28 p-2'>
+            <section className='bg-rose-50 w-1/2 h-[70vh] p-2 sticky top-0 z-10'>
                 <div className='border-b p-1 border-b-rose-200'> <Link to={"/"} className='hover:text-rose-600'>Home </Link> {">"} <Link className='hover:text-rose-600' to={"/jewellery"}>Products </Link>   {">"} {productDetails.title}</div>
                 <div className='mt-3 flex gap-5 justify-around'>
                     <div className='flex flex-col items-center justify-between  w-1/5 h-[60vh]' >
@@ -87,15 +87,17 @@ const Product = () => {
                     </div>
                 </div>
                 <h1 className='text-3xl  pb-4 mb-4 font-bold'>{productDetails.title}</h1>
-                <div></div>
+                <div>
+                    <TotalRating productDetails={productDetails} />
+                </div>
                 <Hr thickness={"h-0.5"} length={"w-full"} color='bg-rose-200' />
 
                 <h3 className='text-lg'>{productDetails.description}</h3>
                 <div className='my-3'>
-                    <div className='text-rose-700 font-semibold'>
-                        <span>Price.</span>
-                        <span className='mx-2 font-bold text-2xl'>{productDetails.price}</span>
-                        <span>INR</span>
+                    <div className=' font-semibold mb-1'>
+                            <span>Price.</span>
+                            <span className='mx-2 font-semibold text-2xl text-green-600'>₹{(productDetails.price-(productDetails.price*productDetails.discount)/100).toFixed(2)}</span>
+                            <strike className=' text-rose-700'>₹{productDetails.price}</strike> <span className='w-fit text-rose-700 border-2 border-rose-800 p-1'>{productDetails.discount+"% OFF"}</span>
                     </div>
                     <div className='text-sm'>Price Inclusive of all taxes. See full <span className='text-rose-900 font-semibold hover:text-rose-500 cursor-pointer'>Price Breakup</span> </div>
                 </div>
@@ -148,7 +150,7 @@ const Product = () => {
                 <Hr thickness={"h-0.5"} length={"w-full"} color='bg-rose-200' />
                 <img src={features} alt="" className='bg-rose-50 rounded-xl mt-5 drag-none' />
             </section>
-            <section className='min-h-screen bg-rose-100 w-full sticky'>
+            <section className='min-h-screen bg-rose-100 w-full z-10'>
                 <div className='w-full p-8'>
                     <h1 className='text-center font-bold text-2xl'>Product Details</h1>
                     <div className='p-5 flex  w-full justify-center'>

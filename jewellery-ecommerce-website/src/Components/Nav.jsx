@@ -5,6 +5,7 @@ const Nav = () => {
     {
       id: 1,
       name: "ALL JEWELLERY",
+      selfLink:"/jewellery",
       link: [
         {
           id: 1,
@@ -62,6 +63,7 @@ const Nav = () => {
     {
       id: 2,
       name: "PENDANTS",
+      selfLink:"/jewellery/pendants",
       link: [
         {
           id: 1,
@@ -99,6 +101,7 @@ const Nav = () => {
     {
       id: 3,
       name: "EARRINGS",
+      selfLink:"/jewellery/earrings",
       link: [
         {
           id: 1,
@@ -135,6 +138,7 @@ const Nav = () => {
     {
       id: 4,
       name: "RINGS",
+      selfLink:"/jewellery/finger-rings",
       link: [
         {
           id: 1,
@@ -161,16 +165,17 @@ const Nav = () => {
     {
       id: 5,
       name: "WEDDING",
-      link: "/#",
+      link: "/jewellery/wedding",
     },
     {
       id: 6,
       name: "GIFTING",
-      link: "/#",
+      link: "/jewellery/gifting",
     },
     {
       id: 7,
       name: "COLLECTIONS",
+      selfLink:"/jewellery/collections",
       link: [
         {
           id: 1,
@@ -192,10 +197,10 @@ const Nav = () => {
     {
       id: 8,
       name: "BESTSELLERS",
-      link: "/#",
+      link: "/jewellery/best-sellers",
     },
   ];
-
+  
   return (
     <div className="nav w-full sticky z-50 top-0">
       <nav className="mainNav  h-20 bg-rose-300 flex justify-between items-center px-20">
@@ -210,29 +215,41 @@ const Nav = () => {
               <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 -translate-y-1/2 bg-rose-300 text-white hover:scale-125 pl-1 rounded-full p-1 "></i>
             </div>
           <Link to={"/#"}>home </Link>
-          <Link href={"/#"}> Explore</Link>
-          <Link href={"/#"}>Wishlist </Link>
-          <button className='group transition-all duration-500 flex items-center justify-between gap-2 rounded-full  px-5 py-2 shadow-lg bg-gradient-to-br from-rose-200 via-rose-300 to-rose-600'>
+          <Link to={"/jewellery"}> Explore</Link>
+          <Link to={"/wishlist"}>Wishlist </Link>
+          <Link className='group transition-all duration-500 flex items-center justify-between gap-2 rounded-full  px-5 py-2 shadow-lg bg-gradient-to-br from-rose-200 via-rose-300 to-rose-600'
+            to={"/cart"}>
               <span className='hidden group-hover:block'>Cart</span>
               <i class="fa-solid fa-cart-shopping"></i>
-            </button>
-          <Link href="#">Account </Link>
-
-          <li className="cursor-pointer list-none border-rose-200 border-4 hover:bg-rose-600 px-4 py-2 rounded-2xl hover:text-rose-50 transition transform duration-200">
-            Sign In
-          </li>
+            </Link>
+          <Link href="#"  className="relative cursor-pointer group flex items-center justify-center rounded-full hover:shadow-2xl">
+                  <div class="group-hover:bg-rose-200 px-3 py-2 rounded-md translate-all ease-in-out duration-300 group">
+                    Account</div>
+                  
+                  <div className="absolute p-3 text-xl z-10 w-60 shadow-xl -bottom-28 hidden  rounded-md bg-rose-50 hover:bg-rose-200 border text-center group-hover:block">
+                    <div className="font-bold text-xl">My Account</div>
+                    <small className="">Login to access your Account</small>
+                    <div className="flex gap-4 ">
+                    <button className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '
+                        >LogIn</button>
+                    <button className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50 bg-rose-800 text-rose-50 transition-all duration-100 '
+                        >SignUp</button>
+                    </div>
+                  </div>
+              
+          </Link>
         </div>
       </nav>
       <header className="header px-16 h-10 bg-rose-200 flex items-center justify-between">
         {Menu.map((litem) => (
           <div className="relative group hover:bg-rose-300 h-full flex items-center w-full justify-center">
-            <a
-              href={Array.isArray(litem.link) ? "/#" : litem.link}
+            <Link
+              to={Array.isArray(litem.link) ? litem.selfLink : litem.link}
               key={litem.id}
               className="h-full w-full flex items-center justify-center"
             >
               {litem.name}
-            </a>
+            </Link>
 
             {Array.isArray(litem.link) && (
               <div className="hidden  bg-rose-200 absolute top-10 min-w-36 group-hover:flex flex-col ">

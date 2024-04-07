@@ -1,26 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Nav from '../Components/Nav'
 import Footer from '../Components/Footer'
 import Pitem from '../Components/Pitem'
 import Hr from '../Components/Hr'
 import { Link } from 'react-router-dom'
 import categories from '../data/demodata'
-const Products = () => {
+const Products = ({category,all=false}) => {
       
 
-  const [ProductsData,setProductsData] =useState(categories.Bangles);
+  const [ProductsData,setProductsData] =useState(category);
   const [visibleProducts, setVisibleProducts] = useState(4);
   const [FilterMode,setFilterMode] =useState(false);
-
   const TagBtn = ({name,products}) => {
     return (
       <button 
         className='px-2 py-1 border-2 border-rose-200 hover:bg-rose-100 transition-all duration-100 '
-        onClick={()=>{setProductsData(products);setVisibleProducts(4)}}
+        onClick={()=>{setProductsData(products);setVisibleProducts(4);}}
       >{name}</button>
     )
   }
-  
+  useEffect(()=>{setProductsData(category)},[category])
   return (
     <div>
         <Nav />
@@ -31,7 +30,9 @@ const Products = () => {
             </section>
             <section className='flex justify-between items-center px-24 h-16 bg-rose-50'>
                 <div className="filters bg-rose-50 rounded-lg px-2 py-1 border border-rose-300 cursor-pointer select-none" onClick={()=>{setFilterMode(!FilterMode)}}><i class="fa-solid fa-sliders"></i> Filters</div>
-                <div className='flex gap-3'>
+                {all?(
+
+                  <div className='flex gap-3'>
                   <TagBtn name={"Pendant"} products={categories.Pendants} />
                   <TagBtn name={"Necklace"} products={categories.Necklace} />
                   <TagBtn name={"Mangalsutra"} products={categories.Mangalsutra} />
@@ -42,6 +43,7 @@ const Products = () => {
                   <TagBtn name={"Nose Pins"} products={categories.NosePins} />
                   <TagBtn name={"Finger Rings"} products={categories.FingerRings} />
                 </div>
+                ):""}
                 <div>Sort By</div>
             </section>
             {FilterMode?
@@ -58,8 +60,8 @@ const Products = () => {
             :""}
             {/* <Hr thickness={"h-0.5"} length={"w-11/12"} /> */}
             <section className='section flex gap-10 flex-wrap justify-center mt-5 mx-auto  w-11/12'>
-                {ProductsData.slice(0, visibleProducts).map((product)=>(
-                   <Pitem product={product} size={"w-72"} />
+                {ProductsData.slice(0, visibleProducts).map((product,key)=>(
+                   <Pitem product={product} size={"w-72 h-72"} />
                 ))}
 
             </section>

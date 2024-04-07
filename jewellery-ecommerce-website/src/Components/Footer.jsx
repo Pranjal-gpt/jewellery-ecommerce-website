@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="h-fit bg-[#fecdd3] flex flex-col ">
+    <footer className="h-fit mt-5 bg-[#fecdd3] flex flex-col ">
       <section className="flex justify-around  py-10  ">
         <div className="flex flex-col gap-7">
           <h1 className="text-2xl relative -left-5 text-[#832729]">

@@ -4,6 +4,7 @@ var pendants = [
     title: "Diamond Pendant Necklace",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-304373.jpg?v=1706959492&width=1000",
@@ -38,6 +39,7 @@ var pendants = [
     title: "Diamond Pendant Necklace",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-304373.jpg?v=1706959492&width=1000",
@@ -72,6 +74,7 @@ var pendants = [
     title: "Diamond Pendant Necklace",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-304373.jpg?v=1706959492&width=1000",
@@ -106,6 +109,7 @@ var pendants = [
     title: "Diamond Pendant Necklace",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-304373.jpg?v=1706959492&width=1000",
@@ -140,6 +144,7 @@ var pendants = [
     title: "Diamond Pendant Necklace",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-304373.jpg?v=1706959492&width=1000",
@@ -174,6 +179,7 @@ var pendants = [
     title: "Diamond Pendant Necklace",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-304373.jpg?v=1706959492&width=1000",
@@ -211,6 +217,7 @@ var Earrings = [
     title: "Diamond Earrings",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
@@ -245,6 +252,7 @@ var Earrings = [
     title: "Diamond Earrings",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
@@ -279,6 +287,7 @@ var Earrings = [
     title: "Diamond Earrings",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
@@ -313,6 +322,7 @@ var Earrings = [
     title: "Diamond Earrings",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
@@ -347,6 +357,7 @@ var Earrings = [
     title: "Diamond Earrings",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
@@ -381,6 +392,7 @@ var Earrings = [
     title: "Diamond Earrings",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
@@ -418,6 +430,7 @@ var Mangalsutra = [
     title: "Diamond Mangalsutra",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZTN00077-1_884.jpg",
@@ -452,6 +465,7 @@ var Mangalsutra = [
     title: "Diamond Mangalsutra",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZTN00077-1_884.jpg",
@@ -486,6 +500,7 @@ var Mangalsutra = [
     title: "Diamond Mangalsutra",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZTN00077-1_884.jpg",
@@ -520,6 +535,7 @@ var Mangalsutra = [
     title: "Diamond Mangalsutra",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZTN00077-1_884.jpg",
@@ -554,6 +570,7 @@ var Mangalsutra = [
     title: "Diamond Mangalsutra",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZTN00077-1_884.jpg",
@@ -588,6 +605,7 @@ var Mangalsutra = [
     title: "Diamond Mangalsutra",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZTN00077-1_884.jpg",
@@ -625,6 +643,7 @@ var Chains = [
     title: "Gold Chains",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe2a56901/images/hi-res/512814CANAA00_1.jpg",
@@ -659,6 +678,7 @@ var Chains = [
     title: "Gold Chains",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe2a56901/images/hi-res/512814CANAA00_1.jpg",
@@ -693,6 +713,7 @@ var Chains = [
     title: "Gold Chains",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe2a56901/images/hi-res/512814CANAA00_1.jpg",
@@ -727,6 +748,7 @@ var Chains = [
     title: "Gold Chains",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe2a56901/images/hi-res/512814CANAA00_1.jpg",
@@ -761,6 +783,7 @@ var Chains = [
     title: "Gold Chains",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe2a56901/images/hi-res/512814CANAA00_1.jpg",
@@ -795,6 +818,7 @@ var Chains = [
     title: "Gold Chains",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe2a56901/images/hi-res/512814CANAA00_1.jpg",
@@ -832,6 +856,7 @@ var NosePins = [
     title: "Gold Nose pins",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw1eed645a/images/hi-res/500064OFAAAB02_1.jpg",
@@ -866,6 +891,7 @@ var NosePins = [
     title: "Gold Nose pins",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw1eed645a/images/hi-res/500064OFAAAB02_1.jpg",
@@ -900,6 +926,7 @@ var NosePins = [
     title: "Gold Nose pins",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw1eed645a/images/hi-res/500064OFAAAB02_1.jpg",
@@ -934,6 +961,7 @@ var NosePins = [
     title: "Gold Nose pins",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw1eed645a/images/hi-res/500064OFAAAB02_1.jpg",
@@ -968,6 +996,7 @@ var NosePins = [
     title: "Gold Nose pins",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw1eed645a/images/hi-res/500064OFAAAB02_1.jpg",
@@ -1002,6 +1031,7 @@ var NosePins = [
     title: "Gold Nose pins",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw1eed645a/images/hi-res/500064OFAAAB02_1.jpg",
@@ -1039,6 +1069,7 @@ var Bangles = [
     title: "Gold Bangles",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw5c8dbef8/images/hi-res/51D3D2VAY2A00_1.jpg",
@@ -1073,6 +1104,7 @@ var Bangles = [
     title: "Gold Bangles",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw5c8dbef8/images/hi-res/51D3D2VAY2A00_1.jpg",
@@ -1107,6 +1139,7 @@ var Bangles = [
     title: "Gold Bangles",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw5c8dbef8/images/hi-res/51D3D2VAY2A00_1.jpg",
@@ -1141,6 +1174,7 @@ var Bangles = [
     title: "Gold Bangles",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw5c8dbef8/images/hi-res/51D3D2VAY2A00_1.jpg",
@@ -1175,6 +1209,7 @@ var Bangles = [
     title: "Gold Bangles",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw5c8dbef8/images/hi-res/51D3D2VAY2A00_1.jpg",
@@ -1209,6 +1244,7 @@ var Bangles = [
     title: "Gold Bangles",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw5c8dbef8/images/hi-res/51D3D2VAY2A00_1.jpg",
@@ -1246,6 +1282,7 @@ var Necklace = [
     title: "Diamond Necklace",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw3a287f6a/images/hi-res/50O3I2NEDAA00_1.jpg",
@@ -1280,6 +1317,7 @@ var Necklace = [
     title: "Diamond Necklace",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw3a287f6a/images/hi-res/50O3I2NEDAA00_1.jpg",
@@ -1314,6 +1352,7 @@ var Necklace = [
     title: "Diamond Necklace",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw3a287f6a/images/hi-res/50O3I2NEDAA00_1.jpg",
@@ -1348,6 +1387,7 @@ var Necklace = [
     title: "Diamond Necklace",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw3a287f6a/images/hi-res/50O3I2NEDAA00_1.jpg",
@@ -1382,6 +1422,7 @@ var Necklace = [
     title: "Diamond Necklace",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw3a287f6a/images/hi-res/50O3I2NEDAA00_1.jpg",
@@ -1416,6 +1457,7 @@ var Necklace = [
     title: "Diamond Necklace",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw3a287f6a/images/hi-res/50O3I2NEDAA00_1.jpg",
@@ -1453,6 +1495,7 @@ var Bracelets = [
     title: "Bracelet",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8752488e/images/hi-res/50D2PTBPHAA09_2.jpg",
@@ -1487,6 +1530,7 @@ var Bracelets = [
     title: "Bracelet",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8752488e/images/hi-res/50D2PTBPHAA09_2.jpg",
@@ -1521,6 +1565,7 @@ var Bracelets = [
     title: "Bracelet",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8752488e/images/hi-res/50D2PTBPHAA09_2.jpg",
@@ -1555,6 +1600,7 @@ var Bracelets = [
     title: "Bracelet",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8752488e/images/hi-res/50D2PTBPHAA09_2.jpg",
@@ -1589,6 +1635,7 @@ var Bracelets = [
     title: "Bracelet",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8752488e/images/hi-res/50D2PTBPHAA09_2.jpg",
@@ -1623,6 +1670,7 @@ var Bracelets = [
     title: "Bracelet",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8752488e/images/hi-res/50D2PTBPHAA09_2.jpg",
@@ -1660,11 +1708,12 @@ var FingerRings = [
     title: "Diamong Ring",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
-      "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-304373.jpg?v=1706959492&width=1000",
-      "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-933421.png?v=1711470911&width=1000",
-      "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-790888.jpg?v=1711470911&width=1000"
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwd050d1e1/images/hi-res/50D3I3FBRAB02_4.jpg",
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw27ca1b51/images/hi-res/50D3I3FBRAB02_2.jpg",
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwca12462b/images/hi-res/50D3I3FBRAB02_1.jpg"
     ],
     availability: true,
     reviews: [
@@ -1694,11 +1743,12 @@ var FingerRings = [
     title: "Diamong Ring",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwd050d1e1/images/hi-res/50D3I3FBRAB02_4.jpg?sw=115&sh=115",
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw27ca1b51/images/hi-res/50D3I3FBRAB02_2.jpg?sw=115&sh=115",
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwca12462b/images/hi-res/50D3I3FBRAB02_1.jpg?sw=115&sh=115"
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwd050d1e1/images/hi-res/50D3I3FBRAB02_4.jpg",
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw27ca1b51/images/hi-res/50D3I3FBRAB02_2.jpg",
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwca12462b/images/hi-res/50D3I3FBRAB02_1.jpg"
     ],
     availability: true,
     reviews: [
@@ -1728,11 +1778,12 @@ var FingerRings = [
     title: "Diamong Ring",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwd050d1e1/images/hi-res/50D3I3FBRAB02_4.jpg?sw=115&sh=115",
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw27ca1b51/images/hi-res/50D3I3FBRAB02_2.jpg?sw=115&sh=115",
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwca12462b/images/hi-res/50D3I3FBRAB02_1.jpg?sw=115&sh=115"
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwd050d1e1/images/hi-res/50D3I3FBRAB02_4.jpg",
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw27ca1b51/images/hi-res/50D3I3FBRAB02_2.jpg",
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwca12462b/images/hi-res/50D3I3FBRAB02_1.jpg"
     ],
     availability: true,
     reviews: [
@@ -1762,11 +1813,12 @@ var FingerRings = [
     title: "Diamong Ring",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwd050d1e1/images/hi-res/50D3I3FBRAB02_4.jpg?sw=115&sh=115",
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw27ca1b51/images/hi-res/50D3I3FBRAB02_2.jpg?sw=115&sh=115",
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwca12462b/images/hi-res/50D3I3FBRAB02_1.jpg?sw=115&sh=115"
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwd050d1e1/images/hi-res/50D3I3FBRAB02_4.jpg",
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw27ca1b51/images/hi-res/50D3I3FBRAB02_2.jpg",
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwca12462b/images/hi-res/50D3I3FBRAB02_1.jpg"
     ],
     availability: true,
     reviews: [
@@ -1796,11 +1848,12 @@ var FingerRings = [
     title: "Diamong Ring",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwd050d1e1/images/hi-res/50D3I3FBRAB02_4.jpg?sw=115&sh=115",
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw27ca1b51/images/hi-res/50D3I3FBRAB02_2.jpg?sw=115&sh=115",
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwca12462b/images/hi-res/50D3I3FBRAB02_1.jpg?sw=115&sh=115"
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwd050d1e1/images/hi-res/50D3I3FBRAB02_4.jpg",
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw27ca1b51/images/hi-res/50D3I3FBRAB02_2.jpg",
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwca12462b/images/hi-res/50D3I3FBRAB02_1.jpg"
     ],
     availability: true,
     reviews: [
@@ -1830,11 +1883,12 @@ var FingerRings = [
     title: "Diamong Ring",
     description: "Stunning diamond pendant necklace crafted with 18K white gold.",
     price: 999.99,
+    discount:10,
     gemstone: "Diamond",
     images: [
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwd050d1e1/images/hi-res/50D3I3FBRAB02_4.jpg?sw=115&sh=115",
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw27ca1b51/images/hi-res/50D3I3FBRAB02_2.jpg?sw=115&sh=115",
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwca12462b/images/hi-res/50D3I3FBRAB02_1.jpg?sw=115&sh=115"
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwd050d1e1/images/hi-res/50D3I3FBRAB02_4.jpg",
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw27ca1b51/images/hi-res/50D3I3FBRAB02_2.jpg",
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwca12462b/images/hi-res/50D3I3FBRAB02_1.jpg"
     ],
     availability: true,
     reviews: [
@@ -1868,6 +1922,7 @@ const SimilarProducts = [
         title: "Diamond Earrings",
         description: "Stunning diamond pendant necklace crafted with 18K white gold.",
         price: 999.99,
+        discount:10,
         gemstone: "Diamond",
         images: [
           "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
@@ -1902,6 +1957,7 @@ const SimilarProducts = [
         title: "Diamond Earrings",
         description: "Stunning diamond pendant necklace crafted with 18K white gold.",
         price: 999.99,
+        discount:10,
         gemstone: "Diamond",
         images: [
           "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
@@ -1936,6 +1992,7 @@ const SimilarProducts = [
         title: "Diamond Earrings",
         description: "Stunning diamond pendant necklace crafted with 18K white gold.",
         price: 999.99,
+        discount:10,
         gemstone: "Diamond",
         images: [
           "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
@@ -1970,6 +2027,7 @@ const SimilarProducts = [
         title: "Diamond Earrings",
         description: "Stunning diamond pendant necklace crafted with 18K white gold.",
         price: 999.99,
+        discount:10,
         gemstone: "Diamond",
         images: [
           "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZER00744-1_339.jpg",
@@ -2002,7 +2060,568 @@ const SimilarProducts = [
        
     
     ];
-  
+  var Wishlist = [
+    {
+      id: 143459243,
+      title: "Bracelet",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8752488e/images/hi-res/50D2PTBPHAA09_2.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe4991368/images/hi-res/50D2PTBPHAA09_1.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwfac8cceb/images/hi-res/50D2PTBPHAA09_3.jpg"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },
+      {
+      id: 143459244,
+      title: "Bracelet",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8752488e/images/hi-res/50D2PTBPHAA09_2.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe4991368/images/hi-res/50D2PTBPHAA09_1.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwfac8cceb/images/hi-res/50D2PTBPHAA09_3.jpg"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },
+    {
+      id: 143459213,
+      title: "Diamond Mangalsutra",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZTN00077-1_884.jpg",
+        "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZTN00077-4__1420652548.jpg",
+        "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZTN00077-2__869987846.jpg"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },{
+      id: 143459249,
+      title: "Diamong Ring",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-304373.jpg?v=1706959492&width=1000",
+        "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-933421.png?v=1711470911&width=1000",
+        "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-790888.jpg?v=1711470911&width=1000"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },
+    {
+      id: 143459225,
+      title: "Gold Nose pins",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw1eed645a/images/hi-res/500064OFAAAB02_1.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe8b3ad75/images/hi-res/500064OFAAAB02_3.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwb23427f9/images/hi-res/500064OFAAAB02_2.jpg"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },
+      {
+      id: 143459226,
+      title: "Gold Nose pins",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw1eed645a/images/hi-res/500064OFAAAB02_1.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe8b3ad75/images/hi-res/500064OFAAAB02_3.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwb23427f9/images/hi-res/500064OFAAAB02_2.jpg"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },
+      {
+      id: 143459227,
+      title: "Gold Nose pins",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw1eed645a/images/hi-res/500064OFAAAB02_1.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe8b3ad75/images/hi-res/500064OFAAAB02_3.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwb23427f9/images/hi-res/500064OFAAAB02_2.jpg"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },
+      {
+      id: 143459228,
+      title: "Gold Nose pins",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw1eed645a/images/hi-res/500064OFAAAB02_1.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe8b3ad75/images/hi-res/500064OFAAAB02_3.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwb23427f9/images/hi-res/500064OFAAAB02_2.jpg"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },
+  ]
+  var Cart = [
+    {
+      id: 143459243,
+      title: "Bracelet",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8752488e/images/hi-res/50D2PTBPHAA09_2.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe4991368/images/hi-res/50D2PTBPHAA09_1.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwfac8cceb/images/hi-res/50D2PTBPHAA09_3.jpg"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },
+      {
+      id: 143459244,
+      title: "Bracelet",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8752488e/images/hi-res/50D2PTBPHAA09_2.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe4991368/images/hi-res/50D2PTBPHAA09_1.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwfac8cceb/images/hi-res/50D2PTBPHAA09_3.jpg"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },
+    {
+      id: 143459213,
+      title: "Diamond Mangalsutra",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/preview/z/ZTN00077-1_884.jpg",
+        "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZTN00077-4__1420652548.jpg",
+        "https://cf-cdn.pcjeweller.com/public/uploads/catalog/product/large/z/ZTN00077-2__869987846.jpg"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },{
+      id: 143459249,
+      title: "Diamong Ring",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-304373.jpg?v=1706959492&width=1000",
+        "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-933421.png?v=1711470911&width=1000",
+        "https://silvermistjewelry.in/cdn/shop/products/ocean-drop-pendant-790888.jpg?v=1711470911&width=1000"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },
+    {
+      id: 143459225,
+      title: "Gold Nose pins",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw1eed645a/images/hi-res/500064OFAAAB02_1.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe8b3ad75/images/hi-res/500064OFAAAB02_3.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwb23427f9/images/hi-res/500064OFAAAB02_2.jpg"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },
+      {
+      id: 143459226,
+      title: "Gold Nose pins",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw1eed645a/images/hi-res/500064OFAAAB02_1.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe8b3ad75/images/hi-res/500064OFAAAB02_3.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwb23427f9/images/hi-res/500064OFAAAB02_2.jpg"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },
+      {
+      id: 143459227,
+      title: "Gold Nose pins",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw1eed645a/images/hi-res/500064OFAAAB02_1.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe8b3ad75/images/hi-res/500064OFAAAB02_3.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwb23427f9/images/hi-res/500064OFAAAB02_2.jpg"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },
+      {
+      id: 143459228,
+      title: "Gold Nose pins",
+      description: "Stunning diamond pendant necklace crafted with 18K white gold.",
+      price: 999.99,
+      discount:10,
+      gemstone: "Diamond",
+      images: [
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw1eed645a/images/hi-res/500064OFAAAB02_1.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe8b3ad75/images/hi-res/500064OFAAAB02_3.jpg",
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwb23427f9/images/hi-res/500064OFAAAB02_2.jpg"
+      ],
+      availability: true,
+      reviews: [
+        { id: 1, user: "John Doe", rating: 5, comment: "Absolutely beautiful necklace! Love it!" },
+        { id: 2, user: "Jane Smith", rating: 4, comment: "Great quality and fast shipping." }
+      ],
+      // Additional properties
+      brand: "Tanishq",
+      collection: "Bestsellers",
+      gender: "Women",
+      jewelleryType: "Diamond Jewellery",
+      occasion: "Office Wear",
+      materialColour: "Silver",
+      metal: "White Gold",
+      pendantHeight: "2 cm",
+      pendantWidth: "1 cm",
+      noOfDiamonds: 8,
+      diamondClarity: "I1",
+      diamondColor: "JKL",
+      diamondSetting: "Pave",
+      diamondShape: "Round",
+      karatage: 18,
+      community:"NaN"
+    },
+  ]
 const categories = {
     Pendants:pendants,
     Earrings:Earrings,
@@ -2014,5 +2633,7 @@ const categories = {
     Bracelets:Bracelets,
     FingerRings:FingerRings,
     SimilarProducts:SimilarProducts,
+    WishlistData:Wishlist,
+    CartData:Cart
 }
 export default categories;
