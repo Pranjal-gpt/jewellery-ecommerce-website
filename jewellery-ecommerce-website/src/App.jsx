@@ -13,23 +13,44 @@ const App = () => {
     <BrowserRouter >
           <Routes>
             <Route index element={<Home />} />
-            <Route path='/jewellery' element={<Products category={categories.Bangles} all={true} />} />
-            <Route path='/jewellery/pendants' element={<Products category={categories.Pendants} />} />
-            <Route path='/jewellery/earrings' element={<Products category={categories.Earrings}  />} />
-            <Route path='/jewellery/finger-rings' element={<Products category={categories.FingerRings}  />} />
-            <Route path='/jewellery/mangalsutra' element={<Products category={categories.Mangalsutra}  />} />
-            <Route path='/jewellery/chains' element={<Products category={categories.Chains}  />} />
-            <Route path='/jewellery/nose-pins' element={<Products category={categories.NosePins}  />} />
-            <Route path='/jewellery/necklace' element={<Products category={categories.Necklace}  />} />
-            <Route path='/jewellery/bangles' element={<Products category={categories.Bangles}  />} />
-            <Route path='/jewellery/bracelets' element={<Products category={categories.Bracelets}  />} />
             
+            <Route path='/jewellery' element={<Products category={categories.Bangles} all={true} />} />
+            <Route path='/jewellery/item/:name' element={<Product />} />
+            
+            <Route path='/jewellery/pendants' element={<Products category={categories.Pendants} />} />
+            <Route path='/jewellery/pendants/:name' element={<Products category={categories.Pendants} />} />
+
+            <Route path='/jewellery/earrings' element={<Products category={categories.Earrings}  />} />
+            <Route path='/jewellery/earrings/:name' element={<Products category={categories.Earrings}  />} />
+
+            <Route path='/jewellery/finger-rings' element={<Products category={categories.FingerRings}  />} />
+            <Route path='/jewellery/finger-rings/:name' element={<Products category={categories.FingerRings}  />} />
+
+            <Route path='/jewellery/mangalsutra' element={<Products category={categories.Mangalsutra}  />} />
+            <Route path='/jewellery/mangalsutra/:name' element={<Products category={categories.Mangalsutra}  />} />
+
+            <Route path='/jewellery/chains' element={<Products category={categories.Chains}  />} />
+            <Route path='/jewellery/chains/:name' element={<Products category={categories.Chains}  />} />
+
+            <Route path='/jewellery/nose-pins' element={<Products category={categories.NosePins}  />} />
+            <Route path='/jewellery/nose-pins/:name' element={<Products category={categories.NosePins}  />} />
+
+            <Route path='/jewellery/necklace' element={<Products category={categories.Necklace}  />} />
+            <Route path='/jewellery/necklace/:name' element={<Products category={categories.Necklace}  />} />
+
+            <Route path='/jewellery/bangles' element={<Products category={categories.Bangles}  />} />
+            <Route path='/jewellery/bangles/:name' element={<Products category={categories.Bangles}  />} />
+
+            <Route path='/jewellery/bracelets' element={<Products category={categories.Bracelets}  />} />
+            <Route path='/jewellery/bracelets/:name' element={<Products category={categories.Bracelets}  />} />
+            
+            <Route path='/jewellery/collections' element={<Products category={categories.Bracelets}  />} />
+            <Route path='/jewellery/collections/:name' element={<Products category={categories.Bracelets}  />} />
+
             <Route path='/jewellery/wedding' element={<Products category={categories.Bracelets}  />} />
             <Route path='/jewellery/gifting' element={<Products category={categories.Bracelets}  />} />
-            <Route path='/jewellery/collections' element={<Products category={categories.Bracelets}  />} />
             <Route path='/jewellery/best-sellers' element={<Products category={categories.Bracelets}  />} />
             
-            <Route path='/jewellery/item/:name' element={<Product />} />
             
             <Route path='/cart' element={<Cart />} />
             <Route path='/wishlist' element={<Wishlist />} />

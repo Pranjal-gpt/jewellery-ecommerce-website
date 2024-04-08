@@ -31,7 +31,7 @@ function Footer() {
           <a href="#">1200-456-6782</a>
           <a href="#">Chat with Us</a>
         </div>
-        <div className="flex flex-col gap-2   items-center justify-center gap-9 ">
+        <div className="flex flex-col items-center justify-center gap-8 ">
           <h1 className="text-2xl ">Follow Us</h1>
           <div className="  flex gap-5 ">
             <a href="#">

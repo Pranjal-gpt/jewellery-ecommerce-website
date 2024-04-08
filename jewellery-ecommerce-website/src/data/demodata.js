@@ -1,3 +1,196 @@
+const New = [
+  {
+    id: 1,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw901d27ee/homepage/NewForYou/trending-earrings.jpg",
+    cName: "trending earrings",
+    cLink: "jewellery/",
+  },
+  {
+    id: 2,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwb292158a/homepage/NewForYou/pretty-in-pink-new.jpg",
+    cName: "pretty in pink",
+    cLink: "jewellery/",
+  },
+  {
+    id: 3,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw35ac2bd0/homepage/NewForYou/modern-designs.jpg",
+    cName: "modern designs",
+    cLink: "jewellery/",
+  },
+];
+const collections = [
+  {
+    id: 1,
+    imgurl:
+      "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwa6c6b384/images/hi-res/50D2P2SZHABA32_2.jpg",
+    cName: "pretty pink",
+    cLink: "jewellery/",
+  },
+  {
+    id: 2,
+    imgurl:
+      "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwa6c6b384/images/hi-res/50D2P2SZHABA32_2.jpg",
+    cName: "pretty pink",
+    cLink: "jewellery/",
+  },
+  {
+    id: 3,
+    imgurl:
+      "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwa6c6b384/images/hi-res/50D2P2SZHABA32_2.jpg",
+    cName: "pretty pink",
+    cLink: "jewellery/",
+  },
+];
+const allcategories = [
+  {
+    id: 1,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+    cName: "Earrings",
+    cLink: "/jewellery/earrings",
+  },
+  {
+    id: 2,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwfc4fb974/homepage/shopByCategory/fod-rings.jpg",
+    cName: "rings",
+    cLink: "jewellery/finger-rings",
+  },
+  {
+    id: 3,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw3617b276/homepage/shopByCategory/fod-pendants.jpg",
+    cName: "nosepin",
+    cLink: "jewellery/nose-pins",
+  },
+  {
+    id: 4,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw114df9d7/homepage/shopByCategory/fod-mangalsutra.jpg",
+    cName: "Mangalsutra",
+    cLink: "jewellery/mangalsutra",
+  },
+  {
+    id: 5,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwcbb3ebbb/homepage/shopByCategory/fod-chain.jpg",
+    cName: "Chains",
+    cLink: "jewellery/chains",
+  },
+  {
+    id: 6,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+    cName: "Pendants",
+    cLink: "jewellery/pendants",
+  },
+  {
+    id: 7,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+    cName: "Necklace",
+    cLink: "jewellery/necklace",
+  },
+  {
+    id: 8,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+    cName: "Bangles",
+    cLink: "jewellery/bangles",
+  },
+  {
+    id: 9,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+    cName: "Bracelets",
+    cLink: "jewellery/bracelets",
+  },
+  {
+    id: 10,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+    cName: "See All",
+    cLink: "jewellery/",
+  },
+];
+const mostGifted = [
+  {
+    id: 1,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+    cName: "Earrings",
+    cLink: "/jewellery/earrings",
+  },
+  {
+    id: 2,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwfc4fb974/homepage/shopByCategory/fod-rings.jpg",
+    cName: "rings",
+    cLink: "jewellery/finger-rings",
+  },
+  {
+    id: 3,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw3617b276/homepage/shopByCategory/fod-pendants.jpg",
+    cName: "nosepin",
+    cLink: "jewellery/nose-pins",
+  },
+  {
+    id: 4,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw114df9d7/homepage/shopByCategory/fod-mangalsutra.jpg",
+    cName: "Mangalsutra",
+    cLink: "jewellery/mangalsutra",
+  },
+  {
+    id: 5,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwcbb3ebbb/homepage/shopByCategory/fod-chain.jpg",
+    cName: "Chains",
+    cLink: "jewellery/chains",
+  },
+];
+const recommended = [
+  {
+    id: 1,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+    cName: "Earrings",
+    cLink: "/jewellery/earrings",
+  },
+  {
+    id: 2,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwfc4fb974/homepage/shopByCategory/fod-rings.jpg",
+    cName: "rings",
+    cLink: "jewellery/finger-rings",
+  },
+  {
+    id: 3,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw3617b276/homepage/shopByCategory/fod-pendants.jpg",
+    cName: "nosepin",
+    cLink: "jewellery/nose-pins",
+  },
+  {
+    id: 4,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw114df9d7/homepage/shopByCategory/fod-mangalsutra.jpg",
+    cName: "Mangalsutra",
+    cLink: "jewellery/mangalsutra",
+  },
+  {
+    id: 5,
+    imgurl:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwcbb3ebbb/homepage/shopByCategory/fod-chain.jpg",
+    cName: "Chains",
+    cLink: "jewellery/chains",
+  },
+];
+
 var pendants = [
     {
     id: 143459201,
@@ -2623,6 +2816,11 @@ const SimilarProducts = [
     },
   ]
 const categories = {
+    New:New,
+    collections:collections,
+    allcategories:allcategories,
+    recommended:recommended,
+    mostGifted:mostGifted,
     Pendants:pendants,
     Earrings:Earrings,
     Mangalsutra:Mangalsutra,

@@ -143,22 +143,22 @@ const Nav = () => {
         {
           id: 1,
           name: "COUPLE RINGS",
-          link: "/jewellery/rings/couple-rings",
+          link: "/jewellery/finger-rings/couple-rings",
         },
         {
           id: 2,
           name: "WOMENS RINGS",
-          link: "/jewellery/rings/womens-rings",
+          link: "/jewellery/finger-rings/womens-rings",
         },
         {
           id: 3,
           name: "MEN'S RINGS",
-          link: "/jewellery/rings/mens-rings",
+          link: "/jewellery/finger-rings/mens-rings",
         },
         {
           id: 4,
           name: "AMERICAN DIAMOND RINGS",
-          link: "/jewellery/rings/american-diamond-rings",
+          link: "/jewellery/finger-rings/american-diamond-rings",
         },
       ],
     },
@@ -185,12 +185,12 @@ const Nav = () => {
         {
           id: 2,
           name: "STRING IT",
-          link: "/jewellery/rings/string-it",
+          link: "/jewellery/finger-rings/string-it",
         },
         {
           id: 3,
           name: "JOY OF DRESSINGS",
-          link: "/jewellery/rings/joy-of-dressing",
+          link: "/jewellery/finger-rings/joy-of-dressing",
         },
       ],
     },
