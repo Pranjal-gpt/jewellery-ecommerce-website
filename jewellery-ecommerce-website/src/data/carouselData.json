@@ -1,0 +1,17 @@
+{
+    "slides": [
+      {
+        "src": "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw7f7d0da9/homepage/HeroBanner/rings-desktop.jpg",
+        "alt": "Image 1 for carousel"
+      },
+      {
+        "src": "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwbcecd6fc/homepage/HeroBanner/earrings-desktop.jpg",
+        "alt": "Image 2 for carousel"
+      },
+      {
+        "src": "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw2d0b80ea/homepage/HeroBanner/mangalsutra-desktop.jpg",
+        "src2": "https://picsum.photos/seed/img3/600/400",
+        "alt": "Image 3 for carousel"
+      }
+    ]
+  }

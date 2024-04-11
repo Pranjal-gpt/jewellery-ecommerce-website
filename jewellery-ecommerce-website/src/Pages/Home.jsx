@@ -3,6 +3,8 @@ import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
 import Citem from "../Components/Citem";
 import categories from "../data/demodata";
+import { Carousel } from "../Components/Carousel";
+import { slides } from "../data/carouselData.json";
 var {New,allcategories,recommended,mostGifted,collections} = categories
 const Home = () => {
   
@@ -13,7 +15,9 @@ const Home = () => {
       <main className="">
         <div className="caro">
           {/*block 1*/}
-          <img src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw7f7d0da9/homepage/HeroBanner/rings-desktop.jpg"></img>
+          <Carousel data={slides} />
+        
+          {/* <img src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw7f7d0da9/homepage/HeroBanner/rings-desktop.jpg"></img> */}
         </div>
         <div className="category flex flex-col gap-10">
           {/*block 2*/}

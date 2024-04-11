@@ -222,7 +222,7 @@ const Nav = () => {
               <span className='hidden group-hover:block'>Cart</span>
               <i class="fa-solid fa-cart-shopping"></i>
             </Link>
-          <Link href="#"  className="relative cursor-pointer group flex items-center justify-center rounded-full hover:shadow-2xl">
+          <button  className="relative cursor-pointer group flex items-center justify-center rounded-full hover:shadow-2xl">
                   <div class="group-hover:bg-rose-200 px-3 py-2 rounded-md translate-all ease-in-out duration-300 group">
                     Account</div>
                   
@@ -237,7 +237,7 @@ const Nav = () => {
                     </div>
                   </div>
               
-          </Link>
+          </button>
         </div>
       </nav>
       <header className="header px-16 h-10 bg-rose-200 flex items-center justify-between">

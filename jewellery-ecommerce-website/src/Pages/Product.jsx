@@ -17,6 +17,9 @@ const Product = () => {
     const [CurrentImg,setCurrentImg]=useState(productDetails ? productDetails.images[0] : null);
     const [pincode, setPincode] = useState('');
     const [shipday, setShipday] = useState('');
+    useEffect(()=>{
+        setCurrentImg(productDetails ? productDetails.images[0] : null)
+    })
 
     const CheckPincode = async () => {
         const value = pincode;
