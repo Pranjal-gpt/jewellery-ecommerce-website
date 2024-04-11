@@ -22,7 +22,7 @@ const Cart = () => {
        )
     })
     const CheckPromoCode = () => {
-        PromoCode==="Welcome500"?setPromoDiscount(500):setPromoDiscount(0)
+        PromoCode==="Welcome500"?setPromoDiscount(500):()=>{setPromoDiscount(0);setPromoCode("")}
       };
   return (
     <>
@@ -86,9 +86,20 @@ const Cart = () => {
                             <td  className='pb-5 px-10'>Promotional Discounts</td>
                             <td  className='pb-5 px-10'>{PromoDiscount}</td>
                         </tr>
+                        {PromoDiscount>0&&(
+                        <tr>
+                            <td colSpan={2} className='text-center pb-5 px-10'>
+                                <span className='bg-rose-200 rounded p-2'>
+                                    <span>Applied Coupon </span>
+                                    <span className=' italic px-2 mx-3 rounded-lg bg-rose-300'>{PromoCode}</span>
+                                    <i class="fa-solid fa-xmark cursor-pointer hover:scale-125" onClick={()=>{setPromoDiscount(0);setPromoCode("")}}></i>
+                                </span>
+                            </td>
+                        </tr>
+                        )}
                         <tr className='text-xl font-semibold'>
                             <td  className='py-5 px-10'>Net Payable</td>
-                            <td  className='py-5 px-10'>{DiscountedPrice.toFixed(2)}</td>
+                            <td  className='py-5 px-10'>{DiscountedPrice.toFixed(2)-PromoDiscount}</td>
                         </tr>
                     </table>
                         <fieldset className='border-2 mx-auto w-10/12 border-rose-800 rounded text-center  py-1 relative'>
@@ -97,7 +108,12 @@ const Cart = () => {
                                 onChange={(change)=>{setPromoCode(change.target.value)}}
                                 value={PromoCode} />
                             <button disabled={!PromoCode}className={`font-bold p-1 rounded-lg absolute right-5 top-2 ${PromoCode === ""? "text-rose-50  bg-rose-100" : "hover:bg-rose-300  bg-rose-100"} cursor-pointer`}
-                                onClick={CheckPromoCode} >Check</button>
+                                onClick={CheckPromoCode} >Apply</button>
+                                <div className='text-left px-4'>
+                                    <div>Available Promocodes</div>
+                                    <span>Welcome500 <button className='font-bold p-1 text-xs rounded-lg hover:bg-rose-50  bg-rose-200 cursor-pointer'
+                                                        onClick={()=>{setPromoCode("Welcome500");setPromoDiscount(500)}}>{PromoCode!=="Welcome500"?"apply":"✔️Applied"}</button></span>
+                                </div>
                         </fieldset>
 
                         <button className='px-10 py-3 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-200 hover:text-rose-800 bg-rose-800 text-rose-50 transition-all duration-100 '

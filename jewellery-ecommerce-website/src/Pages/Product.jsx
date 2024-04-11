@@ -14,12 +14,10 @@ const Product = () => {
     var permalink=window.location.href;
     const pId = permalink.split("#")[permalink.split("#").length - 1];
     const [Quantity,setQuantity] = useState(1);
-    const [CurrentImg,setCurrentImg]=useState(productDetails ? productDetails.images[0] : null);
+    const [CurrentImg,setCurrentImg]=useState("");
     const [pincode, setPincode] = useState('');
     const [shipday, setShipday] = useState('');
-    useEffect(()=>{
-        setCurrentImg(productDetails ? productDetails.images[0] : null)
-    })
+   
 
     const CheckPincode = async () => {
         const value = pincode;
@@ -57,8 +55,9 @@ const Product = () => {
     return (
     <>
         <Nav />
-        <main className='px-20 flex flex-wrap relative'>
-            <section className='bg-rose-50 w-1/2 h-[70vh] p-2 sticky top-0 z-10'>
+        <main className='mx-20 flex flex-wrap relative bg-rose-50'>
+            <div className='relative flex w-1/2'>
+            <section className='bg-rose-50  h-[70vh]  p-2 sticky top-20 '>
                 <div className='border-b p-1 border-b-rose-200'> <Link to={"/"} className='hover:text-rose-600'>Home </Link> {">"} <Link className='hover:text-rose-600' to={"/jewellery"}>Products </Link>   {">"} {productDetails.title}</div>
                 <div className='mt-3 flex gap-5 justify-around'>
                     <div className='flex flex-col items-center justify-between  w-1/5 h-[60vh]' >
@@ -68,13 +67,13 @@ const Product = () => {
                         ))}
                     </div>
                     <div className='bg-rose-100 w-2/3 p-5'>
-                        <img src={CurrentImg} alt={productDetails.title}
+                        <img src={CurrentImg!==""?CurrentImg:productDetails.images[0]} alt={productDetails.title}
                             className='h-full w-full'
                         />
                     </div>
                 </div>
-
             </section>
+            </div>
             <section className='bg-rose-100 w-1/2 h-[120vh] px-8'>
                 <div className='flex justify-between  py-5'>
                     <div className="pid">{productDetails.id}</div>
