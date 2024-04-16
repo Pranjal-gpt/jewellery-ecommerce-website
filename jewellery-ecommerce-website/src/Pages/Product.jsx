@@ -8,16 +8,76 @@ import Pitem from '../Components/Pitem';
 import { Link,useFetcher,useLocation } from 'react-router-dom';
 import categories from '../data/demodata';
 const { SimilarProducts } = categories;
+import { CartProvider,useCart } from '../contexts/cartContext';
+import { useWishlist } from '../contexts/wishlistContext';
+
 const Product = () => {
-    const location = useLocation();
-    const productDetails = location.state;
+    const { addToCart,cartItems } = useCart();
+    const {WishlistItems, addToWishlist,removeFromWishlist} = useWishlist();
+    const [productDetails,setProductDetails] = useState([])
+    const [Quantity,setQuantity] = useState(1);
+    
     var permalink=window.location.href;
     const pId = permalink.split("#")[permalink.split("#").length - 1];
-    const [Quantity,setQuantity] = useState(1);
+    const [isWishlist, setisWishlist] = useState(WishlistItems.some(item => parseInt(item.id) ===parseInt(pId) ))
+    const [isinCart, setisinCart] = useState(cartItems.some(item =>  parseInt(item.id) ===parseInt(pId)  ))
+    useEffect(() => {
+            fetch(`http://localhost:3000/api/product/${pId}`)
+              .then((response) => response.json())
+              .then((data) => {setProductDetails(data)})
+              .catch((error) => console.error("Error fetching product details:", error));
+          },[]
+    )
+    // useEffect(()=>{
+    //     setisWishlist(WishlistItems.some(item => item.id ==pId ));
+    // },[isWishlist])
+    // var productDetails;
     const [CurrentImg,setCurrentImg]=useState("");
     const [pincode, setPincode] = useState('');
     const [shipday, setShipday] = useState('');
    
+
+    const handleAddToCart = () => {
+        if (!isinCart) {
+            
+            const newItem = {
+                id: productDetails.id, // Assuming product id is available in productDetails
+                title: productDetails.title,
+                price: productDetails.price,
+                discount: productDetails.discount,
+                metal:productDetails.metal,
+          karatage:productDetails.karatage,
+          quantity: Quantity,
+          image:productDetails.images[0],
+        };
+        addToCart(newItem);
+        console.log("added item to Cart",productDetails.id)
+        setisinCart(true)
+    }
+      };
+      const handleWishlistClick = () => {
+        if (isWishlist) {
+            removeFromWishlist(productDetails.id)
+            console.log("removed item from Wishlist", productDetails.id)
+        }
+        else{
+
+            const newItem = {
+              id: productDetails.id, // Assuming product id is available in productDetails
+              title: productDetails.title,
+              description:productDetails.description,
+              price: productDetails.price,
+              metal:productDetails.metal,
+              discount: productDetails.discount,
+              karatage:productDetails.karatage,
+              image:productDetails.images[0],
+            }
+            addToWishlist(newItem);
+            console.log("added item to Wishlist",productDetails.id)
+        };
+        setisWishlist(!isWishlist);
+      };
+
 
     const CheckPincode = async () => {
         const value = pincode;
@@ -54,20 +114,22 @@ const Product = () => {
       
     return (
     <>
+        <CartProvider >
         <Nav />
+      
         <main className='mx-20 flex flex-wrap relative bg-rose-50'>
             <div className='relative flex w-1/2'>
             <section className='bg-rose-50  h-[70vh]  p-2 sticky top-20 '>
                 <div className='border-b p-1 border-b-rose-200'> <Link to={"/"} className='hover:text-rose-600'>Home </Link> {">"} <Link className='hover:text-rose-600' to={"/jewellery"}>Products </Link>   {">"} {productDetails.title}</div>
                 <div className='mt-3 flex gap-5 justify-around'>
                     <div className='flex flex-col items-center justify-between  w-1/5 h-[60vh]' >
-                        {productDetails.images.map((imgsrc)=>(
+                        {productDetails && productDetails.images && productDetails.images.map((imgsrc)=>(
                             <img src={imgsrc} className='h-32 w-32 object-center border-2 border-rose-200 drag-none'
                             onMouseOver={()=>{setCurrentImg(imgsrc)}}></img>
                         ))}
                     </div>
                     <div className='bg-rose-100 w-2/3 p-5'>
-                        <img src={CurrentImg!==""?CurrentImg:productDetails.images[0]} alt={productDetails.title}
+                        <img src={CurrentImg!==""?CurrentImg:productDetails.images?.[0]} alt={productDetails.title}
                             className='h-full w-full'
                         />
                     </div>
@@ -78,10 +140,10 @@ const Product = () => {
                 <div className='flex justify-between  py-5'>
                     <div className="pid">{productDetails.id}</div>
                     <div className='relative flex gap-5'>
-                        <div className="w-8 h-8  bg-rose-200 flex items-center justify-center rounded-full group hover:shadow-2xl">
-                            <i class="fa-regular fa-heart group-hover:scale-125"></i>
-                            <div className="absolute text-sm -bottom-14 hidden group-hover:block p-1 rounded-md bg-rose-50 border w-24 text-center"> {false?"Remove From Wishlist":"Add To Wishlist"}</div>
-                        </div>
+                        <button onClick={handleWishlistClick} className="w-8 h-8  bg-rose-200 flex items-center justify-center rounded-full group hover:shadow-2xl">
+                           {isWishlist?<i class="fa-solid fa-heart  group-hover:scale-125 group-active:scale-150  transition-all duration-500 "></i> :<i class="fa-regular fa-heart group-hover:scale-125 group-active:-scale-150 transition-all duration-500"></i> } 
+                            <div className="absolute text-sm -bottom-14 hidden group-hover:block p-1 rounded-md bg-rose-50 border w-24 text-center"> {isWishlist?"Remove From Wishlist":"Add To Wishlist"}</div>
+                        </button>
                         <div className="w-8 h-8  bg-rose-200 flex items-center justify-center rounded-full  group hover:shadow-2xl">
                             <i class="fa-solid fa-share-nodes group-hover:scale-125"></i>
                             <div className="absolute text-sm -bottom-10 hidden group-hover:block p-1 rounded-md bg-rose-50 border w-24 text-center"> Share This</div>
@@ -113,13 +175,14 @@ const Product = () => {
                 <div className='flex justify-around text-xl my-3'>
                     <button 
                         className='px-10 py-3 rounded border-2 border-rose-800 hover:bg-rose-200 transition-all duration-100 '
-                        onClick={()=>{}}
-                    >Add To Cart</button>
+                        onClick={handleAddToCart}
+                    >{isinCart?"Added In Cart":"Add To Cart"}</button>
                     <button 
                         className='px-10 py-3 rounded border-2 border-rose-800 hover:bg-rose-200 hover:text-rose-800 bg-rose-800 text-rose-50 transition-all duration-100 '
                         onClick={()=>{}}
                     >Buy Now</button>
                 </div>
+                {isinCart&&<div className='text-center mb-1'> <button className='text-xl  text-rose-700 hover:bg-rose-200 rounded-lg px-2'>View Cart</button></div>}
 
                 
 
@@ -249,7 +312,7 @@ const Product = () => {
                 </div>
                 <div className=' w-10/12 mx-auto mt-10'>
                     <h1 className='text-center text-2xl font-bold'>Reviews</h1>
-                    {productDetails.reviews.map((review)=>(
+                    {productDetails.reviews && productDetails.reviews.map((review)=>(
                         
                         <div className='mb-5 flex p-5  relative'>
                             <div className='w-1/4'></div>
@@ -276,6 +339,7 @@ const Product = () => {
                 </div>
             </section>
         </main>
+        </CartProvider>
         <Footer />
     </>
   )

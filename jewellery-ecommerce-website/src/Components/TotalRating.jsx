@@ -12,10 +12,10 @@ const starRating = (rating) => {
     }
     return stars;
 };
-
+//productDetails.reviews && productDetails.reviews.map
 function TotalRating({ productDetails }) {
-    const sumOfRatings = productDetails.reviews.reduce((acc, review) => acc + review.rating, 0);
-    const averageRating = sumOfRatings / productDetails.reviews.length;
+    const sumOfRatings =productDetails.reviews &&  productDetails.reviews.reduce((acc, review) => acc + review.rating, 0);
+    const averageRating = sumOfRatings / productDetails.reviews &&  productDetails.reviews.length;
     return (
              <span className='text-xl'>{starRating(averageRating)}</span>
      

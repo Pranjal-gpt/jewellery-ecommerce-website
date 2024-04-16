@@ -1,17 +1,33 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
 import Citem from "../Components/Citem";
 import categories from "../data/demodata";
 import { Carousel } from "../Components/Carousel";
 import { slides } from "../data/carouselData.json";
+import { CartProvider } from "../contexts/cartContext";
 var {New,allcategories,recommended,mostGifted,collections} = categories
 const Home = () => {
   
+  const [homepageData, setHomepageData] = useState(null);
+
+  useEffect(() => {
+    // Fetch the homepage data from your backend API
+    fetch("http://localhost:3000/api/home")
+      .then((response) => response.json())
+      .then((data) => setHomepageData(data))
+      .catch((error) => console.error("Error fetching homepage data:", error));
+  }, []);
+
+  // Render your homepage using the homepageData
+
+
 
   return (
     <div>
-      <Nav />
+      <CartProvider>
+        <Nav />
+      </CartProvider>
       <main className="">
         <div className="caro">
           {/*block 1*/}
@@ -61,7 +77,7 @@ const Home = () => {
           <div className="h-0.5 w-1/3  bg-[#832729] mx-auto"></div>
           {/*underline code*/}
           <div className="flex gap-7 flex-wrap justify-center w-11/12 mx-auto">
-            {New.map((New) => (
+            {homepageData && homepageData.New.map((New) => (
               <Citem cName={New.cName}
               cLink={New.cLink}
               cImg={New.imgurl} size={"w-96 h-72"} />

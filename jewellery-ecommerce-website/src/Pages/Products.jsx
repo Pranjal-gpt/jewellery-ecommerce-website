@@ -4,25 +4,42 @@ import Footer from '../Components/Footer'
 import Pitem from '../Components/Pitem'
 import Hr from '../Components/Hr'
 import { Link } from 'react-router-dom'
-import categories from '../data/demodata'
+import { CartProvider } from "../contexts/cartContext";
+
+// import categories from '../data/demodata'
 const Products = ({category,all=false}) => {
       
 
-  const [ProductsData,setProductsData] =useState(category);
+  const [ProductsData,setProductsData] =useState([]);
   const [visibleProducts, setVisibleProducts] = useState(4);
   const [FilterMode,setFilterMode] =useState(false);
-  const TagBtn = ({name,products}) => {
+  
+  const TagBtn = ({name}) => {
     return (
       <button 
         className='px-2 py-1 border-2 border-rose-200 hover:bg-rose-100 transition-all duration-100 '
-        onClick={()=>{setProductsData(products);setVisibleProducts(4);}}
+        onClick={()=>{
+          getProductsData(name);
+          // setProductsData(products);
+          setVisibleProducts(4);}}
       >{name}</button>
     )
   }
-  useEffect(()=>{setProductsData(category)},[category])
+  const getProductsData = (products="") =>{
+      // Fetch the homepage data from your backend API
+      fetch("http://localhost:3000/api/products?category="+products.replace(" ","-"))
+        .then((response) => response.json())
+        .then((data) => setProductsData(data))
+        .catch((error) => console.error("Error fetching products data:", error));
+  }
+  useEffect(()=>{
+    getProductsData(category)
+  },[category])
   return (
     <div>
+        <CartProvider>
         <Nav />
+      </CartProvider>
         <main className=''>
             <section className='flex justify-between items-center px-24 h-12 bg-rose-100'>
                 <div className="path">Home {">"} Products</div>
@@ -33,15 +50,15 @@ const Products = ({category,all=false}) => {
                 {all?(
 
                   <div className='flex gap-3'>
-                  <TagBtn name={"Pendant"} products={categories.Pendants} />
-                  <TagBtn name={"Necklace"} products={categories.Necklace} />
-                  <TagBtn name={"Mangalsutra"} products={categories.Mangalsutra} />
-                  <TagBtn name={"Earring"} products={categories.Earrings} />
-                  <TagBtn name={"Chains"} products={categories.Chains} />
-                  <TagBtn name={"Bangles"} products={categories.Bangles} />
-                  <TagBtn name={"Bracelets"} products={categories.Bracelets} />
-                  <TagBtn name={"Nose Pins"} products={categories.NosePins} />
-                  <TagBtn name={"Finger Rings"} products={categories.FingerRings} />
+                  <TagBtn name={"Pendants"} />
+                  <TagBtn name={"Necklace"} />
+                  <TagBtn name={"Mangalsutra"}  />
+                  <TagBtn name={"Earrings"}  />
+                  <TagBtn name={"Chains"} />
+                  <TagBtn name={"Bangles"}  />
+                  <TagBtn name={"Bracelets"}  />
+                  <TagBtn name={"Nose Pins"} />
+                  <TagBtn name={"Finger Rings"}  />
                 </div>
                 ):""}
                 <div>Sort By</div>

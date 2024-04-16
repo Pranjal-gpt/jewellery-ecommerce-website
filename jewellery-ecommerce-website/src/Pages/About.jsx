@@ -1,11 +1,14 @@
 import React from 'react'
 import Nav from '../Components/Nav'
 import Footer from '../Components/Footer'
+import { CartProvider } from "../contexts/cartContext";
 
 const About = () => {
   return (
     <div>
-      <Nav />
+      <CartProvider>
+        <Nav />
+      </CartProvider>
       <div className='min-h-[50vh]'>
         abotut
       </div>

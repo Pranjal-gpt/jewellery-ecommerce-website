@@ -5,32 +5,61 @@ import categories from '../data/demodata'
 import TotalRating from '../Components/TotalRating'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-const {CartData} = categories;
+import { useCart,CartProvider } from '../contexts/cartContext'
+
+// const {CartData} = categories;
 const Cart = () => {
+    const { cartItems, removeFromCart } = useCart();
     const [PromoCode, setPromoCode] = useState('');
     const [PromoDiscount, setPromoDiscount] = useState(0);
     const [Totalprice,setTotalPrice] = useState(0);
     const [DiscountedPrice,setDiscountedPrice] = useState(0);
+    const [CartData, setCartData] = useState([]);
     
-    useEffect(()=>{
-       setTotalPrice(CartData.reduce((total, item) => total + item.price, 0));
+    const getCartData = () => {
+        fetch("http://localhost:3000/api/cart")
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Received cart data:", data);
+                setCartData(data);
+            })
+            .catch((error) => console.error("Error fetching cart data:", error));
+            setTotalPrice(cartItems.reduce((total, item) => total + item.price, 0));
        setDiscountedPrice(
-           CartData.reduce((total, item) => {
+           cartItems.reduce((total, item) => {
+            const discountedPrice = item.price - (item.price * item.discount) / 100;
+            return total + discountedPrice;
+            }, 0))
+    }
+    useEffect(()=>{
+        // getCartData()
+        // console.log( CartData)
+        setPromoDiscount(0);
+        setPromoCode("");
+       setTotalPrice(cartItems.reduce((total, item) => total + item.price, 0));
+       setDiscountedPrice(
+           cartItems.reduce((total, item) => {
             const discountedPrice = item.price - (item.price * item.discount) / 100;
             return total + discountedPrice;
             }, 0)
+
        )
-    })
+    },[cartItems])
+    // console.log(cartData)
     const CheckPromoCode = () => {
-        PromoCode==="Welcome500"?setPromoDiscount(500):()=>{setPromoDiscount(0);setPromoCode("")}
+        PromoCode==="Welcome500"&&Totalprice>2000?setPromoDiscount(500):()=>{setPromoDiscount(0);setPromoCode("")}
       };
   return (
     <>
-        <Nav />
+        <CartProvider>
+            <Nav />
+        
         <main>
-            <h1 className='text-center text-4xl p-4 font-semibold'>Your Cart</h1>
+            <h1 className='text-center text-4xl p-4 font-semibold'>Your Cart ({cartItems.length})</h1>
             <section className='w-10/12 mx-auto flex  gap-3 relative'>
                 <div className=' w-2/3 bg-rose-50 p-5'>
+                   
+                    
                     <table className='w-full'>
                         <tr className='border-b-2 border-b-rose-200 text-left'>
                             <th className='py-2'>Product</th>
@@ -39,16 +68,19 @@ const Cart = () => {
                             <th>Price</th>
                             <th>X</th>
                         </tr>
-                        {CartData.map((item,key)=>(
+                        {cartItems.length===0&&(
+                            <tr  className='text-center ' ><td  colSpan={5} >No items in Cart</td></tr>
+                        )}
+                        {cartItems.map((item,key)=>(
                             <tr key={key} className='border-b-2 border-b-rose-100 ' >
-                                <td className='py-3'><img src={item.images[0]} className='w-36' alt="" /></td>
+                                <td className='py-3'><img src={item.image} className='w-36' alt="" /></td>
                                 <td>
                                     <span className='text-xl'>{item.title}</span>
                                     <div className='text-xs'>Metal: {item.metal}</div>
                                     <div className=' text-xs'>Metal Purity: {item.karatage}K</div>
                                 </td>
                                 <td>
-                                    <input type="number" className='w-10 cursor-pointer rounded' value={1} name="" id="" />
+                                    <input type="number" className='w-10 cursor-pointer rounded' value={1} onChange={()=>{}} name="" id="" />
                                 </td>
                                 <td>
                                     <div className='py-5 font-semibold flex flex-col w-36'>
@@ -60,10 +92,10 @@ const Cart = () => {
                                     </div>
                                 </td>
                                 <td className='relative'>
-                                    <div className="w-8 h-8  bg-rose-200 flex cursor-pointer items-center justify-center rounded-full  group hover:shadow-2xl">
+                                    <button onClick={() => removeFromCart(item.id)} className="w-8 h-8  bg-rose-200 flex cursor-pointer items-center justify-center rounded-full  group hover:shadow-2xl">
                                         <i class="fa-solid fa-xmark group-hover:scale-125"></i>
-                                        <div className="absolute text-sm -bottom-1 hidden group-hover:block p-1 rounded-md bg-rose-50 border w-24 text-center"> Remove <br /> From Cart</div>
-                                    </div>
+                                        <div  className="absolute text-sm -bottom-1 hidden group-hover:block p-1 rounded-md bg-rose-50 border w-24 text-center"> Remove <br /> From Cart</div>
+                                    </button>
                                 </td>
                             </tr>
                         ))}
@@ -79,7 +111,7 @@ const Cart = () => {
                             <td  className='pt-5 px-10'>{Totalprice.toFixed(2)}</td>
                         </tr>
                         <tr>
-                            <td  className='pb-5 px-10'>You Save</td>
+                            <td  className='pb-5 px-10'>Total Saved</td>
                             <td  className='pb-5 px-10'>{(Totalprice-DiscountedPrice).toFixed(2)}</td>
                         </tr>
                         <tr>
@@ -112,7 +144,7 @@ const Cart = () => {
                                 <div className='text-left px-4'>
                                     <div>Available Promocodes</div>
                                     <span>Welcome500 <button className='font-bold p-1 text-xs rounded-lg hover:bg-rose-50  bg-rose-200 cursor-pointer'
-                                                        onClick={()=>{setPromoCode("Welcome500");setPromoDiscount(500)}}>{PromoCode!=="Welcome500"?"apply":"✔️Applied"}</button></span>
+                                                        onClick={()=>{if(Totalprice>2000){setPromoCode("Welcome500");setPromoDiscount(500)}}}>{PromoCode!=="Welcome500"?"apply":"✔️Applied"}</button></span>
                                 </div>
                         </fieldset>
 
@@ -122,6 +154,7 @@ const Cart = () => {
                 
             </section>
         </main>
+        </CartProvider>
         <Footer />
     </>
   )

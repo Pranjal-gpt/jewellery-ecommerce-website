@@ -1,0 +1,19 @@
+{
+  "name": "jew-backend",
+  "version": "1.0.0",
+  "description": "jewellery ecommerce website Backend",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pranjal Gupta",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.5.0",
+    "nodemon": "^3.1.0"
+  }
+}

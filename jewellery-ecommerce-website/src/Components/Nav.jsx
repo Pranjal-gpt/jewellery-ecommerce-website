@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { WishlistProvider } from "../contexts/wishlistContext";
 const Nav = () => {
   const Menu = [
     {
@@ -216,10 +218,14 @@ const Nav = () => {
             </div>
           <Link to={"/#"}>home </Link>
           <Link to={"/jewellery"}> Explore</Link>
+          <WishlistProvider>
+
           <Link to={"/wishlist"}>Wishlist </Link>
+          </WishlistProvider>
+
           <Link className='group transition-all duration-500 flex items-center justify-between gap-2 rounded-full  px-5 py-2 shadow-lg bg-gradient-to-br from-rose-200 via-rose-300 to-rose-600'
             to={"/cart"}>
-              <span className='hidden group-hover:block'>Cart</span>
+              <span className='hidden group-hover:block mb-1'>Cart </span>
               <i class="fa-solid fa-cart-shopping"></i>
             </Link>
           <button  className="relative cursor-pointer group flex items-center justify-center rounded-full hover:shadow-2xl">
