@@ -232,14 +232,21 @@ const Nav = () => {
                   <div class="group-hover:bg-rose-200 px-3 py-2 rounded-md translate-all ease-in-out duration-300 group">
                     Account</div>
                   
-                  <div className="absolute p-3 text-xl z-10 w-60 shadow-xl -bottom-28 hidden  rounded-md bg-rose-50 hover:bg-rose-200 border text-center group-hover:block">
+                  <div className="absolute p-3 text-xl z-10 w-60 shadow-xl top-10 hidden  rounded-md bg-rose-50 hover:bg-rose-200 border text-center group-hover:block">
                     <div className="font-bold text-xl">My Account</div>
-                    <small className="">Login to access your Account</small>
+                    <small className="">Login to access your <b>Customer</b> Account</small>
+                    <div className="flex gap-4 mb-5">
+                        <Link to="/signin" state={"customer"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '
+                            >LogIn</Link>
+                        <Link  to="/signup" state={"customer"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50 bg-rose-800 text-rose-50 transition-all duration-100 '
+                            >SignUp</Link>
+                    </div>
+                    <small className="">Login to access your <b>Merchant</b> Account</small>
                     <div className="flex gap-4 ">
-                    <button className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '
-                        >LogIn</button>
-                    <button className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50 bg-rose-800 text-rose-50 transition-all duration-100 '
-                        >SignUp</button>
+                        <Link  to="/signin" state={"merchant"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '
+                            >LogIn</Link >
+                        <Link  to="/signup" state={"merchant"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50 bg-rose-800 text-rose-50 transition-all duration-100 '
+                            >SignUp</Link >
                     </div>
                   </div>
               

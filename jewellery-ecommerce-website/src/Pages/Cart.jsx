@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import Nav from '../Components/Nav'
 import Footer from '../Components/Footer'
-import categories from '../data/demodata'
 import TotalRating from '../Components/TotalRating'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'

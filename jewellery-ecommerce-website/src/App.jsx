@@ -9,6 +9,8 @@ import Wishlist from "./Pages/Wishlist";
 import Cart from "./Pages/Cart";
 import { CartProvider } from "./contexts/cartContext";
 import { WishlistProvider } from "./contexts/wishlistContext";
+import SignUpForm from "./Pages/Signup";
+import SignInForm from "./Pages/Signin";
 const App = () => {
   return (
     <BrowserRouter >
@@ -19,6 +21,9 @@ const App = () => {
 
           <Routes>
             <Route index element={<Home />} />
+
+            <Route path='/signup' element={<SignUpForm />} />
+            <Route path='/signin' element={<SignInForm />} />
 
             <Route path='/jewellery' element={<Products category={"all"} all={true} />} />
 
