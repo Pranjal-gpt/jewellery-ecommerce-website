@@ -63,6 +63,18 @@ exports.signin = async (req, res) => {
       return res.status(500).json({ error: 'Internal server error' });
     }
   };
+
+  exports.userDetails = async (req, res) => {
+    try {
+      const user = await User.find({email:req.body.user});
+      // console.log("user found",user)
+      return res.json({ status: 'ok', info: user })
+    } catch (error) {
+      console.log(error)
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+  };
+
 // Get all users (admin-only)
 exports.getUsers = async (req, res) => {
   try {

@@ -13,6 +13,7 @@ import SignUpForm from "./Pages/Signup";
 import SignInForm from "./Pages/Signin";
 import Addjewellery from "./Pages/Addjewellery"
 import MerchantPage from "./Pages/MerchantPage"
+import Checkout from "./Pages/Checkout";
 const App = () => {
   return (
     <BrowserRouter >
@@ -68,9 +69,8 @@ const App = () => {
             <Route path='/jewellery/gifting' element={<Products category={"Gifting"} />} />
             <Route path='/jewellery/best-sellers' element={<Products category={"Best Sellers"} />} />
 
-            <Route path='/cart' element={
-              <Cart />
-            } />
+            <Route path='/checkout' element={ <Checkout /> } />
+            <Route path='/cart' element={ <Cart /> } />
             <Route path='/wishlist' element={<Wishlist />} />
             <Route path='/about' element={<About />} />
             <Route path='/delivery-info' element={<About />} />

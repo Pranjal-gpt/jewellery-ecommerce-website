@@ -74,6 +74,7 @@ const Wishlist = () => {
                                     <Link className=" bg-rose-200 hover:bg-rose-100 rounded-md px-5 py-2 text-center"
                                     to={"/jewellery/item/"+item.title.replace(/ /g, "-") +"#"+ item.id} state={item}>View</Link>
                                 </div>
+                                {item.merchant==JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email&&
                                 <div className='flex flex-col justify-around h-48'>
                                     <button 
                                         className='px-10 py-3 rounded border-2 border-rose-800 hover:bg-rose-200 transition-all duration-100 '
@@ -85,7 +86,7 @@ const Wishlist = () => {
                                         className='px-10 py-3 rounded border-2 border-rose-800 hover:bg-rose-200 hover:text-rose-800 bg-rose-800 text-rose-50 transition-all duration-100 '
                                         onClick={()=>{}}
                                     >Buy Now</button>
-                                </div>
+                                </div>}
                             </div>
                             <div className='relative flex gap-5'>
                                 <div className="w-8 h-8  bg-rose-200 flex items-center justify-center rounded-full  group hover:shadow-2xl">

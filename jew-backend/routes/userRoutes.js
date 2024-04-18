@@ -9,6 +9,7 @@ const UserController = require('../controllers/userController');
 router.post('/signup',UserController.signup);
 router.post('/signin',UserController.signin);
 router.post('/mdetails',UserController.merchantDetails);
+router.post('/udetails',UserController.userDetails);
 router.get('/users', UserController.getUsers); // This route should be protected (admin-only)
 
 module.exports = router;

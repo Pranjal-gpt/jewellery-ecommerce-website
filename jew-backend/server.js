@@ -10,6 +10,7 @@ const cartRouter = require('./routes/cartRoute');
 const wishlistRouter = require('./routes/wishlistRoute');
 const userRoutes = require('./routes/userRoutes');
 const jewelleryRoutes = require('./routes/jewelleryRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use('/api/cart', cartRouter);
 app.use('/api/wishlist', wishlistRouter);
 app.use('/api/user', userRoutes);
 app.use('/api/jewellery', jewelleryRoutes);
+app.use('/api/order', orderRoutes);
 
 
 // Start the server

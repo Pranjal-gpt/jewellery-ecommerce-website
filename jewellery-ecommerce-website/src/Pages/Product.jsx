@@ -168,12 +168,15 @@ const Product = () => {
                     <div className='text-sm'>Price Inclusive of all taxes. See full <span className='text-rose-900 font-semibold hover:text-rose-500 cursor-pointer'>Price Breakup</span> </div>
                 </div>
                 <div>{productDetails.metal}</div>
+                {productDetails.merchant!=JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email&& <span>
+
                 <div className='border border-rose-800 w-fit p-2 my-3 mx-auto rounded flex gap-5 items-center'>
                     Quantity 
                     <i class="fa-solid fa-minus bg-rose-200 text-rose-800 rounded p-2 cursor-pointer" onClick={()=>{Quantity>1 && setQuantity(Quantity-1)}}></i>
                      <div className=' bg-rose-800 text-rose-50 font-bold text-xl rounded px-2 py-1'>{Quantity}</div>
                     <i class="fa-solid fa-plus bg-rose-200 text-rose-800 rounded p-2 cursor-pointer"  onClick={()=>{setQuantity(Quantity+1)}}></i>
                 </div>
+                
                 <div className='flex justify-around text-xl my-3'>
                     <button 
                         className='px-10 py-3 rounded border-2 border-rose-800 hover:bg-rose-200 transition-all duration-100 '
@@ -182,9 +185,11 @@ const Product = () => {
                     <button 
                         className='px-10 py-3 rounded border-2 border-rose-800 hover:bg-rose-200 hover:text-rose-800 bg-rose-800 text-rose-50 transition-all duration-100 '
                         onClick={()=>{}}
-                    >Buy Now</button>
+                        >Buy Now</button>
                 </div>
-                {isinCart&&<div className='text-center mb-1'> <button className='text-xl  text-rose-700 hover:bg-rose-200 rounded-lg px-2'>View Cart</button></div>}
+                        </span>
+                    }
+                {isinCart&&<div className='text-center mb-1'> <Link to={"/cart"} className='text-xl  text-rose-700 hover:bg-rose-200 rounded-lg px-2'>View Cart</Link></div>}
 
                 
 

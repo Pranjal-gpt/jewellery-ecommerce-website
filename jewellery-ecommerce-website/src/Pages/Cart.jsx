@@ -85,7 +85,7 @@ const Cart = () => {
                                     <div className='py-5 font-semibold flex flex-col w-36'>
                                         <span className=' font-semibold text-xl'>₹{(item.price-(item.price*item.discount)/100).toFixed(2)}</span>
                                         <strike className='text-xs text-rose-700'>₹{item.price}</strike>
-                                        <span>You saved ₹{(item.price)-(item.price-(item.price*item.discount)/100).toFixed(2)}</span>
+                                        <span>You saved ₹{((item.price)-(item.price-(item.price*item.discount)/100)).toFixed(2)}</span>
                                         
                                         <span className='w-fit text-rose-700 border-2 border-rose-800 p-1'>{item.discount+"% OFF"}</span>
                                     </div>
@@ -147,8 +147,17 @@ const Cart = () => {
                                 </div>
                         </fieldset>
 
-                        <button className='px-10 py-3 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-200 hover:text-rose-800 bg-rose-800 text-rose-50 transition-all duration-100 '
-                        >Checkout</button>
+                        <Link className='px-10 py-3 block mx-auto mt-5 text-center rounded border-2 border-rose-800 hover:bg-rose-200 hover:text-rose-800 bg-rose-800 text-rose-50 transition-all duration-100 '
+                            to={"/checkout"}    
+                            state={
+                                {
+                                    cartItems:cartItems,
+                                    mrp:Totalprice.toFixed(2),
+                                    totalSaved:(Totalprice-DiscountedPrice).toFixed(2),
+                                    promoDiscounts:PromoDiscount,
+                                    netPay:DiscountedPrice.toFixed(2)-PromoDiscount
+                                }}
+                            >Proceed Checkout</Link>
                 </div>
                 
             </section>
