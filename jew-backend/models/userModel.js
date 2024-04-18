@@ -6,9 +6,9 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   address1: { type: String },
-  address2: { type: String },
-  phoneNumber: { type: String },
-  userType: { type: String, enum: ['customer', 'vendor', 'admin'], default: 'customer' },
+  address2: { type: String ,default:''},
+  phone: { type: String },
+  userType: { type: String,default: 'customer' },
   // Other fields as needed
 },
 {collection:"Users"});

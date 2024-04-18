@@ -9,12 +9,13 @@ const productRouter = require('./routes/productRoute');
 const cartRouter = require('./routes/cartRoute');
 const wishlistRouter = require('./routes/wishlistRoute');
 const userRoutes = require('./routes/userRoutes');
+const jewelleryRoutes = require('./routes/jewelleryRoutes');
 
 const app = express();
 
 // Other middleware and route handling
 app.use(cors());
-connectionString = "mongodb://localhost:27017/jew"
+connectionString = "mongodb://127.0.0.1:27017/jew"
 mongoose.connect(connectionString).then(() => {
     console.log('Connected to MongoDB');
   }).catch((error) => {
@@ -28,6 +29,7 @@ app.use('/api/product', productRouter);
 app.use('/api/cart', cartRouter);
 app.use('/api/wishlist', wishlistRouter);
 app.use('/api/user', userRoutes);
+app.use('/api/jewellery', jewelleryRoutes);
 
 
 // Start the server

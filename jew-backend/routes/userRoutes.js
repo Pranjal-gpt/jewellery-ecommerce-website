@@ -7,7 +7,8 @@ const UserController = require('../controllers/userController');
 
 // Define user routes
 router.post('/signup',UserController.signup);
-router.post('/signin',async (req, res) => {res.json({ status: 'ok' })})  //UserController.signin);
+router.post('/signin',UserController.signin);
+router.post('/mdetails',UserController.merchantDetails);
 router.get('/users', UserController.getUsers); // This route should be protected (admin-only)
 
 module.exports = router;

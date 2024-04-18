@@ -1,36 +1,68 @@
 // UserController.js
 
 const User = require('../models/userModel'); // Assuming you have a User model
-
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 // Sign up a new user
 exports.signup = async (req, res) => {
   console.log(req.body)
 	try {
-		await User.create(req.body)
-		res.json({ status: 'ok' })
+    const newPassword = await bcrypt.hash(req.body.password, 8)
+		await User.create({
+      fullname:req.body.fullname,
+      email:req.body.email,
+      password:newPassword,
+      phone:req.body.phone,
+      address1:req.body.address1,
+      userType:req.body.userType
+    })
+		res.json({ status: 'ok',msg:"Account created Succesfully" })
 	} catch (err) {
     console.log(err)
-		res.json({ status: 'error', error: 'Duplicate email' })
+		res.json({ status: 'uerror', error: 'Account from this Email already Exist.' })
 	}
 };
 
 // Sign in an existing user
 exports.signin = async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
-
-    if (!user || !user.comparePassword(password)) {
-      return res.status(401).json({ error: 'Invalid email or password' });
+    const user = await User.findOne({
+      email: req.body.email,
+    })
+  
+    if (!user) {
+      return res.json({ status: 'no', user: false,error:"User Doesn\'t Exist."})
     }
-
-    // Here you can generate a JWT token for authentication if needed
-    res.status(200).json({ message: 'Sign in successful' });
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+  
+    const isPasswordValid = await bcrypt.compare(
+      req.body.password,
+      user.password
+    )
+  
+    if (isPasswordValid) {
+      const token = jwt.sign(
+        {
+          name: user.name,
+          email: user.email,
+        },
+        'secret123'
+      )
+  
+      return res.json({ status: 'ok', user: token,userType:user.userType })
+    } else {
+      return res.json({ status: 'no', user: false,error:"Please Enter Correct Password"})
+    }
   }
-};
 
+  exports.merchantDetails = async (req, res) => {
+    try {
+      const user = await User.find({email:req.body.merchant});
+      console.log("user found",user)
+      return res.json({ status: 'ok', info: user })
+    } catch (error) {
+      console.log(error)
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+  };
 // Get all users (admin-only)
 exports.getUsers = async (req, res) => {
   try {
