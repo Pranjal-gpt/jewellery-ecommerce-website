@@ -11,6 +11,8 @@ import { CartProvider } from "./contexts/cartContext";
 import { WishlistProvider } from "./contexts/wishlistContext";
 import SignUpForm from "./Pages/Signup";
 import SignInForm from "./Pages/Signin";
+import Addjewellery from "./Pages/Addjewellery"
+import MerchantPage from "./Pages/MerchantPage"
 const App = () => {
   return (
     <BrowserRouter >
@@ -27,6 +29,8 @@ const App = () => {
 
             <Route path='/jewellery' element={<Products category={"all"} all={true} />} />
 
+            <Route path='/addjew' element={<Addjewellery />} />
+            <Route path='/merchant-dashboard' element={<MerchantPage />} />
 
             <Route path='/jewellery/item/:name' element={<Product />} />
 
