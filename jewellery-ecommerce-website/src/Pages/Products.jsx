@@ -27,13 +27,22 @@ const Products = ({category,all=false}) => {
   }
   const getProductsData = (products="") =>{
       // Fetch the homepage data from your backend API
-      fetch("http://localhost:3000/api/products?category="+products.replace(" ","-"))
+      // fetch("http://localhost:3000/api/products?category="+products.replace(" ","-"))
+      fetch("http://localhost:3000/api/jewellery/all?category="+products.replace(" ","-"))
+        .then((response) => response.json())
+        .then((data) => setProductsData(data))
+        .catch((error) => console.error("Error fetching products data:", error));
+  }
+  const getAllJewellery = ()=>{
+    fetch("http://localhost:3000/api/jewellery/all")
         .then((response) => response.json())
         .then((data) => setProductsData(data))
         .catch((error) => console.error("Error fetching products data:", error));
   }
   useEffect(()=>{
     getProductsData(category)
+    // getAllJewellery()
+    
   },[category])
   return (
     <div>

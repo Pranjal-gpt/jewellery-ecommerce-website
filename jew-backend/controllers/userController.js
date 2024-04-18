@@ -56,7 +56,7 @@ exports.signin = async (req, res) => {
   exports.merchantDetails = async (req, res) => {
     try {
       const user = await User.find({email:req.body.merchant});
-      console.log("user found",user)
+      // console.log("user found",user)
       return res.json({ status: 'ok', info: user })
     } catch (error) {
       console.log(error)

@@ -77,7 +77,7 @@ const JewelryForm = () => {
 
 		if (data.status === 'ok') {
          setinfoMsg(data.infoMsg)
-         resetForm()
+        //  resetForm()
 		}else{
             setinfoMsg(data.infoMsg)
         }

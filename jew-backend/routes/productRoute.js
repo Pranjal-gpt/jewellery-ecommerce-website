@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const categories = require('../data/demodata');
+const Jewelry = require('../models/jewelleryModel');
 
 // Destructure categories object
 const { Pendants, Earrings, Mangalsutra, Chains, NosePins, Bangles, Necklace, Bracelets, FingerRings } = categories;
@@ -20,15 +21,17 @@ const allProducts = {
 };
 
 // Define route to get product details by ID
-router.get('/:productId', (req, res) => {
+router.get('/:productId', async(req, res) => {
     const productId = req.params.productId;
     
     // Retrieve product by ID from the allProducts object
-    const product = allProducts[productId];
+    const product =Jewelry.findById(productId) 
+    //allProducts[productId];
     
     // If product is found, send it as JSON response
     if (product) {
         res.json(product);
+        console.log(product)
     } else {
         res.status(404).json({ message: "Product not found" });
     }

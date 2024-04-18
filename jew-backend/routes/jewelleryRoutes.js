@@ -10,5 +10,6 @@ router.post('/bymerchant',jewelleryController.getJewelryByMerchant);
 router.post('/delete',jewelleryController.deleteJewellery);
 router.post('/edit', jewelleryController.editJewellery); 
 router.get('/all', jewelleryController.getAllJewelleries);
+router.get('/:id', jewelleryController.getJewelleryById);
 
 module.exports = router;

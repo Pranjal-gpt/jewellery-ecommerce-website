@@ -21,8 +21,10 @@ const Product = () => {
     const pId = permalink.split("#")[permalink.split("#").length - 1];
     const [isWishlist, setisWishlist] = useState(WishlistItems.some(item => parseInt(item.id) ===parseInt(pId) ))
     const [isinCart, setisinCart] = useState(cartItems.some(item =>  parseInt(item.id) ===parseInt(pId)  ))
+    
     useEffect(() => {
-            fetch(`http://localhost:3000/api/product/${pId}`)
+        // getJewelleryById()
+            fetch(`http://localhost:3000/api/jewellery/${pId}`)
               .then((response) => response.json())
               .then((data) => {setProductDetails(data)})
               .catch((error) => console.error("Error fetching product details:", error));
@@ -41,7 +43,7 @@ const Product = () => {
         if (!isinCart) {
             
             const newItem = {
-                id: productDetails.id, // Assuming product id is available in productDetails
+                id: productDetails._id, // Assuming product id is available in productDetails
                 title: productDetails.title,
                 price: productDetails.price,
                 discount: productDetails.discount,
@@ -51,19 +53,19 @@ const Product = () => {
           image:productDetails.images[0],
         };
         addToCart(newItem);
-        console.log("added item to Cart",productDetails.id)
+        console.log("added item to Cart",productDetails._id)
         setisinCart(true)
     }
       };
       const handleWishlistClick = () => {
         if (isWishlist) {
-            removeFromWishlist(productDetails.id)
-            console.log("removed item from Wishlist", productDetails.id)
+            removeFromWishlist(productDetails._id)
+            console.log("removed item from Wishlist", productDetails._id)
         }
         else{
 
             const newItem = {
-              id: productDetails.id, // Assuming product id is available in productDetails
+              id: productDetails._id, // Assuming product id is available in productDetails
               title: productDetails.title,
               description:productDetails.description,
               price: productDetails.price,
@@ -73,7 +75,7 @@ const Product = () => {
               image:productDetails.images[0],
             }
             addToWishlist(newItem);
-            console.log("added item to Wishlist",productDetails.id)
+            console.log("added item to Wishlist",productDetails._id)
         };
         setisWishlist(!isWishlist);
       };
@@ -138,7 +140,7 @@ const Product = () => {
             </div>
             <section className='bg-rose-100 w-1/2 h-[120vh] px-8'>
                 <div className='flex justify-between  py-5'>
-                    <div className="pid">{productDetails.id}</div>
+                    <div className="pid">{productDetails._id}</div>
                     <div className='relative flex gap-5'>
                         <button onClick={handleWishlistClick} className="w-8 h-8  bg-rose-200 flex items-center justify-center rounded-full group hover:shadow-2xl">
                            {isWishlist?<i class="fa-solid fa-heart  group-hover:scale-125 group-active:scale-150  transition-all duration-500 "></i> :<i class="fa-regular fa-heart group-hover:scale-125 group-active:-scale-150 transition-all duration-500"></i> } 
@@ -228,7 +230,7 @@ const Product = () => {
                             <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
                                 <th>Collection</th>
                                 <td className='px-3'>:</td>
-                                <td>{productDetails.collection}</td>
+                                <td>{productDetails.jcollection}</td>
                             </tr>
                             <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
                                 <th>Gender</th>

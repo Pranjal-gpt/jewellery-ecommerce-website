@@ -31,9 +31,23 @@ exports.getJewelryByMerchant = async (req, res) => {
 exports.getAllJewelleries =async (req,res)=>{
   try {
     const jewelleryItems = await Jewelry.find();
-    console.log(jewelleryItems)
+    // console.log(jewelleryItems)
     res.json(jewelleryItems);
   } catch (error) {
     res.status(500).json({ infoMsg: 'Error fetching jewelry items', error: error.message });
   }
+}
+exports.getJewelleryById = async (req,res)=>{
+  const { id } = req.params;
+
+  try {
+    const jewelryItem = await Jewelry.findById(id);
+    if (!jewelryItem) {
+      return res.status(404).json({ message: 'Jewelry item not found' });
+    }
+    res.json(jewelryItem);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching jewelry item', error: error.message });
+  }
+
 }

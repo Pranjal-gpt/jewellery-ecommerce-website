@@ -28,7 +28,7 @@ const Wishlist = () => {
         const handleAddToCart = (productDetails) => {
            
                 const newItem = {
-                    id: productDetails.id, // Assuming product id is available in productDetails
+                    id: productDetails._id, // Assuming product id is available in productDetails
                     title: productDetails.title,
                     price: productDetails.price,
                     discount: productDetails.discount,
@@ -38,7 +38,7 @@ const Wishlist = () => {
                     image:productDetails.image,
             };
             addToCart(newItem);
-            console.log("added item to Cart",productDetails.id)
+            console.log("added item to Cart",productDetails._id)
             
         
           };

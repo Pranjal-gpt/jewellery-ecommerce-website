@@ -5,22 +5,22 @@ import { WishlistProvider,useWishlist } from '../contexts/wishlistContext';
 
 const Pitem = ({ product, mode, size }) => {
   const { WishlistItems,addToWishlist,removeFromWishlist} = useWishlist();
-  const [isWishlist, setisWishlist] = useState(WishlistItems.some(item => parseInt(item.id) ===parseInt(product.id) ))
+  const [isWishlist, setisWishlist] = useState(WishlistItems.some(item => parseInt(item._id) ===parseInt(product._id) ))
 
   const [hoveredImage, setHoveredImage] = useState(product.images && product.images.length > 0 ? product.images[0] : '');
-  let permalink = product.title.replace(/ /g, "-") +"#"+ product.id;
+  let permalink = product.title.replace(/ /g, "-") +"#"+ product._id;
   useEffect(() => {
     setHoveredImage(product.images && product.images.length > 0 ? product.images[0] : "");
   }, [product]);
   const handleWishlistClick = () => {
     if (isWishlist) {
-        removeFromWishlist(product.id)
-        console.log("removed item from Wishlist", product.id)
+        removeFromWishlist(product._id)
+        console.log("removed item from Wishlist", product._id)
     }
     else{
 
         const newItem = {
-          id: product.id, // Assuming product id is available in product
+          id: product._id, // Assuming product id is available in product
           title: product.title,
           description:product.description,
           price: product.price,
@@ -29,7 +29,7 @@ const Pitem = ({ product, mode, size }) => {
           image:product.images[0],
         }
         addToWishlist(newItem);
-        console.log("added item to Wishlist",product.id)
+        console.log("added item to Wishlist",product._id)
     };
     setisWishlist(!isWishlist);
   };
@@ -54,7 +54,7 @@ const Pitem = ({ product, mode, size }) => {
         to={"/jewellery/item/" + permalink}
         state={product}
       >
-        {product.title}
+        {product.title.length > 20 ? product.title.substring(0, 25) + '...' : product.title}
       </Link>
       <div className="font-bold text-lg">₹{product.price}</div>
       <Link

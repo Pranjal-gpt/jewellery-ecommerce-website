@@ -59,8 +59,8 @@ const JewelryForm = () => {
             <div className='bg-white flex justify-evenly flex-wrap gap-5 p-5'>
             {jews.map((item)=>(
                 <div className='p-2 rounded w-fit hover:shadow-xl shadow-md bg-rose-50'>
-                    <img src="https://i.ibb.co/tqqnQCq/jfu.png" alt="img" className='w-60' />
-                    <div className='font-semibold text-xl'>{item.title}</div>
+                    <img src={item.images[0]} alt="img" className='w-60' />
+                    <div className='font-semibold text-xl'>{title.length > 10 ? title.substring(0, 10) + '...' : title}</div>
                     <div className='font-semibold'>₹{item.price}</div>
                     <button className='text-sm p-1 rounded-md bg-rose-100 hover:bg-rose-200 text-center block w-full'>See Order Report</button>
                 </div>
