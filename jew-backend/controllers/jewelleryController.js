@@ -30,9 +30,56 @@ exports.getJewelryByMerchant = async (req, res) => {
 
 exports.getAllJewelleries =async (req,res)=>{
   try {
-    const jewelleryItems = await Jewelry.find();
-    // console.log(jewelleryItems)
-    res.json(jewelleryItems);
+    const category = req.query.category;
+    console.log(category)
+    if (category=="all"){
+       let jewelleryItems= await Jewelry.find();
+      console.log(jewelleryItems.map((item)=>item.jewelleryType.split("|")[1]))
+      res.json(jewelleryItems);
+    }
+    else{
+      let products="";
+    switch (category) {
+      case "Earrings":
+          products = "Earring"
+          break;
+      case "Pendants":
+          products = "Pendants"
+          break;
+      case "Mangalsutra":
+          products = "Mangalsutra"
+          break;
+      case "Necklace":
+          products = "Necklace"
+          break;
+      case "Chains":
+          products = "Chains"
+          break;
+      case "Bangles":
+          products = "Bangles"
+          break;
+      case "Finger-Rings":
+          products = "Ring"
+          break;
+      case "Nose-Pins":
+          products = "Nose Pins"
+          break;
+      case "Bracelets":
+          products = "Bracelets"
+          break;
+      
+      default:
+          products="Bangles"
+          break;
+  }
+
+  console.log(products)
+  let jewelleryItems = await Jewelry.find({ jewelleryType: new RegExp('^' + products + '\\|') });
+  console.log(jewelleryItems.length)
+  res.json(jewelleryItems);
+}
+
+
   } catch (error) {
     res.status(500).json({ infoMsg: 'Error fetching jewelry items', error: error.message });
   }
