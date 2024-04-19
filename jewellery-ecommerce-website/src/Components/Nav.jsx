@@ -69,104 +69,18 @@ const Nav = () => {
     {
       id: 2,
       name: "PENDANTS",
-      selfLink:"/jewellery/pendants",
-      link: [
-        {
-          id: 1,
-          name: "PEAELS PENDANTS",
-          link: "/jewellery/pendants/pearl-pendants",
-        },
-        {
-          id: 2,
-          name: "RILIGIONAL ",
-          link: "/jewellery/pendants/religional",
-        },
-        {
-          id: 3,
-          name: "ALPHBATICAL",
-          link: "/jewellery/pendants/alphabets-pendants",
-        },
-        {
-          id: 4,
-          name: "KIDS SPECIAL",
-          link: "/jewellery/pendants/kids-pendants",
-        },
-        {
-          id: 5,
-          name: "WOMENS",
-          link: "/jewellery/pendants/womens-pendants",
-        },
-        {
-          id: 6,
-          name: "MENS",
-          link: "/jewellery/pendants/mens-pendants",
-        },
-      ],
+      link:"/jewellery/pendants",
+      
     },
-
     {
       id: 3,
       name: "EARRINGS",
-      selfLink:"/jewellery/earrings",
-      link: [
-        {
-          id: 1,
-          name: "ALL EARRINGS",
-          link: "/jewellery/earrings/",
-        },
-        {
-          id: 2,
-          name: " DROP & DANGLERS",
-          link: "/jewellery/earrings/drop-and-danglers",
-        },
-        {
-          id: 3,
-          name: "HOOP & HUGGIES",
-          link: "/jewellery/earrings/hoop-and-huggies",
-        },
-        {
-          id: 4,
-          name: "JHUMKAS",
-          link: "/jewellery/earrings/jhumka",
-        },
-        {
-          id: 5,
-          name: "STUDS & TOPS",
-          link: "/jewellery/earrings/studs-and-tops",
-        },
-        {
-          id: 6,
-          name: "MENS",
-          link: "/jewellery/earrings/mens-earrings",
-        },
-      ],
+      link:"/jewellery/earrings",
     },
     {
       id: 4,
       name: "RINGS",
-      selfLink:"/jewellery/finger-rings",
-      link: [
-        {
-          id: 1,
-          name: "COUPLE RINGS",
-          link: "/jewellery/finger-rings/couple-rings",
-        },
-        {
-          id: 2,
-          name: "WOMENS RINGS",
-          link: "/jewellery/finger-rings/womens-rings",
-        },
-        {
-          id: 3,
-          name: "MEN'S RINGS",
-          link: "/jewellery/finger-rings/mens-rings",
-        },
-        {
-          id: 4,
-          name: "AMERICAN DIAMOND RINGS",
-          link: "/jewellery/finger-rings/american-diamond-rings",
-        },
-      ],
+      link:"/jewellery/finger-rings",
     },
     {
       id: 5,

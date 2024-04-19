@@ -7,6 +7,8 @@ const orderController = require('../controllers/orderController');
 // Define user routes
 router.post('/place',orderController.createOrder);
 router.post('/allorders',orderController.getByUser);
+router.post('/bymerchant',orderController.getByMerchant);
+router.put('/status',orderController.updateStatus);
 // router.post('/edit', jewelleryController.editJewellery); 
 
 module.exports = router;

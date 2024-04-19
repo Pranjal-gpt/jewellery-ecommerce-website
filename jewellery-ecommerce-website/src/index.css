@@ -5,8 +5,25 @@
 .Setfilter div {
     padding: 2px 4px;
     border:2px solid pink;
-    width: 100%;
+    width: fit-content;
+    border-radius: 5px;
 
+}
+.Setfilter option {
+  text-align: center;
+
+}
+.Setfilter select {
+  background-color: #ffe9eb;
+  border-radius: 7px;
+
+}
+.Setfilter select:hover {
+  background-color: #FECDD3;
+  outline: none;
+}
+.Setfilter select:active {
+  outline: none;
 }
 .drag-none{
     -webkit-user-drag: none; 

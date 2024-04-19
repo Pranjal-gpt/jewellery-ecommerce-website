@@ -30,3 +30,32 @@ exports.getByUser = async (req, res) => {
         return res.status(500).json({ error: 'Internal server error' });
       }
 };
+
+exports.getByMerchant = async (req, res) => {
+    try {
+        const orders = await Order.find();
+        console.log(orders)
+        // console.log("user found",user)
+        return res.json({ status: 'ok', info: orders })
+      } catch (error) {
+        console.log(error)
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+};
+exports.updateStatus = async (req,res) =>{
+  try {
+    const {orderIds,status} = req.body
+    console.log(orderIds,status)
+    const updatedOrder = await Order.findByIdAndUpdate(orderIds, { status }, { new: true });
+
+    if (!updatedOrder) {
+      return res.status(404).json({ success: false, message: 'Order not found' });
+    }
+    console.log(updatedOrder)
+    res.status(200).json({ success: true, message: 'Order status updated successfully', order: updatedOrder });
+  } catch (error) {
+    console.log(error)
+    console.error('Error updating order status:', error);
+    res.status(500).json({ success: false, message: 'Failed to update order status' });
+  }
+}

@@ -33,7 +33,7 @@ const Checkout = () => {
       // Send the order data to the backend
       const response = await axios.post('http://localhost:3000/api/order/place', { 
         email:JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email,
-        products:(data.cartItems).map((item)=>parseInt(item.id)),
+        products:(data.cartItems).map((item)=>item.title.length >25 ? item.title.substring(0,25) + '...' : item.title),
         totalAmount:data.netPay,
         shippingAddress:addr.address1
        });
