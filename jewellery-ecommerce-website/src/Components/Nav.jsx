@@ -268,6 +268,8 @@ const Nav = () => {
                       Add Product</Link>
                       </div>
                       }
+                      <Link to={"/orders"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '>
+                        My Orders</Link>
                       <button onClick={logout} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '>
                         Logout</button>
                     </div>:(<div>

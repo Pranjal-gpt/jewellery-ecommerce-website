@@ -3,9 +3,11 @@ import { useEffect,useState } from 'react'
 import Nav from '../Components/Nav'
 import Footer from '../Components/Footer'
 import { CartProvider } from '../contexts/cartContext'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 const Checkout = () => {
+  const navigate = useNavigate()
   const location = useLocation()
   const data = location.state
   const [addr, setaddr] = useState("")
@@ -31,14 +33,15 @@ const Checkout = () => {
       // Send the order data to the backend
       const response = await axios.post('http://localhost:3000/api/order/place', { 
         email:JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email,
-        products:data.cartItems,
+        products:(data.cartItems).map((item)=>parseInt(item.id)),
         totalAmount:data.netPay,
         shippingAddress:addr.address1
        });
-      console.log('Order placed:', response.data);
+      console.log('Order placed:', response.data.status);
+      navigate("/orders")
       // Optionally, redirect to a confirmation page or show a success message
     } catch (error) {
-      setErrorMessage('Failed to place order');
+      // setErrorMessage('Failed to place order');
       console.error('Error placing order:', error);
     }
   };
@@ -82,10 +85,12 @@ getuser()
                         <fieldset className='border-2 mx-auto w-10/12 border-rose-800 rounded text-center  p-2 relative'>
                             <legend>Items Overview</legend>
                             {data.cartItems.map((item)=>( 
-                            <div className='flex justify-center gap-1 border w-fit mx-auto py-1 px-2 rounded-md border-rose-200'>
+                            <div className='flex my-1  gap-1 border w-72 mx-auto py-1 px-2 rounded-md border-rose-200'>
                               <img src={item.image} className='w-10 h-10 rounded-md' alt="" />
                               <div className='text-left'>
-                                <div className='text-sm'>{item.title}</div>
+                                <div className='text-sm'>
+                                {item.title.length >30 ? item.title.substring(0,35) + '...' : item.title}
+                                  </div>
                                 <small className='text-xs'>{item.id}</small>
                               </div>
                             </div>
@@ -93,7 +98,7 @@ getuser()
                         </fieldset>
 
                         <button className='px-10 py-3 w-full block mx-auto mt-5 text-center rounded border-2 border-rose-800 hover:bg-rose-200 hover:text-rose-800 bg-rose-800 text-rose-50 transition-all duration-100 '
-                            
+                            onClick={handleCheckout}
                             >Place Order</button>
                         <Link className=' py-1 px-9 block w-fit mx-auto mt-5 text-center rounded border-2 border-rose-800 hover:bg-rose-200 hover:text-rose-800 bg-rose-900 text-rose-50 transition-all duration-100 '
                          to={"/cart"} >Cancel</Link>

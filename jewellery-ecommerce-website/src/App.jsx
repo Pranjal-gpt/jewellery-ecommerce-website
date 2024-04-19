@@ -14,6 +14,7 @@ import SignInForm from "./Pages/Signin";
 import Addjewellery from "./Pages/Addjewellery"
 import MerchantPage from "./Pages/MerchantPage"
 import Checkout from "./Pages/Checkout";
+import Orders from "./Pages/Orders";
 const App = () => {
   return (
     <BrowserRouter >
@@ -70,6 +71,7 @@ const App = () => {
             <Route path='/jewellery/best-sellers' element={<Products category={"Best Sellers"} />} />
 
             <Route path='/checkout' element={ <Checkout /> } />
+            <Route path='/orders' element={ <Orders /> } />
             <Route path='/cart' element={ <Cart /> } />
             <Route path='/wishlist' element={<Wishlist />} />
             <Route path='/about' element={<About />} />
