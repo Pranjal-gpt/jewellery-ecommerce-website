@@ -8,6 +8,17 @@ import { useCart,CartProvider } from '../contexts/cartContext'
 
 // const {CartData} = categories;
 const Cart = () => {
+  const [user, setuser] = useState("")
+  useEffect(() => {
+        const token = localStorage.getItem('token')
+        
+        if (token) {
+            const usertoken =""// jwt.decode(token)
+            setuser(JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email);
+        }
+        
+    }, [])
+
     const { cartItems, removeFromCart } = useCart();
     const [PromoCode, setPromoCode] = useState('');
     const [PromoDiscount, setPromoDiscount] = useState(0);
@@ -146,18 +157,20 @@ const Cart = () => {
                                                         onClick={()=>{if(Totalprice>2000){setPromoCode("Welcome500");setPromoDiscount(500)}}}>{PromoCode!=="Welcome500"?"apply":"✔️Applied"}</button></span>
                                 </div>
                         </fieldset>
-
+                        {user?
                         <Link className='px-10 py-3 block mx-auto mt-5 text-center rounded border-2 border-rose-800 hover:bg-rose-200 hover:text-rose-800 bg-rose-800 text-rose-50 transition-all duration-100 '
-                            to={"/checkout"}    
-                            state={
-                                {
-                                    cartItems:cartItems,
-                                    mrp:Totalprice.toFixed(2),
-                                    totalSaved:(Totalprice-DiscountedPrice).toFixed(2),
-                                    promoDiscounts:PromoDiscount,
-                                    netPay:DiscountedPrice.toFixed(2)-PromoDiscount
-                                }}
+                        to={"/checkout"}    
+                        state={
+                            {
+                                cartItems:cartItems,
+                                mrp:Totalprice.toFixed(2),
+                                totalSaved:(Totalprice-DiscountedPrice).toFixed(2),
+                                promoDiscounts:PromoDiscount,
+                                netPay:DiscountedPrice.toFixed(2)-PromoDiscount
+                            }}
                             >Proceed Checkout</Link>
+                        :  <Link to="/signin" state={"customer"} className='w-fit px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '
+                        >Please LogIn First</Link>}
                 </div>
                 
             </section>

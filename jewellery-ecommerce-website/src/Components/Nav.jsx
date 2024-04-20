@@ -152,12 +152,13 @@ const Nav = () => {
 
           <Link to={"/wishlist"}>Wishlist </Link>
           </WishlistProvider>
-
+          {accType!="merchant"&&
           <Link className='group transition-all duration-500 flex items-center justify-between gap-2 rounded-full  px-5 py-2 shadow-lg bg-gradient-to-br from-rose-200 via-rose-300 to-rose-600'
             to={"/cart"}>
               <span className='hidden group-hover:block mb-1'>Cart </span>
               <i class="fa-solid fa-cart-shopping"></i>
             </Link>
+}
           <button  className="relative cursor-pointer group flex items-center justify-center rounded-full hover:shadow-2xl">
                   <div class="group-hover:bg-rose-200 px-3 py-2 rounded-md translate-all ease-in-out duration-300 group">
                     Account</div>
@@ -175,8 +176,8 @@ const Nav = () => {
                       Add Product</Link>
                       </div>
                       }
-                      <Link to={"/orders"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '>
-                        My Orders</Link>
+                      {/* <Link to={"/orders"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '>
+                        My Orders</Link> */}
                       <button onClick={logout} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '>
                         Logout</button>
                     </div>:(<div>

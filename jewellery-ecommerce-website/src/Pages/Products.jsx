@@ -27,7 +27,7 @@ const Products = ({category,all=false}) => {
   
   const getProductsData = (products="all") =>{
     // Fetch the homepage data from your backend API
-    products+= `&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
+    products+= `&search=${search}&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
     let productUrl = "http://localhost:3000/api/jewellery/all?category="+products.replace(" ","-");
       console.log(productUrl)
       fetch(productUrl)
@@ -41,12 +41,13 @@ const Products = ({category,all=false}) => {
         className='px-2 py-1 border-2 border-rose-200 hover:bg-rose-100 transition-all duration-100 '
         onClick={()=>{
           getProductsData(name);
-          setVisibleProducts(4);}}
+          setVisibleProducts(4);
+        }}
           >{name}</button>
         )
       }
       const handleSearch=()=>{
-        
+        getProductsData(category)
       }
       const resetFilters=()=>{
         setsearch("");
@@ -91,7 +92,7 @@ const Products = ({category,all=false}) => {
                       placeholder='Search for Jewellery' 
                       className='px-3 py-2 w-72 active:outline-rose-600 hover:w-[22rem] transition-all duration-500 ease-in focus:w-[420px] rounded bg-rose-50 placeholder-rose-300'>
                     </input>
-                    <i onClick={()=>{}} class="fa-solid fa-magnifying-glass absolute cursor-zoom-in right-3 top-1/2 -translate-y-1/2 bg-rose-300 text-white hover:scale-125 pl-1 rounded-full p-1 "></i>
+                    <i onClick={handleSearch} class="fa-solid fa-magnifying-glass absolute cursor-zoom-in right-3 top-1/2 -translate-y-1/2 bg-rose-300 text-white hover:scale-125 pl-1 rounded-full p-1 "></i>
                   </div>
                 <div>Pincode <i class="fa-solid fa-map-pin"></i></div>
             </section>

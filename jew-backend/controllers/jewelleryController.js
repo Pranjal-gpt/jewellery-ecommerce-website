@@ -45,7 +45,7 @@ exports.getJewelryByMerchant = async (req, res) => {
   exports.getAllJewelleries =async (req,res)=>{
     try {
       // Destructure the filter parameters from the request query
-      const { category, priceMin, priceMax, gender, jcollection, occasion, metal, metalColor, community } = req.query;
+      const { category, search, priceMin, priceMax, gender, jcollection, occasion, metal, metalColor, community } = req.query;
   console.log(req.query)
       // Construct the filter object based on the provided parameters
       const filter = {};
@@ -56,6 +56,10 @@ exports.getJewelryByMerchant = async (req, res) => {
         filter.jewelleryType = { $regex: regex };
       }
       console.log(filter)
+      if (search && search != '') {
+        filter.title ={ $regex: search, $options: 'i' } 
+      }
+
       if (priceMin && priceMax) {
         filter.price = { $gte: parseInt(priceMin), $lte: parseInt(priceMax) };
       }

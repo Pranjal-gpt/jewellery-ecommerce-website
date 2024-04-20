@@ -34,7 +34,7 @@ exports.getByUser = async (req, res) => {
 exports.getByMerchant = async (req, res) => {
     try {
         const orders = await Order.find();
-        console.log(orders)
+        // console.log(orders)
         // console.log("user found",user)
         return res.json({ status: 'ok', info: orders })
       } catch (error) {
@@ -59,3 +59,21 @@ exports.updateStatus = async (req,res) =>{
     res.status(500).json({ success: false, message: 'Failed to update order status' });
   }
 }
+
+exports.deleteOrder = async (req,res) => {
+  try {
+    // Use the deleteOne method to delete the order
+    // console.log("data get", req.body)
+    const result = await Order.deleteOne({ orderId: req.body.orderId });
+    if (result.deletedCount === 0) {
+      return { success: false, message: 'Order not found' };
+    }
+
+    return res.json({ status: 'ok', info: "Deleted Order Succesfully" })
+
+  } catch (error) {
+    console.log("no delete",error)
+    return { status: "no", message: 'Failed to delete order', error: error.message };
+  }
+};
+
