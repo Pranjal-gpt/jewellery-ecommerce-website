@@ -1,26 +1,28 @@
 {
     "slides": [
       {
-        "src": "https://i.ibb.co/vvFGjSj/car1.jpg",
-        "alt": "Image 2 for carousel"
+        "src": "https://i.imghippo.com/files/xYgqW1713549461.png",
+        "alt": "Image 1 for carousel"
         
       },
       {
-        "src": "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwbcecd6fc/homepage/HeroBanner/earrings-desktop.jpg",
+        "src": "https://i.imghippo.com/files/gli2y1713549566.png",
         "alt": "Image 2 for carousel"
       },
+      
       {
-        "src": "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwbcecd6fc/homepage/HeroBanner/earrings-desktop.jpg",
-        "alt": "Image 2 for carousel"
-      },
-      {
-        "src": "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw7f7d0da9/homepage/HeroBanner/rings-desktop.jpg",
+        "src": "https://i.imghippo.com/files/ChFDX1713549786.png",
         "alt": "Image 1 for carousel"
       },
       {
-        "src": "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw2d0b80ea/homepage/HeroBanner/mangalsutra-desktop.jpg",
-        "src2": "https://picsum.photos/seed/img3/600/400",
-        "alt": "Image 3 for carousel"
+        "src": "https://i.imghippo.com/files/xxz1Z1713550058.jpg",
+        "alt": "Image 1 for carousel"
+      },
+      {
+        "src": "https://i.imghippo.com/files/O9zgu1713548893.png",
+        "alt": "Image 1 for carousel"
+        
       }
+      
     ]
   }

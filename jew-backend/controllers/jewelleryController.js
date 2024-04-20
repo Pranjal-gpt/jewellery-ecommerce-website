@@ -43,107 +43,109 @@ exports.getJewelryByMerchant = async (req, res) => {
 
 }
   exports.getAllJewelleries =async (req,res)=>{
-    // try {
-    //   // Destructure the filter parameters from the request query
-    //   const { category, priceMin, priceMax, gender, jcollection, occasion, metal, metalColor, community } = req.query;
+    try {
+      // Destructure the filter parameters from the request query
+      const { category, priceMin, priceMax, gender, jcollection, occasion, metal, metalColor, community } = req.query;
+  console.log(req.query)
+      // Construct the filter object based on the provided parameters
+      const filter = {};
   
-    //   // Construct the filter object based on the provided parameters
-    //   const filter = {};
-  
-    //   if (category && category !== 'all') {
-    //     filter.jewelleryType = category;
-    //   }
-  
-    //   if (priceMin && priceMax) {
-    //     filter.price = { $gte: parseInt(priceMin), $lte: parseInt(priceMax) };
-    //   }
-  
-    //   if (gender && gender !== 'any') {
-    //     filter.gender = gender;
-    //   }
-  
-    //   if (jcollection && jcollection !== 'all') {
-    //     filter.jcollection = jcollection;
-    //   }
-  
-    //   if (occasion && occasion !== 'any') {
-    //     filter.occasion = occasion;
-    //   }
-  
-    //   if (metal && metal !== 'all') {
-    //     filter.metal = metal;
-    //   }
-  
-    //   if (metalColor && metalColor !== 'all') {
-    //     filter.materialColour = metalColor;
-    //   }
-  
-    //   if (community && community !== 'any') {
-    //     filter.community = community;
-    //   }
-  
-    //   // Retrieve the filtered jewelleries from the database
-    //   const filteredJewelleries = await Jewelry.find(filter);
-    //   console.log(filteredJewelleries[0])
-    //   console.log("test")
-    //   res.json(filteredJewelleries);
-    // } catch (error) {
-    //   res.status(500).json({ error: 'Failed to fetch filtered jewelleries', message: error.message });
-    // }
-      
-      try {
-        console.log(req.query)
-        const category = req.query.category;
-        // console.log(category)
-        if (category=="all"){
-           let jewelleryItems= await Jewelry.find();
-          // console.log(jewelleryItems.map((item)=>item.jewelleryType.split("|")[0]))
-          res.json(jewelleryItems);
-        }
-        else{
-          let products="";
-        switch (category) {
-          case "Earrings":
-              products = "Earring"
-              break;
-          case "Pendants":
-              products = "Pendants"
-              break;
-          case "Mangalsutra":
-              products = "Mangalsutra"
-              break;
-          case "Necklace":
-              products = "Necklace"
-              break;
-          case "Chains":
-              products = "Chains"
-              break;
-          case "Bangles":
-              products = "Bangles"
-              break;
-          case "Finger-Rings":
-              products = "Ring"
-              break;
-          case "Nose-Pins":
-              products = "Nose Pins"
-              break;
-          case "Bracelets":
-              products = "Bracelets"
-              break;
-          
-          default:
-              products="Bangles"
-              break;
+      if (category && category != 'all') {
+        // filter.jewelleryType = category;
+        const regex = new RegExp(`^${category}`);
+        filter.jewelleryType = { $regex: regex };
       }
-    
-      console.log(products)
-      let jewelleryItems = await Jewelry.find({ jewelleryType: new RegExp('^' + products + '\\|') });
-      console.log(jewelleryItems.length)
-      res.json(jewelleryItems);
+      console.log(filter)
+      if (priceMin && priceMax) {
+        filter.price = { $gte: parseInt(priceMin), $lte: parseInt(priceMax) };
+      }
+  
+      if (gender && gender !== 'any') {
+        filter.gender = gender;
+      }
+  
+      if (jcollection && jcollection !== 'any') {
+        filter.jcollection = jcollection;
+      }
+  
+      if (occasion && occasion !== 'any') {
+        filter.occasion = occasion;
+      }
+  
+      if (metal && metal !== 'any') {
+        filter.metal = metal;
+      }
+  
+      if (metalColor && metalColor !== 'any') {
+        filter.materialColour = metalColor;
+      }
+  
+      if (community && community !== 'all') {
+        filter.community = community;
+      }
+  
+      // Retrieve the filtered jewelleries from the database
+      const filteredJewelleries = await Jewelry.find(filter);
+      // console.log(filteredJewelleries[0])
+      console.log("test")
+      res.json(filteredJewelleries);
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to fetch filtered jewelleries', message: error.message });
     }
+      
+    //   try {
+    //     console.log(req.query)
+    //     const category = req.query.category;
+    //     // console.log(category)
+    //     if (category=="all"){
+    //        let jewelleryItems= await Jewelry.find();
+    //       // console.log(jewelleryItems.map((item)=>item.jewelleryType.split("|")[0]))
+    //       res.json(jewelleryItems);
+    //     }
+    //     else{
+    //       let products="";
+    //     switch (category) {
+    //       case "Earrings":
+    //           products = "Earring"
+    //           break;
+    //       case "Pendants":
+    //           products = "Pendants"
+    //           break;
+    //       case "Mangalsutra":
+    //           products = "Mangalsutra"
+    //           break;
+    //       case "Necklace":
+    //           products = "Necklace"
+    //           break;
+    //       case "Chains":
+    //           products = "Chains"
+    //           break;
+    //       case "Bangles":
+    //           products = "Bangles"
+    //           break;
+    //       case "Finger-Rings":
+    //           products = "Ring"
+    //           break;
+    //       case "Nose-Pins":
+    //           products = "Nose Pins"
+    //           break;
+    //       case "Bracelets":
+    //           products = "Bracelets"
+    //           break;
+          
+    //       default:
+    //           products="Bangles"
+    //           break;
+    //   }
+    
+    //   console.log(products)
+    //   let jewelleryItems = await Jewelry.find({ jewelleryType: new RegExp('^' + products + '\\|') });
+    //   console.log(jewelleryItems.length)
+    //   res.json(jewelleryItems);
+    // }
     
     
-      } catch (error) {
-        res.status(500).json({ infoMsg: 'Error fetching jewelry items', error: error.message });
-      }
+    //   } catch (error) {
+    //     res.status(500).json({ infoMsg: 'Error fetching jewelry items', error: error.message });
+    //   }
     }

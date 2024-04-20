@@ -80,7 +80,7 @@ const Home = () => {
             {homepageData && homepageData.New.map((New) => (
               <Citem cName={New.cName}
               cLink={New.cLink}
-              cImg={New.imgurl} size={"w-96 h-72"} />
+              cImg={New.imgurl} size={"w-72 h-80"} />
             ))}
           </div>
         </div>
@@ -93,22 +93,22 @@ const Home = () => {
           {/*underline code*/}
           <div className="flex gap-7 flex-wrap justify-center w-11/12 mx-auto">
             <Citem
-              cImg="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwef4310c0/homepage/ShopByGender/Men.jpg"
+              cImg="https://i.imghippo.com/files/8XbYk1713551029.jpg"
               cName="Mens"
-              cLink={"/jewellery?gender=mens"}
-              size={"w-96 h-72"}
+              cLink={"/jewellery"}
+              size={"w-96 h-72 rounded-xl "}
             />
             <Citem
-              cImg="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwef4310c0/homepage/ShopByGender/Men.jpg"
-              cName="Kids"
-              cLink={"/jewellery?gender=kids"}
-              size={"w-96 h-72"}
-            />
-            <Citem
-              cImg="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwef4310c0/homepage/ShopByGender/Men.jpg"
+              cImg="https://i.imghippo.com/files/n6tfK1713551195.jpg"
               cName="Womens"
-              cLink={"/jewellery?gender=womens"}
-              size={"w-96 h-72"}
+              cLink={"/jewellery"}
+              size={"w-96 h-72 rounded-2xl object-cover"}
+            />
+            <Citem
+              cImg="https://i.imghippo.com/files/suoxl1713551129.jpg"
+              cName="Kids"
+              cLink={"/jewellery/"}
+              size={"w-96 h-72 rounded-2xl object-cover"}
             />
           </div>
         </div>

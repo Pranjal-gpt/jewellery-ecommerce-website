@@ -39,11 +39,11 @@ const App = () => {
             <Route path='/jewellery/pendants' element={<Products category={"Pendants"} />} />
             <Route path='/jewellery/pendants/:name' element={<Products category={"Pendants"} />} />
 
-            <Route path='/jewellery/earrings' element={<Products category={"Earrings"} />} />
-            <Route path='/jewellery/earrings/:name' element={<Products category={"Earrings"} />} />
+            <Route path='/jewellery/earrings' element={<Products category={"Earring"} />} />
+            <Route path='/jewellery/earrings/:name' element={<Products category={"Earring"} />} />
 
-            <Route path='/jewellery/finger-rings' element={<Products category={"Finger Rings"} />} />
-            <Route path='/jewellery/finger-rings/:name' element={<Products category={"Finger Rings"} />} />
+            <Route path='/jewellery/finger-rings' element={<Products category={"Ring"} />} />
+            <Route path='/jewellery/finger-rings/:name' element={<Products category={"Ring"} />} />
 
             <Route path='/jewellery/mangalsutra' element={<Products category={"Mangalsutra"} />} />
             <Route path='/jewellery/mangalsutra/:name' element={<Products category={"Mangalsutra"} />} />
@@ -51,8 +51,8 @@ const App = () => {
             <Route path='/jewellery/chains' element={<Products category={"Chains"} />} />
             <Route path='/jewellery/chains/:name' element={<Products category={"Chains"} />} />
 
-            <Route path='/jewellery/nose-pins' element={<Products category={"Nose Pins"} />} />
-            <Route path='/jewellery/nose-pins/:name' element={<Products category={"Nose Pins"} />} />
+            <Route path='/jewellery/nose-pins' element={<Products category={"Nose-Pins"} />} />
+            <Route path='/jewellery/nose-pins/:name' element={<Products category={"Nose-Pins"} />} />
 
             <Route path='/jewellery/necklace' element={<Products category={"Necklace"} />} />
             <Route path='/jewellery/necklace/:name' element={<Products category={"Necklace"} />} />

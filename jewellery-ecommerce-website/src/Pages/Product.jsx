@@ -5,17 +5,19 @@ import Hr from '../Components/Hr';
 import TotalRating from '../Components/TotalRating'
 import features from '../assets/features.png'
 import Pitem from '../Components/Pitem';
-import { Link,useFetcher,useLocation } from 'react-router-dom';
+import { Link,useFetcher,useNavigate} from 'react-router-dom';
 import categories from '../data/demodata';
 const { SimilarProducts } = categories;
 import { CartProvider,useCart } from '../contexts/cartContext';
 import { useWishlist } from '../contexts/wishlistContext';
 
 const Product = () => {
+    let navigate = useNavigate()
     const { addToCart,cartItems } = useCart();
     const {WishlistItems, addToWishlist,removeFromWishlist} = useWishlist();
     const [productDetails,setProductDetails] = useState([])
-    const [Quantity,setQuantity] = useState(1);
+    const [Quantity,setQuantity] = useState(1)
+    const [similar, setsimilar] = useState([])
     
     var permalink=window.location.href;
     const pId = permalink.split("#")[permalink.split("#").length - 1];
@@ -184,7 +186,7 @@ const Product = () => {
                     >{isinCart?"Added In Cart":"Add To Cart"}</button>
                     <button 
                         className='px-10 py-3 rounded border-2 border-rose-800 hover:bg-rose-200 hover:text-rose-800 bg-rose-800 text-rose-50 transition-all duration-100 '
-                        onClick={()=>{}}
+                        onClick={()=>{handleAddToCart(); setTimeout(() => {navigate("/cart") }, 50); }}
                         >Buy Now</button>
                 </div>
                         </span>

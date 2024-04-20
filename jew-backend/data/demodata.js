@@ -83,7 +83,7 @@ const allcategories = [
   {
     id: 6,
     imgurl:
-      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw02b097f8/images/hi-res/502920HBGABE00_1.jpg?sw=360&sh=360",
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwb61ca4ed/images/hi-res/50D3I1PRRAAA29_1.jpg",
     cName: "Pendants",
     cLink: "jewellery/pendants",
   },

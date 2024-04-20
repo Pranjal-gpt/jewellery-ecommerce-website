@@ -65,7 +65,7 @@ const Wishlist = () => {
                             <div className=' font-semibold'>
                                 <span>Price.</span>
                                 <span className='mx-2 font-semibold text-2xl text-green-600'>₹{(item.price-(item.price*item.discount)/100).toFixed(2)}</span>
-                                <strike className=' text-rose-700'>₹{item.price}</strike><span className=' text-rose-700'> {"(discounted "+item.discount+"%)"}</span>
+                                <strike className=' text-rose-700'>₹{item.price}</strike><span className='w-fit text-rose-700 border-2 ml-2 border-rose-800 p-1'>{item.discount+"% OFF"}</span>
                             </div>
                         </div>
                             <div className='text-xl my-3 w-96 flex items-center justify-around'>

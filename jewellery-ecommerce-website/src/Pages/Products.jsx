@@ -18,21 +18,21 @@ const Products = ({category,all=false}) => {
   const [priceMin, setpriceMin] = useState(0)
   const [priceMax, setpriceMax] = useState(1000000)
   const [gender, setgender] = useState("any")
-  const [jcollection, setjcollection] = useState("all")
+  const [jcollection, setjcollection] = useState("any")
   const [occasion, setoccasion] = useState("any")
-  const [metal, setmetal] = useState("all")
-  const [metalColor, setmetalColor] = useState("all")
-  const [community, setcommunity] = useState("any")
+  const [metal, setmetal] = useState("any")
+  const [metalColor, setmetalColor] = useState("any")
+  const [community, setcommunity] = useState("all")
   // const [brand, setbrand] = useState("any")
   
   const getProductsData = (products="all") =>{
-      // Fetch the homepage data from your backend API
-      products+= `&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
-      let productUrl = "http://localhost:3000/api/jewellery/all?category="+products.replace(" ","-");
+    // Fetch the homepage data from your backend API
+    products+= `&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
+    let productUrl = "http://localhost:3000/api/jewellery/all?category="+products.replace(" ","-");
       console.log(productUrl)
       fetch(productUrl)
         .then((response) => response.json())
-        .then((data) => setProductsData(data))
+        .then((data) => {setProductsData(data);console.log(data)})
         .catch((error) => console.error("Error fetching products data:", error));
   }
   const TagBtn = ({name}) => {
@@ -42,9 +42,25 @@ const Products = ({category,all=false}) => {
         onClick={()=>{
           getProductsData(name);
           setVisibleProducts(4);}}
-      >{name}</button>
-    )
-  }
+          >{name}</button>
+        )
+      }
+      const handleSearch=()=>{
+        
+      }
+      const resetFilters=()=>{
+        setsearch("");
+        setpriceMin(0)
+        setpriceMax(1000000)
+        setgender("any")
+        setjcollection("any")
+        setoccasion("any")
+        setmetal("any")
+        setmetalColor("any")
+        setcommunity("all")
+        setFilterMode(false)
+        ;
+      }
   const getAllJewellery = ()=>{
     fetch("http://localhost:3000/api/jewellery/all")
         .then((response) => response.json())
@@ -67,22 +83,32 @@ const Products = ({category,all=false}) => {
         <main className=''>
             <section className='flex justify-between items-center px-24 h-12 bg-rose-100'>
                 <div className="path">Home {">"} Products</div>
+                  <div className='relative'>
+                    <input 
+                      value={search}
+                      onChange={(e)=>{setsearch(e.target.value)}}
+                      type='text' name='search' 
+                      placeholder='Search for Jewellery' 
+                      className='px-3 py-2 w-72 active:outline-rose-600 hover:w-[22rem] transition-all duration-500 ease-in focus:w-[420px] rounded bg-rose-50 placeholder-rose-300'>
+                    </input>
+                    <i onClick={()=>{}} class="fa-solid fa-magnifying-glass absolute cursor-zoom-in right-3 top-1/2 -translate-y-1/2 bg-rose-300 text-white hover:scale-125 pl-1 rounded-full p-1 "></i>
+                  </div>
                 <div>Pincode <i class="fa-solid fa-map-pin"></i></div>
             </section>
             <section className='flex justify-between items-center px-24 h-16 bg-rose-50'>
-                <div className="filters bg-rose-50 rounded-lg px-2 py-1 border border-rose-300 cursor-pointer select-none" onClick={()=>{setFilterMode(!FilterMode)}}><i class="fa-solid fa-sliders"></i> Filters</div>
+                <div className={(FilterMode&&"bg-rose-200 font-bold ")+"filter rounded-lg px-2 py-1 border border-rose-300 cursor-pointer select-none"} onClick={()=>{setFilterMode(!FilterMode)}}><i class="fa-solid fa-sliders"></i> Filters</div>
                 {all?(
 
                   <div className='flex gap-3'>
                   <TagBtn name={"Pendants"} />
                   <TagBtn name={"Necklace"} />
                   <TagBtn name={"Mangalsutra"}  />
-                  <TagBtn name={"Earrings"}  />
+                  <TagBtn name={"Earring"}  />
                   <TagBtn name={"Chains"} />
                   <TagBtn name={"Bangles"}  />
                   <TagBtn name={"Bracelets"}  />
-                  <TagBtn name={"Nose Pins"} />
-                  <TagBtn name={"Rings"}  />
+                  <TagBtn name={"Nose-Pins"} />
+                  <TagBtn name={"Ring"}  />
                 </div>
                 ):""}
                 <div>Sort By</div>
@@ -133,6 +159,7 @@ const Products = ({category,all=false}) => {
                 <b>Collection</b>
                 <select  onChange={(e)=>setjcollection(e.target.value)}  value={jcollection} name="jcollection" id="jcollection">
                   <option value="any">Any</option>
+                  <option value="Bestsellers">Bestsellers</option>
                   <option value="prettyinpink">Pretty In Pink</option>
                   <option value="joyofdressing">Joy of Dressing</option>
                   <option value="stringit">String It</option>
@@ -150,17 +177,25 @@ const Products = ({category,all=false}) => {
               <div>
                 <b>Community</b>
                 <select onChange={(e)=>setcommunity(e.target.value)}  value={community} name="community" id="community">
-                  <option value="any">All</option>
-                  <option value="Gujrati">Gujrati</option>
-                  <option value="Marathi">Marathi</option>
-                  <option value="Punjabi">Punjabi</option>
+                  <option value="all">All</option>
+                  <option value="mujrati">Gujrati</option>
+                  <option value="marathi">Marathi</option>
+                  <option value="punjabi">Punjabi</option>
                 </select>
               </div>
-              <p className='pt-5'><button onClick={()=>{getProductsData(category)}} className=' hover:bg-rose-300 rounded-md text-lg px-4 py-2 bg-rose-200'> Apply</button></p>
+              <p className='pt-5 flex gap-5'>
+                <button onClick={()=>{getProductsData(category)}} className=' hover:bg-rose-300 rounded-md text-lg px-4 py-2 bg-rose-200 active:bg-rose-400'> Apply</button>
+                <button onClick={() => {
+                            resetFilters();
+                            getProductsData(category);
+                        }}  
+                        className=' hover:bg-rose-300 rounded-md text-lg px-4 py-2 bg-rose-200 active:bg-rose-400'> Reset</button>
+                </p>
             </section>
             :""}
             {/* <Hr thickness={"h-0.5"} length={"w-11/12"} /> */}
             <section className='section flex gap-10 flex-wrap justify-center mt-5 mx-auto  w-11/12'>
+                {ProductsData<1&&<div className='p-5 mx-auto'>No Results Found</div>}
                 {ProductsData.slice(0, visibleProducts).map((product,key)=>(
                    <Pitem product={product} size={"w-72 h-72"} />
                 ))}
