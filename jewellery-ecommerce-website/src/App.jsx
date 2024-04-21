@@ -15,6 +15,7 @@ import Addjewellery from "./Pages/Addjewellery"
 import MerchantPage from "./Pages/MerchantPage"
 import Checkout from "./Pages/Checkout";
 import Orders from "./Pages/Orders";
+import Collections from "./Pages/Collections";
 const App = () => {
   return (
     <BrowserRouter >
@@ -63,12 +64,14 @@ const App = () => {
             <Route path='/jewellery/bracelets' element={<Products category={"Bracelets"} />} />
             <Route path='/jewellery/bracelets/:name' element={<Products category={"Bracelets"} />} />
 
-            <Route path='/jewellery/collections' element={<Products category={"Collections"} />} />
-            <Route path='/jewellery/collections/:name' element={<Products category={"Collections"} />} />
+            <Route path='/jewellery/collections' element={<Collections />} />
+            <Route path='/jewellery/collections/pretty-in-pink' element={<Products category={"all"} collec={"prettyinpink"} />} />
+            <Route path='/jewellery/collections/joy-of-dressing' element={<Products category={"all"} collec={"joyofdressing"} />} />
+            <Route path='/jewellery/collections/string-it' element={<Products category={"all"} collec={"stringit"} />} />
+            <Route path='/jewellery/collections/best-sellers' element={<Products category={"all"} collec="Bestsellers" />} />
 
-            <Route path='/jewellery/wedding' element={<Products category={"Wedding"} />} />
+            <Route path='/jewellery/wedding' element={<Products category={"all"} occa="wedding" />} />
             <Route path='/jewellery/gifting' element={<Products category={"Gifting"} />} />
-            <Route path='/jewellery/best-sellers' element={<Products category={"Best Sellers"} />} />
 
             <Route path='/checkout' element={ <Checkout /> } />
             <Route path='/orders' element={ <Orders /> } />

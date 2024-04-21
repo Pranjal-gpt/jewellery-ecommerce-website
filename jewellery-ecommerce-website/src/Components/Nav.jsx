@@ -100,24 +100,24 @@ const Nav = () => {
         {
           id: 1,
           name: "PREETY IN PINK",
-          link: "/collections/pretty-in-pink",
+          link: "/jewellery/collections/pretty-in-pink",
         },
         {
           id: 2,
           name: "STRING IT",
-          link: "/jewellery/finger-rings/string-it",
+          link: "/jewellery/collections/string-it",
         },
         {
           id: 3,
           name: "JOY OF DRESSINGS",
-          link: "/jewellery/finger-rings/joy-of-dressing",
+          link: "/jewellery/collections/joy-of-dressing",
         },
       ],
     },
     {
       id: 8,
       name: "BESTSELLERS",
-      link: "/jewellery/best-sellers",
+      link: "/jewellery/collections/best-sellers",
     },
   ];
   useEffect(() => {
@@ -168,13 +168,15 @@ const Nav = () => {
                     {user?<div> <small>logged in user</small>
                       <small className="block">{(JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email).split("@")[0]}</small>
                       
-                      {accType=="merchant"&&
+                      {accType=="merchant"?
                       <div>
                       <Link to={"/merchant-dashboard"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '>
                       Dashboard</Link>
                       <Link to={"/addjew"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '>
                       Add Product</Link>
                       </div>
+                      :<Link to={"/orders"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '>
+                      Orders</Link>
                       }
                       {/* <Link to={"/orders"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '>
                         My Orders</Link> */}

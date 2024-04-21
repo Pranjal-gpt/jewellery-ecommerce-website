@@ -7,10 +7,9 @@ import { Link } from 'react-router-dom'
 import { CartProvider } from "../contexts/cartContext";
 
 // import categories from '../data/demodata'
-const Products = ({category,all=false}) => {
+const Products = ({category,all=false,collec="any",occa="any"}) => {
       
-
-  const [ProductsData,setProductsData] =useState([]);
+  const [collect, setcollect] = useState(collec);const [ProductsData,setProductsData] =useState([]);
   const [visibleProducts, setVisibleProducts] = useState(4);
   const [FilterMode,setFilterMode] =useState(false);
   
@@ -27,7 +26,17 @@ const Products = ({category,all=false}) => {
   
   const getProductsData = (products="all") =>{
     // Fetch the homepage data from your backend API
-    products+= `&search=${search}&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
+    
+    if (collec!="any") {
+      products+= `&jcollection=${collec}`
+    }else if (occa!="any") {
+      products+= `&occasion=${occa}`
+    }
+    else{
+
+      products+= `&search=${search}&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
+    }
+    console.log("collec ",collec)
     let productUrl = "http://localhost:3000/api/jewellery/all?category="+products.replace(" ","-");
       console.log(productUrl)
       fetch(productUrl)
@@ -72,7 +81,7 @@ const Products = ({category,all=false}) => {
     getProductsData(category)
     // getAllJewellery()
     
-  },[category])
+  },[category,collec])
   useEffect(()=>{
     priceMax<10000&&setpriceMax(10000)
   },[priceMax])
@@ -137,7 +146,7 @@ const Products = ({category,all=false}) => {
                   <option value="Others">Others</option>
                 </select>
               </div>
-              <div>
+              {/* <div>
                 <b>For(Gender)</b>
                 <select onChange={(e)=>setgender(e.target.value)}  value={gender} name="gender" id="gender">
                   <option value="any">Any</option>
@@ -145,13 +154,13 @@ const Products = ({category,all=false}) => {
                   <option value="mens">Mens</option>
                   <option value="kids">Kids</option>
                 </select>
-              </div>
+              </div> */}
               <div>
                 <b>Occasion</b>
                 <select onChange={(e)=>setoccasion(e.target.value)}  value={occasion} name="occasion" id="occasion">
                   <option value="any">Any</option>
-                  <option value="Office">Office Wear</option>
-                  <option value="Wedding">Wedding</option>
+                  <option value="office">Office Wear</option>
+                  <option value="wedding">Wedding</option>
                   <option value="Traditional">Traditional</option>
                   <option value="Others">Others</option>
                 </select>
@@ -175,7 +184,7 @@ const Products = ({category,all=false}) => {
                   <option value="Silver">Silver</option>
                 </select>
               </div>
-              <div>
+              {/* <div>
                 <b>Community</b>
                 <select onChange={(e)=>setcommunity(e.target.value)}  value={community} name="community" id="community">
                   <option value="all">All</option>
@@ -183,7 +192,7 @@ const Products = ({category,all=false}) => {
                   <option value="marathi">Marathi</option>
                   <option value="punjabi">Punjabi</option>
                 </select>
-              </div>
+              </div> */}
               <p className='pt-5 flex gap-5'>
                 <button onClick={()=>{getProductsData(category)}} className=' hover:bg-rose-300 rounded-md text-lg px-4 py-2 bg-rose-200 active:bg-rose-400'> Apply</button>
                 <button onClick={() => {
