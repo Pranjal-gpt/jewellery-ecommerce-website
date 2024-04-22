@@ -54,9 +54,9 @@ const SignUpForm = () => {
   return (
   <>
     <Nav />
-    <form onSubmit={handleSubmit} className='bg-rose-50 p-5 rounded mx-auto mt-2 w-1/3 flex flex-col gap-2'>
+    <form onSubmit={handleSubmit} className='bg-orange-50 p-5 rounded mx-auto mt-2 w-1/3 flex flex-col gap-2'>
         <div className='text-xl text-center'>Create Account</div>
-        <div className='p-2 bg-rose-100 rounded text-center mx-auto'>{infoMsg}</div>
+        <div className='p-2 bg-orange-100 rounded text-center mx-auto'>{infoMsg}</div>
         <div>Full Name</div>
         <input required type="text" name="fullname" value={formData.fullname} onChange={handleChange} className='p-2 rounded-md' />
         <div>Email</div>
@@ -66,9 +66,9 @@ const SignUpForm = () => {
        
         <div>Phone</div>
         <input required type="number" name="phone" value={formData.phone} onChange={handleChange}  className='p-2 rounded-md w-2/3' />
-        <fieldset className='border border-rose-100 rounded-lg p-2 w-fit'>
+        <fieldset className='border border-orange-100 rounded-lg p-2 w-fit'>
         <legend>AccountType</legend>
-        <select  type="text"  name="userType" value={acctype} onChange={(e)=>{setacctype(e.target.value)}}  className='p-2 text-rose-300 rounded-md' >
+        <select  type="text"  name="userType" value={acctype} onChange={(e)=>{setacctype(e.target.value)}}  className='p-2 text-orange-300 rounded-md' >
           <option value="merchant">merchant</option>
           <option value="customer">customer</option>
         </select>

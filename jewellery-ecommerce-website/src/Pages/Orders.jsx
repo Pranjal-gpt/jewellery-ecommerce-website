@@ -59,15 +59,15 @@ const orderForm = () => {
   return (
     <div className="">
         <Nav /> 
-        <div className='bg-rose-50 w-2/3 p-10 rounded-xl mx-auto mt-5 flex flex-col'>
+        <div className='bg-orange-50 w-2/3 p-10 rounded-xl mx-auto mt-5 flex flex-col'>
             <div className='flex justify-between p-5'>
                 <h1>Welcome, <span className='text-xl font-bold'>{fname}</span> </h1>           
-                <button onClick={getorders} className='rounded-xl p-2 hover:bg-rose-200 bg-rose-100'>Refresh all Orders</button>
+                <button onClick={getorders} className='rounded-xl p-2 hover:bg-orange-200 bg-orange-100'>Refresh all Orders</button>
 
             </div>
             <div className='bg-white flex justify-evenly flex-wrap gap-5 p-5'>
             <table cellPadding={15} cellSpacing={5}>
-                <tr className='bg-rose-100 '>
+                <tr className='bg-orange-100 '>
 
                     <th>Products</th>
                     <th>Status</th>
@@ -77,7 +77,7 @@ const orderForm = () => {
                 </tr>
                 {orders.length===0&&<tr>No Orders Placed</tr>}
             {orders.map((item)=>(
-                <tr className='bg-rose-50'>
+                <tr className='bg-orange-50'>
             <td className='font-semibold'>{(item.products).map((p)=><span className='block'>{p}</span>)}</td>
             <td className='font-semibold'>{item.status}</td>
             <td className='font-semibold'>{item.shippingAddress}</td>
@@ -87,8 +87,8 @@ const orderForm = () => {
                 </tr>
         ))}
             </table>
-                 <div className='p-2 rounded w-fit hover:shadow-xl shadow-md bg-rose-50'>
-                    {/* <button className='text-sm p-1 rounded-md bg-rose-100 hover:bg-rose-200 text-center block w-full'>See Order Report</button> */}
+                 <div className='p-2 rounded w-fit hover:shadow-xl shadow-md bg-orange-50'>
+                    {/* <button className='text-sm p-1 rounded-md bg-orange-100 hover:bg-orange-200 text-center block w-full'>See Order Report</button> */}
                  </div>
             </div>
         </div>

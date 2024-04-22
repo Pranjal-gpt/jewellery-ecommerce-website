@@ -7,9 +7,13 @@ import { Link } from 'react-router-dom'
 import { CartProvider } from "../contexts/cartContext";
 
 // import categories from '../data/demodata'
-const Products = ({category,all=false,collec="any",occa="any"}) => {
-      
-  const [collect, setcollect] = useState(collec);const [ProductsData,setProductsData] =useState([]);
+const Products = ({category,all=false,collec="any",occa="any",gifting=false}) => {
+  
+  const [pincode, setPincode] = useState('');
+  const [city, setCity] = useState('');
+  
+  const [ProductsData,setProductsData] =useState([]);
+  const [sortBy, setSortBy] = useState('Default'); 
   const [visibleProducts, setVisibleProducts] = useState(4);
   const [FilterMode,setFilterMode] =useState(false);
   
@@ -26,28 +30,59 @@ const Products = ({category,all=false,collec="any",occa="any"}) => {
   
   const getProductsData = (products="all") =>{
     // Fetch the homepage data from your backend API
-    
+    console.log(gifting)
     if (collec!="any") {
       products+= `&jcollection=${collec}`
     }else if (occa!="any") {
       products+= `&occasion=${occa}`
+    }else if (gifting===true){
+      products+= `&gifting=true`
     }
     else{
 
       products+= `&search=${search}&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
     }
-    console.log("collec ",collec)
     let productUrl = "http://localhost:3000/api/jewellery/all?category="+products.replace(" ","-");
+    console.log("collec ",productUrl)
       console.log(productUrl)
       fetch(productUrl)
         .then((response) => response.json())
         .then((data) => {setProductsData(data);console.log(data)})
         .catch((error) => console.error("Error fetching products data:", error));
   }
+  const sortedData = [...ProductsData].sort((a, b) => {
+    if (sortBy === 'price') {
+      return a.price - b.price; // Sort by price (low to high)
+    } else if (sortBy === 'name') {
+      return a.title.localeCompare(b.title); // Sort by name
+    }
+    return 0;
+  });
+  const CheckPincode = async () => {
+    const value = pincode;
+    const url = 'https://india-pincode-with-latitude-and-longitude.p.rapidapi.com/api/v1/pincode/'+pincode;
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '012183ec7bmsh8f9490a025cdb7fp152eb5jsn9bdff2ef4adf',
+            'X-RapidAPI-Host': 'india-pincode-with-latitude-and-longitude.p.rapidapi.com'
+        }
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.text();
+        let district =JSON.parse(result)[0].district;
+        setCity(district);
+    } catch (error) {
+        console.error(error);
+    }
+  };
+
   const TagBtn = ({name}) => {
     return (
       <button 
-        className='px-2 py-1 border-2 border-rose-200 hover:bg-rose-100 transition-all duration-100 '
+        className='px-2 py-1 border-2 rounded-lg shadow-lg hover:shadow-sm border-orange-200 hover:bg-orange-100 transition-all duration-200 '
         onClick={()=>{
           getProductsData(name);
           setVisibleProducts(4);
@@ -91,22 +126,31 @@ const Products = ({category,all=false,collec="any",occa="any"}) => {
         <Nav />
       </CartProvider>
         <main className=''>
-            <section className='flex justify-between items-center px-24 h-12 bg-rose-100'>
-                <div className="path">Home {">"} Products</div>
+            <section className='flex justify-between items-center px-24 h-12 bg-orange-100'>
+                <div className="path"> <Link to={"/"} className='hover:text-orange-500 transition-all duration-200'>Home</Link>  {">"} <span className='hover:text-orange-500 transition-all duration-200 cursor-pointer'>Jewellery</span> </div>
                   <div className='relative'>
                     <input 
                       value={search}
                       onChange={(e)=>{setsearch(e.target.value)}}
                       type='text' name='search' 
                       placeholder='Search for Jewellery' 
-                      className='px-3 py-2 w-72 active:outline-rose-600 hover:w-[22rem] transition-all duration-500 ease-in focus:w-[420px] rounded bg-rose-50 placeholder-rose-300'>
+                      className='px-3 py-2 w-72 focus:shadow-2xl hover:shadow-lg active:outline-orange-600 hover:w-[22rem] transition-all duration-500 ease-in focus:w-[22rem] focus:outline-none rounded bg-orange-50 placeholder-orange-300'>
                     </input>
-                    <i onClick={handleSearch} class="fa-solid fa-magnifying-glass absolute cursor-zoom-in right-3 top-1/2 -translate-y-1/2 bg-rose-300 text-white hover:scale-125 pl-1 rounded-full p-1 "></i>
+                    <i onClick={handleSearch} class="fa-solid fa-magnifying-glass absolute cursor-zoom-in right-3 top-1/2 -translate-y-1/2 bg-orange-300 text-white hover:scale-125 pl-1 rounded-full p-1 "></i>
                   </div>
-                <div>Pincode <i class="fa-solid fa-map-pin"></i></div>
+                  <div className='flex items-center'>
+                    <div className='rounded-xl bg-orange-200 px-2 py-1 mr-1'>{city!=""&&"✅"} {city} <i class="fa-solid fa-map-pin" ></i></div>
+                    <div className='relative bg-orange-200 pl-2 rounded-lg'>Pincode
+                          <input type="text" placeholder='Enter pincode' id="" className='ml-1 px-2 text-md focus:outline-orange-100 placeholder-orange-200 py-1 w-40  rounded-r-lg bg-orange-50  focus:border-orange-300 focus:ring-orange-300'
+                              onChange={(change)=>{setPincode(change.target.value)}}
+                              value={pincode} />
+                          <button disabled={!pincode}className={`font-bold p-1 rounded-lg absolute right-2 top-1 text-xs ${pincode === ""? "text-orange-50  bg-orange-100" : "hover:bg-orange-300  bg-orange-100"} cursor-pointer`}
+                              onClick={CheckPincode} >Check</button>
+                    </div>
+                  </div>
             </section>
-            <section className='flex justify-between items-center px-24 h-16 bg-rose-50'>
-                <div className={(FilterMode&&"bg-rose-200 font-bold ")+"filter rounded-lg px-2 py-1 border border-rose-300 cursor-pointer select-none"} onClick={()=>{setFilterMode(!FilterMode)}}><i class="fa-solid fa-sliders"></i> Filters</div>
+            <section className='flex justify-between items-center px-24 h-16 bg-orange-50 shadow-lg'>
+                <div className={(FilterMode&&"bg-orange-200 font-bold")+"filter shadow-lg rounded-lg px-2 py-1 border border-orange-300 cursor-pointer select-none"} onClick={()=>{setFilterMode(!FilterMode)}}><i class="fa-solid fa-sliders"></i> Filters</div>
                 {all?(
 
                   <div className='flex gap-3'>
@@ -121,10 +165,19 @@ const Products = ({category,all=false,collec="any",occa="any"}) => {
                   <TagBtn name={"Ring"}  />
                 </div>
                 ):""}
-                <div>Sort By</div>
+                <div>
+                  <b>SortBy</b>
+                  <select onChange={(e)=>setSortBy(e.target.value)}  value={sortBy}>
+                    <option value="Default">Default</option>
+                    <option value="Pricelth">Price(Low to High)</option>
+                    <option value="Pricehtl">Price(High to Low)</option>
+                    <option value="nameasc">Name(Ascending)</option>
+                    <option value="namedsc">Name(Descending)</option>
+                  </select>
+                </div>
             </section>
             {FilterMode?
-            <section className='Setfilter flex flex-wrap gap-2 justify-around bg-rose-50 items-center h-36 px-5'>
+            <section className='Setfilter flex flex-wrap gap-2 justify-around bg-orange-50 items-center h-36 px-5'>
               <div className='flex flex-col gap-1'>
                  <b className='text-center'>Price Range</b>
                 <span className='flex gap-1'><p className='w-7'>Min</p>
@@ -136,16 +189,16 @@ const Products = ({category,all=false,collec="any",occa="any"}) => {
                   <input type="range" onChange={(e)=>{setpriceMax(e.target.value);priceMax<10000&&setpriceMax(10000)}} value={priceMax} min={priceMin} max={1000000} name='priceMin'  />
                 </span>
               </div>
-              <div>
+              {/* <div>
                 <b>Metal Type</b>
                 <select onChange={(e)=>setmetal(e.target.value)} value={metal} name="metal" id="metal">
                   <option value="any">All</option>
-                  <option value="Gold">Gold</option>
+                  <option value="Gold">Brass</option>
                   <option value="Silver">Silver</option>
                   <option value="WhiteGold">White Gold</option>
                   <option value="Others">Others</option>
                 </select>
-              </div>
+              </div> */}
               {/* <div>
                 <b>For(Gender)</b>
                 <select onChange={(e)=>setgender(e.target.value)}  value={gender} name="gender" id="gender">
@@ -176,12 +229,12 @@ const Products = ({category,all=false,collec="any",occa="any"}) => {
                 </select>
               </div>
               <div>
-                <b>Metal Color</b>
+                <b>Plating Color</b>
                 <select onChange={(e)=>setmetalColor(e.target.value)}  value={metalColor} name="metalColor" id="metalColor">
                   <option value="any">All</option>
-                  <option value="Yellow">Yellow</option>
-                  <option value="Rose">Rose</option>
-                  <option value="Silver">Silver</option>
+                  <option value="Gold">Gold Plated</option>
+                  <option value="Sliver-Plated">Silver Plated</option>
+                  <option value="Black-Plated">Black Plated</option>
                 </select>
               </div>
               {/* <div>
@@ -194,12 +247,12 @@ const Products = ({category,all=false,collec="any",occa="any"}) => {
                 </select>
               </div> */}
               <p className='pt-5 flex gap-5'>
-                <button onClick={()=>{getProductsData(category)}} className=' hover:bg-rose-300 rounded-md text-lg px-4 py-2 bg-rose-200 active:bg-rose-400'> Apply</button>
+                <button onClick={()=>{getProductsData(category)}} className=' hover:bg-orange-300 rounded-md text-lg px-4 py-2 bg-orange-200 active:bg-orange-400'> Apply</button>
                 <button onClick={() => {
                             resetFilters();
                             getProductsData(category);
                         }}  
-                        className=' hover:bg-rose-300 rounded-md text-lg px-4 py-2 bg-rose-200 active:bg-rose-400'> Reset</button>
+                        className=' hover:bg-orange-300 rounded-md text-lg px-4 py-2 bg-orange-200 active:bg-orange-400'> Reset</button>
                 </p>
             </section>
             :""}
@@ -215,7 +268,7 @@ const Products = ({category,all=false,collec="any",occa="any"}) => {
               <section className=' flex items-center justify-center h-36'>
               <Link 
                
-                className='inline-block mx-auto px-2 py-1 border-2 border-rose-200 hover:bg-rose-100 transition-all duration-100 '
+                className='shadow-xl rounded-xl hover:shadow-lg active:shadow-sm inline-block mx-auto px-2 py-1 border-2 border-orange-200 hover:bg-orange-100 transition-all duration-100 '
                 onClick={()=>{setVisibleProducts(visibleProducts + 4)}}
                 >See More Jewellery</Link>
               </section>

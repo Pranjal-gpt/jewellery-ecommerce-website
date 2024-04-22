@@ -2,10 +2,10 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="h-fit mt-5 bg-[#fecdd3] flex flex-col ">
+    <footer className="h-fit mt-5 bg-orange-100 flex flex-col ">
       <section className="flex justify-around  py-10  ">
         <div className="flex flex-col gap-7">
-          <h1 className="text-2xl relative -left-5 text-[#832729]">
+          <h1 className="text-2xl relative -left-5">
             Useful links{" "}
           </h1>
           <a href="#">Delivery information</a>
@@ -14,7 +14,7 @@ function Footer() {
           <a href="#">Returns</a>
         </div>
         <div className="flex flex-col gap-7">
-          <h1 className="text-2xl relative -left-5 text-[#832729]">
+          <h1 className="text-2xl relative -left-5">
             Information
           </h1>
           <a href="#">Offers</a>
@@ -24,7 +24,7 @@ function Footer() {
           <a href="#">Terms & conditions</a>
         </div>
         <div className="flex flex-col gap-7">
-          <h1 className="text-2xl relative -left-5 text-[#832729]">
+          <h1 className="text-2xl relative -left-5">
             Contact Us
           </h1>
           <a href="#">Write to Us</a>

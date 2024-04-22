@@ -142,8 +142,8 @@ const Nav = () => {
   }
   return (
     <div className="nav w-full sticky z-50 top-0">
-      <nav className="mainNav  h-20 bg-rose-300 flex justify-between items-center px-20">
-        <h1 className="logo text-rose-600 text-3xl font-bold">Jew</h1>
+      <nav className="mainNav  h-16 bg-orange-100 flex justify-between items-center px-20">
+        <h1 className="logo text-orange-600 text-3xl font-bold">Jew</h1>
         <div className="nlinks flex gap-10 text-xl items-center flex-wrap">
             
           <Link to={"/#"}>home </Link>
@@ -153,49 +153,49 @@ const Nav = () => {
           <Link to={"/wishlist"}>Wishlist </Link>
           </WishlistProvider>
           {accType!="merchant"&&
-          <Link className='group transition-all duration-500 flex items-center justify-between gap-2 rounded-full  px-5 py-2 shadow-lg bg-gradient-to-br from-rose-200 via-rose-300 to-rose-600'
+          <Link className='group transition-all duration-500 flex items-center justify-between gap-2 rounded-full  px-5 py-2 shadow-lg bg-gradient-to-br from-orange-200 via-orange-300 to-orange-600'
             to={"/cart"}>
               <span className='hidden group-hover:block mb-1'>Cart </span>
               <i class="fa-solid fa-cart-shopping"></i>
             </Link>
 }
           <button  className="relative cursor-pointer group flex items-center justify-center rounded-full hover:shadow-2xl">
-                  <div class="group-hover:bg-rose-200 px-3 py-2 rounded-md translate-all ease-in-out duration-300 group">
+                  <div class="group-hover:bg-orange-200 px-3 py-2 rounded-md translate-all ease-in-out duration-300 group">
                     Account</div>
                   
-                  <div className="absolute p-3 text-xl z-10 w-60 shadow-xl top-10 hidden  rounded-md bg-rose-50 hover:bg-rose-200 border text-center group-hover:block">
+                  <div className="absolute p-3 text-xl z-10 w-60 shadow-xl top-10 hidden  rounded-md bg-orange-50 hover:bg-orange-200 border text-center group-hover:block">
                     <div className="font-bold text-xl">My Account</div>
                     {user?<div> <small>logged in user</small>
                       <small className="block">{(JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email).split("@")[0]}</small>
                       
                       {accType=="merchant"?
                       <div>
-                      <Link to={"/merchant-dashboard"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '>
+                      <Link to={"/merchant-dashboard"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-orange-800 hover:bg-orange-600 hover:text-orange-50  text-orange-800 transition-all duration-100 '>
                       Dashboard</Link>
-                      <Link to={"/addjew"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '>
+                      <Link to={"/addjew"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-orange-800 hover:bg-orange-600 hover:text-orange-50  text-orange-800 transition-all duration-100 '>
                       Add Product</Link>
                       </div>
-                      :<Link to={"/orders"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '>
+                      :<Link to={"/orders"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-orange-800 hover:bg-orange-600 hover:text-orange-50  text-orange-800 transition-all duration-100 '>
                       Orders</Link>
                       }
-                      {/* <Link to={"/orders"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '>
+                      {/* <Link to={"/orders"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-orange-800 hover:bg-orange-600 hover:text-orange-50  text-orange-800 transition-all duration-100 '>
                         My Orders</Link> */}
-                      <button onClick={logout} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '>
+                      <button onClick={logout} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-orange-800 hover:bg-orange-600 hover:text-orange-50  text-orange-800 transition-all duration-100 '>
                         Logout</button>
                     </div>:(<div>
 
                         <small className="">Login to access your <b>Customer</b> Account</small>
                         <div className="flex gap-4 mb-5">
-                            <Link to="/signin" state={"customer"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '
+                            <Link to="/signin" state={"customer"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-orange-800 hover:bg-orange-600 hover:text-orange-50  text-orange-800 transition-all duration-100 '
                                 >LogIn</Link>
-                            <Link  to="/signup" state={"customer"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50 bg-rose-800 text-rose-50 transition-all duration-100 '
+                            <Link  to="/signup" state={"customer"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-orange-800 hover:bg-orange-600 hover:text-orange-50 bg-orange-800 text-orange-50 transition-all duration-100 '
                                 >SignUp</Link>
                         </div>
                         <small className="">Login to access your <b>Merchant</b> Account</small>
                         <div className="flex gap-4 ">
-                            <Link  to="/signin" state={"merchant"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50  text-rose-800 transition-all duration-100 '
+                            <Link  to="/signin" state={"merchant"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-orange-800 hover:bg-orange-600 hover:text-orange-50  text-orange-800 transition-all duration-100 '
                                 >LogIn</Link >
-                            <Link  to="/signup" state={"merchant"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-rose-800 hover:bg-rose-600 hover:text-rose-50 bg-rose-800 text-rose-50 transition-all duration-100 '
+                            <Link  to="/signup" state={"merchant"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-orange-800 hover:bg-orange-600 hover:text-orange-50 bg-orange-800 text-orange-50 transition-all duration-100 '
                                 >SignUp</Link >
                         </div>
                     </div>)}
@@ -204,9 +204,9 @@ const Nav = () => {
           </button>
         </div>
       </nav>
-      <header className="header px-16 h-10 bg-rose-200 flex items-center justify-between">
+      <header className="header px-16 h-10 bg-orange-200 flex items-center justify-between">
         {Menu.map((litem) => (
-          <div className="relative group hover:bg-rose-300 h-full flex items-center w-full justify-center">
+          <div className="relative group hover:bg-orange-300 h-full flex items-center w-full justify-center">
             <Link
               to={Array.isArray(litem.link) ? litem.selfLink : litem.link}
               key={litem.id}
@@ -216,12 +216,12 @@ const Nav = () => {
             </Link>
 
             {Array.isArray(litem.link) && (
-              <div className="hidden  bg-rose-200 absolute top-10 min-w-36 group-hover:flex flex-col ">
+              <div className="hidden  bg-orange-200 absolute top-10 min-w-36 group-hover:flex flex-col ">
                 {litem.link.map((slitem) => (
                   <Link
                     to={slitem.link}
                     key={slitem.id}
-                    className="hover:bg-rose-300 px-2 py-3"
+                    className="hover:bg-orange-300 px-2 py-3"
                   >
                     {slitem.name}
                   </Link>

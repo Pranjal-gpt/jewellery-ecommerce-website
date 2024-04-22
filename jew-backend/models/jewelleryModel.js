@@ -24,17 +24,10 @@ const jewelrySchema = new mongoose.Schema({
   gender: { type: String },
   jewelleryType: { type: String },
   occasion: { type: String },
-  materialColour: { type: String },
+  platingColor: { type: String },
   metal: { type: String },
-  Height: { type: String },
-  Width: { type: String },
-  noOfDiamonds: { type: Number },
-  diamondClarity: { type: String },
-  diamondColor: { type: String },
-  diamondSetting: { type: String },
-  diamondShape: { type: String },
-  karatage: { type: String },
-  community: { type: String },
+  size: { type: Number},
+  gifting: {type: Boolean},
 });
 
 const Jewelry = mongoose.model('Jewelleries', jewelrySchema);

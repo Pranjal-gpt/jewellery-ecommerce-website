@@ -60,13 +60,13 @@ const Home = () => {
           </h1>
           <div className="h-0.5 w-1/3  bg-[#832729] mx-auto"></div>
           {/*underline code*/}
-          <div className="flex gap-7 flex-wrap justify-center w-11/12 mx-auto">
+          <div className="flex gap-10 flex-wrap justify-center w-11/12 mx-auto">
             {collections.map((collection) => (
               <Citem
               cName={collection.cName}
               cLink={collection.cLink}
               cImg={collection.imgurl}
-                size={"w-56 h-56"}
+                size={"w-72 h-72"}
               />
             ))}
           </div>
@@ -80,7 +80,7 @@ const Home = () => {
             {homepageData && homepageData.New.map((New) => (
               <Citem cName={New.cName}
               cLink={New.cLink}
-              cImg={New.imgurl} size={"w-72 h-80"} />
+              cImg={New.imgurl} size={"w-80 h-96"} />
             ))}
           </div>
         </div>
@@ -124,7 +124,7 @@ const Home = () => {
               cName={item.cName}
               cLink={item.cLink}
               cImg={item.imgurl}
-                size={"w-56 h-56"}
+                size={"w-60 h-72"}
               />
             ))}
           </div>
@@ -140,7 +140,7 @@ const Home = () => {
               cName={item.cName}
               cLink={item.cLink}
               cImg={item.imgurl}
-                size={"w-56 h-56"}
+                size={"w-60 h-72"}
               />
             ))}
           </div>

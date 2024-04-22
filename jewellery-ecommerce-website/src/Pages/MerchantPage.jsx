@@ -103,13 +103,13 @@ const MerchantPage = () => {
     return (
         <>
             <Nav />
-            <div className='bg-rose-50 w-11/12 p-10   rounded-xl mx-auto mt-5 justify-between gap-10 flex'>
-                <div className='relative rounded-xl bg-rose-200 p-5 min-w-56'>
+            <div className='bg-orange-50 w-11/12 p-10   rounded-xl mx-auto mt-5 justify-between gap-10 flex'>
+                <div className='relative rounded-xl bg-orange-200 p-5 min-w-56'>
                     <div className='flex gap-5 flex-col sticky top-40'>
 
                         <h1 className='' >Welcome, <br /> <span className='text-xl font-bold'>{fname}</span> </h1>
-                        <button onClick={getJews} className='rounded-xl p-2 hover:bg-rose-200 bg-rose-100'>{!showProd ? "Show your all Products" : "Hide Products"}</button>
-                        <button onClick={getOrders} className='rounded-xl p-2 hover:bg-rose-200 bg-rose-100'>{!showOrders?"Manage Orders":"Hide Orders"}</button>
+                        <button onClick={getJews} className='rounded-xl p-2 hover:bg-orange-200 bg-orange-100'>{!showProd ? "Show your all Products" : "Hide Products"}</button>
+                        <button onClick={getOrders} className='rounded-xl p-2 hover:bg-orange-200 bg-orange-100'>{!showOrders?"Manage Orders":"Hide Orders"}</button>
                     </div>
 
                 </div>
@@ -120,7 +120,7 @@ const MerchantPage = () => {
                 {showOrders &&
                    <table className='w-full' cellPadding={15} cellSpacing={5}>
                    <thead>
-                     <tr className='bg-rose-100 '>
+                     <tr className='bg-orange-100 '>
                        <th>Products</th>
                        <th>Status</th>
                        <th>Shipping Address</th>
@@ -132,7 +132,7 @@ const MerchantPage = () => {
                    <tbody>
                      {orders.length === 0 && <tr><td colSpan="5">No Orders Placed</td></tr>}
                      {orders.map((order) => (
-                       <tr key={order._id} className='bg-rose-50'>
+                       <tr key={order._id} className='bg-orange-50'>
                          <td className='font-semibold'>{order.products.map((p, index) => <span key={index} className='block pt-1'>{index+1}. {p}</span>)}</td>
                          <td className='font-semibold'>
                            {/* Dropdown menu for status update */}
@@ -146,7 +146,7 @@ const MerchantPage = () => {
                          <td className='font-semibold'>{order.shippingAddress}</td>
                          <td className='font-semibold'>₹{order.totalAmount}</td>
                          <td className='font-semibold'>{order.orderDate}</td>
-                         <td className='font-semibold'><button onClick={()=>{deleteOrder(order.orderId)}} className='p-2 rounded-lg bg-rose-100 hover:bg-rose-200'>Delete</button></td>
+                         <td className='font-semibold'><button onClick={()=>{deleteOrder(order.orderId)}} className='p-2 rounded-lg bg-orange-100 hover:bg-orange-200'>Delete</button></td>
                          
                        </tr>
                      ))}
@@ -161,11 +161,11 @@ const MerchantPage = () => {
 
                 <div className={'bg-white flex justify-evenly rounded-xl flex-wrap gap-5 p-5 overflow-auto h-[65vh]'}>
                     {jews.map((item) => (
-                        <div className='p-2 rounded w-fit hover:shadow-xl shadow-md bg-rose-50'>
+                        <div className='p-2 rounded w-fit hover:shadow-xl shadow-md bg-orange-50'>
                             <img src={item.images[0]} alt="img" className='w-60' />
                             <div className='font-semibold text-xl'>{item.title.length > 20 ? item.title.substring(0, 20) + '...' : item.title}</div>
                             <div className='font-semibold'>₹{item.price}</div>
-                            <button className='text-sm p-1 rounded-md bg-rose-100 hover:bg-rose-200 text-center block w-full'>See Order Report</button>
+                            <button className='text-sm p-1 rounded-md bg-orange-100 hover:bg-orange-200 text-center block w-full'>See Order Report</button>
                         </div>
                     ))}
                 </div>

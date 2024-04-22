@@ -34,31 +34,36 @@ const Pitem = ({ product, mode, size }) => {
     setisWishlist(!isWishlist);
   };
   return (
-    <div className="relative flex flex-col items-start gap-2 border shadow-sm hover:shadow-xl p-2 bg-rose-50">
-      <div  onClick={handleWishlistClick} className="w-8 h-8 cursor-pointer absolute backdrop-blur-lg flex items-center justify-center rounded-full right-4 top-4 group active:bg-rose-200 hover:bg-rose-50 hover:shadow-2xl">
+    <div className="relative flex flex-col items-start gap-2 border rounded-3xl shadow-xl hover:shadow-sm active:shadow-2xl transition-all duration-500 delay-75 border-none  bg-orange-50">
+      <div  onClick={handleWishlistClick} className="w-8 h-8 cursor-pointer absolute backdrop-blur-lg flex items-center justify-center rounded-full right-4 top-4 group active:bg-orange-200 hover:bg-orange-50 hover:shadow-2xl">
       {isWishlist?<i class="fa-solid fa-heart  group-hover:scale-125 group-active:scale-150  transition-all duration-500 "></i> :<i class="fa-regular fa-heart group-hover:scale-125 group-active:-scale-150 transition-all duration-500"></i> } 
-        <div className="absolute  text-sm -bottom-14 hidden group-hover:block p-1 rounded-md bg-rose-50 border w-24 text-center">
+        <div className="absolute  text-sm -bottom-14 hidden group-hover:block p-1 rounded-md bg-orange-50 border w-24 text-center">
           {isWishlist ? "Remove From Wishlist" : "Add To Wishlist"}
         </div>
       </div>
       <img
         src={hoveredImage}
-        className={size}
+        className={`${size} rounded-t-3xl`}
         onMouseOver={() => setHoveredImage(product.images && product.images.length > 2 ? product.images[1] : '')}
         onClick={() => setHoveredImage(product.images && product.images.length > 2 ? product.images[2] : '')}
         onMouseLeave={() => setHoveredImage(product.images && product.images.length > 0 ? product.images[0] : '')}
         alt="Product"
       />
       <Link
-        className="font-bold text-lg text-left  hover:text-rose-900"
+        className="font-bold text-lg text-left px-3  hover:text-orange-900"
         to={"/jewellery/item/" + permalink}
         state={product}
       >
         {product.title.length > 20 ? product.title.substring(0, 25) + '...' : product.title}
       </Link>
-      <div className="font-bold text-lg">₹{product.price}</div>
+      <div className="flex items-end">
+        
+      <div className="font-bold text-lg pl-3 pr-1">₹{(product.price-(product.price*product.discount)/100).toFixed(2)}</div>
+      <strike className='text-xs text-orange-700'>₹{product.price}</strike> <span className='w-fit text-orange-700 border text-xs border-orange-800 p-0.5 ml-1 relative top-1 left-2 rounded-md'>{product.discount+"% OFF"}</span>
+      </div>
+
       <Link
-        className=" w-full text-center bg-rose-200 hover:bg-rose-100 rounded-md px-5 py-1"
+        className=" w-full mx-auto text-center bg-orange-200 hover:bg-orange-100 rounded-b-3xl px-5 py-1"
         to={"/jewellery/item/" + permalink}
         state={product}
       >

@@ -56,15 +56,15 @@ const SignInForm = () => {
   return (
   <div className='absolute top-0 z-50 w-full'>
     <Nav />
-    <form onSubmit={handleSubmit} className='bg-rose-50 p-5 rounded mx-auto mt-2 w-1/3 flex flex-col gap-2'>
+    <form onSubmit={handleSubmit} className='bg-orange-50 p-5 rounded mx-auto mt-2 w-1/3 flex flex-col gap-2'>
        <div className='text-xl text-center'>Login</div>
-        <div className='p-2 bg-rose-100 rounded text-center mx-auto'>{infoMsg}</div>
+        <div className='p-2 bg-orange-100 rounded text-center mx-auto'>{infoMsg}</div>
       <div>Email</div>
       <input type="email" name="email" value={formData.email} onChange={handleChange} />
       <div>Password</div>
       <input type="password" name="password" value={formData.password} onChange={handleChange} />
       
-      <button type="submit" className='active:bg-rose-400'>Sign In</button>
+      <button type="submit" className='active:bg-orange-400'>Sign In</button>
     </form>
     <Footer />
   </div>

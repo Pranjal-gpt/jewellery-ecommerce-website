@@ -71,7 +71,7 @@ const App = () => {
             <Route path='/jewellery/collections/best-sellers' element={<Products category={"all"} collec="Bestsellers" />} />
 
             <Route path='/jewellery/wedding' element={<Products category={"all"} occa="wedding" />} />
-            <Route path='/jewellery/gifting' element={<Products category={"Gifting"} />} />
+            <Route path='/jewellery/gifting' element={<Products category={"all"} gifting={true} />} />
 
             <Route path='/checkout' element={ <Checkout /> } />
             <Route path='/orders' element={ <Orders /> } />

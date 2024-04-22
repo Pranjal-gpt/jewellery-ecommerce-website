@@ -26,19 +26,19 @@ const collections = [
     id: 1,
     imgurl:"https://i.imghippo.com/files/bGoVv1713550934.jpg",
     cName: "Joy Of Dressing",
-    cLink: "jewellery/",
+    cLink: "/jewellery/collections/joy-of-dressing",
   },
   {
     id: 2,
     imgurl:"https://i.imghippo.com/files/9gf0k1713550799.jpg",
     cName: "Pretty In Pink",
-    cLink: "jewellery/",
+    cLink: "/jewellery/collections/pretty-in-pink",
   },
   {
     id: 3,
     imgurl:"https://i.imghippo.com/files/Dl8gH1713550881.jpg",
     cName: "String It",
-    cLink: "jewellery/",
+    cLink: "/jewellery/collections/string-it",
   },
 ];
 const allcategories = [

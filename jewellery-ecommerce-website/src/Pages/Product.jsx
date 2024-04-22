@@ -121,18 +121,18 @@ const Product = () => {
         <CartProvider >
         <Nav />
       
-        <main className='mx-20 flex flex-wrap relative bg-rose-50'>
+        <main className='mx-20 flex flex-wrap relative bg-orange-50'>
             <div className='relative flex w-1/2'>
-            <section className='bg-rose-50  h-[70vh]  p-2 sticky top-20 '>
-                <div className='border-b p-1 border-b-rose-200'> <Link to={"/"} className='hover:text-rose-600'>Home </Link> {">"} <Link className='hover:text-rose-600' to={"/jewellery"}>Products </Link>   {">"} {productDetails.title}</div>
+            <section className='bg-orange-50  h-[70vh]  p-2 sticky top-20 '>
+                <div className='border-b p-1 border-b-orange-200'> <Link to={"/"} className='hover:text-orange-600'>Home </Link> {">"} <Link className='hover:text-orange-600' to={"/jewellery"}>Products </Link>   {">"} {productDetails.title}</div>
                 <div className='mt-3 flex gap-5 justify-around'>
                     <div className='flex flex-col items-center justify-between  w-1/5 h-[60vh]' >
                         {productDetails && productDetails.images && productDetails.images.map((imgsrc)=>(
-                            <img src={imgsrc} className='h-32 w-32 object-center border-2 border-rose-200 drag-none'
+                            <img src={imgsrc} className='h-32 w-32 object-center border-2 border-orange-200 drag-none'
                             onMouseOver={()=>{setCurrentImg(imgsrc)}}></img>
                         ))}
                     </div>
-                    <div className='bg-rose-100 w-2/3 p-5'>
+                    <div className='bg-orange-100 w-2/3 p-5'>
                         <img src={CurrentImg!==""?CurrentImg:productDetails.images?.[0]} alt={productDetails.title}
                             className='h-full w-full'
                         />
@@ -140,17 +140,17 @@ const Product = () => {
                 </div>
             </section>
             </div>
-            <section className='bg-rose-100 w-1/2 h-[120vh] px-8'>
+            <section className='bg-orange-100 w-1/2 h-[120vh] px-8'>
                 <div className='flex justify-between  py-5'>
                     <div className="pid">{productDetails._id}</div>
                     <div className='relative flex gap-5'>
-                        <button onClick={handleWishlistClick} className="w-8 h-8  bg-rose-200 flex items-center justify-center rounded-full group hover:shadow-2xl">
+                        <button onClick={handleWishlistClick} className="w-8 h-8  bg-orange-200 flex items-center justify-center rounded-full group hover:shadow-2xl">
                            {isWishlist?<i class="fa-solid fa-heart  group-hover:scale-125 group-active:scale-150  transition-all duration-500 "></i> :<i class="fa-regular fa-heart group-hover:scale-125 group-active:-scale-150 transition-all duration-500"></i> } 
-                            <div className="absolute text-sm -bottom-14 hidden group-hover:block p-1 rounded-md bg-rose-50 border w-24 text-center"> {isWishlist?"Remove From Wishlist":"Add To Wishlist"}</div>
+                            <div className="absolute text-sm -bottom-14 hidden group-hover:block p-1 rounded-md bg-orange-50 border w-24 text-center"> {isWishlist?"Remove From Wishlist":"Add To Wishlist"}</div>
                         </button>
-                        <div className="w-8 h-8  bg-rose-200 flex items-center justify-center rounded-full  group hover:shadow-2xl">
+                        <div className="w-8 h-8  bg-orange-200 flex items-center justify-center rounded-full  group hover:shadow-2xl">
                             <i class="fa-solid fa-share-nodes group-hover:scale-125"></i>
-                            <div className="absolute text-sm -bottom-10 hidden group-hover:block p-1 rounded-md bg-rose-50 border w-24 text-center"> Share This</div>
+                            <div className="absolute text-sm -bottom-10 hidden group-hover:block p-1 rounded-md bg-orange-50 border w-24 text-center"> Share This</div>
                         </div>
                     </div>
                 </div>
@@ -158,44 +158,44 @@ const Product = () => {
                 <div>
                     <TotalRating productDetails={productDetails} />
                 </div>
-                <Hr thickness={"h-0.5"} length={"w-full"} color='bg-rose-200' />
+                <Hr thickness={"h-0.5"} length={"w-full"} color='bg-orange-200' />
 
                 <h3 className='text-lg'>{productDetails.description}</h3>
                 <div className='my-3'>
                     <div className=' font-semibold mb-1'>
                             <span>Price.</span>
                             <span className='mx-2 font-semibold text-2xl text-green-600'>₹{(productDetails.price-(productDetails.price*productDetails.discount)/100).toFixed(2)}</span>
-                            <strike className=' text-rose-700'>₹{productDetails.price}</strike> <span className='w-fit text-rose-700 border-2 border-rose-800 p-1'>{productDetails.discount+"% OFF"}</span>
+                            <strike className=' text-orange-700'>₹{productDetails.price}</strike> <span className='w-fit text-orange-700 border-2 border-orange-800 p-1'>{productDetails.discount+"% OFF"}</span>
                     </div>
-                    <div className='text-sm'>Price Inclusive of all taxes. See full <span className='text-rose-900 font-semibold hover:text-rose-500 cursor-pointer'>Price Breakup</span> </div>
+                    <div className='text-sm'>Price Inclusive of all taxes. See full <span className='text-orange-900 font-semibold hover:text-orange-500 cursor-pointer'>Price Breakup</span> </div>
                 </div>
                 <div>{productDetails.metal}</div>
                 {productDetails.merchant!=JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email&& <span>
 
-                <div className='border border-rose-800 w-fit p-2 my-3 mx-auto rounded flex gap-5 items-center'>
+                <div className='border border-orange-800 w-fit p-2 my-3 mx-auto rounded flex gap-5 items-center'>
                     Quantity 
-                    <i class="fa-solid fa-minus bg-rose-200 text-rose-800 rounded p-2 cursor-pointer" onClick={()=>{Quantity>1 && setQuantity(Quantity-1)}}></i>
-                     <div className=' bg-rose-800 text-rose-50 font-bold text-xl rounded px-2 py-1'>{Quantity}</div>
-                    <i class="fa-solid fa-plus bg-rose-200 text-rose-800 rounded p-2 cursor-pointer"  onClick={()=>{setQuantity(Quantity+1)}}></i>
+                    <i class="fa-solid fa-minus bg-orange-200 text-orange-800 rounded p-2 cursor-pointer" onClick={()=>{Quantity>1 && setQuantity(Quantity-1)}}></i>
+                     <div className=' bg-orange-800 text-orange-50 font-bold text-xl rounded px-2 py-1'>{Quantity}</div>
+                    <i class="fa-solid fa-plus bg-orange-200 text-orange-800 rounded p-2 cursor-pointer"  onClick={()=>{setQuantity(Quantity+1)}}></i>
                 </div>
                 
                 <div className='flex justify-around text-xl my-3'>
                     <button 
-                        className='px-10 py-3 rounded border-2 border-rose-800 hover:bg-rose-200 transition-all duration-100 '
+                        className='px-10 py-3 rounded border-2 border-orange-800 hover:bg-orange-200 transition-all duration-100 '
                         onClick={handleAddToCart}
                     >{isinCart?"Added In Cart":"Add To Cart"}</button>
                     <button 
-                        className='px-10 py-3 rounded border-2 border-rose-800 hover:bg-rose-200 hover:text-rose-800 bg-rose-800 text-rose-50 transition-all duration-100 '
+                        className='px-10 py-3 rounded border-2 border-orange-800 hover:bg-orange-200 hover:text-orange-800 bg-orange-800 text-orange-50 transition-all duration-100 '
                         onClick={()=>{handleAddToCart(); setTimeout(() => {navigate("/cart") }, 50); }}
                         >Buy Now</button>
                 </div>
                         </span>
                     }
-                {isinCart&&<div className='text-center mb-1'> <Link to={"/cart"} className='text-xl  text-rose-700 hover:bg-rose-200 rounded-lg px-2'>View Cart</Link></div>}
+                {isinCart&&<div className='text-center mb-1'> <Link to={"/cart"} className='text-xl  text-orange-700 hover:bg-orange-200 rounded-lg px-2'>View Cart</Link></div>}
 
                 
 
-                <Hr thickness={"h-0.5"} length={"w-full"} color='bg-rose-200' />
+                <Hr thickness={"h-0.5"} length={"w-full"} color='bg-orange-200' />
                 <div className='my-5'>
                     <table>
                         <tr ><td><i class="fa-regular fa-gem"></i></td><td>Purity Guaranteed.</td></tr>
@@ -203,107 +203,107 @@ const Product = () => {
                         <tr ><td><i class="fa-solid fa-truck-fast"></i></td><td>Free Shipping all across India.</td></tr>
                     </table>
                 </div>
-                <Hr thickness={"h-0.5"} length={"w-full"} color='bg-rose-200' />
+                <Hr thickness={"h-0.5"} length={"w-full"} color='bg-orange-200' />
                 <div className='flex justify-center gap-5'>
-                        <fieldset className='border-2 border-rose-800 rounded-md text-center p-1 '>
+                        <fieldset className='border-2 border-orange-800 rounded-md text-center p-1 '>
                             <legend>Country</legend>
-                            <select name="" id="" className='py-2 px-5 bg-rose-50 rounded-lg'>
+                            <select name="" id="" className='py-2 px-5 bg-orange-50 rounded-lg'>
                                 <option value="india" selected>India</option>
                             </select>
                         </fieldset>
-                        <fieldset className='border-2 border-rose-800 rounded-md text-center  py-1 relative'>
+                        <fieldset className='border-2 border-orange-800 rounded-md text-center  py-1 relative'>
                             <legend>Pincode</legend>
-                            <input type="text" placeholder='Enter pincode' id="" className='px-2 h-full rounded-lg bg-rose-50 text-xl focus:border-rose-300 focus:ring-rose-300'
+                            <input type="text" placeholder='Enter pincode' id="" className='px-2 h-full rounded-lg bg-orange-50 text-xl focus:border-orange-300 focus:ring-orange-300'
                                 onChange={(change)=>{setPincode(change.target.value)}}
                                 value={pincode} />
-                            <button disabled={!pincode}className={`font-bold p-1 rounded-lg absolute right-3 top-2 ${pincode === ""? "text-rose-50  bg-rose-100" : "hover:bg-rose-300  bg-rose-100"} cursor-pointer`}
+                            <button disabled={!pincode}className={`font-bold p-1 rounded-lg absolute right-3 top-2 ${pincode === ""? "text-orange-50  bg-orange-100" : "hover:bg-orange-300  bg-orange-100"} cursor-pointer`}
                                 onClick={CheckPincode} >Check</button>
                         </fieldset>
                 </div>
-                <div className='text-center py-5'>Shipping Delivery Days Taken {shipday>0 && <span className='text-rose-600'>: {shipday}-{shipday+2} Working Days <i class="fa-solid fa-truck-fast"></i></span>}</div>
-                <Hr thickness={"h-0.5"} length={"w-full"} color='bg-rose-200' />
-                <img src={features} alt="" className='bg-rose-50 rounded-xl mt-5 drag-none' />
+                <div className='text-center py-5'>Shipping Delivery Days Taken {shipday>0 && <span className='text-orange-600'>: {shipday}-{shipday+2} Working Days <i class="fa-solid fa-truck-fast"></i></span>}</div>
+                <Hr thickness={"h-0.5"} length={"w-full"} color='bg-orange-200' />
+                <img src={features} alt="" className='bg-orange-50 rounded-xl mt-5 drag-none' />
             </section>
-            <section className='min-h-screen bg-rose-100 w-full z-10'>
+            <section className='min-h-screen bg-orange-100 w-full z-10'>
                 <div className='w-full p-8'>
                     <h1 className='text-center font-bold text-2xl'>Product Details</h1>
                     <div className='p-5 flex  w-full justify-center'>
                         <table className='text-left' cellPadding={20}>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer' >
                                 <th>Brand</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.brand}</td>
                             </tr>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Collection</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.jcollection}</td>
                             </tr>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Gender</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.gender}</td>
                             </tr>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Jewellery Type</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.jewelleryType}</td>
                             </tr>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Occasion</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.occasion}</td>
                             </tr>
                         </table>
                         <table className='text-left'  cellPadding={10}>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Material Color</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.materialColour}</td>
                             </tr>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Metal</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.metal}</td>
                             </tr>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Height</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.pendantHeight}</td>
                             </tr>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Width</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.pendantWidth}</td>
                             </tr>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Karatage</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.karatage}</td>
                             </tr>
                         </table>
                         <table className='text-left'  cellPadding={10}>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Diamond Quantity</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.noOfDiamonds}</td>
                             </tr>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Diamond Color</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.diamondColor}</td>
                             </tr>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Diamond Clarity</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.diamondClarity}</td>
                             </tr>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Diamond Shape</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.diamondShape}</td>
                             </tr>
-                            <tr className='border-b border-b-rose-200 hover:bg-rose-200 cursor-pointer ' >
+                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Diamond Setting</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.diamondSetting}</td>
@@ -339,9 +339,9 @@ const Product = () => {
                                 </div>
                             </div>
                             <div className="w-8 h-8 cursor-pointer group flex items-center justify-center absolute  top-5 right-5 rounded-full   hover:shadow-2xl">
-                                <i class="fa-solid fa-ellipsis-vertical   group-hover:bg-rose-200 px-3 py-2 rounded-md translate-all ease-in duration-100 group"></i>
+                                <i class="fa-solid fa-ellipsis-vertical   group-hover:bg-orange-200 px-3 py-2 rounded-md translate-all ease-in duration-100 group"></i>
                                 
-                                <div className="absolute text-sm -bottom-7 hidden p-1 rounded-md bg-rose-50 hover:bg-rose-200 border w-24 text-center group-hover:block"> Report</div>
+                                <div className="absolute text-sm -bottom-7 hidden p-1 rounded-md bg-orange-50 hover:bg-orange-200 border w-24 text-center group-hover:block"> Report</div>
                             </div>
                         </div>
                     ))}

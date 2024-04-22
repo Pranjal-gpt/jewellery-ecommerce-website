@@ -10,7 +10,7 @@ const About = () => {
         <Nav />
       </CartProvider>
       <div className='min-h-[50vh]'>
-        abotut
+        
       </div>
       <Footer />
     </div>

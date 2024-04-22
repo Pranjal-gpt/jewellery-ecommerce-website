@@ -45,11 +45,10 @@ exports.getJewelryByMerchant = async (req, res) => {
   exports.getAllJewelleries =async (req,res)=>{
     try {
       // Destructure the filter parameters from the request query
-      const { category, search, priceMin, priceMax, gender, jcollection, occasion, metal, metalColor, community } = req.query;
-  console.log(req.query)
+      const { category, search, priceMin, priceMax, gender, jcollection, occasion, metal, metalColor,gifting } = req.query;
+  // console.log(req.query)
       // Construct the filter object based on the provided parameters
       const filter = {};
-  
       if (category && category != 'all') {
         // filter.jewelleryType = category;
         const regex = new RegExp(`^${category}`);
@@ -81,11 +80,11 @@ exports.getJewelryByMerchant = async (req, res) => {
       }
   
       if (metalColor && metalColor !== 'any') {
-        filter.materialColour = metalColor;
+        filter.platingColor = metalColor;
       }
-  
-      if (community && community !== 'all') {
-        filter.community = community;
+
+      if (gifting) {
+        filter.gifting=true;
       }
   
       // Retrieve the filtered jewelleries from the database
