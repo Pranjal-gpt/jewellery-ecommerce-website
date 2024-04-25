@@ -87,7 +87,7 @@ const JewelryForm = () => {
     <div className="">
           <Nav />
 
-      <form onSubmit={handleSubmit} className="space-y-4 w-1/3 mx-auto mt-5 bg-red-50 p-5 rounded-lg">
+      <form onSubmit={handleSubmit} className="space-y-4 w-1/3 mx-auto mt-5 bg-orange-50 p-5 rounded-lg">
         <h1 className='text-xl font-semibold text-center'>Add Jewellery</h1>
         <div className='p-2 bg-orange-100 rounded text-center mx-auto'>{infoMsg}</div>
 

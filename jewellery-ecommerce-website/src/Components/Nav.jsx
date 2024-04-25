@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect,useState } from "react";
-
+import elegance from '../assets/elegence.png'
 // import jwt from 'jsonwebtoken';
 import { WishlistProvider } from "../contexts/wishlistContext";
 const Nav = () => {
@@ -142,8 +142,10 @@ const Nav = () => {
   }
   return (
     <div className="nav w-full sticky z-50 top-0">
-      <nav className="mainNav  h-16 bg-orange-100 flex justify-between items-center px-20">
-        <h1 className="logo text-orange-600 text-3xl font-bold">Jew</h1>
+      <nav className="mainNav  h-20 bg-orange-100 flex justify-between items-center px-20">
+        <h1 className="logo text-orange-600 text-3xl font-bold">
+          <img src={elegance} className="w-52" alt="" />
+        </h1>
         <div className="nlinks flex gap-10 text-xl items-center flex-wrap">
             
           <Link to={"/#"}>home </Link>

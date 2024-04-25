@@ -35,14 +35,14 @@ const Home = () => {
         
           {/* <img src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw7f7d0da9/homepage/HeroBanner/rings-desktop.jpg"></img> */}
         </div>
-        <div className="category flex flex-col gap-10">
+        <div className="category mt-14 flex flex-col gap-10">
           {/*block 2*/}
-          <h1 className="text-center font-bold text-3xl py-7">
-            shop by category
+          <h1 className="text-center font-semibold text-3xl py-7">
+            Shop by category
           </h1>
           <div className="h-0.5 w-1/3  bg-[#832729] mx-auto"></div>
           {/*underline code*/}
-          <div className="flex gap-7 flex-wrap justify-center w-11/12 mx-auto">
+          <div className=" flex gap-7 flex-wrap justify-center w-11/12 mx-auto">
             {allcategories.map((category) => (
               <Citem
                 cName={category.cName}
@@ -55,10 +55,10 @@ const Home = () => {
         </div>
         <div className="category flex flex-col gap-10">
           {/*block 3*/}
-          <h1 className="text-center font-bold text-3xl py-7">
-            shop by collection
+          <h1 className="text-center font-semibold mt-16 text-4xl py-7">
+            Shop by collection
           </h1>
-          <div className="h-0.5 w-1/3  bg-[#832729] mx-auto"></div>
+          <div className="h-0.5 w-1/3 bg-[#832729] mx-auto"></div>
           {/*underline code*/}
           <div className="flex gap-10 flex-wrap justify-center w-11/12 mx-auto">
             {collections.map((collection) => (
@@ -66,7 +66,7 @@ const Home = () => {
               cName={collection.cName}
               cLink={collection.cLink}
               cImg={collection.imgurl}
-                size={"w-72 h-72"}
+                size={"w-72 h-72 "}
               />
             ))}
           </div>
@@ -84,10 +84,10 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <div className="category flex flex-col gap-10">
+        <div className="category flex flex-col mt-16 gap-10">
           {/*block 5*/}
-          <h1 className="text-center font-bold text-3xl py-7">
-            shop by gender
+          <h1 className="text-center font-semibold text-3xl py-7">
+            Shop by gender
           </h1>
           <div className="h-0.5 w-1/3  bg-[#832729] mx-auto"></div>
           {/*underline code*/}

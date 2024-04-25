@@ -5,7 +5,7 @@
 
 .Setfilter div {
     padding: 2px 4px;
-    border:2px solid pink;
+    border:2px solid rgb(255, 218, 151);
     width: fit-content;
     border-radius: 5px;
 
@@ -15,12 +15,12 @@
 
 }
 .Setfilter select {
-  background-color: #ffe9eb;
+  background-color: #ffebd3;
   border-radius: 7px;
 
 }
 .Setfilter select:hover {
-  background-color: #FECDD3;
+  background-color: #ffe4aa;
   outline: none;
 }
 .Setfilter select:active {
@@ -47,3 +47,4 @@
   padding: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
+

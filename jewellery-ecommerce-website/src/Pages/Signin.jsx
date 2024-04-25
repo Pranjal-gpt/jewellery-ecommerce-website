@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Nav from "../Components/Nav"
 import Footer from "../Components/Footer"
-import { useNavigate,useLocation } from 'react-router-dom';
+import { useNavigate,useLocation,Link } from 'react-router-dom';
 
 const SignInForm = () => {
     const navigate = useNavigate();
@@ -54,17 +54,18 @@ const SignInForm = () => {
   };
 
   return (
-  <div className='absolute top-0 z-50 w-full'>
+  <div className='absolute bg-orange-50 top-0 z-50 w-full'>
     <Nav />
-    <form onSubmit={handleSubmit} className='bg-orange-50 p-5 rounded mx-auto mt-2 w-1/3 flex flex-col gap-2'>
+    <form onSubmit={handleSubmit} className='bg-orange-100 mt-32 mb-40 p-5 rounded-2xl mx-auto mt-2 w-1/3 flex flex-col gap-2'>
        <div className='text-xl text-center'>Login</div>
         <div className='p-2 bg-orange-100 rounded text-center mx-auto'>{infoMsg}</div>
       <div>Email</div>
-      <input type="email" name="email" value={formData.email} onChange={handleChange} />
+      <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder='Enter your Email' className='rounded-lg p-3 placeholder:text-orange-200 bg-orange-50' />
       <div>Password</div>
-      <input type="password" name="password" value={formData.password} onChange={handleChange} />
+      <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder='Enter your Password' className='rounded-lg p-3 placeholder:text-orange-200 bg-orange-50' />
       
-      <button type="submit" className='active:bg-orange-400'>Sign In</button>
+      <button type="submit" className='active:bg-orange-400 bg-orange-200 p-2 rounded-xl w-fit mx-auto'>Sign In</button>
+      <div className='mx-auto'>Don't have an Account? <Link className='text-orange-600' to={"/signup"}>Sign Up</Link></div>
     </form>
     <Footer />
   </div>

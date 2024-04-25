@@ -40,26 +40,35 @@ const Products = ({category,all=false,collec="any",occa="any",gifting=false}) =>
     }
     else{
 
-      products+= `&search=${search}&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
+      products+= `&sea00rch=${search}&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
     }
     let productUrl = "http://localhost:3000/api/jewellery/all?category="+products.replace(" ","-");
     console.log("collec ",productUrl)
       console.log(productUrl)
       fetch(productUrl)
         .then((response) => response.json())
-        .then((data) => {setProductsData(data);console.log(data)})
+        .then(async (data) => {
+          setProductsData(data);
+        
+          console.log(data)
+        })
         .catch((error) => console.error("Error fetching products data:", error));
   }
-  const sortedData = [...ProductsData].sort((a, b) => {
-    if (sortBy === 'price') {
-      return a.price - b.price; // Sort by price (low to high)
-    } else if (sortBy === 'name') {
-      return a.title.localeCompare(b.title); // Sort by name
+  const sortProducts = () => {
+    switch (sortBy) {
+      case 'Pricelth':
+        return [...ProductsData].sort((a, b) => a.price - b.price);
+      case 'Pricehtl':
+        return [...ProductsData].sort((a, b) => b.price - a.price);
+      case 'nameasc':
+        return [...ProductsData].sort((a, b) => a.title.localeCompare(b.title));
+      case 'namedsc':
+        return [...ProductsData].sort((a, b) => b.title.localeCompare(a.title));
+      default:
+        return  [...ProductsData].sort(() => Math.random() - 0.5);
     }
-    return 0;
-  });
+  };
   const CheckPincode = async () => {
-    const value = pincode;
     const url = 'https://india-pincode-with-latitude-and-longitude.p.rapidapi.com/api/v1/pincode/'+pincode;
     const options = {
         method: 'GET',
@@ -86,6 +95,7 @@ const Products = ({category,all=false,collec="any",occa="any",gifting=false}) =>
         onClick={()=>{
           getProductsData(name);
           setVisibleProducts(4);
+         
         }}
           >{name}</button>
         )
@@ -112,14 +122,20 @@ const Products = ({category,all=false,collec="any",occa="any",gifting=false}) =>
         .then((data) => setProductsData(data))
         .catch((error) => console.error("Error fetching products data:", error));
   }
+
   useEffect(()=>{
     getProductsData(category)
-    // getAllJewellery()
-    
   },[category,collec])
+
+  useEffect(() => {
+    const sortedProducts = sortProducts();
+    setProductsData(sortedProducts);
+  }, [sortBy]);
+
   useEffect(()=>{
     priceMax<10000&&setpriceMax(10000)
   },[priceMax])
+
   return (
     <div>
         <CartProvider>
@@ -166,8 +182,8 @@ const Products = ({category,all=false,collec="any",occa="any",gifting=false}) =>
                 </div>
                 ):""}
                 <div>
-                  <b>SortBy</b>
-                  <select onChange={(e)=>setSortBy(e.target.value)}  value={sortBy}>
+                  <b className='rounded-l-xl bg-orange-100 p-1.5'>SortBy</b>
+                  <select onChange={(e)=>setSortBy(e.target.value)}  value={sortBy} className=' rounded-r-xl bg-orange-200 p-1 focus:outline-orange-100' >
                     <option value="Default">Default</option>
                     <option value="Pricelth">Price(Low to High)</option>
                     <option value="Pricehtl">Price(High to Low)</option>
