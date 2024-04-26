@@ -17,7 +17,7 @@ const PaymentSuccess = () => {
         <div>
           Refference Number: <span className='font-semibold'>{referenceNum}</span> 
         </div>
-        <Link to={"/orders"} className='p-2 bg-orange-100 rounded-xl  hover:bg-orange-50'>See You Orders</Link>
+        <Link to={"/orders"} className='p-2 bg-orange-100 rounded-xl  hover:bg-orange-50'>Check Your Orders</Link>
       </div>
       <Footer />
     </div>

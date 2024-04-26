@@ -49,16 +49,16 @@ const Checkout = () => {
         currency: "INR",
         name: "Elegance Jewellery",
         description: "Jewelleries just for you",
-        image: "http://localhost:5173/src/assets/elegence.png",
+        image: "https://i.postimg.cc/mPVWSprM/image.png",
         order_id: order.id,
         callback_url: "http://localhost:3000/api/payment/paymentverification",
         prefill: {
-            name: "Pranjal Gupta",
-            email: "pranjalgupta@gmail.com",
-            contact: "9999999999"
+            name: addr.fullname,
+            email: addr.email,
+            contact: addr.phone
         },
         notes: {
-            "address": "SCSIT Indore"
+            "address": addr.address1
         },
         theme: {
             "color": "#FED7AA"
