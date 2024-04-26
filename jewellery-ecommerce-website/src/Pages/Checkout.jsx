@@ -68,7 +68,7 @@ const Checkout = () => {
     const razor = new window.Razorpay(options);
     console.log('Order placed:', response.data.status);
     razor.open()
-    
+   
       // navigate("/orders")
       // Optionally, redirect to a confirmation page or show a success message
     } catch (error) {

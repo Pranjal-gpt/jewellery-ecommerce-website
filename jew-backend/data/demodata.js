@@ -4,14 +4,14 @@ const New = [
     imgurl:
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw901d27ee/homepage/NewForYou/trending-earrings.jpg",
     cName: "trending earrings",
-    cLink: "jewellery/",
+    cLink: "/jewellery/earrings",
   },
   {
     id: 2,
     imgurl:
       "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwb292158a/homepage/NewForYou/pretty-in-pink-new.jpg",
     cName: "pretty in pink",
-    cLink: "jewellery/",
+    cLink: "/jewellery/collections/pretty-in-pink",
   },
   {
     id: 3,

@@ -16,6 +16,7 @@ const Cart = () => {
             const usertoken =""// jwt.decode(token)
             setuser(JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email);
         }
+    window.scrollTo(0, 0);
         
     }, [])
 
@@ -158,6 +159,7 @@ const Cart = () => {
                                 </div>
                         </fieldset>
                         {user?
+                        cartItems.length!==0?
                         <Link className='px-10 py-3 block mx-auto mt-5 text-center rounded border-2 border-orange-800 hover:bg-orange-200 hover:text-orange-800 bg-orange-800 text-orange-50 transition-all duration-100 '
                         to={"/checkout"}    
                         state={
@@ -168,7 +170,8 @@ const Cart = () => {
                                 promoDiscounts:PromoDiscount,
                                 netPay:DiscountedPrice.toFixed(2)-PromoDiscount
                             }}
-                            >Proceed Checkout</Link>
+                            >Proceed Checkout</Link>: <Link to="/jewellery" className='w-fit px-2 py-1 block mx-auto mt-5  rounded border-2 border-orange-800 hover:bg-orange-600 hover:text-orange-50  text-orange-800 transition-all duration-100 '
+                            >Add More Items</Link>
                         :  <Link to="/signin" state={"customer"} className='w-fit px-2 py-1 block mx-auto mt-5  rounded border-2 border-orange-800 hover:bg-orange-600 hover:text-orange-50  text-orange-800 transition-all duration-100 '
                         >Please LogIn First</Link>}
                 </div>

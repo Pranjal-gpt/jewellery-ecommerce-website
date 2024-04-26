@@ -52,9 +52,11 @@ const orderForm = () => {
     }
   useEffect(()=>{ 
     getUser();
+
   },[])
   useEffect(()=>{
     getorders()
+    window.scrollTo(0,0);
   },[])
   return (
     <div className="">

@@ -17,6 +17,8 @@ import Checkout from "./Pages/Checkout";
 import Orders from "./Pages/Orders";
 import Collections from "./Pages/Collections";
 import PaymentSuccess from "./Pages/PaymentSuccess";
+import TnC from "./Pages/TnC";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
 const App = () => {
   return (
     <BrowserRouter >
@@ -84,7 +86,10 @@ const App = () => {
 
             <Route path='/cart' element={ <Cart /> } />
             <Route path='/wishlist' element={<Wishlist />} />
+
             <Route path='/about' element={<About />} />
+            <Route path='/termsandconditions' element={<TnC />} />
+            <Route path='/privacypolicy' element={<PrivacyPolicy />} />
             <Route path='/delivery-info' element={<About />} />
             <Route path='/payment-option' element={<About />} />
             <Route path='/track-order' element={<Orders />} />

@@ -1,51 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Nav from '../Components/Nav'
 import Footer from '../Components/Footer'
 import { CartProvider } from "../contexts/cartContext";
-import { useState } from 'react';
-import axios from 'axios';
 const About = () => {
-  const handlecheckout = async (amount) => {
-    const {data:{key}} = await axios.get('http://localhost:3000/api/payment/getkey')
-    const {data:{order}} = await axios.post('http://localhost:3000/api/payment/checkout', {
-      amount
-    })
-    console.log(order,key)
-    const options = {
-      key:key,
-      amount: order.amount,
-      currency: "INR",
-      name: "Elegance Jewellery",
-      description: "Jewelleries just for you",
-      image: "http://localhost:5173/src/assets/elegence.png",
-      order_id: order.id,
-      callback_url: "http://localhost:3000/api/payment/paymentverification",
-      prefill: {
-          name: "Pranjal Gupta",
-          email: "pranjalgupta@gmail.com",
-          contact: "9999999999"
-      },
-      notes: {
-          "address": "SCSIT Indore"
-      },
-      theme: {
-          "color": "#FED7AA"
-      }
-  };
-  console.log(options.key)
-  const razor = new window.Razorpay(options);
-  razor.open()
-  }
+ useEffect(()=>{
+    window.scrollTo(0,0)
+  
+ },[])
   return (
     <div>
       <CartProvider>
         <Nav />
       </CartProvider>
-      <div className='min-h-[50vh]'>
-        <div>
-          <img width={200} src="https://source.unsplash.com/random" alt="Random Image" />
-          <div>500</div>
-          <div onClick={()=>handlecheckout(600)}>buy</div>
+      <div className='min-h-[50vh] p-5'>
+        <div className='text-center text-4xl mb-5'>About Us</div>
+        <div className=' w-7/12 mx-auto'>
+          
+"Elegance Jewellery, where sophistication meets style, offers an exquisite collection of fine jewelry crafted to perfection. Our curated selection showcases timeless pieces designed to enhance your elegance and grace on every occasion. From stunning diamond necklaces to intricate gold bangles, each piece in our collection reflects unparalleled craftsmanship and attention to detail.
+<br /><br />
+At Elegance Jewellery, we understand the significance of jewelry in expressing individuality and celebrating milestones. Whether you're marking a special moment or simply indulging in self-expression, our diverse range of designs caters to every taste and preference. Explore our enchanting assortment of earrings, bracelets, rings, and more, meticulously crafted to elevate your ensemble and make a statement.
+
+Driven by a passion for excellence, we prioritize quality and authenticity, ensuring that every piece meets the highest standards of craftsmanship. With a commitment to customer satisfaction, we offer a seamless shopping experience, supported by personalized assistance and expert guidance.
+
+Discover the allure of Elegance Jewellery and adorn yourself with timeless elegance that transcends trends. Immerse yourself in a world of luxury and sophistication, where each piece tells a story of beauty, elegance, and timeless charm."
         </div>
       </div>
       <Footer />

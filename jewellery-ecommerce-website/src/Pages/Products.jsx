@@ -127,6 +127,7 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
 
   useEffect(()=>{
     getProductsData(category)
+    window.scrollTo(0, 0);
   },[category,collec,occa,gifting])
 
   useEffect(() => {
@@ -150,11 +151,15 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
                     <input 
                       value={search}
                       onChange={(e)=>{setsearch(e.target.value)}}
+                      onKeyDown={(e) => e.key === 'Enter'&&  handleSearch()}
                       type='text' name='search' 
                       placeholder='Search for Jewellery' 
                       className='px-3 py-2 w-72 focus:shadow-2xl hover:shadow-lg active:outline-orange-600 hover:w-[22rem] transition-all duration-500 ease-in focus:w-[22rem] focus:outline-none rounded bg-orange-50 placeholder-orange-300'>
                     </input>
-                    <i onClick={handleSearch} class="fa-solid fa-magnifying-glass absolute cursor-zoom-in right-3 top-1/2 -translate-y-1/2 bg-orange-300 text-white hover:scale-125 pl-1 rounded-full p-1 "></i>
+                    <i onClick={handleSearch} 
+                       
+                       class="fa-solid fa-magnifying-glass absolute cursor-zoom-in right-3 top-1/2 -translate-y-1/2 bg-orange-300 text-white hover:scale-125 pl-1 rounded-full p-1 ">
+                    </i>
                   </div>
                   <div className='flex items-center'>
                     <div className='rounded-xl bg-orange-200 px-2 py-1 mr-1'>{city!=""&&"✅"} {city} <i class="fa-solid fa-map-pin" ></i></div>
