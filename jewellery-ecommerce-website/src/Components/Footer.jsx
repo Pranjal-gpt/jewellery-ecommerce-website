@@ -32,7 +32,7 @@ function Footer() {
           <a href="#">Chat with Us</a>
         </div>
         <div className="flex flex-col items-center justify-center gap-8 ">
-          <h1 className="text-2xl ">Follow Us</h1>
+          {/* <h1 className="text-2xl ">Follow Us</h1>
           <div className="  flex gap-5 ">
             <a href="#">
               <i class="fa-brands fa-instagram fa-2xl"></i>
@@ -46,7 +46,7 @@ function Footer() {
             <a href="#">
               <i class="fa-brands fa-facebook fa-2xl"></i>
             </a>
-          </div>
+          </div> */}
         </div>
       </section>
       <div className="h-0.5 w-1/3  bg-[#832729] mx-auto"></div>

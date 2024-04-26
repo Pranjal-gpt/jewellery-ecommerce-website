@@ -95,19 +95,19 @@ const Home = () => {
             <Citem
               cImg="https://i.imghippo.com/files/8XbYk1713551029.jpg"
               cName="Mens"
-              cLink={"/jewellery"}
+              cLink={"/jewellery/mens"}
               size={"w-96 h-72 rounded-xl "}
             />
             <Citem
               cImg="https://i.imghippo.com/files/n6tfK1713551195.jpg"
               cName="Womens"
-              cLink={"/jewellery"}
+              cLink={"/jewellery/womens"}
               size={"w-96 h-72 rounded-2xl object-cover"}
             />
             <Citem
               cImg="https://i.imghippo.com/files/suoxl1713551129.jpg"
               cName="Kids"
-              cLink={"/jewellery/"}
+              cLink={"/jewellery/kids"}
               size={"w-96 h-72 rounded-2xl object-cover"}
             />
           </div>

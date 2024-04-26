@@ -170,7 +170,7 @@ const Product = () => {
                     <div className='text-sm'>Price Inclusive of all taxes. See full <span className='text-orange-900 font-semibold hover:text-orange-500 cursor-pointer'>Price Breakup</span> </div>
                 </div>
                 <div>{productDetails.metal}</div>
-                {productDetails.merchant!=JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email&& <span>
+                {(localStorage.getItem("token")&&productDetails.merchant!=JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email)&& <span>
 
                 <div className='border border-orange-800 w-fit p-2 my-3 mx-auto rounded flex gap-5 items-center'>
                     Quantity 
@@ -229,27 +229,27 @@ const Product = () => {
                     <h1 className='text-center font-bold text-2xl'>Product Details</h1>
                     <div className='p-5 flex  w-full justify-center'>
                         <table className='text-left' cellPadding={20}>
-                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer' >
+                            <tr className='border-b border-r border-r-orange-200 border-b-orange-200 hover:bg-orange-200 cursor-pointer' >
                                 <th>Brand</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.brand}</td>
                             </tr>
-                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
+                            <tr className='border-b border-r border-r-orange-200 border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Collection</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.jcollection}</td>
                             </tr>
-                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
+                            <tr className='border-b border-r border-r-orange-200 border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Gender</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.gender}</td>
                             </tr>
-                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
+                            <tr className='border-b border-r border-r-orange-200 border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Jewellery Type</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.jewelleryType}</td>
                             </tr>
-                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
+                            <tr className='border-b border-r border-r-orange-200 border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Occasion</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.occasion}</td>
@@ -257,32 +257,24 @@ const Product = () => {
                         </table>
                         <table className='text-left'  cellPadding={10}>
                             <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
-                                <th>Material Color</th>
+                                <th>Plating Color</th>
                                 <td className='px-3'>:</td>
-                                <td>{productDetails.materialColour}</td>
+                                <td>{productDetails.platingColor}</td>
                             </tr>
                             <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Metal</th>
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.metal}</td>
                             </tr>
+                            {productDetails.size>0&&
                             <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
-                                <th>Height</th>
+                                <th>Size</th>
                                 <td className='px-3'>:</td>
-                                <td>{productDetails.pendantHeight}</td>
+                                <td>{productDetails.size}</td>
                             </tr>
-                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
-                                <th>Width</th>
-                                <td className='px-3'>:</td>
-                                <td>{productDetails.pendantWidth}</td>
-                            </tr>
-                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
-                                <th>Karatage</th>
-                                <td className='px-3'>:</td>
-                                <td>{productDetails.karatage}</td>
-                            </tr>
+                            }
                         </table>
-                        <table className='text-left'  cellPadding={10}>
+                        {/* <table className='text-left'  cellPadding={10}>
                             <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
                                 <th>Diamond Quantity</th>
                                 <td className='px-3'>:</td>
@@ -308,18 +300,18 @@ const Product = () => {
                                 <td className='px-3'>:</td>
                                 <td>{productDetails.diamondSetting}</td>
                             </tr>
-                        </table>
+                        </table> */}
                     </div>
                 </div>
-                <div>
+                {/* <div>
                     <h2 className='text-2xl font-bold text-center'>Similar Products</h2>
                         <div className='section flex gap-10 flex-wrap justify-center mt-5 mx-auto  w-11/12'>
                             {SimilarProducts.map((product)=>(
                             <Pitem product={product} mode={"similars"} size={"w-60"} />
                             ))}
                         </div>
-                </div>
-                <div className=' w-10/12 mx-auto mt-10'>
+                </div> */}
+                {/* <div className=' w-10/12 mx-auto mt-10'>
                     <h1 className='text-center text-2xl font-bold'>Reviews</h1>
                     {productDetails.reviews && productDetails.reviews.map((review)=>(
                         
@@ -345,7 +337,7 @@ const Product = () => {
                             </div>
                         </div>
                     ))}
-                </div>
+                </div> */}
             </section>
         </main>
         </CartProvider>

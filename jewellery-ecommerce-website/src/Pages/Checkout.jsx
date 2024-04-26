@@ -28,17 +28,48 @@ const Checkout = () => {
 
     }
   }
-  const handleCheckout = async () => {
+  const handleCheckout = async (amount) => {
     try {
       // Send the order data to the backend
+      const {data:{key}} = await axios.get('http://localhost:3000/api/payment/getkey')
+    const {data:{order}} = await axios.post('http://localhost:3000/api/payment/checkout', {
+      amount
+    })
+
       const response = await axios.post('http://localhost:3000/api/order/place', { 
         email:JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email,
         products:(data.cartItems).map((item)=>item.title.length >25 ? item.title.substring(0,25) + '...' : item.title),
         totalAmount:data.netPay,
         shippingAddress:addr.address1
        });
-      console.log('Order placed:', response.data.status);
-      navigate("/orders")
+
+      const options = {
+        key:key,
+        amount: order.amount,
+        currency: "INR",
+        name: "Elegance Jewellery",
+        description: "Jewelleries just for you",
+        image: "http://localhost:5173/src/assets/elegence.png",
+        order_id: order.id,
+        callback_url: "http://localhost:3000/api/payment/paymentverification",
+        prefill: {
+            name: "Pranjal Gupta",
+            email: "pranjalgupta@gmail.com",
+            contact: "9999999999"
+        },
+        notes: {
+            "address": "SCSIT Indore"
+        },
+        theme: {
+            "color": "#FED7AA"
+        }
+    };
+    console.log(options.key)
+    const razor = new window.Razorpay(options);
+    console.log('Order placed:', response.data.status);
+    razor.open()
+    
+      // navigate("/orders")
       // Optionally, redirect to a confirmation page or show a success message
     } catch (error) {
       // setErrorMessage('Failed to place order');
@@ -98,8 +129,8 @@ getuser()
                         </fieldset>
 
                         <button className='px-10 py-3 w-full block mx-auto mt-5 text-center rounded border-2 border-orange-800 hover:bg-orange-200 hover:text-orange-800 bg-orange-800 text-orange-50 transition-all duration-100 '
-                            onClick={handleCheckout}
-                            >Place Order</button>
+                            onClick={()=>handleCheckout(data.netPay)}
+                            >Pay & Place Order</button>
                         <Link className=' py-1 px-9 block w-fit mx-auto mt-5 text-center rounded border-2 border-orange-800 hover:bg-orange-200 hover:text-orange-800 bg-orange-900 text-orange-50 transition-all duration-100 '
                          to={"/cart"} >Cancel</Link>
                 </div>

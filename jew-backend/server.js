@@ -1,8 +1,7 @@
-// import express from "express"
+const dotenv = require('dotenv');
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-
 const homeRouter = require('./routes/homeRoute');
 const productsRouter = require('./routes/productsRoute');
 const productRouter = require('./routes/productRoute');
@@ -11,9 +10,12 @@ const wishlistRouter = require('./routes/wishlistRoute');
 const userRoutes = require('./routes/userRoutes');
 const jewelleryRoutes = require('./routes/jewelleryRoutes');
 const orderRoutes = require('./routes/orderRoutes');
+const paymentRoutes = require('./routes/paymentRoutes');
 
+dotenv.config({path:"./config/config.env"})
 const app = express();
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // Other middleware and route handling
 app.use(cors());
 connectionString = "mongodb://127.0.0.1:27017/jew"
@@ -32,6 +34,7 @@ app.use('/api/wishlist', wishlistRouter);
 app.use('/api/user', userRoutes);
 app.use('/api/jewellery', jewelleryRoutes);
 app.use('/api/order', orderRoutes);
+app.use('/api/payment', paymentRoutes);
 
 
 // Start the server

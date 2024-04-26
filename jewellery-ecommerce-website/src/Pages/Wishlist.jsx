@@ -74,7 +74,7 @@ const Wishlist = () => {
                                     <Link className=" bg-orange-200 hover:bg-orange-100 rounded-md px-5 py-2 text-center"
                                     to={"/jewellery/item/"+item.title.replace(/ /g, "-") +"#"+ item.id} state={item}>View</Link>
                                 </div>
-                                {item.merchant==JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email&&
+                                {(localStorage.getItem("token")&&item.merchant!=JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email)&&
                                 <div className='flex flex-col justify-around h-48'>
                                     <button 
                                         className='px-10 py-3 rounded border-2 border-orange-800 hover:bg-orange-200 transition-all duration-100 '

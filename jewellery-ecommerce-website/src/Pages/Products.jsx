@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { CartProvider } from "../contexts/cartContext";
 
 // import categories from '../data/demodata'
-const Products = ({category,all=false,collec="any",occa="any",gifting=false}) => {
+const Products = ({category,all=false, genderType="any",collec="any",occa="any",gifting=false}) => {
   
   const [pincode, setPincode] = useState('');
   const [city, setCity] = useState('');
@@ -19,7 +19,7 @@ const Products = ({category,all=false,collec="any",occa="any",gifting=false}) =>
   
   const [search, setsearch] = useState("")
   const [priceMin, setpriceMin] = useState(0)
-  const [priceMax, setpriceMax] = useState(1000000)
+  const [priceMax, setpriceMax] = useState(4000)
   const [gender, setgender] = useState("any")
   const [jcollection, setjcollection] = useState("any")
   const [occasion, setoccasion] = useState("any")
@@ -35,12 +35,14 @@ const Products = ({category,all=false,collec="any",occa="any",gifting=false}) =>
       products+= `&jcollection=${collec}`
     }else if (occa!="any") {
       products+= `&occasion=${occa}`
+    }else if (genderType!="any") {
+      products+= `&gender=${genderType}`
     }else if (gifting===true){
       products+= `&gifting=true`
     }
     else{
 
-      products+= `&sea00rch=${search}&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
+      products+= `&search=${search}&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
     }
     let productUrl = "http://localhost:3000/api/jewellery/all?category="+products.replace(" ","-");
     console.log("collec ",productUrl)
@@ -49,7 +51,7 @@ const Products = ({category,all=false,collec="any",occa="any",gifting=false}) =>
         .then((response) => response.json())
         .then(async (data) => {
           setProductsData(data);
-        
+          setSortBy("Default");
           console.log(data)
         })
         .catch((error) => console.error("Error fetching products data:", error));
@@ -106,7 +108,7 @@ const Products = ({category,all=false,collec="any",occa="any",gifting=false}) =>
       const resetFilters=()=>{
         setsearch("");
         setpriceMin(0)
-        setpriceMax(1000000)
+        setpriceMax(4000)
         setgender("any")
         setjcollection("any")
         setoccasion("any")
@@ -125,7 +127,7 @@ const Products = ({category,all=false,collec="any",occa="any",gifting=false}) =>
 
   useEffect(()=>{
     getProductsData(category)
-  },[category,collec])
+  },[category,collec,occa,gifting])
 
   useEffect(() => {
     const sortedProducts = sortProducts();
@@ -133,7 +135,7 @@ const Products = ({category,all=false,collec="any",occa="any",gifting=false}) =>
   }, [sortBy]);
 
   useEffect(()=>{
-    priceMax<10000&&setpriceMax(10000)
+    priceMax<priceMin&&setpriceMax(4000)
   },[priceMax])
 
   return (
@@ -166,7 +168,10 @@ const Products = ({category,all=false,collec="any",occa="any",gifting=false}) =>
                   </div>
             </section>
             <section className='flex justify-between items-center px-24 h-16 bg-orange-50 shadow-lg'>
+                {collec=="any"&&genderType=="any"?                
                 <div className={(FilterMode&&"bg-orange-200 font-bold")+"filter shadow-lg rounded-lg px-2 py-1 border border-orange-300 cursor-pointer select-none"} onClick={()=>{setFilterMode(!FilterMode)}}><i class="fa-solid fa-sliders"></i> Filters</div>
+                :<div></div>
+                }
                 {all?(
 
                   <div className='flex gap-3'>
@@ -197,12 +202,12 @@ const Products = ({category,all=false,collec="any",occa="any",gifting=false}) =>
               <div className='flex flex-col gap-1'>
                  <b className='text-center'>Price Range</b>
                 <span className='flex gap-1'><p className='w-7'>Min</p>
-                  <input type="number" onChange={(e)=>{setpriceMin(e.target.value);priceMax<priceMin&&setpriceMax(parseInt(priceMin)+1000);priceMax<10000&&setpriceMax(10000)}} value={priceMin} min={0} max={100000} name='priceMin' className='w-20'  />
-                  <input type="range" onChange={(e)=>{setpriceMin(e.target.value);priceMax<priceMin&&setpriceMax(parseInt(priceMin)+1000);priceMax<10000&&setpriceMax(10000)}} value={priceMin} min={0} max={100000} name='priceMin'  />
+                  <input type="number" onChange={(e)=>{setpriceMin(e.target.value);priceMax<priceMin&&setpriceMax(parseInt(priceMin)+100);priceMax<10000&&setpriceMax(4000)}} value={priceMin} min={0} max={4000} name='priceMin' className='w-20'  />
+                  <input type="range" onChange={(e)=>{setpriceMin(e.target.value);priceMax<priceMin&&setpriceMax(parseInt(priceMin)+100);priceMax<10000&&setpriceMax(4000)}} value={priceMin} min={0} max={4000} name='priceMin'  />
                 </span>
                 <span className='flex gap-1'><span className='w-7'>Max</span>
-                  <input type="number" onChange={(e)=>{setpriceMax(e.target.value);priceMax<10000&&setpriceMax(10000)}} value={priceMax} min={priceMin} name='priceMax' className='w-20'/>
-                  <input type="range" onChange={(e)=>{setpriceMax(e.target.value);priceMax<10000&&setpriceMax(10000)}} value={priceMax} min={priceMin} max={1000000} name='priceMin'  />
+                  <input type="number" onChange={(e)=>{setpriceMax(e.target.value);}} value={priceMax} min={priceMin} name='priceMax' className='w-20'/>
+                  <input type="range" onChange={(e)=>{setpriceMax(e.target.value);}} value={priceMax} min={priceMin} max={4000} name='priceMin'  />
                 </span>
               </div>
               {/* <div>

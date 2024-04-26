@@ -16,6 +16,7 @@ import MerchantPage from "./Pages/MerchantPage"
 import Checkout from "./Pages/Checkout";
 import Orders from "./Pages/Orders";
 import Collections from "./Pages/Collections";
+import PaymentSuccess from "./Pages/PaymentSuccess";
 const App = () => {
   return (
     <BrowserRouter >
@@ -70,11 +71,17 @@ const App = () => {
             <Route path='/jewellery/collections/string-it' element={<Products category={"all"} collec={"stringit"} />} />
             <Route path='/jewellery/collections/best-sellers' element={<Products category={"all"} collec="Bestsellers" />} />
 
+            <Route path='/jewellery/mens' element={<Products category={"all"} genderType="mens" />} />
+            <Route path='/jewellery/womens' element={<Products category={"all"} genderType="womens" />} />
+            <Route path='/jewellery/kids' element={<Products category={"all"} genderType="kids" />} />
+
             <Route path='/jewellery/wedding' element={<Products category={"all"} occa="wedding" />} />
             <Route path='/jewellery/gifting' element={<Products category={"all"} gifting={true} />} />
 
             <Route path='/checkout' element={ <Checkout /> } />
+            <Route path='/paymentsuccess' element={ <PaymentSuccess /> } />
             <Route path='/orders' element={ <Orders /> } />
+
             <Route path='/cart' element={ <Cart /> } />
             <Route path='/wishlist' element={<Wishlist />} />
             <Route path='/about' element={<About />} />
