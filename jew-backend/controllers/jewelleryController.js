@@ -45,7 +45,7 @@ exports.getJewelryByMerchant = async (req, res) => {
   exports.getAllJewelleries =async (req,res)=>{
     try {
       // Destructure the filter parameters from the request query
-      const { category, search, priceMin, priceMax, gender, jcollection, occasion, metal, metalColor,gifting } = req.query;
+      const { shuffle,max,category, search, priceMin, priceMax, gender, jcollection, occasion, metal, metalColor,gifting } = req.query;
   // console.log(req.query)
       // Construct the filter object based on the provided parameters
       const filter = {};
@@ -89,9 +89,23 @@ exports.getJewelryByMerchant = async (req, res) => {
   
       // Retrieve the filtered jewelleries from the database
       const filteredJewelleries = await Jewelry.find(filter);
-      // console.log(filteredJewelleries[0])
-      console.log("test")
-      res.json(filteredJewelleries);
+
+      if(max!=undefined){
+        if(shuffle){
+          const randomizedJewelleries = filteredJewelleries.sort(() => Math.random() - 0.5);
+          res.json(randomizedJewelleries.slice(0,max));
+        }else{
+          res.json(filteredJewelleries.slice(0,max));
+        }
+      }
+      else{
+        if(shuffle){
+          const randomizedJewelleries = filteredJewelleries.sort(() => Math.random() - 0.5);
+          res.json(randomizedJewelleries);
+        }else{
+          res.json(filteredJewelleries);
+        }
+      }
     } catch (error) {
       res.status(500).json({ error: 'Failed to fetch filtered jewelleries', message: error.message });
     }

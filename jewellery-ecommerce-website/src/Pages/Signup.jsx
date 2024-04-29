@@ -54,7 +54,7 @@ const SignUpForm = () => {
   return (
   <div className='bg-orange-50'>
     <Nav />
-    <form onSubmit={handleSubmit} className='bg-orange-100 px-5 py-3 rounded-xl mx-auto mt-2 w-1/3 flex flex-col gap-1'>
+    <form onSubmit={handleSubmit} className='bg-orange-100 px-5 py-3 rounded-xl mx-auto mt-2 lg:w-1/3 flex flex-col gap-1'>
         <div className='text-xl text-center'>Create Account</div>
         <div className='p-2 bg-orange-100 rounded text-center mx-auto'>{infoMsg}</div>
         <div>Full Name</div>
@@ -77,7 +77,7 @@ const SignUpForm = () => {
         <input required type="text" name="address1" value={formData.address1} onChange={handleChange}  className='p-2 rounded-md bg-orange-50' />
         <button type="submit" className='active:bg-orange-400 bg-orange-200 p-2 rounded-xl w-fit mx-auto'>Sign Up</button>
 
-      <div className='mx-auto'>Already have an Account? <Link className='text-orange-600' to={"/signin"}>Sign In</Link></div>
+      {/* <div className='mx-auto'>Already have an Account? <Link className='text-orange-600' to={"/signin"}>Sign In</Link></div> */}
 
     </form>
     <Footer />

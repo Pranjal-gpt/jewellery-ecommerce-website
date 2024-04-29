@@ -103,8 +103,8 @@ const MerchantPage = () => {
     return (
         <>
             <Nav />
-            <div className='bg-orange-50 w-11/12 p-10   rounded-xl mx-auto mt-5 justify-between gap-10 flex'>
-                <div className='relative rounded-xl bg-orange-200 p-5 min-w-56'>
+            <div className='bg-orange-50 lg:w-11/12 lg:p-10   rounded-xl mx-auto mt-5 justify-between lg:gap-10 flex lg:flex-row flex-col'>
+                <div className='relative rounded-xl bg-orange-200 p-5 lg:min-w-56'>
                     <div className='flex gap-5 flex-col sticky top-40'>
 
                         <h1 className='' >Welcome, <br /> <span className='text-xl font-bold'>{fname}</span> </h1>
@@ -118,7 +118,7 @@ const MerchantPage = () => {
                 
 
                 {showOrders &&
-                   <table className='w-full' cellPadding={15} cellSpacing={5}>
+                   <table className='w-full' cellPadding={2} cellSpacing={1}>
                    <thead>
                      <tr className='bg-orange-100 '>
                        <th>Products</th>
@@ -129,7 +129,7 @@ const MerchantPage = () => {
                        <th>Action</th>
                      </tr>
                    </thead>
-                   <tbody>
+                   <tbody className='lgLtext-xl text-xs'>
                      {orders.length === 0 && <tr><td colSpan="5">No Orders Placed</td></tr>}
                      {orders.map((order) => (
                        <tr key={order._id} className='bg-orange-50'>

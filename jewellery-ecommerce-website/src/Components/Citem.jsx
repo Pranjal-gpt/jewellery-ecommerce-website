@@ -6,9 +6,9 @@ const Citem = ({ cName,cLink,cImg, size }) => {
     to={cLink}>
       {/* Cilink is a variable link */}
       <img src={cImg} className={`${size} rounded-t-[45px] object-cover`}></img> 
-      <div className="font-bold text-xl">{cName}</div>
-      <div className="flex gap-0 group-hover:gap-5 ease-out translate-all duration-300">
-        <span>Explore</span>
+      <div className="font-bold lg:text-xl text-sm">{cName}</div>
+      <div className="lg:text-lg text-xs 5 flex gap-0 group-hover:gap-5 ease-out translate-all duration-300">
+        <span className="">Explore</span>
         <span>{">"}</span>
       </div>
     </Link>

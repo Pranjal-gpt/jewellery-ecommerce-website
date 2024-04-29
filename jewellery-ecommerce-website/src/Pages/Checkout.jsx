@@ -83,10 +83,10 @@ getuser()
     <>
       <CartProvider>
         <Nav />
-        <main className='w-2/3 my-5 mx-auto bg-orange-50 rounded-lg p-3'>
+        <main className='lg:w-2/3 my-5 mx-auto bg-orange-50 rounded-lg p-3'>
           <h1 className='text-center text-4xl p-4 font-semibold'>Checkout</h1>
-          <div className='flex justify-between gap-3'>
-            <section className='p-5 bg-orange-100 w-1/2'>
+          <div className='flex lg:flex-row flex-col justify-between gap-3'>
+            <section className='p-5 bg-orange-100 lg:w-1/2'>
               <h1 className='text-xl'>Choose Shipping Address</h1>
               <div className='border border-orange-200 rounded-lg p-3 flex flex-col gap-5'>
                 <div>Name: <span>{addr.fullname}</span></div>
@@ -97,7 +97,7 @@ getuser()
 
               </div>
             </section>
-            <div className='w-1/2 bg-orange-100 p-5 h-fit sticky top-48'>
+            <div className='lg:w-1/2 bg-orange-100 p-5 h-fit sticky top-48'>
                     <h1 className='text-2xl font-bold text-center'>Order Summary</h1>
                     <table className='table mx-auto'>
                         <tr className=''>

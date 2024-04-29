@@ -5,7 +5,7 @@ import Hr from '../Components/Hr';
 import TotalRating from '../Components/TotalRating'
 import features from '../assets/features.png'
 import Pitem from '../Components/Pitem';
-import { Link,useFetcher,useNavigate} from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 import categories from '../data/demodata';
 const { SimilarProducts } = categories;
 import { CartProvider,useCart } from '../contexts/cartContext';
@@ -25,6 +25,7 @@ const Product = () => {
     const [isinCart, setisinCart] = useState(cartItems.some(item =>  parseInt(item.id) ===parseInt(pId)  ))
     
     useEffect(() => {
+        window.scroll(0,0)
         // getJewelleryById()
             fetch(`http://localhost:3000/api/jewellery/${pId}`)
               .then((response) => response.json())
@@ -121,26 +122,26 @@ const Product = () => {
         <CartProvider >
         <Nav />
       
-        <main className='mx-20 flex flex-wrap relative bg-orange-50'>
-            <div className='relative flex w-1/2'>
-            <section className='bg-orange-50  h-[70vh]  p-2 sticky top-20 '>
-                <div className='border-b p-1 border-b-orange-200'> <Link to={"/"} className='hover:text-orange-600'>Home </Link> {">"} <Link className='hover:text-orange-600' to={"/jewellery"}>Products </Link>   {">"} {productDetails.title}</div>
-                <div className='mt-3 flex gap-5 justify-around'>
-                    <div className='flex flex-col items-center justify-between  w-1/5 h-[60vh]' >
-                        {productDetails && productDetails.images && productDetails.images.map((imgsrc)=>(
-                            <img src={imgsrc} className='h-32 w-32 object-center border-2 border-orange-200 drag-none'
-                            onMouseOver={()=>{setCurrentImg(imgsrc)}}></img>
-                        ))}
+        <main className='lg:mx-20 flex flex-wrap lg:flex-row flex-col relative bg-orange-50'>
+            <div className='relative flex  lg:w-1/2'>
+                <section className='bg-orange-50  lg:h-[70vh] w-11/12  p-2 sticky top-20 '>
+                    <div className='border-b p-1 border-b-orange-200'> <Link to={"/"} className='hover:text-orange-600'>Home </Link> {">"} <Link className='hover:text-orange-600' to={"/jewellery"}>Products </Link>   {">"} {productDetails.title}</div>
+                    <div className='mt-3 flex gap-5 justify-around'>
+                        <div className='flex flex-col items-center justify-between  w-1/5 lg:h-[60vh]' >
+                            {productDetails && productDetails.images && productDetails.images.map((imgsrc)=>(
+                                <img src={imgsrc} className='lg:h-32 lg:w-32 object-center border-2 border-orange-200 drag-none'
+                                onMouseOver={()=>{setCurrentImg(imgsrc)}}></img>
+                            ))}
+                        </div>
+                        <div className='bg-orange-100 w-2/3 p-5'>
+                            <img src={CurrentImg!==""?CurrentImg:productDetails.images?.[0]} alt={productDetails.title}
+                                className='lg:h-full lg:w-full'
+                            />
+                        </div>
                     </div>
-                    <div className='bg-orange-100 w-2/3 p-5'>
-                        <img src={CurrentImg!==""?CurrentImg:productDetails.images?.[0]} alt={productDetails.title}
-                            className='h-full w-full'
-                        />
-                    </div>
-                </div>
-            </section>
+                </section>
             </div>
-            <section className='bg-orange-100 w-1/2 h-[120vh] px-8'>
+            <section className='bg-orange-100 lg:w-1/2 w-full h-[120vh] px-8'>
                 <div className='flex justify-between  py-5'>
                     <div className="pid">{productDetails._id}</div>
                     <div className='relative flex gap-5'>
@@ -167,30 +168,31 @@ const Product = () => {
                             <span className='mx-2 font-semibold text-2xl text-green-600'>₹{(productDetails.price-(productDetails.price*productDetails.discount)/100).toFixed(2)}</span>
                             <strike className=' text-orange-700'>₹{productDetails.price}</strike> <span className='w-fit text-orange-700 border-2 border-orange-800 p-1'>{productDetails.discount+"% OFF"}</span>
                     </div>
-                    <div className='text-sm'>Price Inclusive of all taxes. See full <span className='text-orange-900 font-semibold hover:text-orange-500 cursor-pointer'>Price Breakup</span> </div>
+                    <div className='text-sm'>Price Inclusive of all taxes.</div>
+                    {/* <span className='text-orange-900 font-semibold hover:text-orange-500 cursor-pointer'>Price Breakup</span>  */}
                 </div>
                 <div>{productDetails.metal}</div>
-                {(localStorage.getItem("token")&&productDetails.merchant!=JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email)&& <span>
-
-                <div className='border border-orange-800 w-fit p-2 my-3 mx-auto rounded flex gap-5 items-center'>
-                    Quantity 
-                    <i class="fa-solid fa-minus bg-orange-200 text-orange-800 rounded p-2 cursor-pointer" onClick={()=>{Quantity>1 && setQuantity(Quantity-1)}}></i>
-                     <div className=' bg-orange-800 text-orange-50 font-bold text-xl rounded px-2 py-1'>{Quantity}</div>
-                    <i class="fa-solid fa-plus bg-orange-200 text-orange-800 rounded p-2 cursor-pointer"  onClick={()=>{setQuantity(Quantity+1)}}></i>
-                </div>
-                
-                <div className='flex justify-around text-xl my-3'>
-                    <button 
-                        className='px-10 py-3 rounded border-2 border-orange-800 hover:bg-orange-200 transition-all duration-100 '
-                        onClick={handleAddToCart}
-                    >{isinCart?"Added In Cart":"Add To Cart"}</button>
-                    <button 
-                        className='px-10 py-3 rounded border-2 border-orange-800 hover:bg-orange-200 hover:text-orange-800 bg-orange-800 text-orange-50 transition-all duration-100 '
-                        onClick={()=>{handleAddToCart(); setTimeout(() => {navigate("/cart") }, 50); }}
-                        >Buy Now</button>
-                </div>
-                        </span>
-                    }
+                {(localStorage.getItem("token")&&productDetails.merchant!=JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email)&&
+                    <span>
+                        <div className='border border-orange-800 w-fit p-2 my-3 mx-auto rounded flex gap-5 items-center'>
+                            Quantity 
+                            <i class="fa-solid fa-minus bg-orange-200 text-orange-800 rounded p-2 cursor-pointer" onClick={()=>{Quantity>1 && setQuantity(Quantity-1)}}></i>
+                            <div className=' bg-orange-800 text-orange-50 font-bold text-xl rounded px-2 py-1'>{Quantity}</div>
+                            <i class="fa-solid fa-plus bg-orange-200 text-orange-800 rounded p-2 cursor-pointer"  onClick={()=>{setQuantity(Quantity+1)}}></i>
+                        </div>
+                        
+                        <div className='flex justify-around text-xl my-3'>
+                            <button 
+                                className='px-10 py-3 rounded border-2 border-orange-800 hover:bg-orange-200 transition-all duration-100 '
+                                onClick={handleAddToCart}
+                            >{isinCart?"Added In Cart":"Add To Cart"}</button>
+                            <button 
+                                className='px-10 py-3 rounded border-2 border-orange-800 hover:bg-orange-200 hover:text-orange-800 bg-orange-800 text-orange-50 transition-all duration-100 '
+                                onClick={()=>{handleAddToCart(); setTimeout(() => {navigate("/cart") }, 50); }}
+                                >Buy Now</button>
+                        </div>
+                    </span>
+                }
                 {isinCart&&<div className='text-center mb-1'> <Link to={"/cart"} className='text-xl  text-orange-700 hover:bg-orange-200 rounded-lg px-2'>View Cart</Link></div>}
 
                 
@@ -224,11 +226,11 @@ const Product = () => {
                 <Hr thickness={"h-0.5"} length={"w-full"} color='bg-orange-200' />
                 <img src={features} alt="" className='bg-orange-50 rounded-xl mt-5 drag-none' />
             </section>
-            <section className='min-h-screen bg-orange-100 w-full z-10'>
+            <section className='lg:min-h-screen bg-orange-100 w-full z-10'>
                 <div className='w-full p-8'>
                     <h1 className='text-center font-bold text-2xl'>Product Details</h1>
-                    <div className='p-5 flex  w-full justify-center'>
-                        <table className='text-left' cellPadding={20}>
+                    <div className='lg:p-5 flex  w-full justify-center'>
+                        <table className='text-left' cellPadding={10}>
                             <tr className='border-b border-r border-r-orange-200 border-b-orange-200 hover:bg-orange-200 cursor-pointer' >
                                 <th>Brand</th>
                                 <td className='px-3'>:</td>

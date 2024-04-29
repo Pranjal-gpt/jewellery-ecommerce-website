@@ -22,7 +22,7 @@ export const Carousel = ({ data }) => {
     return () => clearInterval(intervalId);
   }, [slide]);
   return (
-    <div className="carousel">
+    <div className="carousel lg:h-fit h-60">
       <BsArrowLeftCircleFill onClick={prevSlide} className="arrow arrow-left" />
       {data.map((item, idx) => {
         return (

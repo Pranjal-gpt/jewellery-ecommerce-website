@@ -42,7 +42,7 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
     }
     else{
 
-      products+= `&search=${search}&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
+      products+= `&shuffle=true&search=${search}&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
     }
     let productUrl = "http://localhost:3000/api/jewellery/all?category="+products.replace(" ","-");
     console.log("collec ",productUrl)
@@ -145,7 +145,7 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
         <Nav />
       </CartProvider>
         <main className=''>
-            <section className='flex justify-between items-center px-24 h-12 bg-orange-100'>
+            <section className='flex lg:flex-row flex-col gap-1 py-2 justify-between items-center px-24 lg:h-12 bg-orange-100'>
                 <div className="path"> <Link to={"/"} className='hover:text-orange-500 transition-all duration-200'>Home</Link>  {">"} <span className='hover:text-orange-500 transition-all duration-200 cursor-pointer'>Jewellery</span> </div>
                   <div className='relative'>
                     <input 
@@ -167,19 +167,19 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
                           <input type="text" placeholder='Enter pincode' id="" className='ml-1 px-2 text-md focus:outline-orange-100 placeholder-orange-200 py-1 w-40  rounded-r-lg bg-orange-50  focus:border-orange-300 focus:ring-orange-300'
                               onChange={(change)=>{setPincode(change.target.value)}}
                               value={pincode} />
-                          <button disabled={!pincode}className={`font-bold p-1 rounded-lg absolute right-2 top-1 text-xs ${pincode === ""? "text-orange-50  bg-orange-100" : "hover:bg-orange-300  bg-orange-100"} cursor-pointer`}
+                          <button disabled={!pincode}className={`font-bold p-1 rounded-lg absolute lg:right-2 right-6 lg:top-1 bottom-1 text-xs ${pincode === ""? "text-orange-50  bg-orange-100" : "hover:bg-orange-300  bg-orange-100"} cursor-pointer`}
                               onClick={CheckPincode} >Check</button>
                     </div>
                   </div>
             </section>
-            <section className='flex justify-between items-center px-24 h-16 bg-orange-50 shadow-lg'>
+            <section className='flex justify-between lg:flex-row gap-2 flex-col items-center lg:px-24 lg:h-16 bg-orange-50 shadow-lg'>
                 {collec=="any"&&genderType=="any"?                
                 <div className={(FilterMode&&"bg-orange-200 font-bold")+"filter shadow-lg rounded-lg px-2 py-1 border border-orange-300 cursor-pointer select-none"} onClick={()=>{setFilterMode(!FilterMode)}}><i class="fa-solid fa-sliders"></i> Filters</div>
                 :<div></div>
                 }
                 {all?(
 
-                  <div className='flex gap-3'>
+                  <div className='flex lg:flex-row justify-evenly  flex-wrap gap-3'>
                   <TagBtn name={"Pendants"} />
                   <TagBtn name={"Necklace"} />
                   <TagBtn name={"Mangalsutra"}  />
@@ -203,7 +203,7 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
                 </div>
             </section>
             {FilterMode?
-            <section className='Setfilter flex flex-wrap gap-2 justify-around bg-orange-50 items-center h-36 px-5'>
+            <section className='Setfilter flex flex-wrap gap-2 justify-around bg-orange-50 items-center lg:h-36 px-5 py-1'>
               <div className='flex flex-col gap-1'>
                  <b className='text-center'>Price Range</b>
                 <span className='flex gap-1'><p className='w-7'>Min</p>
@@ -283,10 +283,10 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
             </section>
             :""}
             {/* <Hr thickness={"h-0.5"} length={"w-11/12"} /> */}
-            <section className='section flex gap-10 flex-wrap justify-center mt-5 mx-auto  w-11/12'>
+            <section className='section flex gap-10 flex-wrap justify-center mt-5 mx-auto  lg:w-11/12 w-full'>
                 {ProductsData<1&&<div className='p-5 mx-auto'>No Results Found</div>}
                 {ProductsData.slice(0, visibleProducts).map((product,key)=>(
-                   <Pitem product={product} size={"w-72 h-72"} />
+                   <Pitem product={product} size={"lg:w-72 lg:h-72 h-52 object-cover w-96"} />
                 ))}
 
             </section>

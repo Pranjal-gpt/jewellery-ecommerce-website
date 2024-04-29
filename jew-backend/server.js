@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const homeRouter = require('./routes/homeRoute');
 const productsRouter = require('./routes/productsRoute');
 const productRouter = require('./routes/productRoute');
-const cartRouter = require('./routes/cartRoute');
+const cartRoute = require('./routes/cartRoute');
 const wishlistRouter = require('./routes/wishlistRoute');
 const userRoutes = require('./routes/userRoutes');
 const jewelleryRoutes = require('./routes/jewelleryRoutes');
@@ -29,7 +29,7 @@ mongoose.connect(connectionString).then(() => {
 app.use('/api/home', homeRouter);
 app.use('/api/products', productsRouter);
 app.use('/api/product', productRouter);
-app.use('/api/cart', cartRouter);
+app.use('/api/cart', cartRoute);
 app.use('/api/wishlist', wishlistRouter);
 app.use('/api/user', userRoutes);
 app.use('/api/jewellery', jewelleryRoutes);

@@ -16,8 +16,8 @@ useEffect(()=>{
           <h1 className="text-2xl relative -left-5">
             Useful links{" "}
           </h1>
-          <Link to={"/deliveryInfo"}> Delivery information</Link>
-          <Link to={"/paymentInfo"}> Payments Options</Link>
+          <Link to={"/delivery-info"}> Delivery information</Link>
+          <Link to={"/payment-info"}>Payments Options</Link>
           {accType!="merchant"&&<Link to={"/track-order"}> Track Your Order </Link>}
         </div>
         <div className="flex flex-col gap-7">

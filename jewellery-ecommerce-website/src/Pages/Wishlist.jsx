@@ -10,20 +10,20 @@ import { WishlistProvider,useWishlist } from '../contexts/wishlistContext'
 const Wishlist = () => {
 
     const { WishlistItems, removeFromWishlist } = useWishlist();
-    const [WishlistData, setWishlistData] = useState([]);
+    // const [WishlistData, setWishlistData] = useState([]);
     const { addToCart,cartItems } = useCart();
 
-    const getCartData = () => {
-        fetch("http://localhost:3000/api/cart")
-            .then((response) => response.json())
-            .then((data) => {
-                setWishlistData(data);
-            })
-            .catch((error) => console.error("Error fetching wishlist data:", error));
-        }
-        useEffect(()=>{
-            getCartData()
-        })
+    // const getCartData = () => {
+    //     fetch("http://localhost:3000/api/cart")
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             setWishlistData(data);
+    //         })
+    //         .catch((error) => console.error("Error fetching wishlist data:", error));
+    //     }
+    //     useEffect(()=>{
+    //         getCartData()
+    //     })
 
         const handleAddToCart = (productDetails) => {
            
@@ -55,12 +55,12 @@ const Wishlist = () => {
             <section className='w-10/12 mx-auto flex flex-col gap-1 min-h-96 bg-orange-100'>
                 {WishlistItems.length===0&&(<div className='mx-auto mt-40 text-xl'>No Items In Your Wishlist.</div>)}
                 {WishlistItems.map((item,key)=>(
-                    <div className='w-full bg-orange-50 p-5 flex relative' key={key}>
-                        <div><img src={item.image} className='w-60' alt="" /></div>
+                    <div className='w-full bg-orange-50 lg:p-5 flex lg:flex-row justify-center items-center flex-col relative' key={key}>
+                        <div><img src={item.image} className='lg:w-60 w-52' alt="" /></div>
                        
                         <div className='p-5'>
-                            <h1 className='text-3xl   font-bold'>{item.title}</h1>
-                            <h1 className='text-lg  mt-4 mb-10  '>{item.description}</h1>
+                            <h1 className='lg:text-3xl text-lg  font-bold'>{item.title}</h1>
+                            <h1 className='lg:text-lg text-sm lg:mt-4 lg:mb-10  '>{item.description}</h1>
                             <TotalRating productDetails={item} />
                             <div className=' font-semibold'>
                                 <span>Price.</span>
@@ -68,22 +68,22 @@ const Wishlist = () => {
                                 <strike className=' text-orange-700'>₹{item.price}</strike><span className='w-fit text-orange-700 border-2 ml-2 border-orange-800 p-1'>{item.discount+"% OFF"}</span>
                             </div>
                         </div>
-                            <div className='text-xl my-3 w-96 flex items-center justify-around'>
+                            <div className='text-xl my-3 w-96 flex lg:flex-row flex-col items-center justify-around'>
                                 <div className='flex flex-col gap-4'>
                                     
                                     <Link className=" bg-orange-200 hover:bg-orange-100 rounded-md px-5 py-2 text-center"
                                     to={"/jewellery/item/"+item.title.replace(/ /g, "-") +"#"+ item.id} state={item}>View</Link>
                                 </div>
                                 {(localStorage.getItem("token")&&item.merchant!=JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email)&&
-                                <div className='flex flex-col justify-around h-48'>
+                                <div className='flex flex-col justify-around lg:h-48 gap-1 p-1'>
                                     <button 
-                                        className='px-10 py-3 rounded border-2 border-orange-800 hover:bg-orange-200 transition-all duration-100 '
+                                        className='lg:px-10 lg:py-3 p-2 rounded border-2 border-orange-800 hover:bg-orange-200 transition-all duration-100 '
                                         onClick={()=>{
                                             !cartItems.some(citem =>  parseInt(citem.id) ===parseInt(item.id))&&handleAddToCart(item)
                                         }}
                                     >{!cartItems.some(citem =>  parseInt(citem.id) ===parseInt(item.id))?"Add To Cart":"Added in Cart"}</button>
                                     <button 
-                                        className='px-10 py-3 rounded border-2 border-orange-800 hover:bg-orange-200 hover:text-orange-800 bg-orange-800 text-orange-50 transition-all duration-100 '
+                                        className='lg:px-10 lg:py-3 p-2 rounded border-2 border-orange-800 hover:bg-orange-200 hover:text-orange-800 bg-orange-800 text-orange-50 transition-all duration-100 '
                                         onClick={()=>{}}
                                     >Buy Now</button>
                                 </div>}

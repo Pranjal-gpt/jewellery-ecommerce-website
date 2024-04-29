@@ -6,17 +6,43 @@ import categories from "../data/demodata";
 import { Carousel } from "../Components/Carousel";
 import { slides } from "../data/carouselData.json";
 import { CartProvider } from "../contexts/cartContext";
+import Pitem from "../Components/Pitem";
 var {New,allcategories,recommended,mostGifted,collections} = categories
 const Home = () => {
   
   const [homepageData, setHomepageData] = useState(null);
-
+  const [Reccomended, setReccomended] = useState([]);
+  const [gifting,setGifting]=useState([]);
+  const getReccomended = () => {   
+    let products= `&max=5&shuffle=true`
+    
+    fetch("http://localhost:3000/api/jewellery/all?category=all"+products)    
+    .then((response) => response.json())
+    .then((data) => {
+      setReccomended(data);
+    })
+    .catch((error) => console.error("Error fetching homepage data:", error));
+  }
+  const getGifingItems = () => {
+    let products= `&max=5&shuffle=true&gifting=true`
+    fetch("http://localhost:3000/api/jewellery/all?category=all"+products)    
+    .then((response) => response.json())
+    .then((data) => {
+      setGifting(data);
+      console.log("gifting data ",data)
+    })
+    .catch((error) => console.error("Error fetching homepage data:", error));
+  }
+  
   useEffect(() => {
     // Fetch the homepage data from your backend API
     fetch("http://localhost:3000/api/home")
       .then((response) => response.json())
       .then((data) => setHomepageData(data))
       .catch((error) => console.error("Error fetching homepage data:", error));
+    
+      getReccomended()
+      getGifingItems()
   }, []);
 
   // Render your homepage using the homepageData
@@ -37,26 +63,32 @@ const Home = () => {
         </div>
         <div className="category mt-14 flex flex-col gap-10">
           {/*block 2*/}
-          <h1 className="text-center font-semibold text-3xl py-7">
+          <h1 className="text-center font-semibold text-3xl py-2">
             Shop by category
+            <div className="text-center font-semibold text-xl py-1">
+            Browse through your favorite categories. We've got them all!
+            </div>
           </h1>
           <div className="h-0.5 w-1/3  bg-[#832729] mx-auto"></div>
           {/*underline code*/}
-          <div className=" flex gap-7 flex-wrap justify-center w-11/12 mx-auto">
+          <div className=" flex gap-7 flex-wrap justify-center lg:w-11/12 mx-auto">
             {allcategories.map((category) => (
               <Citem
                 cName={category.cName}
                 cLink={category.cLink}
                 cImg={category.imgurl}
-                size={"w-56 h-56"}
+                size={"lg:w-56 w-24 lg:h-56 lg:24"}
               />
             ))}
           </div>
         </div>
-        <div className="category flex flex-col gap-10">
+        <div className="category flex flex-col mt-10 gap-10">
           {/*block 3*/}
-          <h1 className="text-center font-semibold mt-16 text-4xl py-7">
-            Shop by collection
+          <h1 className="text-center font-semibold text-3xl py-2">
+            Shop by Collection
+            <div className="text-center font-semibold text-xl py-1">
+            Whatever the occasion, we've got a beautiful piece of jewellery for you.
+            </div>
           </h1>
           <div className="h-0.5 w-1/3 bg-[#832729] mx-auto"></div>
           {/*underline code*/}
@@ -66,28 +98,36 @@ const Home = () => {
               cName={collection.cName}
               cLink={collection.cLink}
               cImg={collection.imgurl}
-                size={"w-72 h-72 "}
+                size={"lg:w-72 w-20 lg:h-56 lg:72"}
               />
             ))}
           </div>
         </div>
-        <div className="category flex flex-col gap-10">
+        <div className="category flex mt-10 flex-col gap-10">
           {/*block 4*/}
-          <h1 className="text-center font-bold text-3xl py-7">New for you</h1>
+          <h1 className="text-center font-semibold text-3xl py-2">
+            New For You
+            <div className="text-center font-semibold text-xl py-1">
+            Our latest releases, just for you !
+            </div>
+          </h1>
           <div className="h-0.5 w-1/3  bg-[#832729] mx-auto"></div>
           {/*underline code*/}
           <div className="flex gap-7 flex-wrap justify-center w-11/12 mx-auto">
             {homepageData && homepageData.New.map((New) => (
               <Citem cName={New.cName}
               cLink={New.cLink}
-              cImg={New.imgurl} size={"w-80 h-96"} />
+              cImg={New.imgurl} size={"lg:w-80 w-24 lg:h-72 h-32"} />
             ))}
           </div>
         </div>
         <div className="category flex flex-col mt-16 gap-10">
           {/*block 5*/}
-          <h1 className="text-center font-semibold text-3xl py-7">
-            Shop by gender
+          <h1 className="text-center font-semibold text-3xl py-2">
+            Shop by Gender
+            <div className="text-center font-semibold text-xl py-1">
+            First-class jewelry for first-class Men, Women & Children.
+            </div>
           </h1>
           <div className="h-0.5 w-1/3  bg-[#832729] mx-auto"></div>
           {/*underline code*/}
@@ -113,36 +153,37 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="category flex flex-col gap-10">
+        <div className="category flex mt-10 flex-col gap-10">
           {/*block 6*/}
-          <h1 className="text-center font-bold text-3xl py-7">most gifted</h1>
+          <h1 className="text-center font-semibold text-3xl py-2">
+            Gifting Items
+            <div className="text-center font-semibold text-xl py-1">
+            Check out the Gifting Items for our customers
+            </div>
+          </h1>
           <div className="h-0.5 w-1/3  bg-[#832729] mx-auto"></div>
           {/*underline code*/}
           <div className="flex gap-7 flex-wrap justify-center w-full mx-auto">
-          {mostGifted.map((item) => (
-              <Citem
-              cName={item.cName}
-              cLink={item.cLink}
-              cImg={item.imgurl}
-                size={"w-60 h-72"}
-              />
+          {gifting.map((item) => (
+          <Pitem product={item} size={"lg:w-60 lg:h-60 h-52 object-cover w-96"} />  
             ))}
           </div>
         </div>
-        <div className="category flex flex-col gap-10">
+        <div className="category mt-10 flex flex-col gap-10">
           {/*block 7*/}
-          <h1 className="text-center font-bold text-3xl py-7">Recommended for you</h1>
+          <h1 className="text-center font-semibold text-3xl py-2">
+            Reccomended for You
+            <div className="text-center font-semibold text-xl py-1">
+            Discover products tailored to your preferences and interests!
+            </div>
+          </h1>
           <div className="h-0.5 w-1/3  bg-[#832729] mx-auto"></div>
           {/*underline code*/}
           <div className="flex gap-7 flex-wrap justify-center w-full mx-auto">
-          {recommended.map((item) => (
-              <Citem
-              cName={item.cName}
-              cLink={item.cLink}
-              cImg={item.imgurl}
-                size={"w-60 h-72"}
-              />
+          {Reccomended.map((item) => (
+          <Pitem product={item} size={"lg:w-60 lg:h-60 h-52 object-cover w-96"} />  
             ))}
+          
           </div>
         </div>
         <section>

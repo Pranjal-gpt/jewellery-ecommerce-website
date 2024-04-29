@@ -28,7 +28,7 @@ const Cart = () => {
     const [CartData, setCartData] = useState([]);
     
     const getCartData = () => {
-        fetch("http://localhost:3000/api/cart")
+        fetch("http://localhost:3000/api/getCart")
             .then((response) => response.json())
             .then((data) => {
                 console.log("Received cart data:", data);
@@ -67,13 +67,13 @@ const Cart = () => {
         
         <main>
             <h1 className='text-center text-4xl p-4 font-semibold'>Your Cart ({cartItems.length})</h1>
-            <section className='w-10/12 mx-auto flex  gap-3 relative'>
-                <div className=' w-2/3 bg-orange-50 p-5'>
+            <section className='lg:w-10/12 mx-auto flex lg:flex-row flex-col gap-3 relative'>
+                <div className=' lg:w-2/3 bg-orange-50 lg:p-5'>
                    
                     
                     <table className='w-full'>
                         <tr className='border-b-2 border-b-orange-200 text-left'>
-                            <th className='py-2'>Product</th>
+                            <th className=''>Product</th>
                             <th>Description</th>
                             <th>Quantity</th>
                             <th>Price</th>
@@ -84,9 +84,9 @@ const Cart = () => {
                         )}
                         {cartItems.map((item,key)=>(
                             <tr key={key} className='border-b-2 border-b-orange-100 ' >
-                                <td className='py-3'><img src={item.image} className='w-36' alt="" /></td>
+                                <td className=''><img src={item.image} className='w-36' alt="" /></td>
                                 <td>
-                                    <span className='text-xl'>{item.title}</span>
+                                    <span className='lg:text-xl text-sm'>{item.title}</span>
                                     <div className='text-xs'>Metal: {item.metal}</div>
                                     <div className=' text-xs'>Metal Purity: {item.karatage}K</div>
                                 </td>
@@ -114,7 +114,7 @@ const Cart = () => {
                           
                     </table>
                 </div>
-                <div className='w-1/3 bg-orange-100 p-5 h-fit sticky top-48'>
+                <div className='lg:w-1/3 bg-orange-100 p-5 h-fit sticky top-48'>
                     <h1 className='text-2xl font-bold text-center'>Cart Summary</h1>
                     <table className='table mx-auto'>
                         <tr className=''>
@@ -155,7 +155,7 @@ const Cart = () => {
                                 <div className='text-left px-4'>
                                     <div>Available Promocodes</div>
                                     <span>Welcome500 <button className='font-bold p-1 text-xs rounded-lg hover:bg-orange-50  bg-orange-200 cursor-pointer'
-                                                        onClick={()=>{if(Totalprice>2000){setPromoCode("Welcome500");setPromoDiscount(500)}}}>{PromoCode!=="Welcome500"?"apply":"✔️Applied"}</button></span>
+                                                        onClick={()=>{if(Totalprice>3000){setPromoCode("Welcome500");setPromoDiscount(500)}}}>{PromoCode!=="Welcome500"?"apply":"✔️Applied"}</button></span>
                                 </div>
                         </fieldset>
                         {user?

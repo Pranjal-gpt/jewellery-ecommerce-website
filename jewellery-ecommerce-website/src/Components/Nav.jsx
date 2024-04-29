@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { useEffect,useState } from "react";
 import elegance from '../assets/elegence.png'
 // import jwt from 'jsonwebtoken';
-import { WishlistProvider } from "../contexts/wishlistContext";
+import { WishlistProvider,useWishlist } from "../contexts/wishlistContext";
+
 const Nav = () => {
+  const {clearWishlist} = useWishlist()
   const [user, setuser] = useState("")
   const [accType, setaccType] = useState("")
   const Menu = [
@@ -138,34 +140,34 @@ const Nav = () => {
   const logout = ()=>{
     localStorage.removeItem('token')
     localStorage.removeItem('userType')
+    clearWishlist()
     window.location="/"
   }
   return (
     <div className="nav w-full sticky z-50 top-0">
-      <nav className="mainNav  h-20 bg-orange-100 flex justify-between items-center px-20">
+      <nav className="mainNav  lg:h-20 md:h-fit bg-orange-100 flex lg:flex-row flex-col justify-between items-center lg:px-20 md:px-1">
         <h1 className="logo text-orange-600 text-3xl font-bold">
-          <img src={elegance} className="w-52" alt="" />
+          <img src={elegance} className="lg:w-52 w-36" alt="" />
         </h1>
-        <div className="nlinks flex gap-10 text-xl items-center flex-wrap">
+        <div className="nlinks pb-0.5 flex gap-5 lg:gap-10 lg:text-xl  items-center flex-wrap">
             
           <Link to={"/#"}>home </Link>
           <Link to={"/jewellery"}> Explore</Link>
           <WishlistProvider>
-
-          <Link to={"/wishlist"}>Wishlist </Link>
+            <Link to={"/wishlist"}>Wishlist </Link>
           </WishlistProvider>
           {accType!="merchant"&&
           <Link className='group transition-all duration-500 flex items-center justify-between gap-2 rounded-full  px-5 py-2 shadow-lg bg-gradient-to-br from-orange-200 via-orange-300 to-orange-600'
             to={"/cart"}>
               <span className='hidden group-hover:block mb-1'>Cart </span>
               <i class="fa-solid fa-cart-shopping"></i>
-            </Link>
+          </Link>
 }
-          <button  className="relative cursor-pointer group flex items-center justify-center rounded-full hover:shadow-2xl">
+          <button  className="relative bg-orange-200 cursor-pointer group flex items-center justify-center rounded-full hover:shadow-2xl">
                   <div class="group-hover:bg-orange-200 px-3 py-2 rounded-md translate-all ease-in-out duration-300 group">
                     Account</div>
                   
-                  <div className="absolute p-3 text-xl z-10 w-60 shadow-xl top-10 hidden  rounded-md bg-orange-50 hover:bg-orange-200 border text-center group-hover:block">
+                  <div className="absolute p-3 text-xl z-10 w-60 shadow-xl top-10 -right-5 hidden  rounded-md bg-orange-50 hover:bg-orange-200 border text-center group-hover:block">
                     <div className="font-bold text-xl">My Account</div>
                     {user?<div> <small>logged in user</small>
                       <small className="block">{(JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email).split("@")[0]}</small>
@@ -206,9 +208,9 @@ const Nav = () => {
           </button>
         </div>
       </nav>
-      <header className="header px-16 h-10 bg-orange-200 flex items-center justify-between">
+      <header className="header lg:px-16 px-1 text-lg  lg:h-10 md:h-fit bg-orange-200 flex lg:flex-nowrap flex-wrap items-center justify-between">
         {Menu.map((litem) => (
-          <div className="relative group hover:bg-orange-300 h-full flex items-center w-full justify-center">
+          <div className="relative group hover:bg-orange-300 h-full flex items-center lg:w-full w-fit justify-center">
             <Link
               to={Array.isArray(litem.link) ? litem.selfLink : litem.link}
               key={litem.id}

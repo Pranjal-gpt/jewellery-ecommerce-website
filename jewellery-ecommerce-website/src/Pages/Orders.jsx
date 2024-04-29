@@ -61,13 +61,13 @@ const orderForm = () => {
   return (
     <div className="">
         <Nav /> 
-        <div className='bg-orange-50 w-2/3 p-10 rounded-xl mx-auto mt-5 flex flex-col'>
+        <div className='bg-orange-50 lg:w-2/3 lg:p-10 rounded-xl mx-auto mt-5 flex flex-col'>
             <div className='flex justify-between p-5'>
                 <h1>Welcome, <span className='text-xl font-bold'>{fname}</span> </h1>           
                 <button onClick={getorders} className='rounded-xl p-2 hover:bg-orange-200 bg-orange-100'>Refresh all Orders</button>
 
             </div>
-            <div className='bg-white flex justify-evenly flex-wrap gap-5 p-5'>
+            <div className='bg-white flex justify-evenly flex-wrap lg:gap-5 lg:p-5'>
             <table cellPadding={15} cellSpacing={5}>
                 <tr className='bg-orange-100 '>
 

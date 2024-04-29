@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 
 const wishlistSchema = new mongoose.Schema({
-  user: { type: String, ref: 'User', required: true }, // Reference to the user who owns the wishlist
-  products: [{ type: String, ref: 'Product' }], // Array of product references
-  created_at: { type: Date, default: Date.now } // Timestamp for when the wishlist was created
+  user: { type: String, ref: 'User', required: true,unique: true }, // Reference to the user who owns the wishlist
+  products: [{ type:Object, ref: 'Product' }], // Array of product references
 });
 
 const Wishlist = mongoose.model('Wishlist', wishlistSchema);

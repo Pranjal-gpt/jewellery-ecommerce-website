@@ -19,6 +19,10 @@ import Collections from "./Pages/Collections";
 import PaymentSuccess from "./Pages/PaymentSuccess";
 import TnC from "./Pages/TnC";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import FAQ from "./Pages/FAQ";
+import Offers from "./Pages/Offers";
+import DeliveryInfo from "./Pages/DeliveryInfo";
+import PaymentInfo from "./Pages/PaymentInfo";
 const App = () => {
   return (
     <BrowserRouter >
@@ -90,12 +94,11 @@ const App = () => {
             <Route path='/about' element={<About />} />
             <Route path='/termsandconditions' element={<TnC />} />
             <Route path='/privacypolicy' element={<PrivacyPolicy />} />
-            <Route path='/delivery-info' element={<About />} />
-            <Route path='/payment-option' element={<About />} />
+            <Route path='/delivery-info' element={<DeliveryInfo />} />
+            <Route path='/payment-info' element={<PaymentInfo />} />
             <Route path='/track-order' element={<Orders />} />
-            <Route path='/return' element={<About />} />
-            <Route path='/offers' element={<About />} />
-            <Route path='/FAQ' element={<About />} />
+            <Route path='/offers' element={<Offers />} />
+            <Route path='/FAQ' element={<FAQ />} />
             <Route path='/contact' element={<About />} />
 
           </Routes>

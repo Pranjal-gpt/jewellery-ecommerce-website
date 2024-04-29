@@ -54,7 +54,7 @@ const Pitem = ({ product, mode, size }) => {
         to={"/jewellery/item/" + permalink}
         state={product}
       >
-        {product.title.length > 20 ? product.title.substring(0, 25) + '...' : product.title}
+        {product.title.length > 20 ? product.title.substring(0, 20) + '...' : product.title}
       </Link>
       <div className="flex items-end">
         

@@ -18,7 +18,7 @@ return (
             <div className='w-7/12 mx-auto'>
                 <div className='text-4xl font-bold py-5 mx-auto w-fit'>Privacy Policy</div> 
                 <div>
-                    <ol className='list-decimal pl-6'>
+                    <ol className='list-decimal pl-6 flex flex-col gap-4'>
                         <li>
                             Information Collection: We collect personal information like name, email, and address, solely for order processing and communication purposes.
                         </li>

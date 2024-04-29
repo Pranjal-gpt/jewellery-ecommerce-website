@@ -1,12 +1,8 @@
 const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema({
-  userEmail: { type: String, required: true }, // Primary key for the user's email
-  products: [{ 
-    productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' }, // Reference to the product
-    quantity: { type: Number, default: 1 } // Quantity of the product in the cart
-  }],
-  created_at: { type: Date, default: Date.now } // Timestamp for when the cart was created
+  user: { type: String, ref: 'User', required: true,unique: true }, // Reference to the user who owns the wishlist
+  products: [{ type:Object, ref: 'Product' }], // Array of product references
 });
 
 const Cart = mongoose.model('Cart', cartSchema);
