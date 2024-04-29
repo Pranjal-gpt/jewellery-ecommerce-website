@@ -16,8 +16,8 @@ const Cart = () => {
             const usertoken =""// jwt.decode(token)
             setuser(JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email);
         }
-    window.scrollTo(0, 0);
-        
+        window.scrollTo(0, 0);
+        // getCartData()
     }, [])
 
     const { cartItems, removeFromCart } = useCart();
@@ -25,36 +25,18 @@ const Cart = () => {
     const [PromoDiscount, setPromoDiscount] = useState(0);
     const [Totalprice,setTotalPrice] = useState(0);
     const [DiscountedPrice,setDiscountedPrice] = useState(0);
-    const [CartData, setCartData] = useState([]);
     
-    const getCartData = () => {
-        fetch("http://localhost:3000/api/getCart")
-            .then((response) => response.json())
-            .then((data) => {
-                console.log("Received cart data:", data);
-                setCartData(data);
-            })
-            .catch((error) => console.error("Error fetching cart data:", error));
-            setTotalPrice(cartItems.reduce((total, item) => total + item.price, 0));
-       setDiscountedPrice(
-           cartItems.reduce((total, item) => {
-            const discountedPrice = item.price - (item.price * item.discount) / 100;
-            return total + discountedPrice;
-            }, 0))
-    }
     useEffect(()=>{
-        // getCartData()
-        // console.log( CartData)
+
         setPromoDiscount(0);
         setPromoCode("");
-       setTotalPrice(cartItems.reduce((total, item) => total + item.price, 0));
-       setDiscountedPrice(
+        setTotalPrice(cartItems.reduce((total, item) => total + item.price*item.quantity, 0));
+        setDiscountedPrice(
            cartItems.reduce((total, item) => {
-            const discountedPrice = item.price - (item.price * item.discount) / 100;
+            const discountedPrice = item.price*item.quantity - (item.price*item.quantity * item.discount) / 100;
             return total + discountedPrice;
             }, 0)
-
-       )
+        )
     },[cartItems])
     // console.log(cartData)
     const CheckPromoCode = () => {
@@ -82,16 +64,16 @@ const Cart = () => {
                         {cartItems.length===0&&(
                             <tr  className='text-center ' ><td  colSpan={5} >No items in Cart</td></tr>
                         )}
-                        {cartItems.map((item,key)=>(
+                        {cartItems[0]&&cartItems.map((item,key)=>(
                             <tr key={key} className='border-b-2 border-b-orange-100 ' >
                                 <td className=''><img src={item.image} className='w-36' alt="" /></td>
                                 <td>
                                     <span className='lg:text-xl text-sm'>{item.title}</span>
                                     <div className='text-xs'>Metal: {item.metal}</div>
-                                    <div className=' text-xs'>Metal Purity: {item.karatage}K</div>
+                                    <div className=' text-xs'>Plating Color: {item.platingColor}</div>
                                 </td>
                                 <td>
-                                    <input type="number" className='w-10 cursor-pointer rounded' value={1} onChange={()=>{}} name="" id="" />
+                                    <input type="number" className='w-10 cursor-pointer rounded' value={item.quantity} onChange={()=>{}} name="" id="" />
                                 </td>
                                 <td>
                                     <div className='py-5 font-semibold flex flex-col w-36'>
@@ -119,7 +101,7 @@ const Cart = () => {
                     <table className='table mx-auto'>
                         <tr className=''>
                             <td className='pt-5 px-10'>MRP.</td>
-                            <td  className='pt-5 px-10'>{Totalprice.toFixed(2)}</td>
+                            <td  className='pt-5 px-10'>{parseFloat(Totalprice).toFixed(2)}</td>
                         </tr>
                         <tr>
                             <td  className='pb-5 px-10'>Total Saved</td>
@@ -165,7 +147,7 @@ const Cart = () => {
                         state={
                             {
                                 cartItems:cartItems,
-                                mrp:Totalprice.toFixed(2),
+                                mrp:parseFloat(Totalprice).toFixed(2),
                                 totalSaved:(Totalprice-DiscountedPrice).toFixed(2),
                                 promoDiscounts:PromoDiscount,
                                 netPay:DiscountedPrice.toFixed(2)-PromoDiscount

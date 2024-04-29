@@ -3,7 +3,7 @@ exports.getWishlist = async (req, res) => {
     try {
         // console.log(req.body)
         const wishlist = await Wishlist.find({user:req.body.user});
-        console.log("wishlist ",wishlist)
+        // console.log("wishlist ",wishlist)
         return res.json({ status: 'ok', info: wishlist })
       } catch (error) {
         console.log(error)
@@ -32,7 +32,6 @@ exports.setWishlist = async(req,res) =>{
 
 exports.addToWishlist = async(req,res) =>{
     try {
-        // console.log(req.body)
         const wishlist = await Wishlist.findOne({ user: req.body.user });
         console.log(wishlist)
         if (wishlist) {

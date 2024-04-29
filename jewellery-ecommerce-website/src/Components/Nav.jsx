@@ -4,9 +4,11 @@ import { useEffect,useState } from "react";
 import elegance from '../assets/elegence.png'
 // import jwt from 'jsonwebtoken';
 import { WishlistProvider,useWishlist } from "../contexts/wishlistContext";
+import {useCart} from '../contexts/cartContext'
 
 const Nav = () => {
   const {clearWishlist} = useWishlist()
+  const {clearCart} = useCart()
   const [user, setuser] = useState("")
   const [accType, setaccType] = useState("")
   const Menu = [
@@ -141,6 +143,7 @@ const Nav = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('userType')
     clearWishlist()
+    clearCart()
     window.location="/"
   }
   return (

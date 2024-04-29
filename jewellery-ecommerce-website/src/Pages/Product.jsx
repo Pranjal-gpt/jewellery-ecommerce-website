@@ -46,14 +46,14 @@ const Product = () => {
         if (!isinCart) {
             
             const newItem = {
-                id: productDetails._id, // Assuming product id is available in productDetails
+                id: productDetails._id,
                 title: productDetails.title,
                 price: productDetails.price,
                 discount: productDetails.discount,
                 metal:productDetails.metal,
-          karatage:productDetails.karatage,
-          quantity: Quantity,
-          image:productDetails.images[0],
+                platingColor:productDetails.platingColor,
+                quantity: Quantity,
+                image:productDetails.images[0],
         };
         addToCart(newItem);
         console.log("added item to Cart",productDetails._id)
