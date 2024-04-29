@@ -43,21 +43,21 @@ const Collections = () => {
     <Nav />
     <main>
         <section>
-          <img src="https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwa98f39de/microsite/joy-of-dressing/bannerdesktopbts.jpg" alt="" />
+          <img src="https://i.postimg.cc/W4304DVS/jod.png" className='w-full' alt="" />
           <div className='bg-orange-100 flex justify-evenly p-5'>
               {joy.map((product,key)=>(
                    <Pitem product={product} size={"w-72 h-72"} />
               ))}
           </div>
-          <img src="https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw95048521/microsite/joy-of-dressing/bannerdesktopnyusha.jpg" alt="" />
+          <img src="https://i.postimg.cc/bwqQKCF7/pip.png" className='w-full' alt="prettyinpink" />
           <div className='bg-orange-100 flex justify-evenly p-5'>
-              {stringit.map((product,key)=>(
+              {pp.map((product,key)=>(
                    <Pitem product={product} size={"w-72 h-72"} />
               ))}
           </div>
-          <img src="https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw26ffb630/microsite/joy-of-dressing/prettyinpinkdesktop.jpg" alt="prettyinpink" />
+          <img src="https://i.postimg.cc/dQz6S9FF/si.png" className='w-full' alt="" />
           <div className='bg-orange-100 flex justify-evenly p-5'>
-              {pp.map((product,key)=>(
+              {stringit.map((product,key)=>(
                    <Pitem product={product} size={"w-72 h-72"} />
               ))}
           </div>

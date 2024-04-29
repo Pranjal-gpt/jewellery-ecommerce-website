@@ -149,10 +149,17 @@ const Product = () => {
                            {isWishlist?<i class="fa-solid fa-heart  group-hover:scale-125 group-active:scale-150  transition-all duration-500 "></i> :<i class="fa-regular fa-heart group-hover:scale-125 group-active:-scale-150 transition-all duration-500"></i> } 
                             <div className="absolute text-sm -bottom-14 hidden group-hover:block p-1 rounded-md bg-orange-50 border w-24 text-center"> {isWishlist?"Remove From Wishlist":"Add To Wishlist"}</div>
                         </button>
-                        <div className="w-8 h-8  bg-orange-200 flex items-center justify-center rounded-full  group hover:shadow-2xl">
+                        <button 
+                            onMouseLeave={()=>document.getElementById('copy').innerHTML="Copy Link <br/> to Share"}
+                        className="w-8 h-8  bg-orange-200 flex items-center justify-center rounded-full  group hover:shadow-2xl">
                             <i class="fa-solid fa-share-nodes group-hover:scale-125"></i>
-                            <div className="absolute text-sm -bottom-10 hidden group-hover:block p-1 rounded-md bg-orange-50 border w-24 text-center"> Share This</div>
-                        </div>
+                            <div id='copy' 
+                            onClick={()=>{
+                                window.navigator.clipboard.writeText(window.location.href)
+                                document.getElementById('copy').innerHTML="Copied to Clipboard"
+                            }}
+                             className="absolute text-sm -bottom-8 opacity-80 hidden group-hover:block p-1 rounded-md bg-orange-50 hover:bg-orange-200 active:bg-orange-700 active:text-orange-100 hover:shadow-xl border w-24 text-center">Copy Link <br /> to Share</div>
+                        </button>
                     </div>
                 </div>
                 <h1 className='text-3xl  pb-4 mb-4 font-bold'>{productDetails.title}</h1>

@@ -89,10 +89,17 @@ const Wishlist = () => {
                                 </div>}
                             </div>
                             <div className='relative flex gap-5'>
-                                <div className="w-8 h-8  bg-orange-200 flex items-center justify-center rounded-full  group hover:shadow-2xl">
-                                    <i class="fa-solid fa-share-nodes group-hover:scale-125"></i>
-                                    <div className="absolute text-sm top-10 hidden group-hover:block p-1 rounded-md bg-orange-50 border w-24 text-center"> Share This</div>
-                                </div>
+                            <button 
+                            onMouseLeave={()=>document.getElementById('copy').innerHTML="Copy Link <br/> to Share"}
+                        className="w-8 h-8  bg-orange-200 flex items-center justify-center rounded-full  group hover:shadow-2xl">
+                            <i class="fa-solid fa-share-nodes group-hover:scale-125"></i>
+                            <div id='copy' 
+                            onClick={()=>{
+                                window.navigator.clipboard.writeText("http://localhost:5173/jewellery/item/"+item.title.replace(/ /g, "-") +"#"+ item.id)
+                                document.getElementById('copy').innerHTML="Copied to Clipboard"
+                            }}
+                             className="absolute text-sm -bottom-8 opacity-80 hidden group-hover:block p-1 rounded-md bg-orange-50 hover:bg-orange-200 active:bg-orange-700 active:text-orange-100 hover:shadow-xl border w-24 text-center">Copy Link <br /> to Share</div>
+                        </button>
                                 <button onClick={() => removeFromWishlist(item.id)} className="w-8 h-8 active:bg-orange-500 bg-orange-200 flex items-center justify-center rounded-full group hover:shadow-2xl">
                                     <i class="fa-solid fa-xmark group-hover:scale-125"></i>
                                     <div className="absolute text-sm top-10 hidden group-hover:block p-1 rounded-md bg-orange-50 border w-24 text-center"> Remove From Wishlist</div>
