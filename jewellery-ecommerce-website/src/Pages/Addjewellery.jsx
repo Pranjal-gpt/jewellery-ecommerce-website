@@ -1,67 +1,60 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from '../Components/Nav';
 import Footer from '../Components/Footer';
 
 const JewelryForm = () => {
   const [infoMsg, setinfoMsg] = useState("")
+  const [images, setImages] = useState(["","",""])
   const [formData, setFormData] = useState({
     merchant:JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email,
     title: '',
     description: '',
-    price: 14320,
+    price: 0,
     discount: 10,
-    gemstone: '-',
-    // images: [],
+    images: images,
     stock: 10,
     brand: '-',
     jcollection: '-',
     gender: 'womens',
-    jewelleryType: '-',
+    jewelleryType: 'Earring',
     occasion: 'any',
-    community: 'all',
-    materialColour: '-',
-    metal: '-',
-    height: '-',
-    width: '-',
-    noOfDiamonds: 0,
-    diamondClarity: '-',
-    diamondColor: '-',
-    diamondSetting: '-',
-    diamondShape: '-',
-    karatage: '-',
+    platingColor: 'Gold',
+    metal: 'brass',
+    size: 0,
+    gifting: false,
   });
   const resetForm = () => {
+    setImages(["","",""]);
     setFormData({
       title: '',
       description: '',
-      price: 14320,
+      price: 0,
       discount: 10,
-      gemstone: '-',
-      // images: [],
+      images: ["","",""],
       stock: 10,
       brand: '-',
       jcollection: '-',
       gender: 'womens',
-      jewelleryType: '-',
+      jewelleryType: 'Earring',
       occasion: 'any',
-      community: 'all',
-      materialColour: '-',
-      metal: '-',
-      height: '-',
-      width: '-',
-      noOfDiamonds: 0,
-      diamondClarity: '-',
-      diamondColor: '-',
-      diamondSetting: '-',
-      diamondShape: '-',
-      karatage: '-',
+      platingColor: 'Gold',
+      metal: 'brass',
+      size: 0,
+      gifting: false,
     });
   };
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+useEffect(()=>{
+  setFormData({ ...formData, images:images });
+},[images])
+useEffect(()=>{
+  setFormData({ ...formData, size:0 });
+},[formData.jewelleryType])
 
   const handleSubmit = async (e) => {
+    window.scrollTo(0,0);
     e.preventDefault()
 
 		const response = await fetch('http://localhost:3000/api/jewellery/add', {
@@ -77,10 +70,13 @@ const JewelryForm = () => {
 
 		if (data.status === 'ok') {
          setinfoMsg(data.infoMsg)
-        //  resetForm()
+         resetForm()
 		}else{
             setinfoMsg(data.infoMsg)
         }
+        setInterval(() => {
+          setinfoMsg("")
+        }, 5000);
   };
 
   return (
@@ -89,11 +85,26 @@ const JewelryForm = () => {
 
       <form onSubmit={handleSubmit} className="space-y-4 w-1/3 mx-auto mt-5 bg-orange-50 p-5 rounded-lg">
         <h1 className='text-xl font-semibold text-center'>Add Jewellery</h1>
-        <div className='p-2 bg-orange-100 rounded text-center mx-auto'>{infoMsg}</div>
+        {infoMsg!=""&&<div className='p-2 bg-orange-100 rounded text-center mx-auto'>{infoMsg}</div>}
 
         <div>
           <label htmlFor="title" className="block">Title:</label>
           <input required type="text" id="title" name="title" value={formData.title} onChange={handleChange} className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+        </div>
+
+        <div className='flex'>
+            <div>
+              <label htmlFor="image1" className="block">Image1:</label>
+              <input required type="text" id="image1" name="image1" value={images[0]} onChange={(e)=>setImages([e.target.value, images[1], images[2]])} className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+            </div>
+            <div>
+              <label htmlFor="image2" className="block">Image2:</label>
+              <input required type="text" id="image2" name="image2" value={images[1]} onChange={(e)=>setImages([images[0], e.target.value, images[2]])} className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+            </div>
+            <div>
+              <label htmlFor="image3" className="block">Image3:</label>
+              <input required type="text" id="image3" name="image3" value={images[2]} onChange={(e)=>setImages([images[0], images[1],e.target.value])} className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+            </div>
         </div>
 
         <div>
@@ -121,7 +132,12 @@ const JewelryForm = () => {
         <div className='flex justify-between flex-wrap'>
           <div>
             <label htmlFor="brand" className="block">Brand Name</label>
-            <input type="text" id="brand" name="brand" value={formData.brand} onChange={handleChange} className=" border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+            <input type="text" id="brand" name="brand" value={formData.brand} onChange={handleChange} className="w-36 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+          </div>
+
+          <div className='flex items-center gap-2 relative top-2'>
+            <input type="checkbox" id="gifting" name="gifting" checked={formData.gifting} onChange={(e)=>setFormData({ ...formData, gifting: e.target.checked })} className=" border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+            <label htmlFor="gifting" className="block">Gifting</label>
           </div>
 
           <div className=''>
@@ -136,6 +152,9 @@ const JewelryForm = () => {
             </select>
           </div>
           
+        </div>
+
+        <div className='flex justify-between flex-wrap'>
           <div className=''>
             <label htmlFor="gender" className="block">Gender</label>
             <select name="gender" id="gender" value={formData.gender} onChange={handleChange} className=" border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2">
@@ -145,12 +164,19 @@ const JewelryForm = () => {
               <option value="kids">Kids</option>
             </select>
           </div>
-        </div>
-
-        <div className='flex justify-between flex-wrap'>
           <div>
             <label htmlFor="jewelleryType" className="block">Jewellery Type</label>
-            <input type="text" id="jewelleryType" name="jewelleryType" value={formData.jewelleryType} onChange={handleChange} className=" border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+            <select id="jewelleryType" name="jewelleryType" value={formData.jewelleryType} onChange={handleChange} className=" border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" >
+              <option value="Earring">Earring</option>
+              <option value="Ring">Ring</option>
+              <option value="Necklace">Necklace</option>
+              <option value="Mangalsutra">Mangalsutra</option>
+              <option value="Pendants">Pendants</option>
+              <option value="Bracelets">Bracelets</option>
+              <option value="Chains">Chains</option>
+              <option value="Bangles">Bangles</option>
+              <option value="Nose-Pins">Nose-Pins</option>
+            </select>
           </div>
 
           <div className=''>
@@ -163,76 +189,43 @@ const JewelryForm = () => {
             </select>
           </div>
           
-          <div className=''>
-            <label htmlFor="community" className="block">Community</label>
-            <select name="community" id="community" value={formData.community} onChange={handleChange} className=" border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2">
-              <option value="all">All</option>
-              <option value="gujrati">gujrati</option>
-              <option value="marathi">marathi</option>
-            </select>
-          </div>
         </div>
         
-        <div className='flex justify-between flex-wrap'>
+        <div className='flex justify-evenly flex-wrap'>
           <div>
             <label htmlFor="metal" className="block">Metal</label>
-            <input type="text" id="metal" name="metal" value={formData.metal} onChange={handleChange} className="w-24 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
-          </div>
-
-          <div className=''>
-            <label htmlFor="materialColour" className="block">material Color</label>
-            <input type="text"  name="materialColour" id="materialColour" value={formData.materialColour} onChange={handleChange} className="w-40 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
-          </div>
-          
-          <div className=''>
-            <label htmlFor="height" className="block">Height(mm)</label>
-            <input type="number"  name="height" id="height" value={formData.height} onChange={handleChange} className="w-20 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
-          </div>
-          
-          <div className=''>
-            <label htmlFor="width" className="block">Width(mm)</label>
-            <input type="number"  name="width" id="width" value={formData.width} onChange={handleChange} className="w-20 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
-          </div>
-        </div>
-        
-        <fieldset className='border border-orange-50 p-5 rounded-md flex flex-wrap justify-between'>
-          <legend className='font-semibold'>Diamond Details</legend>
-
-          <div>
-            <label htmlFor="noOfDiamonds" className="block ">Diamonds</label>
-            <input type="number" id="noOfDiamonds" name="noOfDiamonds" value={formData.noOfDiamonds} onChange={handleChange} className="w-20 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
-          </div>
-
-          <div className=''>
-            <label htmlFor="karatage" className="block">Karatage</label>
-            <select type="number"  name="karatage" id="karatage" value={formData.karatage} onChange={handleChange} className="w-20 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" >
-              <option value="-">-</option>
-              <option value="18">18</option>
-              <option value="22">22</option>
-              <option value="24">24</option>
+            <select  id="metal" name="metal" value={formData.metal} onChange={handleChange} className="w-fit border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" >
+              <option value="brass">Brass</option>
+              <option value="copper">Copper</option>
+              <option value="nickel">nickel</option>
+              <option value="blackmetal">blackmetal</option>
             </select>
           </div>
+          {formData.jewelleryType === "Bangles" && 
+          
+          <div>
+            <label htmlFor="size" className="block">Size</label>
+            <select  id="size" name="size" value={formData.size} onChange={handleChange} className="w-fit border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" >
+              <option value="0">-</option>
+              <option value="2.2">2.2</option>
+              <option value="2.4">2.4</option>
+              <option value="2.6">2.6</option>
+              <option value="2.8">2.8</option>
+            </select>
+          </div>
+          }
 
           <div className=''>
-            <label htmlFor="diamondClarity" className="block">Clarity</label>
-            <input type="text"  name="diamondClarity" id="diamondClarity" value={formData.diamondClarity} onChange={handleChange} className="w-20 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+            <label htmlFor="platingColor" className="block">Plating Color</label>
+            <select  name="platingColor" id="platingColor" value={formData.platingColor} onChange={handleChange} className="w-40 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" >
+              <option value="Gold">Gold</option>
+              <option value="Sliver-Plated">Sliver-Plated</option>
+              <option value="Black-Plated">Black-Plated</option>
+            </select>
           </div>
           
-          <div className=''>
-            <label htmlFor="diamondColor" className="block">Color</label>
-            <input type="text"  name="diamondColor" id="diamondColor" value={formData.diamondColor} onChange={handleChange} className="w-28 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
-          </div>
-          
-          <div className=''>
-            <label htmlFor="diamondSetting" className="block">D.setting</label>
-            <input type="text"  name="diamondSetting" id="diamondSetting" value={formData.diamondSetting} onChange={handleChange} className="w-28 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
-          </div>
-          <div className=''>
-            <label htmlFor="diamondShape" className="block">shape</label>
-            <input type="text"  name="diamondShape" id="diamondShape" value={formData.diamondShape} onChange={handleChange} className="w-28 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
-          </div>
-        </fieldset>
-        
+        </div>
+ 
         <div>
           <button type="submit" className="mx-auto block bg-orange-300 text-white px-4 py-2 rounded-md hover:bg-orange-500">Add Jewelry</button>
         </div>

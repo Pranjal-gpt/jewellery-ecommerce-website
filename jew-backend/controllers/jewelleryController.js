@@ -1,12 +1,13 @@
 const Jewelry = require('../models/jewelleryModel');
 exports.insertJewellry = async (req, res) => {
   try {
-    console.log(req.body)
+    // console.log(req.body)
     const newJewelry = new Jewelry(req.body);
     const savedJewelry = await newJewelry.save();
-    console.log(savedJewelry)
+    console.log("New Jewellery Added Succesfully")
     res.status(201).json({infoMsg:"Added Succesfully",status:"ok"});
   } catch (error) {
+    console.log(error)
     res.status(500).json({ infoMsg: error.message });
   }
 };
