@@ -141,7 +141,7 @@ const Product = () => {
                     </div>
                 </section>
             </div>
-            <section className='bg-orange-100 lg:w-1/2 w-full h-[120vh] px-8'>
+            <section className='bg-orange-100 lg:w-1/2 w-full min-h-[120vh] px-8'>
                 <div className='flex justify-between  py-5'>
                     <div className="pid">{productDetails._id}</div>
                     <div className='relative flex gap-5'>
@@ -233,7 +233,7 @@ const Product = () => {
                 <Hr thickness={"h-0.5"} length={"w-full"} color='bg-orange-200' />
                 <img src={features} alt="" className='bg-orange-50 rounded-xl mt-5 drag-none' />
             </section>
-            <section className='lg:min-h-screen bg-orange-100 w-full z-10'>
+            <section className='lg:min-h-fit bg-orange-100 w-full z-10'>
                 <div className='w-full p-8'>
                     <h1 className='text-center font-bold text-2xl'>Product Details</h1>
                     <div className='lg:p-5 flex  w-full justify-center'>

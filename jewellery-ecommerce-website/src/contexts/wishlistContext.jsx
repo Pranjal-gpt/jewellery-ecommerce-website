@@ -14,7 +14,7 @@ export const WishlistProvider = ({ children }) => {
     }
     localStorage.getItem("token")&&setuser(JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email)
     // console.log("length of local wishlist ",WishlistItems)
-    axios.post("http://localhost:3000/api/wishlist/get",{
+    localStorage.getItem("token")&&axios.post("http://localhost:3000/api/wishlist/get",{
       user:user
     }).then(res=>{setWishlistItems(res.data.info[0]?res.data.info[0].products:[]);}).catch(err=>console.log(err))//setWishlistItems(res.data.info)
   }, []);
@@ -30,7 +30,7 @@ export const WishlistProvider = ({ children }) => {
 
   const addToWishlist = async (item) => {
     setWishlistItems([...WishlistItems, item]);
-    axios.post("http://localhost:3000/api/wishlist/add",{
+    localStorage.getItem("token")&&axios.post("http://localhost:3000/api/wishlist/add",{
       user:user,
       product:item
     }).then(res=>console.log(res.data.infoMsg)).catch(err=>console.log(err))
@@ -38,7 +38,7 @@ export const WishlistProvider = ({ children }) => {
 
   const removeFromWishlist = (id) => {
     setWishlistItems(WishlistItems.filter(item => item.id !== id));
-    axios.post("http://localhost:3000/api/wishlist/delete",{
+    localStorage.getItem("token")&&axios.post("http://localhost:3000/api/wishlist/delete",{
       data:{
         user:user,
         productId:id

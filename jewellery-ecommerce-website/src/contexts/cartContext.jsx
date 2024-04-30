@@ -15,7 +15,7 @@ export const CartProvider = ({ children }) => {
       setCartItems(storedCartItems);
     }
   
-    fetch("http://localhost:3000/api/cart/get",
+    localStorage.getItem("token")&&fetch("http://localhost:3000/api/cart/get",
     {
         body:JSON.stringify({user:user}),
         method:"POST",
