@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// Custom function to generate prefixed IDs
 function generatePrefixedId() {
   const prefix = "1434592";
   // Generate a random number between 100000 and 999999

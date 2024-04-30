@@ -1,9 +1,7 @@
 const Wishlist = require('../models/wishlistModel')
 exports.getWishlist = async (req, res) => {
     try {
-        // console.log(req.body)
         const wishlist = await Wishlist.find({user:req.body.user});
-        // console.log("wishlist ",wishlist)
         return res.json({ status: 'ok', info: wishlist })
       } catch (error) {
         console.log(error)
@@ -15,15 +13,6 @@ exports.setWishlist = async(req,res) =>{
         // console.log(req.body)
         const wishlist = await Wishlist.findOne({ user: req.body.user });
         console.log(wishlist&&wishlist.products.length)
-        // if (wishlist) {
-        //     wishlist.products = req.body.products;
-        //     await wishlist.save();
-        //     res.status(200).json({ status: "ok", infoMsg: "Wishlist updated" });
-        // } else {
-        //     const newWishlist = new Wishlist({ user: req.body.user, products: req.body.products });
-        //     await newWishlist.save();
-        //     res.status(201).json({ status: "ok", infoMsg: "Wishlist created and added" });
-        // }
     } catch (error) {
         console.log(error)
         res.status(501).json({status:"no",infoMsg:"Wishlist not saved"})
@@ -50,7 +39,6 @@ exports.addToWishlist = async(req,res) =>{
 }
 exports.deleteWishlist = async(req,res) =>{
     try {
-        // console.log(req.body.data.user)
         const wishlist = await Wishlist.findOne({ user: req.body.data.user });
         if (wishlist) {
             const index = wishlist.products.findIndex(product => product.id === req.body.data.productId);

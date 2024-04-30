@@ -49,7 +49,6 @@ router.get('/', (req, res) => {
             products=Bangles
             break;
     }
-  // Send the data from demodata.js as JSON
   res.json(products);
 });
 

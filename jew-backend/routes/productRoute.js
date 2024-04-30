@@ -4,10 +4,8 @@ const router = express.Router();
 const categories = require('../data/demodata');
 const Jewelry = require('../models/jewelleryModel');
 
-// Destructure categories object
 const { Pendants, Earrings, Mangalsutra, Chains, NosePins, Bangles, Necklace, Bracelets, FingerRings } = categories;
 
-// Create allProducts object
 const allProducts = {
     ...Pendants.reduce((acc, item) => ({ ...acc, [item.id]: item }), {}),
     ...Earrings.reduce((acc, item) => ({ ...acc, [item.id]: item }), {}),
@@ -20,14 +18,10 @@ const allProducts = {
     ...FingerRings.reduce((acc, item) => ({ ...acc, [item.id]: item }), {})
 };
 
-// Define route to get product details by ID
 router.get('/:productId', async(req, res) => {
     const productId = req.params.productId;
     
-    // Retrieve product by ID from the allProducts object
     const product =Jewelry.findById(productId) 
-    //allProducts[productId];
-    
     // If product is found, send it as JSON response
     if (product) {
         res.json(product);
@@ -37,5 +31,4 @@ router.get('/:productId', async(req, res) => {
     }
 });
 
-// Export the router
 module.exports = router;

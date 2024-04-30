@@ -9,7 +9,6 @@ const userSchema = new mongoose.Schema({
   address2: { type: String ,default:''},
   phone: { type: String },
   userType: { type: String,default: 'customer' },
-  // Other fields as needed
 },
 {collection:"Users"});
 

@@ -3,7 +3,6 @@ const Order = require('../models/ordersModel');
 exports.createOrder = async (req, res) => {
   try {
       const { email, products, totalAmount, shippingAddress } = req.body;
-    //   console.log(products)
       
       await Order.create({
         userEmail:email,
@@ -12,7 +11,6 @@ exports.createOrder = async (req, res) => {
         shippingAddress:shippingAddress
       })
       return res.json({status:"ok"})
-    // res.status(201).json({ success: true, message: 'Order placed successfully', order: newOrder });
   } catch (error) {
     console.error('Error placing order:', error);
     res.status(500).json({ success: false, message: 'Failed to place order' });
@@ -23,7 +21,6 @@ exports.getByUser = async (req, res) => {
         console.log(req.body.user)
         const orders = await Order.find({userEmail:req.body.user});
         console.log(orders)
-        // console.log("user found",user)
         return res.json({ status: 'ok', info: orders })
       } catch (error) {
         console.log(error)
@@ -34,8 +31,6 @@ exports.getByUser = async (req, res) => {
 exports.getByMerchant = async (req, res) => {
     try {
         const orders = await Order.find();
-        // console.log(orders)
-        // console.log("user found",user)
         return res.json({ status: 'ok', info: orders })
       } catch (error) {
         console.log(error)
@@ -62,8 +57,6 @@ exports.updateStatus = async (req,res) =>{
 
 exports.deleteOrder = async (req,res) => {
   try {
-    // Use the deleteOne method to delete the order
-    // console.log("data get", req.body)
     const result = await Order.deleteOne({ orderId: req.body.orderId });
     if (result.deletedCount === 0) {
       return { success: false, message: 'Order not found' };

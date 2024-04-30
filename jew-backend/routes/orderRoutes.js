@@ -10,6 +10,5 @@ router.delete('/delete',orderController.deleteOrder);
 router.post('/allorders',orderController.getByUser);
 router.post('/bymerchant',orderController.getByMerchant);
 router.put('/status',orderController.updateStatus);
-// router.post('/edit', jewelleryController.editJewellery); 
 
 module.exports = router;

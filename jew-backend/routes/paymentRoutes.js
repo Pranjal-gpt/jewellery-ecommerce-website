@@ -9,10 +9,5 @@ router.get('/getkey', (req, res) => {
 });
 router.post('/checkout',checkout);
 router.post('/paymentverification',paymentVerification)
-// POST /api/payment
-// router.post('/', (req, res) => {
-//     // Handle POST request for payment
-//     res.send('Payment route');
-// });
 
 module.exports = router;

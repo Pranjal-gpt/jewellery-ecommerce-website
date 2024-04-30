@@ -21,7 +21,7 @@ exports.checkout =  async (req, res) => {
         try {
             const order = await instance.orders.create(options);
             // Implement your checkout logic here
-            // console.log(order);
+            
             // Return a success response
             res.status(200).json({ 
                 status:"ok",
