@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   const [accType, setaccType] = useState("")
 useEffect(()=>{
-  const userType = localStorage.getItem('userType')
+  const userType =localStorage.getItem('userType')
     if (userType) {
       setaccType(userType)
     }

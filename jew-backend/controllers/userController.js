@@ -43,6 +43,7 @@ exports.signin = async (req, res) => {
         {
           name: user.name,
           email: user.email,
+          userType:user.userType
         },
         'secret123'
       )
