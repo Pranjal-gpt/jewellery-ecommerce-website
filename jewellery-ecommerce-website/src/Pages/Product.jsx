@@ -179,7 +179,7 @@ const Product = () => {
                     {/* <span className='text-orange-900 font-semibold hover:text-orange-500 cursor-pointer'>Price Breakup</span>  */}
                 </div>
                 <div>{productDetails.metal}</div>
-                {(localStorage.getItem("token")&&productDetails.merchant!=JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email)&&
+                {(localStorage.getItem("token")&&JSON.parse(atob(localStorage.getItem("token").split(".")[1])).userType)!="merchant"&&
                     <span>
                         <div className='border border-orange-800 w-fit p-2 my-3 mx-auto rounded flex gap-5 items-center'>
                             Quantity 
@@ -208,7 +208,6 @@ const Product = () => {
                 <div className='my-5'>
                     <table>
                         <tr ><td><i class="fa-regular fa-gem"></i></td><td>Purity Guaranteed.</td></tr>
-                        <tr ><td><i class="fa-solid fa-arrow-right-arrow-left"></i></td><td>Exchange across all stores.</td></tr>
                         <tr ><td><i class="fa-solid fa-truck-fast"></i></td><td>Free Shipping all across India.</td></tr>
                     </table>
                 </div>
@@ -231,7 +230,7 @@ const Product = () => {
                 </div>
                 <div className='text-center py-5'>Shipping Delivery Days Taken {shipday>0 && <span className='text-orange-600'>: {shipday}-{shipday+2} Working Days <i class="fa-solid fa-truck-fast"></i></span>}</div>
                 <Hr thickness={"h-0.5"} length={"w-full"} color='bg-orange-200' />
-                <img src={features} alt="" className='bg-orange-50 rounded-xl mt-5 drag-none' />
+                {/* <img src={features} alt="" className='bg-orange-50 rounded-xl mt-5 drag-none' /> */}
             </section>
             <section className='lg:min-h-fit bg-orange-100 w-full z-10'>
                 <div className='w-full p-8'>
