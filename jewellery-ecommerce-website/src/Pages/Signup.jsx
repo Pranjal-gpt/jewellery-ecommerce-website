@@ -69,7 +69,7 @@ const SignUpForm = () => {
         <fieldset className='border border-orange-100 rounded-lg p-2 w-fit'>
         <legend>AccountType</legend>
         <select  type="text"  name="userType" value={acctype} onChange={(e)=>{setacctype(e.target.value)}}  className='p-2 text-orange-300 rounded-md bg-orange-50' >
-          <option value="merchant">merchant</option>
+          
           <option value="customer">customer</option>
         </select>
         </fieldset>

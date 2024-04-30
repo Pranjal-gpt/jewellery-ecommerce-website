@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect,useState } from "react";
 import elegance from '../assets/elegence.png'
-// import jwt from 'jsonwebtoken';
 import { WishlistProvider,useWishlist } from "../contexts/wishlistContext";
 import {useCart} from '../contexts/cartContext'
 
@@ -126,7 +125,7 @@ const Nav = () => {
   ];
   useEffect(() => {
 		const token = localStorage.getItem('token')
-		const userType = localStorage.getItem('userType')
+		const userType = token&&JSON.parse(atob(localStorage.getItem("token").split(".")[1])).userType
     if (userType) {
       setaccType(userType)
     }
@@ -173,7 +172,7 @@ const Nav = () => {
                   <div className="absolute p-3 text-xl z-10 w-60 shadow-xl top-10 -right-5 hidden  rounded-md bg-orange-50 hover:bg-orange-200 border text-center group-hover:block">
                     <div className="font-bold text-xl">My Account</div>
                     {user?<div> <small>logged in user</small>
-                      <small className="block">{(JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email).split("@")[0]}</small>
+                      <small className="block">{(JSON.parse(atob(localStorage.getItem("token").split(".")[1])).name)}</small>
                       
                       {accType=="merchant"?
                       <div>
@@ -202,8 +201,6 @@ const Nav = () => {
                         <div className="flex gap-4 ">
                             <Link  to="/signin" state={"merchant"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-orange-800 hover:bg-orange-600 hover:text-orange-50  text-orange-800 transition-all duration-100 '
                                 >LogIn</Link >
-                            <Link  to="/signup" state={"merchant"} className='px-2 py-1 block mx-auto mt-5  rounded border-2 border-orange-800 hover:bg-orange-600 hover:text-orange-50 bg-orange-800 text-orange-50 transition-all duration-100 '
-                                >SignUp</Link >
                         </div>
                     </div>)}
                   </div>
