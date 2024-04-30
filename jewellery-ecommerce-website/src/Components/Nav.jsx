@@ -140,7 +140,6 @@ const Nav = () => {
 	}, [])
   const logout = ()=>{
     localStorage.removeItem('token')
-    localStorage.removeItem('userType')
     clearWishlist()
     clearCart()
     window.location="/"

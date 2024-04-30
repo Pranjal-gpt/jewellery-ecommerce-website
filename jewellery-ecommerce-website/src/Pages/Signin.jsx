@@ -1,6 +1,5 @@
 // SignUpForm.jsx
 import React, { useState } from 'react';
-import axios from 'axios';
 import Nav from "../Components/Nav"
 import Footer from "../Components/Footer"
 import { useNavigate,useLocation,Link } from 'react-router-dom';
@@ -38,7 +37,6 @@ const SignInForm = () => {
 		const data = await response.json()
 		if (data.user) {
 			localStorage.setItem('token', data.user)
-			localStorage.setItem('userType', data.userType)
             console.log("logged in")
             setinfoMsg('Login successful')
             setTimeout(() => {
