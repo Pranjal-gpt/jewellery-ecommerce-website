@@ -58,7 +58,7 @@ const SignInForm = () => {
   return (
   <div className='absolute bg-orange-50 top-0 z-50 w-full'>
     <Nav />
-    <form onSubmit={handleSubmit} className='bg-orange-100 mt-32 mb-40 p-5 rounded-2xl mx-auto mt-2 lg:w-1/3 flex flex-col gap-2'>
+    <form onSubmit={handleSubmit} className='bg-orange-100 mt-32 mb-40 p-5 rounded-2xl mx-auto lg:w-1/3 flex flex-col gap-2'>
        <div className='text-xl text-center'>Login</div>
         <div className='p-2 bg-orange-100 rounded text-center mx-auto'>{infoMsg}</div>
       <div>Email</div>

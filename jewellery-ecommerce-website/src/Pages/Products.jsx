@@ -5,8 +5,6 @@ import Pitem from '../Components/Pitem'
 import Hr from '../Components/Hr'
 import { Link } from 'react-router-dom'
 import { CartProvider } from "../contexts/cartContext";
-
-// import categories from '../data/demodata'
 const Products = ({category,all=false, genderType="any",collec="any",occa="any",gifting=false}) => {
   
   const [pincode, setPincode] = useState('');
@@ -118,12 +116,7 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
         setFilterMode(false)
         ;
       }
-  const getAllJewellery = ()=>{
-    fetch("http://localhost:3000/api/jewellery/all")
-        .then((response) => response.json())
-        .then((data) => setProductsData(data))
-        .catch((error) => console.error("Error fetching products data:", error));
-  }
+
 
   useEffect(()=>{
     getProductsData(category)
@@ -215,25 +208,7 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
                   <input type="range" onChange={(e)=>{setpriceMax(e.target.value);}} value={priceMax} min={priceMin} max={4000} name='priceMin'  />
                 </span>
               </div>
-              {/* <div>
-                <b>Metal Type</b>
-                <select onChange={(e)=>setmetal(e.target.value)} value={metal} name="metal" id="metal">
-                  <option value="any">All</option>
-                  <option value="Gold">Brass</option>
-                  <option value="Silver">Silver</option>
-                  <option value="WhiteGold">White Gold</option>
-                  <option value="Others">Others</option>
-                </select>
-              </div> */}
-              {/* <div>
-                <b>For(Gender)</b>
-                <select onChange={(e)=>setgender(e.target.value)}  value={gender} name="gender" id="gender">
-                  <option value="any">Any</option>
-                  <option value="womens">Womens</option>
-                  <option value="mens">Mens</option>
-                  <option value="kids">Kids</option>
-                </select>
-              </div> */}
+              
               <div>
                 <b>Occasion</b>
                 <select onChange={(e)=>setoccasion(e.target.value)}  value={occasion} name="occasion" id="occasion">
@@ -263,15 +238,7 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
                   <option value="Black-Plated">Black Plated</option>
                 </select>
               </div>
-              {/* <div>
-                <b>Community</b>
-                <select onChange={(e)=>setcommunity(e.target.value)}  value={community} name="community" id="community">
-                  <option value="all">All</option>
-                  <option value="mujrati">Gujrati</option>
-                  <option value="marathi">Marathi</option>
-                  <option value="punjabi">Punjabi</option>
-                </select>
-              </div> */}
+             
               <p className='pt-5 flex gap-5'>
                 <button onClick={()=>{getProductsData(category)}} className=' hover:bg-orange-300 rounded-md text-lg px-4 py-2 bg-orange-200 active:bg-orange-400'> Apply</button>
                 <button onClick={() => {
@@ -282,7 +249,6 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
                 </p>
             </section>
             :""}
-            {/* <Hr thickness={"h-0.5"} length={"w-11/12"} /> */}
             <section className='section flex gap-10 flex-wrap justify-center mt-5 mx-auto  lg:w-11/12 w-full'>
                 {ProductsData<1&&<div className='p-5 mx-auto'>No Results Found</div>}
                 {ProductsData.slice(0, visibleProducts).map((product,key)=>(

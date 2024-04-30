@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Nav from '../Components/Nav';
 import Footer from '../Components/Footer';
-import Pitem from '../Components/Pitem';
 import axios from 'axios';
 const MerchantPage = () => {
     const [jews, setjews] = useState([])

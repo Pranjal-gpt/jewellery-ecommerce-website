@@ -3,8 +3,6 @@ import Footer from '../Components/Footer'
 import Nav from '../Components/Nav'
 import Hr from '../Components/Hr';
 import TotalRating from '../Components/TotalRating'
-import features from '../assets/features.png'
-import Pitem from '../Components/Pitem';
 import { Link,useNavigate} from 'react-router-dom';
 import categories from '../data/demodata';
 const { SimilarProducts } = categories;
@@ -26,17 +24,13 @@ const Product = () => {
     
     useEffect(() => {
         window.scroll(0,0)
-        // getJewelleryById()
             fetch(`http://localhost:3000/api/jewellery/${pId}`)
               .then((response) => response.json())
               .then((data) => {setProductDetails(data)})
               .catch((error) => console.error("Error fetching product details:", error));
           },[]
     )
-    // useEffect(()=>{
-    //     setisWishlist(WishlistItems.some(item => item.id ==pId ));
-    // },[isWishlist])
-    // var productDetails;
+   
     const [CurrentImg,setCurrentImg]=useState("");
     const [pincode, setPincode] = useState('');
     const [shipday, setShipday] = useState('');
@@ -68,7 +62,7 @@ const Product = () => {
         else{
 
             const newItem = {
-              id: productDetails._id, // Assuming product id is available in productDetails
+              id: productDetails._id, 
               title: productDetails.title,
               description:productDetails.description,
               price: productDetails.price,
@@ -104,18 +98,6 @@ const Product = () => {
             console.error(error);
         }
     };
-      const starRating = (rating) => {
-        const stars = [];
-        for (let i = 1; i <= rating; i++) {
-          stars.push(<i class="fa fa-star" aria-hidden="true"></i>); 
-        }
-        if (stars.length<5) {
-            for (let i = 0; i < 5-rating; i++) {
-                stars.push(<i class="fa-regular fa-star"></i>); 
-              }
-        }
-        return stars;
-      };
       
     return (
     <>
@@ -176,7 +158,6 @@ const Product = () => {
                             <strike className=' text-orange-700'>₹{productDetails.price}</strike> <span className='w-fit text-orange-700 border-2 border-orange-800 p-1'>{productDetails.discount+"% OFF"}</span>
                     </div>
                     <div className='text-sm'>Price Inclusive of all taxes.</div>
-                    {/* <span className='text-orange-900 font-semibold hover:text-orange-500 cursor-pointer'>Price Breakup</span>  */}
                 </div>
                 <div>{productDetails.metal}</div>
                 {(localStorage.getItem("token")&&JSON.parse(atob(localStorage.getItem("token").split(".")[1])).userType)!="merchant"&&
@@ -230,7 +211,6 @@ const Product = () => {
                 </div>
                 <div className='text-center py-5'>Shipping Delivery Days Taken {shipday>0 && <span className='text-orange-600'>: {shipday}-{shipday+2} Working Days <i class="fa-solid fa-truck-fast"></i></span>}</div>
                 <Hr thickness={"h-0.5"} length={"w-full"} color='bg-orange-200' />
-                {/* <img src={features} alt="" className='bg-orange-50 rounded-xl mt-5 drag-none' /> */}
             </section>
             <section className='lg:min-h-fit bg-orange-100 w-full z-10'>
                 <div className='w-full p-8'>
@@ -282,70 +262,11 @@ const Product = () => {
                             </tr>
                             }
                         </table>
-                        {/* <table className='text-left'  cellPadding={10}>
-                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
-                                <th>Diamond Quantity</th>
-                                <td className='px-3'>:</td>
-                                <td>{productDetails.noOfDiamonds}</td>
-                            </tr>
-                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
-                                <th>Diamond Color</th>
-                                <td className='px-3'>:</td>
-                                <td>{productDetails.diamondColor}</td>
-                            </tr>
-                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
-                                <th>Diamond Clarity</th>
-                                <td className='px-3'>:</td>
-                                <td>{productDetails.diamondClarity}</td>
-                            </tr>
-                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
-                                <th>Diamond Shape</th>
-                                <td className='px-3'>:</td>
-                                <td>{productDetails.diamondShape}</td>
-                            </tr>
-                            <tr className='border-b border-b-orange-200 hover:bg-orange-200 cursor-pointer ' >
-                                <th>Diamond Setting</th>
-                                <td className='px-3'>:</td>
-                                <td>{productDetails.diamondSetting}</td>
-                            </tr>
-                        </table> */}
+                       
                     </div>
                 </div>
-                {/* <div>
-                    <h2 className='text-2xl font-bold text-center'>Similar Products</h2>
-                        <div className='section flex gap-10 flex-wrap justify-center mt-5 mx-auto  w-11/12'>
-                            {SimilarProducts.map((product)=>(
-                            <Pitem product={product} mode={"similars"} size={"w-60"} />
-                            ))}
-                        </div>
-                </div> */}
-                {/* <div className=' w-10/12 mx-auto mt-10'>
-                    <h1 className='text-center text-2xl font-bold'>Reviews</h1>
-                    {productDetails.reviews && productDetails.reviews.map((review)=>(
-                        
-                        <div className='mb-5 flex p-5  relative'>
-                            <div className='w-1/4'></div>
-                            <div>
-                                <div className='text-lg font-semibold'>
-                                    {review.user}
-                                </div>
-                                {review.rating && (
-                                    <div className='flex items-center'>
-                                        Rating: <span className='text-3xl'> {starRating(review.rating)}</span>
-                                    </div>
-                                )}
-                                <div className='mt-2'>
-                                    {review.comment}
-                                </div>
-                            </div>
-                            <div className="w-8 h-8 cursor-pointer group flex items-center justify-center absolute  top-5 right-5 rounded-full   hover:shadow-2xl">
-                                <i class="fa-solid fa-ellipsis-vertical   group-hover:bg-orange-200 px-3 py-2 rounded-md translate-all ease-in duration-100 group"></i>
-                                
-                                <div className="absolute text-sm -bottom-7 hidden p-1 rounded-md bg-orange-50 hover:bg-orange-200 border w-24 text-center group-hover:block"> Report</div>
-                            </div>
-                        </div>
-                    ))}
-                </div> */}
+               
+               
             </section>
         </main>
         </CartProvider>
