@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const mongoose = require('mongoose');
 const homeRouter = require('./routes/homeRoute');
 const productsRouter = require('./routes/productsRoute');
@@ -24,7 +25,7 @@ mongoose.connect(connectionString).then(() => {
   }).catch((error) => {
     console.error('Error connecting to MongoDB:', error);
   });
-
+  app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 //routes
 app.use('/api/home', homeRouter);
 app.use('/api/products', productsRouter);

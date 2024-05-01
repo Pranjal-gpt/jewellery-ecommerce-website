@@ -1,16 +1,43 @@
 const Jewelry = require('../models/jewelleryModel');
-exports.insertJewellry = async (req, res) => {
+const multer = require('multer');
+
+const fs = require('fs');
+const path = require('path');
+
+// Set up storage with multer
+const storage = multer.diskStorage({
+  destination: async function(req, file, cb) {
+    const dir = './uploads/';
+    await fs.promises.mkdir(dir, { recursive: true });
+    cb(null, dir);
+  },
+  filename: function(req, file, cb) {
+    cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
+
+// Modify the insertJewellry function to handle image uploads
+exports.insertJewellry = [upload.array('images', 3), async (req, res) => {
+  console.log("adding new jewellery")
   try {
-    // console.log(req.body)
-    const newJewelry = new Jewelry(req.body);
+    const newJewelry = new Jewelry({
+      ...req.body,
+      images: req.files.map(file => file.path)
+    });
+    console.log("images added")
     const savedJewelry = await newJewelry.save();
     console.log("New Jewellery Added Succesfully")
     res.status(201).json({infoMsg:"Added Succesfully",status:"ok"});
   } catch (error) {
+    console.log("error part")
     console.log(error)
     res.status(500).json({ infoMsg: error.message });
   }
-};
+}];
+
+
 exports.deleteJewellery = async (req,res) =>{
     console.log("deleted ",res.body)
 }

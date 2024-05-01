@@ -42,7 +42,7 @@ const Pitem = ({ product, mode, size }) => {
         </div>
       </div>
       <img
-        src={hoveredImage}
+        src={hoveredImage.startsWith("https") ? hoveredImage : `http://localhost:3000/${hoveredImage}`}
         className={`${size} rounded-t-3xl`}
         onMouseOver={() => setHoveredImage(product.images && product.images.length > 2 ? product.images[1] : '')}
         onClick={() => setHoveredImage(product.images && product.images.length > 2 ? product.images[2] : '')}

@@ -57,22 +57,29 @@ useEffect(()=>{
     window.scrollTo(0,0);
     e.preventDefault()
 
-		const response = await fetch('http://localhost:3000/api/jewellery/add', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(formData),
-		})
+    const data = new FormData();
+    Object.keys(formData).forEach(key => {
+      if (key !== 'images') {
+        data.append(key, formData[key]);
+      }
+    });
+    images.forEach((image, index) => {
+      data.append('images', image, `image${index + 1}`);
+    });
+  
+    const response = await fetch('http://localhost:3000/api/jewellery/add', {
+      method: 'POST',
+      body: data,
+    });
 
 
-		const data = await response.json()
+		const rdata = await response.json()
 
-		if (data.status === 'ok') {
-         setinfoMsg(data.infoMsg)
+		if (rdata.status === 'ok') {
+         setinfoMsg(rdata.infoMsg)
          resetForm()
 		}else{
-            setinfoMsg(data.infoMsg)
+            setinfoMsg(rdata.infoMsg)
         }
         setInterval(() => {
           setinfoMsg("")
@@ -82,8 +89,7 @@ useEffect(()=>{
   return (
     <div className="">
           <Nav />
-
-      <form onSubmit={handleSubmit} className="space-y-4 w-1/3 mx-auto mt-5 bg-orange-50 p-5 rounded-lg">
+      <form onSubmit={handleSubmit} className="space-y-4 w-1/2 mx-auto mt-5 bg-orange-50 p-5 rounded-lg" >
         <h1 className='text-xl font-semibold text-center'>Add Jewellery</h1>
         {infoMsg!=""&&<div className='p-2 bg-orange-100 rounded text-center mx-auto'>{infoMsg}</div>}
 
@@ -93,18 +99,18 @@ useEffect(()=>{
         </div>
 
         <div className='flex'>
-            <div>
-              <label htmlFor="image1" className="block">Image1:</label>
-              <input required type="text" id="image1" name="image1" value={images[0]} onChange={(e)=>setImages([e.target.value, images[1], images[2]])} className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
-            </div>
-            <div>
-              <label htmlFor="image2" className="block">Image2:</label>
-              <input required type="text" id="image2" name="image2" value={images[1]} onChange={(e)=>setImages([images[0], e.target.value, images[2]])} className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
-            </div>
-            <div>
-              <label htmlFor="image3" className="block">Image3:</label>
-              <input required type="text" id="image3" name="image3" value={images[2]} onChange={(e)=>setImages([images[0], images[1],e.target.value])} className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
-            </div>
+          <div>
+            <label htmlFor="image1" className="block">Image1:</label>
+            <input required type="file" id="image1" name="image1" onChange={(e)=>setImages([e.target.files[0], images[1], images[2]])} className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+          </div>
+          <div>
+            <label htmlFor="image2" className="block">Image2:</label>
+            <input required type="file" id="image2" name="image2" onChange={(e)=>setImages([images[0], e.target.files[0], images[2]])} className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+          </div>
+          <div>
+            <label htmlFor="image3" className="block">Image3:</label>
+            <input required type="file" id="image3" name="image3" onChange={(e)=>setImages([images[0], images[1], e.target.files[0]])} className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+          </div>
         </div>
 
         <div>
@@ -112,24 +118,24 @@ useEffect(()=>{
           <textarea required id="description" name="description" rows={3} value={formData.description} onChange={handleChange} className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
         </div>
 
-        <div className='flex justify-between flex-wrap'>
-          <div>
-            <label htmlFor="price" className="block">Price:</label>
-            <input required type="number" id="price" name="price" value={formData.price} onChange={handleChange} className=" border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
-          </div>
+        <div className='flex justify-evenly flex-wrap'>
 
           <div className=''>
             <label htmlFor="discount" className="block">Discount:</label>
             <input type="number" id="discount" name="discount" value={formData.discount} max={80} onChange={handleChange} className="w-20 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
           </div>
           
+          <div>
+            <label htmlFor="price" className="block">Price:</label>
+            <input required type="number" id="price" name="price" value={formData.price} onChange={handleChange} className=" border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+          </div>
           <div className=''>
             <label htmlFor="stock" className="block">Quantity</label>
             <input required type="number" id="stock" name="stock" value={formData.stock} max={100} onChange={handleChange} className="w-20 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
           </div>
         </div>
 
-        <div className='flex justify-between flex-wrap'>
+        <div className='flex justify-evenly flex-wrap'>
           <div>
             <label htmlFor="brand" className="block">Brand Name</label>
             <input type="text" id="brand" name="brand" value={formData.brand} onChange={handleChange} className="w-36 border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
@@ -154,7 +160,7 @@ useEffect(()=>{
           
         </div>
 
-        <div className='flex justify-between flex-wrap'>
+        <div className='flex justify-around flex-wrap'>
           <div className=''>
             <label htmlFor="gender" className="block">Gender</label>
             <select name="gender" id="gender" value={formData.gender} onChange={handleChange} className=" border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2">

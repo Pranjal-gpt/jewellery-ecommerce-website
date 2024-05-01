@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Nav from '../Components/Nav';
 import Footer from '../Components/Footer';
 import axios from 'axios';
+import Pitem from '../Components/Pitem';
 const MerchantPage = () => {
     const [jews, setjews] = useState([])
     const [fname, setfname] = useState("User")
@@ -14,13 +15,7 @@ const MerchantPage = () => {
     const getJews = async (e) => {
         e.preventDefault()
         // setshowOrders(false)
-        const response = await fetch('http://localhost:3000/api/jewellery/bymerchant', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ merchant: JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email }),
-        })
+        const response = await fetch('http://localhost:3000/api/jewellery/all?category=all&shuffle=true')
 
         const data = await response.json()
         setjews(Object(data))
@@ -39,7 +34,7 @@ const MerchantPage = () => {
         const data = await response.json()
 
         if (data.status === 'ok') {
-            setOrders(data.info)
+            setOrders(data.info.reverse())
             // setshowOrders(!showOrders)
             console.log(orders)
         } else {
@@ -107,8 +102,9 @@ const MerchantPage = () => {
                     <div className='flex gap-5 flex-col sticky top-40'>
 
                         <h1 className='' >Welcome, <br /> <span className='text-xl font-bold'>{fname}</span> </h1>
-                        <button onClick={getJews} className='rounded-xl p-2 hover:bg-orange-200 bg-orange-100'>{!showProd ? "Show your all Products" : "Hide Products"}</button>
-                        <button onClick={getOrders} className='rounded-xl p-2 hover:bg-orange-200 bg-orange-100'>{!showOrders?"Manage Orders":"Hide Orders"}</button>
+                        <button onClick={getJews} className='rounded-xl p-2 hover:bg-orange-200 bg-orange-100'>{!showProd ?  jews.length===0?"Total Products : Refresh Needed":"Total Jewelleries: "+jews.length+" Show": "Hide Jewelleries: "+jews.length}</button>
+                        <button onClick={getOrders} className='rounded-xl p-2 hover:bg-orange-200 bg-orange-100'>Orders : {orders.length}</button>
+
                     </div>
 
                 </div>
@@ -117,6 +113,8 @@ const MerchantPage = () => {
                 
 
                 {showOrders &&
+                <div className=' overflow-y-auto max-h-96'>
+
                    <table className='w-full' cellPadding={2} cellSpacing={1}>
                    <thead>
                      <tr className='bg-orange-100 '>
@@ -131,7 +129,7 @@ const MerchantPage = () => {
                    <tbody className='lgLtext-xl text-xs'>
                      {orders.length === 0 && <tr><td colSpan="5">No Orders Placed</td></tr>}
                      {orders.map((order) => (
-                       <tr key={order._id} className='bg-orange-50'>
+                       <tr key={order._id} className='bg-orange-50 border-b border-b-orange-200'>
                          <td className='font-semibold'>{order.products.map((p, index) => <span key={index} className='block pt-1'>{index+1}. {p}</span>)}</td>
                          <td className='font-semibold'>
                            {/* Dropdown menu for status update */}
@@ -151,6 +149,7 @@ const MerchantPage = () => {
                      ))}
                    </tbody>
                  </table>
+                </div>
                  
                 }
 
@@ -158,14 +157,9 @@ const MerchantPage = () => {
 
                     <div className='text-2xl text-center border-t py-5'>Your Products</div>
 
-                <div className={'bg-white flex justify-evenly rounded-xl flex-wrap gap-5 p-5 overflow-auto h-[65vh]'}>
+                <div className={'bg-white flex justify-evenly rounded-xl flex-wrap gap-2 p-2 overflow-auto h-[65vh]'}>
                     {jews.map((item) => (
-                        <div className='p-2 rounded w-fit hover:shadow-xl shadow-md bg-orange-50'>
-                            <img src={item.images[0]} alt="img" className='w-60' />
-                            <div className='font-semibold text-xl'>{item.title.length > 20 ? item.title.substring(0, 20) + '...' : item.title}</div>
-                            <div className='font-semibold'>₹{item.price}</div>
-                            <button className='text-sm p-1 rounded-md bg-orange-100 hover:bg-orange-200 text-center block w-full'>See Order Report</button>
-                        </div>
+                         <Pitem product={item} size={"lg:w-60 lg:h-60 h-52 object-cover w-96"} />
                     ))}
                 </div>
                 </div>

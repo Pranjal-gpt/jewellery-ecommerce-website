@@ -56,7 +56,7 @@ const Wishlist = () => {
                 {WishlistItems.length===0&&(<div className='mx-auto mt-40 text-xl'>No Items In Your Wishlist.</div>)}
                 {WishlistItems.map((item,key)=>(
                     <div className='w-full bg-orange-50 lg:p-5 flex lg:flex-row justify-center items-center flex-col relative' key={key}>
-                        <div><img src={item.image} className='lg:w-60 w-52' alt="" /></div>
+                        <div><img src={item.image} className='lg:w-60 w-52 h-52 lg:h-52 object-cover' alt="" /></div>
                        
                         <div className='p-5'>
                             <h1 className='lg:text-3xl text-lg  font-bold'>{item.title}</h1>
@@ -74,7 +74,7 @@ const Wishlist = () => {
                                     <Link className=" bg-orange-200 hover:bg-orange-100 rounded-md px-5 py-2 text-center"
                                     to={"/jewellery/item/"+item.title.replace(/ /g, "-") +"#"+ item.id} state={item}>View</Link>
                                 </div>
-                                {(localStorage.getItem("token")&&item.merchant!=JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email)&&
+                                {(localStorage.getItem("token")&&JSON.parse(atob(localStorage.getItem("token").split(".")[1])).userType!="merchant")&&
                                 <div className='flex flex-col justify-around lg:h-48 gap-1 p-1'>
                                     <button 
                                         className='lg:px-10 lg:py-3 p-2 rounded border-2 border-orange-800 hover:bg-orange-200 transition-all duration-100 '

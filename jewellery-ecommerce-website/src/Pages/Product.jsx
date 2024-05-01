@@ -111,19 +111,24 @@ const Product = () => {
                     <div className='mt-3 flex gap-5 justify-around'>
                         <div className='flex flex-col items-center justify-between  w-1/5 lg:h-[60vh]' >
                             {productDetails && productDetails.images && productDetails.images.map((imgsrc)=>(
-                                <img src={imgsrc} className='lg:h-32 lg:w-32 object-center border-2 border-orange-200 drag-none'
+                                <img src={imgsrc.startsWith("https") ? imgsrc : `http://localhost:3000/${imgsrc}`} 
+                                className='lg:h-32 lg:w-32 object-center border-2 border-orange-200 drag-none'
                                 onMouseOver={()=>{setCurrentImg(imgsrc)}}></img>
                             ))}
                         </div>
                         <div className='bg-orange-100 w-2/3 p-5'>
-                            <img src={CurrentImg!==""?CurrentImg:productDetails.images?.[0]} alt={productDetails.title}
+                            <img src={CurrentImg!==""
+                                        ?CurrentImg.startsWith("https") ? CurrentImg : `http://localhost:3000/${CurrentImg}`
+                                        :productDetails.images?.[0].startsWith("https") ? productDetails.images?.[0] : `http://localhost:3000/${productDetails.images?.[0]}`
+                                    } 
+                                alt={productDetails.title}
                                 className='lg:h-full lg:w-full'
                             />
                         </div>
                     </div>
                 </section>
             </div>
-            <section className='bg-orange-100 lg:w-1/2 w-full min-h-[120vh] px-8'>
+            <section className='bg-orange-100 lg:w-1/2 w-full min-h-[100vh] px-8'>
                 <div className='flex justify-between  py-5'>
                     <div className="pid">{productDetails._id}</div>
                     <div className='relative flex gap-5'>
