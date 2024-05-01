@@ -99,17 +99,57 @@ useEffect(()=>{
         </div>
 
         <div className='flex'>
-          <div>
+          <div className='flex flex-col items-center justify-between'>
+            <img src="https://i.ibb.co/tqqnQCq/jfu.png" id="imagePreview1"  width={200} className='bg-orange-100' alt="" />
             <label htmlFor="image1" className="block">Image1:</label>
-            <input required type="file" id="image1" name="image1" onChange={(e)=>setImages([e.target.files[0], images[1], images[2]])} className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+            <input required type="file" id="image1" name="image1"  className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2"
+            onChange={(e)=>{
+              setImages([e.target.files[0], images[1], images[2]])
+              var input = e.target;
+              var reader = new FileReader();
+              reader.onload = function(){
+                  var dataURL = reader.result;
+                  var imagePreview = document.getElementById('imagePreview1');
+                  imagePreview.src = dataURL;
+                  // imagePreview.style.opacity="1";
+              };
+              reader.readAsDataURL(input.files[0]);
+            } }
+            />
           </div>
-          <div>
+          <div className='flex flex-col items-center justify-between'>
+            <img src="https://i.ibb.co/tqqnQCq/jfu.png" id="imagePreview2" width={200} className='bg-orange-100' alt="" />
             <label htmlFor="image2" className="block">Image2:</label>
-            <input required type="file" id="image2" name="image2" onChange={(e)=>setImages([images[0], e.target.files[0], images[2]])} className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+            <input required type="file" id="image2" name="image2"  className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2"
+            onChange={(e)=>{
+              setImages([images[0], e.target.files[0], images[2]])
+              var input = e.target;
+              var reader = new FileReader();
+              reader.onload = function(){
+                  var dataURL = reader.result;
+                  var imagePreview = document.getElementById('imagePreview2');
+                  imagePreview.src = dataURL;
+                  // imagePreview.style.opacity="1";
+              };
+              reader.readAsDataURL(input.files[0]);
+            }} />
           </div>
-          <div>
+          <div className='flex flex-col items-center justify-between'>
+            <img src="https://i.ibb.co/tqqnQCq/jfu.png" id="imagePreview3" width={200} className='bg-orange-100' alt="" />
             <label htmlFor="image3" className="block">Image3:</label>
-            <input required type="file" id="image3" name="image3" onChange={(e)=>setImages([images[0], images[1], e.target.files[0]])} className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2" />
+            <input required type="file" id="image3" name="image3"  className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2"
+            onChange={(e)=>{
+              setImages([images[0], images[1], e.target.files[0]])
+              var input = e.target;
+              var reader = new FileReader();
+              reader.onload = function(){
+                  var dataURL = reader.result;
+                  var imagePreview = document.getElementById('imagePreview3');
+                  imagePreview.src = dataURL;
+                  // imagePreview.style.opacity="1";
+              };
+              reader.readAsDataURL(input.files[0]);
+            }} />
           </div>
         </div>
 
