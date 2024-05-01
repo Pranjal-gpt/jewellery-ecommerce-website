@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Other middleware and route handling
 app.use(cors());
-connectionString = "mongodb://127.0.0.1:27017/jew"
+const connectionString = "mongodb+srv://pkp22:2qHecDYGg8uG7D2X@pkp.utkz9dm.mongodb.net/elegance?retryWrites=true&w=majority&appName=pkp";
 mongoose.connect(connectionString).then(() => {
     console.log('Connected to MongoDB');
   }).catch((error) => {
