@@ -7,7 +7,7 @@ const jewelleryController = require('../controllers/jewelleryController');
 // Define user routes
 router.post('/add',jewelleryController.insertJewellry);
 router.post('/bymerchant',jewelleryController.getJewelryByMerchant);
-router.post('/delete',jewelleryController.deleteJewellery);
+router.delete('/delete/:id',jewelleryController.deleteJewellery);
 router.post('/edit', jewelleryController.editJewellery); 
 router.get('/all', jewelleryController.getAllJewelleries);
 router.get('/:id', jewelleryController.getJewelleryById);

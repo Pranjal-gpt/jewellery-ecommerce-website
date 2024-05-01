@@ -64,7 +64,9 @@ useEffect(()=>{
       }
     });
     images.forEach((image, index) => {
+      if (image instanceof Blob) {
       data.append('images', image, `image${index + 1}`);
+      }
     });
   
     const response = await fetch('http://localhost:3000/api/jewellery/add', {
@@ -120,7 +122,7 @@ useEffect(()=>{
           <div className='flex flex-col items-center justify-between'>
             <img src="https://i.ibb.co/tqqnQCq/jfu.png" id="imagePreview2" width={200} className='bg-orange-100' alt="" />
             <label htmlFor="image2" className="block">Image2:</label>
-            <input required type="file" id="image2" name="image2"  className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2"
+            <input  type="file" id="image2" name="image2"  className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2"
             onChange={(e)=>{
               setImages([images[0], e.target.files[0], images[2]])
               var input = e.target;
@@ -137,7 +139,7 @@ useEffect(()=>{
           <div className='flex flex-col items-center justify-between'>
             <img src="https://i.ibb.co/tqqnQCq/jfu.png" id="imagePreview3" width={200} className='bg-orange-100' alt="" />
             <label htmlFor="image3" className="block">Image3:</label>
-            <input required type="file" id="image3" name="image3"  className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2"
+            <input  type="file" id="image3" name="image3"  className="w-full border border-orange-100 focus:outline-orange-200 rounded-md px-3 py-2"
             onChange={(e)=>{
               setImages([images[0], images[1], e.target.files[0]])
               var input = e.target;

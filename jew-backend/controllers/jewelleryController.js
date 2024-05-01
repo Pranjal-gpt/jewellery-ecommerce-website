@@ -3,7 +3,6 @@ const multer = require('multer');
 
 const fs = require('fs');
 const path = require('path');
-
 // Set up storage with multer
 const storage = multer.diskStorage({
   destination: async function(req, file, cb) {
@@ -12,7 +11,7 @@ const storage = multer.diskStorage({
     cb(null, dir);
   },
   filename: function(req, file, cb) {
-    cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname);
+    cb(null, new Date().toISOString().replace(/:/g, '-') + '.jpg');
   }
 });
 
@@ -26,6 +25,16 @@ exports.insertJewellry = [upload.array('images', 3), async (req, res) => {
       ...req.body,
       images: req.files.map(file => file.path)
     });
+
+    // Add default image URLs if less than three images are uploaded
+    const remainingImages = 3 - req.files.length;
+    if (remainingImages > 0) {
+      const defaultImageURL = req.files.length > 0 ? req.files[0].path : "https://i.ibb.co/tqqnQCq/jfu.png";
+      for (let i = 0; i < remainingImages; i++) {
+      newJewelry.images.push(defaultImageURL);
+      }
+    }
+
     console.log("images added")
     const savedJewelry = await newJewelry.save();
     console.log("New Jewellery Added Succesfully")
@@ -38,8 +47,23 @@ exports.insertJewellry = [upload.array('images', 3), async (req, res) => {
 }];
 
 
-exports.deleteJewellery = async (req,res) =>{
-    console.log("deleted ",res.body)
+exports.deleteJewellery = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedJewellery = await Jewelry.findByIdAndDelete(id);
+    
+    // Delete corresponding stored images
+    for (const imagePath of deletedJewellery.images) {
+      const filePath = path.join(__dirname, '..', imagePath);
+      if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+      }
+    }
+    
+    res.status(200).json({ status: "ok" });
+  } catch (error) {
+    res.status(500).json({ status: "no", error: error.message });
+  }
 }
 exports.editJewellery = async (req,res) =>{
     console.log("edit  ",res.body)

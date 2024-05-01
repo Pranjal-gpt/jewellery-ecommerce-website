@@ -164,7 +164,7 @@ const Nav = () => {
               <i class="fa-solid fa-cart-shopping"></i>
           </Link>
 }
-          <button  className="relative bg-orange-200 cursor-pointer group flex items-center justify-center rounded-full hover:shadow-2xl">
+          <div  className="relative bg-orange-200 cursor-pointer group flex items-center justify-center rounded-full hover:shadow-2xl">
                   <div class="group-hover:bg-orange-200 px-3 py-2 rounded-md translate-all ease-in-out duration-300 group">
                     Account</div>
                   
@@ -204,7 +204,7 @@ const Nav = () => {
                     </div>)}
                   </div>
               
-          </button>
+          </div>
         </div>
       </nav>
       <header className="header lg:px-16 px-1 text-lg  lg:h-10 md:h-fit bg-orange-200 flex lg:flex-nowrap flex-wrap items-center justify-between">

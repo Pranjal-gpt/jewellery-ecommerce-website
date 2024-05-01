@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { WishlistProvider,useWishlist } from '../contexts/wishlistContext';
 
-const Pitem = ({ product, mode, size }) => {
+const Pitem = ({ product, MerchantMode=false, size }) => {
   const { WishlistItems,addToWishlist,removeFromWishlist} = useWishlist();
   const [isWishlist, setisWishlist] = useState(WishlistItems.some(item => parseInt(item._id) ===parseInt(product._id) ))
 
@@ -35,12 +35,12 @@ const Pitem = ({ product, mode, size }) => {
   };
   return (
     <div className="relative flex flex-col items-start gap-2 border rounded-3xl shadow-xl hover:shadow-sm active:shadow-2xl transition-all duration-500 delay-75 border-none  bg-orange-50">
-      <div  onClick={handleWishlistClick} className="w-8 h-8 cursor-pointer absolute backdrop-blur-lg flex items-center justify-center rounded-full right-4 top-4 group active:bg-orange-200 hover:bg-orange-50 hover:shadow-2xl">
+      {!MerchantMode&&<div  onClick={handleWishlistClick} className="w-8 h-8 cursor-pointer absolute backdrop-blur-lg flex items-center justify-center rounded-full right-4 top-4 group active:bg-orange-200 hover:bg-orange-50 hover:shadow-2xl">
       {isWishlist?<i class="fa-solid fa-heart  group-hover:scale-125 group-active:scale-150  transition-all duration-500 "></i> :<i class="fa-regular fa-heart group-hover:scale-125 group-active:-scale-150 transition-all duration-500"></i> } 
         <div className="absolute  text-sm -bottom-14 hidden group-hover:block p-1 rounded-md bg-orange-50 border w-24 text-center">
           {isWishlist ? "Remove From Wishlist" : "Add To Wishlist"}
         </div>
-      </div>
+      </div>}
       <img
         src={hoveredImage.startsWith("https") ? hoveredImage : `http://localhost:3000/${hoveredImage}`}
         className={`${size} rounded-t-3xl`}
