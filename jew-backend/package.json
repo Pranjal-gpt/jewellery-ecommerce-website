@@ -5,8 +5,8 @@
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
-    "start":"node server.js",
-    "startc":"nodemon server.js"
+    "start":"node index.js",
+    "startc":"nodemon index.js"
   },
   "author": "Pranjal Gupta",
   "license": "ISC",
