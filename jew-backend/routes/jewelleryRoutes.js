@@ -3,7 +3,8 @@ const express = require('express');
 const router = express.Router();
 router.use(express.json())
 const jewelleryController = require('../controllers/jewelleryController');
-
+const app = express();
+app.use(cors());
 // Define user routes
 router.post('/add',jewelleryController.insertJewellry);
 router.post('/bymerchant',jewelleryController.getJewelryByMerchant);
