@@ -14,7 +14,7 @@ const Wishlist = () => {
     const { addToCart,cartItems } = useCart();
 
     // const getCartData = () => {
-    //     fetch("http://localhost:3000/api/cart")
+    //     fetch("http://3.108.250.122:3000/api/cart")
     //         .then((response) => response.json())
     //         .then((data) => {
     //             setWishlistData(data);

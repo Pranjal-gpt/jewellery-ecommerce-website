@@ -42,7 +42,7 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
 
       products+= `&shuffle=true&search=${search}&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
     }
-    let productUrl = "http://localhost:3000/api/jewellery/all?category="+products.replace(" ","-");
+    let productUrl = "http://3.108.250.122:3000/api/jewellery/all?category="+products.replace(" ","-");
     console.log("collec ",productUrl)
       console.log(productUrl)
       fetch(productUrl)

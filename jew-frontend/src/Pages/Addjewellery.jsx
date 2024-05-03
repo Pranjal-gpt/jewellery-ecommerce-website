@@ -69,7 +69,7 @@ useEffect(()=>{
       }
     });
   
-    const response = await fetch('http://localhost:3000/api/jewellery/add', {
+    const response = await fetch('http://3.108.250.122:3000/api/jewellery/add', {
       method: 'POST',
       body: data,
     });

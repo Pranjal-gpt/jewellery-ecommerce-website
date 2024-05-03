@@ -23,7 +23,7 @@ const SignInForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setinfoMsg("")
-		const response = await fetch('http://localhost:3000/api/user/signin', {
+		const response = await fetch('http://3.108.250.122:3000/api/user/signin', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

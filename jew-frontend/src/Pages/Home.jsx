@@ -16,7 +16,7 @@ const Home = () => {
   const getReccomended = () => {   
     let products= `&max=5&shuffle=true`
     
-    fetch("http://localhost:3000/api/jewellery/all?category=all"+products)    
+    fetch("http://3.108.250.122:3000/api/jewellery/all?category=all"+products)    
     .then((response) => response.json())
     .then((data) => {
       setReccomended(data);
@@ -25,7 +25,7 @@ const Home = () => {
   }
   const getGifingItems = () => {
     let products= `&max=5&shuffle=true&gifting=true`
-    fetch("http://localhost:3000/api/jewellery/all?category=all"+products)    
+    fetch("http://3.108.250.122:3000/api/jewellery/all?category=all"+products)    
     .then((response) => response.json())
     .then((data) => {
       setGifting(data);
@@ -36,7 +36,7 @@ const Home = () => {
   
   useEffect(() => {
     // Fetch the homepage data from your backend API
-    fetch("http://localhost:3000/api/home")
+    fetch("http://3.108.250.122:3000/api/home")
       .then((response) => response.json())
       .then((data) => setHomepageData(data))
       .catch((error) => console.error("Error fetching homepage data:", error));

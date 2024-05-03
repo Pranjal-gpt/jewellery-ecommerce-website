@@ -12,7 +12,7 @@ const Checkout = () => {
   const data = location.state
   const [addr, setaddr] = useState("")
   const getuser = async ()=>{
-    const response = await fetch('http://localhost:3000/api/user/udetails', {
+    const response = await fetch('http://3.108.250.122:3000/api/user/udetails', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -31,12 +31,12 @@ const Checkout = () => {
   const handleCheckout = async (amount) => {
     try {
       // Send the order data to the backend
-      const {data:{key}} = await axios.get('http://localhost:3000/api/payment/getkey')
-    const {data:{order}} = await axios.post('http://localhost:3000/api/payment/checkout', {
+      const {data:{key}} = await axios.get('http://3.108.250.122:3000/api/payment/getkey')
+    const {data:{order}} = await axios.post('http://3.108.250.122:3000/api/payment/checkout', {
       amount
     })
 
-      const response = await axios.post('http://localhost:3000/api/order/place', { 
+      const response = await axios.post('http://3.108.250.122:3000/api/order/place', { 
         email:JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email,
         products:(data.cartItems).map((item)=>item.title.length >25 ? item.title.substring(0,25) + '...' : item.title),
         totalAmount:data.netPay,
@@ -51,7 +51,7 @@ const Checkout = () => {
         description: "Jewelleries just for you",
         image: "https://i.postimg.cc/mPVWSprM/image.png",
         order_id: order.id,
-        callback_url: "http://localhost:3000/api/payment/paymentverification",
+        callback_url: "http://3.108.250.122:3000/api/payment/paymentverification",
         prefill: {
             name: addr.fullname,
             email: addr.email,
