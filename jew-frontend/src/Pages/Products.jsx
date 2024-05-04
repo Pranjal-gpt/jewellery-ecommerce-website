@@ -11,6 +11,7 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
   const [city, setCity] = useState('');
   
   const [ProductsData,setProductsData] =useState([]);
+  const [loading, setLoading] = useState(false);
   const [sortBy, setSortBy] = useState('Default'); 
   const [visibleProducts, setVisibleProducts] = useState(4);
   const [FilterMode,setFilterMode] =useState(false);
@@ -27,8 +28,9 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
   // const [brand, setbrand] = useState("any")
   
   const getProductsData = (products="all") =>{
+    setLoading(true);
     // Fetch the homepage data from your backend API
-    console.log(gifting)
+    // console.log(gifting)
     if (collec!="any") {
       products+= `&jcollection=${collec}`
     }else if (occa!="any") {
@@ -43,16 +45,17 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
       products+= `&shuffle=true&search=${search}&priceMin=${priceMin}&priceMax=${priceMax}&gender=${gender}&jcollection=${jcollection}&occasion=${occasion}&metal=${metal}&metalColor=${metalColor}&community=${community}`
     }
     let productUrl = "https://jewellery-ecommerce-website.vercel.app/api/jewellery/all?category="+products.replace(" ","-");
-    console.log("collec ",productUrl)
-      console.log(productUrl)
+    // console.log("collec ",productUrl)
+      // console.log(productUrl)
       fetch(productUrl)
         .then((response) => response.json())
         .then(async (data) => {
           setProductsData(data);
           setSortBy("Default");
-          console.log(data)
+          // console.log(data)
         })
-        .catch((error) => console.error("Error fetching products data:", error));
+        .catch((error) => console.error("Error fetching products data:", error))
+        .finally(() => setLoading(false))
   }
   const sortProducts = () => {
     switch (sortBy) {
@@ -250,13 +253,28 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
             </section>
             :""}
             <section className='section flex gap-10 flex-wrap justify-center mt-5 mx-auto  lg:w-11/12 w-full'>
-                {ProductsData<1&&<div className='p-5 mx-auto'>No Results Found</div>}
-                {ProductsData.slice(0, visibleProducts).map((product,key)=>(
+                
+                
+                
+                {loading&&<div className='p-5 relative mx-auto flex flex-col gap-10 items-center justify-center font-semibold  h-96  text-center w-full '>
+                    <div className='relative animate-spin text-2xl text-orange-400'>
+                      <i class="fa-regular fa-gem fa-2xl -rotate-90"></i>
+                      <i class="fa-regular fa-gem fa-2xl absolute -top-2 right-6"></i>
+                      <i class="fa-regular fa-gem fa-2xl rotate-180 absolute -bottom-3 right-6"></i>
+                      <i class="fa-regular fa-gem fa-2xl rotate-90"></i>
+                    </div>
+                    <div className='text-orange-400'>Loading...</div>
+                  </div>}
+                
+                
+                
+                {(ProductsData<1&&!loading)&&<div className='p-5 mx-auto h-96'>No Results Found</div>}
+                {!loading&&ProductsData.slice(0, visibleProducts).map((product,key)=>(
                    <Pitem product={product} size={"lg:w-72 lg:h-72 h-52 object-cover w-96"} />
                 ))}
 
             </section>
-            {ProductsData.length > visibleProducts && ( // Check if there are more products to display
+            {(!loading&&ProductsData.length > visibleProducts) && ( // Check if there are more products to display
               <section className=' flex items-center justify-center h-36'>
               <Link 
                

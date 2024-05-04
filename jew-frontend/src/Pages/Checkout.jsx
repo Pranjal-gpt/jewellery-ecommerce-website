@@ -64,7 +64,7 @@ const Checkout = () => {
             "color": "#FED7AA"
         }
     };
-    console.log(options.key)
+    // console.log(options.key)
     const razor = new window.Razorpay(options);
     console.log('Order placed:', response.data.status);
     razor.open()

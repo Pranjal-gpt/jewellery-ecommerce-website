@@ -12,26 +12,31 @@ const Home = () => {
   
   const [homepageData, setHomepageData] = useState(null);
   const [Reccomended, setReccomended] = useState([]);
+  const[loadReccomended,setLoadReccomended]=useState(false)
+  const[loadgifting,setLoadGifting]=useState(false)
   const [gifting,setGifting]=useState([]);
   const getReccomended = () => {   
     let products= `&max=5&shuffle=true`
-    
+    setLoadReccomended(true)
     fetch("https://jewellery-ecommerce-website.vercel.app/api/jewellery/all?category=all"+products)    
     .then((response) => response.json())
     .then((data) => {
       setReccomended(data);
     })
-    .catch((error) => console.error("Error fetching homepage data:", error));
+    .catch((error) => console.error("Error fetching homepage data:", error))
+    .finally(()=>setLoadReccomended(false))
   }
   const getGifingItems = () => {
+    setLoadGifting(true)
     let products= `&max=5&shuffle=true&gifting=true`
     fetch("https://jewellery-ecommerce-website.vercel.app/api/jewellery/all?category=all"+products)    
     .then((response) => response.json())
     .then((data) => {
       setGifting(data);
-      console.log("gifting data ",data)
+      // console.log("gifting data ",data)
     })
-    .catch((error) => console.error("Error fetching homepage data:", error));
+    .catch((error) => console.error("Error fetching homepage data:", error))
+    .finally(()=>setLoadGifting(false))
   }
   
   useEffect(() => {
@@ -164,7 +169,16 @@ const Home = () => {
           <div className="h-0.5 w-1/3  bg-[#832729] mx-auto"></div>
           {/*underline code*/}
           <div className="flex gap-7 flex-wrap justify-center w-full mx-auto">
-          {gifting.map((item) => (
+          {loadgifting&&<div className='p-5 relative mx-auto flex flex-col gap-10 items-center justify-center font-semibold  h-80  text-center w-full '>
+                    <div className='relative animate-spin text-2xl text-orange-400'>
+                      <i class="fa-regular fa-gem fa-2xl -rotate-90"></i>
+                      <i class="fa-regular fa-gem fa-2xl absolute -top-2 right-6"></i>
+                      <i class="fa-regular fa-gem fa-2xl rotate-180 absolute -bottom-3 right-6"></i>
+                      <i class="fa-regular fa-gem fa-2xl rotate-90"></i>
+                    </div>
+                    <div className='text-orange-400'>Loading...</div>
+                  </div>}
+          {!loadgifting&&gifting.map((item) => (
           <Pitem product={item} size={"lg:w-60 lg:h-60 h-52 object-cover w-96"} />  
             ))}
           </div>
@@ -180,7 +194,16 @@ const Home = () => {
           <div className="h-0.5 w-1/3  bg-[#832729] mx-auto"></div>
           {/*underline code*/}
           <div className="flex gap-7 flex-wrap justify-center w-full mx-auto">
-          {Reccomended.map((item) => (
+          {loadReccomended&&<div className='p-5 relative mx-auto flex flex-col gap-10 items-center justify-center font-semibold  h-80  text-center w-full '>
+                    <div className='relative animate-spin text-2xl text-orange-400'>
+                      <i class="fa-regular fa-gem fa-2xl -rotate-90"></i>
+                      <i class="fa-regular fa-gem fa-2xl absolute -top-2 right-6"></i>
+                      <i class="fa-regular fa-gem fa-2xl rotate-180 absolute -bottom-3 right-6"></i>
+                      <i class="fa-regular fa-gem fa-2xl rotate-90"></i>
+                    </div>
+                    <div className='text-orange-400'>Loading...</div>
+                  </div>}
+          {!loadReccomended&&Reccomended.map((item) => (
           <Pitem product={item} size={"lg:w-60 lg:h-60 h-52 object-cover w-96"} />  
             ))}
           

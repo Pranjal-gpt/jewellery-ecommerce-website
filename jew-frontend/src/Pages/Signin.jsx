@@ -7,7 +7,7 @@ import { useNavigate,useLocation,Link } from 'react-router-dom';
 const SignInForm = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    console.log(location.state)
+    // console.log(location.state)
     const msg = location.state.msg;
 
     const [infoMsg, setinfoMsg] = useState(msg?msg:"")

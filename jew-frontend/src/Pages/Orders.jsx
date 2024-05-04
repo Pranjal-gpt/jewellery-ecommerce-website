@@ -25,7 +25,7 @@ const orderForm = () => {
             setorders(ordersarray[0])
             
         }, 400);
-        console.log(orders)
+        // console.log(orders)
 		// if (data.status === 'ok') {
         //  setinfoMsg(data.infoMsg)
         //  resetForm()

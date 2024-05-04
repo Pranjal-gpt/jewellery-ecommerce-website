@@ -34,7 +34,7 @@ useEffect(()=>{
           <h1 className="text-2xl relative lg:-left-5">
             Contact Us
           </h1>
-          <a href="https://wa.me/917879752789" target="_blank">Chat with Us</a>
+          <a href="https://t.me/Elegance_jewellerry" target="_blank">Chat with Us</a>
         </div>
         
       </section>
