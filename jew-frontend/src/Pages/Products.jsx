@@ -163,12 +163,12 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
                           <input type="text" placeholder='Enter pincode' id="" className='ml-1 px-2 text-md focus:outline-orange-100 placeholder-orange-200 py-1 w-40  lg:rounded-r-lg rounded-lg bg-orange-50  focus:border-orange-300 focus:ring-orange-300'
                               onChange={(change)=>{setPincode(change.target.value)}}
                               value={pincode} />
-                          <button disabled={!pincode}className={`font-bold p-1 rounded-lg absolute lg:right-2 right-8 lg:top-1 bottom-1 text-xs ${pincode === ""? "text-orange-50  bg-orange-100" : "hover:bg-orange-300  bg-orange-100"} cursor-pointer`}
+                          <button disabled={!pincode}className={`font-bold p-1 rounded-lg absolute right-2 lg:top-1 bottom-1 text-xs ${pincode === ""? "text-orange-50  bg-orange-100" : "hover:bg-orange-300  bg-orange-100"} cursor-pointer`}
                               onClick={CheckPincode} >Check</button>
                     </div>
                   </div>
             </section>
-            <section className='flex justify-between lg:flex-row gap-2 flex-col items-center lg:px-24 lg:h-16 bg-orange-50 shadow-lg'>
+            <section className='flex justify-between lg:flex-row gap-2 flex-col items-center lg:px-24 py-1 lg:h-16 bg-orange-50 shadow-lg'>
                 {collec=="any"&&genderType=="any"?                
                 <div className={(FilterMode&&"bg-orange-200 font-bold")+"filter shadow-lg rounded-lg px-2 py-1 border border-orange-300 cursor-pointer select-none"} onClick={()=>{setFilterMode(!FilterMode)}}><i class="fa-solid fa-sliders"></i> Filters</div>
                 :<div></div>
