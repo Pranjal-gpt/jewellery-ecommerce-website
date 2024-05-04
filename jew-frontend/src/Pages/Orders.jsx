@@ -9,7 +9,7 @@ const orderForm = () => {
   const getorders = async (e) => {
     // e.preventDefault()
 
-		const response = await fetch('http://3.108.250.122:3000/api/order/allorders', {
+		const response = await fetch('https://jewellery-ecommerce-website.vercel.app/api/order/allorders', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const orderForm = () => {
         // }
   };
   const getUser = async ()=>{
-        const response = await fetch('http://3.108.250.122:3000/api/user/udetails', {
+        const response = await fetch('https://jewellery-ecommerce-website.vercel.app/api/user/udetails', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

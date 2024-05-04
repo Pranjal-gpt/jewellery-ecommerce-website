@@ -14,7 +14,7 @@ export const WishlistProvider = ({ children }) => {
     }
     localStorage.getItem("token")&&setuser(JSON.parse(atob(localStorage.getItem("token").split(".")[1])).email)
     // console.log("length of local wishlist ",WishlistItems)
-    localStorage.getItem("token")&&axios.post("http://3.108.250.122:3000/api/wishlist/get",{
+    localStorage.getItem("token")&&axios.post("https://jewellery-ecommerce-website.vercel.app/api/wishlist/get",{
       user:user
     }).then(res=>{setWishlistItems(res.data.info[0]?res.data.info[0].products:[]);}).catch(err=>console.log(err))//setWishlistItems(res.data.info)
   }, []);
@@ -22,7 +22,7 @@ export const WishlistProvider = ({ children }) => {
   // Save Wishlist items to local storage whenever WishlistItems state changes
   useEffect(() => {
    WishlistItems.length!==0&&localStorage.setItem('WishlistItems', JSON.stringify(WishlistItems));
-  //  axios.post("http://3.108.250.122:3000/api/wishlist/set",{
+  //  axios.post("https://jewellery-ecommerce-website.vercel.app/api/wishlist/set",{
   //     user:user,
   //     products:WishlistItems==================
   //   }).then(res=>console.log("wishlist changes ",res)).catch(err=>console.log(err))
@@ -30,7 +30,7 @@ export const WishlistProvider = ({ children }) => {
 
   const addToWishlist = async (item) => {
     setWishlistItems([...WishlistItems, item]);
-    localStorage.getItem("token")&&axios.post("http://3.108.250.122:3000/api/wishlist/add",{
+    localStorage.getItem("token")&&axios.post("https://jewellery-ecommerce-website.vercel.app/api/wishlist/add",{
       user:user,
       product:item
     }).then(res=>console.log(res.data.infoMsg)).catch(err=>console.log(err))
@@ -38,7 +38,7 @@ export const WishlistProvider = ({ children }) => {
 
   const removeFromWishlist = (id) => {
     setWishlistItems(WishlistItems.filter(item => item.id !== id));
-    localStorage.getItem("token")&&axios.post("http://3.108.250.122:3000/api/wishlist/delete",{
+    localStorage.getItem("token")&&axios.post("https://jewellery-ecommerce-website.vercel.app/api/wishlist/delete",{
       data:{
         user:user,
         productId:id

@@ -17,7 +17,7 @@ const MerchantPage = () => {
     const [selectedStatus, setSelectedStatus] = useState('');
     const [selectedOrderIds, setSelectedOrderIds] = useState([]);
     const getJews = async (callback) => {
-        const response = await fetch('http://3.108.250.122:3000/api/jewellery/all?category=all&search='+search)
+        const response = await fetch('https://jewellery-ecommerce-website.vercel.app/api/jewellery/all?category=all&search='+search)
 
         const data = await response.json()
         setjews(Object(data.reverse()));
@@ -29,7 +29,7 @@ const MerchantPage = () => {
     }
     const getOrders = async () => {
         // setshowProd(false)
-        const response = await fetch('http://3.108.250.122:3000/api/order/bymerchant', {
+        const response = await fetch('https://jewellery-ecommerce-website.vercel.app/api/order/bymerchant', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const MerchantPage = () => {
         }
     }
     const getMerchant = async () => {
-        const response = await fetch('http://3.108.250.122:3000/api/user/mdetails', {
+        const response = await fetch('https://jewellery-ecommerce-website.vercel.app/api/user/mdetails', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ const MerchantPage = () => {
     }
     const handleStatusChange = async (oid,st) => {
         try {
-          await axios.put('http://3.108.250.122:3000/api/order/status', { orderIds: oid, status: st }); // Update status of the selected orders
+          await axios.put('https://jewellery-ecommerce-website.vercel.app/api/order/status', { orderIds: oid, status: st }); // Update status of the selected orders
           // Refresh orders after updating status
           console.log("updated")
           setinfoMsg1('Order Status updated successfully');
@@ -78,7 +78,7 @@ const MerchantPage = () => {
     };
     const deleteOrder = async(orderId) =>{
         
-        const response = await fetch('http://3.108.250.122:3000/api/order/delete', {
+        const response = await fetch('https://jewellery-ecommerce-website.vercel.app/api/order/delete', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ const MerchantPage = () => {
     }
     const deleteJewellery = async (id) => {
         try {
-            await axios.delete(`http://3.108.250.122:3000/api/jewellery/delete/${id}`)
+            await axios.delete(`https://jewellery-ecommerce-website.vercel.app/api/jewellery/delete/${id}`)
                 .then(response => {
                     if (response.status === 200 ) {
                         setinfoMsg2('Jewellery deleted successfully');

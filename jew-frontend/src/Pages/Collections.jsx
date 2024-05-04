@@ -9,7 +9,7 @@ const Collections = () => {
   const [pp, setpp] = useState([]);
 
   const getpp = (collection="prettyinpink")=>{
-    let collectionUrl = "http://3.108.250.122:3000/api/jewellery/all?jcollection="+collection;
+    let collectionUrl = "https://jewellery-ecommerce-website.vercel.app/api/jewellery/all?jcollection="+collection;
       console.log(collectionUrl)
       fetch(collectionUrl)
         .then((response) => response.json())
@@ -17,7 +17,7 @@ const Collections = () => {
         .catch((error) => console.error("Error fetching products data:", error));
   }
   const getjoy = (collection="joyofdressing")=>{
-    let collectionUrl = "http://3.108.250.122:3000/api/jewellery/all?jcollection="+collection;
+    let collectionUrl = "https://jewellery-ecommerce-website.vercel.app/api/jewellery/all?jcollection="+collection;
       console.log(collectionUrl)
       fetch(collectionUrl)
         .then((response) => response.json())
@@ -25,7 +25,7 @@ const Collections = () => {
         .catch((error) => console.error("Error fetching products data:", error));
   }
   const getstringit = (collection="stringit")=>{
-    let collectionUrl = "http://3.108.250.122:3000/api/jewellery/all?jcollection="+collection;
+    let collectionUrl = "https://jewellery-ecommerce-website.vercel.app/api/jewellery/all?jcollection="+collection;
       console.log(collectionUrl)
       fetch(collectionUrl)
         .then((response) => response.json())

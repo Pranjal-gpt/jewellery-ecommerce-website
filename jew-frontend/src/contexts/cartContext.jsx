@@ -15,7 +15,7 @@ export const CartProvider = ({ children }) => {
       setCartItems(storedCartItems);
     }
   
-    localStorage.getItem("token")&&fetch("http://3.108.250.122:3000/api/cart/get",
+    localStorage.getItem("token")&&fetch("https://jewellery-ecommerce-website.vercel.app/api/cart/get",
     {
         body:JSON.stringify({user:user}),
         method:"POST",
@@ -41,7 +41,7 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (item) => {
     setCartItems([...cartItems, item]);
-    axios.post("http://3.108.250.122:3000/api/cart/add",{
+    axios.post("https://jewellery-ecommerce-website.vercel.app/api/cart/add",{
       user:user,
       product:item
     }).then(res=>console.log(res.data.infoMsg)).catch(err=>console.log(err))
@@ -49,7 +49,7 @@ export const CartProvider = ({ children }) => {
 
   const removeFromCart = (id) => {
     setCartItems(cartItems.filter(item => item.id !== id));
-    axios.post("http://3.108.250.122:3000/api/cart/delete",{
+    axios.post("https://jewellery-ecommerce-website.vercel.app/api/cart/delete",{
       data:{
         user:user,
         productId:id

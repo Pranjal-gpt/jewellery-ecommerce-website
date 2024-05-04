@@ -24,7 +24,7 @@ const Product = () => {
     
     useEffect(() => {
         window.scroll(0,0)
-            fetch(`http://3.108.250.122:3000/api/jewellery/${pId}`)
+            fetch(`https://jewellery-ecommerce-website.vercel.app/api/jewellery/${pId}`)
               .then((response) => response.json())
               .then((data) => {setProductDetails(data)})
               .catch((error) => console.error("Error fetching product details:", error));
@@ -111,15 +111,15 @@ const Product = () => {
                     <div className='mt-3 flex gap-5 justify-around'>
                         <div className='flex flex-col items-center justify-between  w-1/5 lg:h-[60vh]' >
                             {productDetails && productDetails.images && productDetails.images.map((imgsrc)=>(
-                                <img src={imgsrc.startsWith("https") ? imgsrc : `http://3.108.250.122:3000/${imgsrc}`} 
+                                <img src={imgsrc.startsWith("https") ? imgsrc : `https://jewellery-ecommerce-website.vercel.app/${imgsrc}`} 
                                 className='lg:h-32 lg:w-32 object-center border-2 border-orange-200 drag-none'
                                 onMouseOver={()=>{setCurrentImg(imgsrc)}}></img>
                             ))}
                         </div>
                         <div className='bg-orange-100 w-2/3 p-5'>
                             <img src={CurrentImg!==""
-                                        ?CurrentImg.startsWith("https") ? CurrentImg : `http://3.108.250.122:3000/${CurrentImg}`
-                                        :productDetails.images?.[0].startsWith("https") ? productDetails.images?.[0] : `http://3.108.250.122:3000/${productDetails.images?.[0]}`
+                                        ?CurrentImg.startsWith("https") ? CurrentImg : `https://jewellery-ecommerce-website.vercel.app/${CurrentImg}`
+                                        :productDetails.images?.[0].startsWith("https") ? productDetails.images?.[0] : `https://jewellery-ecommerce-website.vercel.app/${productDetails.images?.[0]}`
                                     } 
                                 alt={productDetails.title}
                                 className='lg:h-full lg:w-full'

@@ -14,7 +14,7 @@ const Wishlist = () => {
     const { addToCart,cartItems } = useCart();
 
     // const getCartData = () => {
-    //     fetch("http://3.108.250.122:3000/api/cart")
+    //     fetch("https://jewellery-ecommerce-website.vercel.app/api/cart")
     //         .then((response) => response.json())
     //         .then((data) => {
     //             setWishlistData(data);
