@@ -5,8 +5,8 @@
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
-    "start":"node index.js",
-    "startc":"nodemon index.js"
+    "start": "node index.js",
+    "startc": "nodemon index.js"
   },
   "author": "Pranjal Gupta",
   "license": "ISC",
@@ -19,6 +19,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.5.0",
     "mongoose": "^8.3.2",
+    "multer": "^1.4.5-lts.1",
     "nodemon": "^3.1.0",
     "razorpay": "^2.9.3"
   }
