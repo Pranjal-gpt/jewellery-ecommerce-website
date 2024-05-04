@@ -27,6 +27,7 @@ mongoose.connect(connectionString).then(() => {
   });
   app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 //routes
+app.use('/', (req, res) => {res.json({ message: 'Elegance Jewellery' })});
 app.use('/api/home', homeRouter);
 app.use('/api/products', productsRouter);
 app.use('/api/product', productRouter);
