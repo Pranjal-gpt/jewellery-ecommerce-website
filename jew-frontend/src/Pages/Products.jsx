@@ -159,11 +159,11 @@ const Products = ({category,all=false, genderType="any",collec="any",occa="any",
                   </div>
                   <div className='flex items-center'>
                     <div className='rounded-xl bg-orange-200 px-2 py-1 mr-1'>{city!=""&&"✅"} {city} <i class="fa-solid fa-map-pin" ></i></div>
-                    <div className='relative bg-orange-200 pl-2 rounded-lg'>Pincode
-                          <input type="text" placeholder='Enter pincode' id="" className='ml-1 px-2 text-md focus:outline-orange-100 placeholder-orange-200 py-1 w-40  rounded-r-lg bg-orange-50  focus:border-orange-300 focus:ring-orange-300'
+                    <div className='relative bg-orange-200 pl-2 rounded-lg p-0.5 '>Pincode
+                          <input type="text" placeholder='Enter pincode' id="" className='ml-1 px-2 text-md focus:outline-orange-100 placeholder-orange-200 py-1 w-40  lg:rounded-r-lg rounded-lg bg-orange-50  focus:border-orange-300 focus:ring-orange-300'
                               onChange={(change)=>{setPincode(change.target.value)}}
                               value={pincode} />
-                          <button disabled={!pincode}className={`font-bold p-1 rounded-lg absolute lg:right-2 right-6 lg:top-1 bottom-1 text-xs ${pincode === ""? "text-orange-50  bg-orange-100" : "hover:bg-orange-300  bg-orange-100"} cursor-pointer`}
+                          <button disabled={!pincode}className={`font-bold p-1 rounded-lg absolute lg:right-2 right-8 lg:top-1 bottom-1 text-xs ${pincode === ""? "text-orange-50  bg-orange-100" : "hover:bg-orange-300  bg-orange-100"} cursor-pointer`}
                               onClick={CheckPincode} >Check</button>
                     </div>
                   </div>
