@@ -207,7 +207,7 @@ const Nav = () => {
           </div>
         </div>
       </nav>
-      <header className="header lg:px-16 px-1 text-lg  lg:h-10 md:h-fit bg-orange-200 flex lg:flex-nowrap flex-wrap items-center justify-between">
+      <header className="header lg:px-16 px-3 text-lg  lg:h-10 md:h-fit bg-orange-200 flex lg:flex-nowrap flex-wrap items-center justify-between">
         {Menu.map((litem) => (
           <div className="relative group hover:bg-orange-300 h-full flex items-center lg:w-full w-fit justify-center">
             <Link

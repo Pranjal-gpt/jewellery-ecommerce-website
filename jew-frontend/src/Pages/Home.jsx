@@ -103,7 +103,7 @@ const Home = () => {
               cName={collection.cName}
               cLink={collection.cLink}
               cImg={collection.imgurl}
-                size={"lg:w-72 w-20 lg:h-56 lg:72"}
+                size={"lg:w-72 w-24 lg:h-56 h-32"}
               />
             ))}
           </div>

@@ -38,8 +38,8 @@ useEffect(()=>{
         </div>
         
       </section>
-      <div className="h-0.5 w-1/3  bg-[#832729] mx-auto"></div>
-      <section className="flex justify-center font-bold ">
+      <div className="h-0.5 lg:w-1/3 w-2/3  bg-[#832729] mx-auto"></div>
+      <section className="flex justify-center font-bold bg-orange-200">
         <div>EleganceJewelery.com &nbsp;</div>
         <div> | &copy; All Rights Reserved @2024</div>
       </section>
