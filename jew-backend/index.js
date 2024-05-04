@@ -27,10 +27,7 @@ mongoose.connect(connectionString).then(() => {
   });
   app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 //routes
-router.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
-});
+
 app.use('/', (req, res) => {res.json({ message: 'Elegance Jewellery' })});
 app.use('/api/home', homeRouter);
 app.use('/api/products', productsRouter);
