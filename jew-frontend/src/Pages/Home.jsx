@@ -198,7 +198,7 @@ const Home = () => {
                     <div className='relative animate-spin text-2xl text-orange-400'>
                       <i class="fa-regular fa-gem fa-2xl -rotate-90"></i>
                       <i class="fa-regular fa-gem fa-2xl absolute -top-2 right-6"></i>
-                      <i class="fa-regular fa-gem fa-2xl rotate-180 absolute -bottom-3 right-6"></i>
+                      <i class="fa-regular fa-gem fa-2xl rotate-180 absolute -bottom-2 right-6"></i>
                       <i class="fa-regular fa-gem fa-2xl rotate-90"></i>
                     </div>
                     <div className='text-orange-400'>Loading...</div>
